@@ -52,5 +52,11 @@ namespace Gimnasio
             FrmGestionLocalidad frmGestionLocalidad = new FrmGestionLocalidad();
             frmGestionLocalidad.ShowDialog();
         }
+
+        private void nuevaCobranzaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmCobranza frmCobranza = new FrmCobranza();
+            frmCobranza.ShowDialog();
+        }
     }
 }

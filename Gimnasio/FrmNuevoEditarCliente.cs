@@ -12,8 +12,7 @@ namespace Gimnasio
         GimnasioContext dbGimnasio;
 
         public Cliente cliente;
-        //Localidad localidad = new Localidad();
-        Domicilio domicilio;
+
         Telefono telefono;
 
 
