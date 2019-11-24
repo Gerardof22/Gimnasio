@@ -11,7 +11,7 @@ namespace Gimnasio
     {
         GimnasioContext dbGimnasio = new GimnasioContext();
         Cobranza cobranza = new Cobranza();
-        Detalle_Cobranza detalle_Cobranza;
+        Detalle_Cobranza detalle_cobranza;
 
         public FrmCobranza()
         {
@@ -24,27 +24,26 @@ namespace Gimnasio
         {
             if (cobranza.DetalleCobranzas != null)
             {
-                var listaClientesAbonados = from cobranza in dbGimnasio.Cobranzas
-                                            join cliente in dbGimnasio.Clientes on cobranza.Cliente.clientes_idcliente equals cliente.clientes_idcliente
-                                            from detalle_cobranza in cobranza.DetalleCobranzas
+                var listaClientesAbonados = from detalle_cobranza in cobranza.DetalleCobranzas
+                                            
                                             select new
                                             {
-                                                cliente = cobranza.Cliente.clientes_nombre,
-                                                recargo = detalle_Cobranza.detalleCobranza_recargoMes,
-                                                importe = detalle_Cobranza.detalleCobranza_importe,
-                                                total = detalle_Cobranza.detalleCobranza_total
+                                                iddetalle = detalle_cobranza.detalleCobranza_iddetallecobranza,
+                                                recargo = detalle_cobranza.detalleCobranza_recargoMes,
+                                                importe = detalle_cobranza.detalleCobranza_importe,
+                                                total = detalle_cobranza.detalleCobranza_total
                                             };
 
                 gridDetalleCobranza.DataSource = listaClientesAbonados.ToList();
             }
         }
 
-        private void cargarComboCliente(int idSeleccionar)
+        private void cargarComboCliente(int idSeleccionado)
         {
+            cboClientes.DataSource = dbGimnasio.Clientes.ToList();
             cboClientes.DisplayMember = "clientes_nombre";
             cboClientes.ValueMember = "clientes_idcliente";
-            cboClientes.SelectedValue = idSeleccionar;
-            cboClientes.DataSource = dbGimnasio.Clientes.ToList();
+            cboClientes.SelectedValue = idSeleccionado;
 
             //***********PREPARAMOS EL AUTOCOMPLETADO DEL COMBO
             AutoCompleteStringCollection autoCompletadoCbo = new AutoCompleteStringCollection();
@@ -75,34 +74,63 @@ namespace Gimnasio
             }
         }
 
+        private void numImporte_ValueChanged(object sender, EventArgs e)
+        {
+            if (chekDebe.Checked)
+            {
+                numTotal.Value = numRecargo.Value + numImporte.Value;
+            }
+            else
+            {
+                numTotal.Value = numImporte.Value;
+            }
+        }
+
+        private void numRecargo_ValueChanged(object sender, EventArgs e)
+        {
+            if (chekDebe.Checked)
+            {
+                numTotal.Value = numRecargo.Value + numImporte.Value;
+            }
+            else
+            {
+                numTotal.Value = numImporte.Value;
+            }
+        }
+
         private void numTotal_ValueChanged(object sender, EventArgs e)
         {
             if (chekDebe.Checked)
             {
                 numTotal.Value = numRecargo.Value + numImporte.Value;
             }
+            else
+            {
+                numTotal.Value = numImporte.Value;
+            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            detalle_Cobranza = new Detalle_Cobranza();
-            cobranza.Cliente = dbGimnasio.Clientes.Find((int)cboClientes.SelectedItem);
-            cobranza.Cliente.clientes_idcliente = (int)cboClientes.SelectedValue;
-            detalle_Cobranza.detalleCobranza_debe = chekDebe.Checked;
-            detalle_Cobranza.detalleCobranza_importe = numImporte.Value;
-            detalle_Cobranza.detalleCobranza_total = numTotal.Value;
+            detalle_cobranza = new Detalle_Cobranza();
+            //cobranza.Cliente = dbGimnasio.Clientes.Find((int)cboClientes.SelectedValue);
+            //cobranza.Cliente.clientes_idcliente = (int)cboClientes.SelectedValue;
+            detalle_cobranza.detalleCobranza_recargoMes = numRecargo.Value;
+            detalle_cobranza.detalleCobranza_importe = numImporte.Value;
+            detalle_cobranza.detalleCobranza_total = numTotal.Value;
             if (cobranza.DetalleCobranzas == null)
             {
                 cobranza.DetalleCobranzas = new ObservableCollection<Detalle_Cobranza>();
             }
-            cobranza.DetalleCobranzas.Add(detalle_Cobranza);
+            cobranza.DetalleCobranzas.Add(detalle_cobranza);
             actualizarGrillaDetalle();
             limpiarPanel();
+            calcularTotales();
         }
 
         private void limpiarPanel()
         {
-            cboClientes.SelectedValue = 0;
+            //cboClientes.SelectedValue = 0;
             chekDebe.Checked = false;
             numRecargo.Value = 0;
             numImporte.Value = 0;
@@ -111,8 +139,8 @@ namespace Gimnasio
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            string clienteSeleccionado = (string)gridDetalleCobranza.CurrentRow.Cells[1].Value;
-            string mensaje = "¿Está seguro que desea eliminar: " + clienteSeleccionado + "?";
+            int idSeleccionado = (int)gridDetalleCobranza.CurrentRow.Cells[0].Value;
+            string mensaje = "¿Está seguro que desea eliminar: " + idSeleccionado + "?";
             string titulo = "Eliminación";
             DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (respuesta == DialogResult.Yes)
@@ -128,7 +156,6 @@ namespace Gimnasio
         {
             int detalleSeleccionado = gridDetalleCobranza.CurrentRow.Index;
             Detalle_Cobranza detalle_Cobranza = cobranza.DetalleCobranzas[detalleSeleccionado];
-            cboClientes.SelectedValue = cobranza.Cliente.clientes_idcliente;
             chekDebe.Checked = detalle_Cobranza.detalleCobranza_debe;
             numRecargo.Value = detalle_Cobranza.detalleCobranza_recargoMes;
             numImporte.Value = detalle_Cobranza.detalleCobranza_importe;
@@ -151,12 +178,26 @@ namespace Gimnasio
 
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
-            Cliente cliente = dbGimnasio.Clientes.Find(cboClientes.SelectedItem);
+            Cliente cliente = dbGimnasio.Clientes.Find(cboClientes.SelectedValue);
             cobranza.Cliente = cliente;
             cobranza.Cliente.clientes_idcliente = cliente.clientes_idcliente;
             cobranza.cobranza_fechaPago = dtpFecha.Value;
             dbGimnasio.Cobranzas.Add(cobranza);
             dbGimnasio.SaveChanges();
+            this.Close();
+        }
+
+        private void chekDebe_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chekDebe.Checked)
+            {
+                numRecargo.Enabled = true;
+            }
+            else
+            {
+                numRecargo.Value = 0;
+                numRecargo.Enabled = false;
+            }
         }
     }
 }

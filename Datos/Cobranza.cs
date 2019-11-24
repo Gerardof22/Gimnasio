@@ -13,6 +13,7 @@ namespace Datos
         [Key]
         public int cobranza_idcobranza { get; set; }
         [Required]
+        public int cobranza_idcliente { get; set; }
         public virtual Cliente Cliente { get; set; }
         [Required]
         public DateTime cobranza_fechaPago { get; set; }

@@ -78,7 +78,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(530, 18);
+            this.label2.Location = new System.Drawing.Point(640, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 2;
@@ -86,9 +86,10 @@
             // 
             // dtpFecha
             // 
-            this.dtpFecha.Location = new System.Drawing.Point(588, 13);
+            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecha.Location = new System.Drawing.Point(683, 13);
             this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(200, 20);
+            this.dtpFecha.Size = new System.Drawing.Size(105, 20);
             this.dtpFecha.TabIndex = 3;
             // 
             // gpbCampos
@@ -149,6 +150,11 @@
             // 
             this.numTotal.Enabled = false;
             this.numTotal.Location = new System.Drawing.Point(517, 35);
+            this.numTotal.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
             this.numTotal.Name = "numTotal";
             this.numTotal.Size = new System.Drawing.Size(92, 20);
             this.numTotal.TabIndex = 3;
@@ -157,16 +163,29 @@
             // numImporte
             // 
             this.numImporte.Location = new System.Drawing.Point(348, 35);
+            this.numImporte.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
             this.numImporte.Name = "numImporte";
             this.numImporte.Size = new System.Drawing.Size(92, 20);
             this.numImporte.TabIndex = 2;
+            this.numImporte.ValueChanged += new System.EventHandler(this.numImporte_ValueChanged);
             // 
             // numRecargo
             // 
+            this.numRecargo.Enabled = false;
             this.numRecargo.Location = new System.Drawing.Point(182, 35);
+            this.numRecargo.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
             this.numRecargo.Name = "numRecargo";
             this.numRecargo.Size = new System.Drawing.Size(92, 20);
             this.numRecargo.TabIndex = 1;
+            this.numRecargo.ValueChanged += new System.EventHandler(this.numRecargo_ValueChanged);
             // 
             // chekDebe
             // 
@@ -177,6 +196,7 @@
             this.chekDebe.TabIndex = 0;
             this.chekDebe.Text = "Debe";
             this.chekDebe.UseVisualStyleBackColor = true;
+            this.chekDebe.CheckedChanged += new System.EventHandler(this.chekDebe_CheckedChanged);
             // 
             // gpbDetalleCobranza
             // 

@@ -32,7 +32,7 @@ namespace Gimnasio
                                select new
                                {
                                    idcliente = cliente.clientes_idcliente,
-                                   nombre_apellido = cliente.clientes_nombre + " " + cliente.clientes_nombre,
+                                   nombre_apellido = cliente.clientes_nombre + " " + cliente.clientes_apellido,
                                    direccion = domicilio.domicilio_calle + " " + domicilio.domocilio_numero,
                                    localidad = localidad.localidad_localidad,
                                    fechaIngreso = cliente.clientes_fechaIngreso,
@@ -60,7 +60,7 @@ namespace Gimnasio
                                select new
                                {
                                    idcliente = cliente.clientes_idcliente,
-                                   nombre_apellido = cliente.clientes_nombre + " " + cliente.clientes_nombre,
+                                   nombre_apellido = cliente.clientes_nombre + " " + cliente.clientes_apellido,
                                    direccion = domicilio.domicilio_calle + " " + domicilio.domocilio_numero,
                                    localidad = localidad.localidad_localidad,
                                    fechaIngreso = cliente.clientes_fechaIngreso,

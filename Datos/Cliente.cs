@@ -19,8 +19,6 @@ namespace Datos
         [Required]
         public int clientes_idlocalidad { get; set; }
         public virtual Localidad localidad { get; set; }
-
-        public virtual Cobranza Cobranza { get; set; }
         [Required]
         [StringLength (60)]
         public string clientes_nombre { get; set; }
@@ -45,6 +43,6 @@ namespace Datos
 
         public virtual ObservableCollection<Telefono> Telefonos { get; set; }
         public virtual ObservableCollection<Control_Ingreso> Control_Ingresos { get; set; }
-
+        public virtual ObservableCollection<Cobranza> Cobranzas { get; set; }
     }
 }
