@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmCobranza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCobranza.Designer.cs">
+      <DependentUpon>FrmCobranza.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGestionClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmCobranza.resx">
+      <DependentUpon>FrmCobranza.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionClientes.resx">
       <DependentUpon>FrmGestionClientes.cs</DependentUpon>
     </EmbeddedResource>

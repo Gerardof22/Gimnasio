@@ -22,7 +22,7 @@ namespace Gimnasio
             InitializeComponent();
             dbGimnasio = new GimnasioContext();
             localidad = new Localidad();
-            cargarLocalidad(0);
+            //cargarLocalidad(0);
         }
 
         public FrmNuevaEditarLocalidad(GimnasioContext dbEnviado)

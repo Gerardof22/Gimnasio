@@ -15,7 +15,9 @@ namespace Datos
         [Required]
         public virtual Cliente Cliente { get; set; }
         [Required]
-        public DateTime cobranza_fecha { get; set; }
+        public DateTime cobranza_fechaPago { get; set; }
+
+        public DateTime cobranza_fechaCobro { get; set; }
         [Required]
         public decimal cobranza_total { get; set; }
 
