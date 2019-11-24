@@ -22,6 +22,7 @@ namespace Gimnasio
             InitializeComponent();
             dbGimnasio = new GimnasioContext();
             localidad = new Localidad();
+            cargarLocalidad(0);
         }
 
         public FrmNuevaEditarLocalidad(GimnasioContext dbEnviado)
@@ -29,6 +30,7 @@ namespace Gimnasio
             InitializeComponent();
             dbGimnasio = dbEnviado;
             localidad = new Localidad();
+            cargarLocalidad(0);
         }
 
         public FrmNuevaEditarLocalidad(int idSeleccionado, GimnasioContext dbEnviado)
@@ -36,6 +38,13 @@ namespace Gimnasio
             InitializeComponent();
             dbGimnasio = dbEnviado;
             localidad = new Localidad();
+            cargarLocalidad(idSeleccionado);
+        }
+
+        private void cargarLocalidad(int idSeleccionado)
+        {
+            localidad = dbGimnasio.Localidads.Find(idSeleccionado);
+            txtLocalidadNombre.Text = localidad.localidad_localidad;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

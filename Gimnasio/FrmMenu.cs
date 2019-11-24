@@ -40,5 +40,17 @@ namespace Gimnasio
             FrmGestionControlIngreso frmGestionControlIngreso = new FrmGestionControlIngreso();
             frmGestionControlIngreso.ShowDialog();
         }
+
+        private void nuevaLocalidadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmNuevaEditarLocalidad frmNuevaEditarLocalidad = new FrmNuevaEditarLocalidad();
+            frmNuevaEditarLocalidad.ShowDialog();
+        }
+
+        private void gestiónLocalidadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGestionLocalidad frmGestionLocalidad = new FrmGestionLocalidad();
+            frmGestionLocalidad.ShowDialog();
+        }
     }
 }
