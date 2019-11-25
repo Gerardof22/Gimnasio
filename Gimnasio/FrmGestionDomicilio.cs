@@ -10,7 +10,6 @@ namespace Gimnasio
     {
         GimnasioContext dbGimnasio = new GimnasioContext();
         Domicilio domicilio = new Domicilio();
-        Cliente cliente = new Cliente();
 
         //Está propiedad se encarga de capturar el id del domicilio que es seleccionado en la grilla.
         internal static int iddomicilio { get; set; }
@@ -63,7 +62,7 @@ namespace Gimnasio
         private void btnEditar_Click(object sender, System.EventArgs e)
         {
             int idSeleccionado = (int)celdaFilaActual(dgvDomicilio, 0);
-            string categoriaSeleccionada = (string)celdaFilaActual(dgvDomicilio, 1);
+            
             FrmNuevoEditarDomicilio frmNuevoEditarDomicilio = new FrmNuevoEditarDomicilio(idSeleccionado, dbGimnasio);
             frmNuevoEditarDomicilio.ShowDialog();
             listarGrillaDomicilios();

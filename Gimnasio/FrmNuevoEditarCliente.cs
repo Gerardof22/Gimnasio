@@ -212,18 +212,15 @@ namespace Gimnasio
 
         private void btnQuitar_Click(object sender, EventArgs e)
         {
-            int idSeleccionado = (int)celdaFilaActual(gridTelefonos, 1);
-            string clienteSeleccionado = (string)celdaFilaActual(gridTelefonos, 3);
+            int idSeleccionado = (int)celdaFilaActual(gridTelefonos, 0);
 
-            string mensaje = "¿Está seguro que desea eliminar: " + clienteSeleccionado + "?";
+            string mensaje = "¿Está seguro que desea quitar?";
             string titulo = "Eliminación";
             DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (respuesta == DialogResult.Yes)
             {
-                telefono = new Telefono();
-                telefono = dbGimnasio.Telefonos.Find(idSeleccionado);
-                dbGimnasio.Telefonos.Remove(telefono);
-                dbGimnasio.SaveChanges();
+                int idDetalleSeleccionado = gridTelefonos.CurrentRow.Index;
+                cliente.Telefonos.RemoveAt(idDetalleSeleccionado);
                 cargarGrillaTelefono();
             }
         }

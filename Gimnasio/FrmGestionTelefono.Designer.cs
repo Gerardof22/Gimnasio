@@ -32,7 +32,6 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.gridGestionTelefono = new System.Windows.Forms.DataGridView();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevoTipo = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -42,7 +41,7 @@
             // lblBuscar
             // 
             this.lblBuscar.AutoSize = true;
-            this.lblBuscar.Location = new System.Drawing.Point(13, 16);
+            this.lblBuscar.Location = new System.Drawing.Point(111, 184);
             this.lblBuscar.Name = "lblBuscar";
             this.lblBuscar.Size = new System.Drawing.Size(40, 13);
             this.lblBuscar.TabIndex = 0;
@@ -50,44 +49,34 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(75, 13);
+            this.txtBuscar.Location = new System.Drawing.Point(157, 181);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(244, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(138, 20);
             this.txtBuscar.TabIndex = 1;
             // 
             // gridGestionTelefono
             // 
             this.gridGestionTelefono.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridGestionTelefono.Location = new System.Drawing.Point(16, 100);
+            this.gridGestionTelefono.Location = new System.Drawing.Point(108, 12);
             this.gridGestionTelefono.Name = "gridGestionTelefono";
             this.gridGestionTelefono.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridGestionTelefono.Size = new System.Drawing.Size(412, 163);
+            this.gridGestionTelefono.Size = new System.Drawing.Size(318, 163);
             this.gridGestionTelefono.TabIndex = 2;
             this.gridGestionTelefono.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridGestionTelefono_CellDoubleClick);
             this.gridGestionTelefono.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.gridGestionTelefono_PreviewKeyDown);
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(353, 13);
+            this.btnSalir.Location = new System.Drawing.Point(351, 181);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 3;
             this.btnSalir.Text = "&Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Location = new System.Drawing.Point(54, 66);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnNuevo.TabIndex = 4;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(145, 66);
+            this.btnEditar.Location = new System.Drawing.Point(13, 87);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 5;
@@ -97,7 +86,7 @@
             // 
             // btnNuevoTipo
             // 
-            this.btnNuevoTipo.Location = new System.Drawing.Point(233, 66);
+            this.btnNuevoTipo.Location = new System.Drawing.Point(13, 47);
             this.btnNuevoTipo.Name = "btnNuevoTipo";
             this.btnNuevoTipo.Size = new System.Drawing.Size(75, 23);
             this.btnNuevoTipo.TabIndex = 6;
@@ -107,7 +96,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(322, 66);
+            this.btnEliminar.Location = new System.Drawing.Point(13, 127);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 7;
@@ -119,11 +108,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 281);
+            this.ClientSize = new System.Drawing.Size(448, 227);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnNuevoTipo);
             this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.gridGestionTelefono);
             this.Controls.Add(this.txtBuscar);
@@ -142,7 +130,6 @@
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.DataGridView gridGestionTelefono;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevoTipo;
         private System.Windows.Forms.Button btnEliminar;

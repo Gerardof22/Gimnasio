@@ -68,25 +68,30 @@ namespace Gimnasio
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            
-
             if (telefono.telefono_idtelefono > 0)
             {
+                telefono.telefono_numero = txtNumeroTelefono.Text;
+
                 dbGimnasio.Entry(telefono).State = EntityState.Modified;
-                //dbGimnasio.SaveChanges();
+
                 MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                dbGimnasio.SaveChanges();
                 this.Close();
             }
             else
             {
-                //idtelefono --> buscar dentro de la tabla telefono el ultimo id agregado y sumarle 1, si es el primer registro
-                //de la tabla, se debera agregarle uno nomas, hacer una segunda variable aux para que almacene el id anterior del nuevo registro
                 idtipotelefono = (int)cboTipoTelefono.SelectedValue;
                 numero = txtNumeroTelefono.Text;
                 this.Close();
             }
 
             
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

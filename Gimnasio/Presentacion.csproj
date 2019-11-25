@@ -52,6 +52,18 @@
     <Compile Include="FrmCobranza.Designer.cs">
       <DependentUpon>FrmCobranza.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmGestionCaletamiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGestionCaletamiento.Designer.cs">
+      <DependentUpon>FrmGestionCaletamiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestionCardio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGestionCardio.Designer.cs">
+      <DependentUpon>FrmGestionCardio.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGestionClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +148,12 @@
     <Compile Include="FrmNuevoEditarTelefono.Designer.cs">
       <DependentUpon>FrmNuevoEditarTelefono.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmNuevoEditarTipoRutina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNuevoEditarTipoRutina.Designer.cs">
+      <DependentUpon>FrmNuevoEditarTipoRutina.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmNuevoEditarTipoTelefono.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +164,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmCobranza.resx">
       <DependentUpon>FrmCobranza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestionCaletamiento.resx">
+      <DependentUpon>FrmGestionCaletamiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestionCardio.resx">
+      <DependentUpon>FrmGestionCardio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionClientes.resx">
       <DependentUpon>FrmGestionClientes.cs</DependentUpon>
@@ -188,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNuevoEditarTelefono.resx">
       <DependentUpon>FrmNuevoEditarTelefono.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNuevoEditarTipoRutina.resx">
+      <DependentUpon>FrmNuevoEditarTipoRutina.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNuevoEditarTipoTelefono.resx">
       <DependentUpon>FrmNuevoEditarTipoTelefono.cs</DependentUpon>

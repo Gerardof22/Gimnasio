@@ -15,7 +15,7 @@ namespace Gimnasio
     public partial class FrmNuevoEditarCalentamiento : Form
     {
         GimnasioContext dbGimnasio;
-        Calentamiento calentamiento;
+        public Calentamiento calentamiento;
 
         public FrmNuevoEditarCalentamiento()
         {

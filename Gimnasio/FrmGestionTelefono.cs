@@ -61,13 +61,6 @@ namespace Gimnasio
                                                            .Where(t => t.isDelected == false).ToList();
         }
 
-        private void btnNuevo_Click(object sender, System.EventArgs e)
-        {
-            FrmNuevoEditarTelefono frmNuevoEditarTelefono = new FrmNuevoEditarTelefono(dbGimnasio);
-            frmNuevoEditarTelefono.ShowDialog();
-            cargarGrillaTelefonos();
-        }
-
         private void btnEditar_Click(object sender, System.EventArgs e)
         {
             int idSeleccionado = (int)this.celdaFilaActual(gridGestionTelefono, 0);
