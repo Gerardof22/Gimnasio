@@ -118,7 +118,30 @@ namespace Gimnasio
 
         private void btnQuitarTipoRutina_Click(object sender, EventArgs e)
         {
+            int idSeleccionado = (int)celdaFilaActual(gridTipoRutina, 0);
 
+            string mensaje = "¿Está seguro que desea quitar?";
+            string titulo = "Eliminación";
+            DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (respuesta == DialogResult.Yes)
+            {
+                int idDetalleSeleccionado = gridTipoRutina.CurrentRow.Index;
+                rutina.Tipos_Rutinas.RemoveAt(idDetalleSeleccionado);
+                cargarGrillaTipoRutina();
+            }
+        }
+
+        /// <summary>
+        /// Obtiene la celda y la fila actual seleccionada.
+        /// </summary>
+        /// <param name="dataGridView"> Nombre del DataGridView.</param>
+        /// <param name="column">Índice de columna del DataGridView.</param>
+        /// <returns>Retorna un object.</returns>
+        private object celdaFilaActual(DataGridView dataGridView, int column)
+        {
+            DataGridViewCellCollection celdasFilaActual = dataGridView.CurrentRow.Cells;
+
+            return celdasFilaActual[column].Value;
         }
     }
 }
