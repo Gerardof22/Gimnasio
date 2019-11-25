@@ -58,8 +58,8 @@
             this.txtDuracionCalentamiento = new System.Windows.Forms.TextBox();
             this.gridTipoRutina = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnAgregarTipoRutina = new System.Windows.Forms.Button();
             this.btnQuitarTipoRutina = new System.Windows.Forms.Button();
+            this.btnAgregarTipoRutina = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnQuitarEjercicio = new System.Windows.Forms.Button();
             this.btnAgregarEjercicio = new System.Windows.Forms.Button();
@@ -143,7 +143,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(251, 137);
+            this.label5.Location = new System.Drawing.Point(267, 104);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(101, 13);
             this.label5.TabIndex = 9;
@@ -151,7 +151,7 @@
             // 
             // txtTiempoDuracion
             // 
-            this.txtTiempoDuracion.Location = new System.Drawing.Point(358, 134);
+            this.txtTiempoDuracion.Location = new System.Drawing.Point(374, 101);
             this.txtTiempoDuracion.Name = "txtTiempoDuracion";
             this.txtTiempoDuracion.Size = new System.Drawing.Size(100, 20);
             this.txtTiempoDuracion.TabIndex = 8;
@@ -159,7 +159,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(251, 196);
+            this.label6.Location = new System.Drawing.Point(267, 163);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 13);
             this.label6.TabIndex = 11;
@@ -167,7 +167,7 @@
             // 
             // txtDescanso
             // 
-            this.txtDescanso.Location = new System.Drawing.Point(358, 193);
+            this.txtDescanso.Location = new System.Drawing.Point(374, 160);
             this.txtDescanso.Name = "txtDescanso";
             this.txtDescanso.Size = new System.Drawing.Size(100, 20);
             this.txtDescanso.TabIndex = 10;
@@ -175,7 +175,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(251, 78);
+            this.label7.Location = new System.Drawing.Point(267, 45);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(47, 13);
             this.label7.TabIndex = 13;
@@ -183,7 +183,7 @@
             // 
             // txtKg
             // 
-            this.txtKg.Location = new System.Drawing.Point(358, 75);
+            this.txtKg.Location = new System.Drawing.Point(374, 42);
             this.txtKg.Name = "txtKg";
             this.txtKg.Size = new System.Drawing.Size(100, 20);
             this.txtKg.TabIndex = 12;
@@ -208,7 +208,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(278, 406);
+            this.btnGuardar.Location = new System.Drawing.Point(287, 478);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 18;
@@ -217,7 +217,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(429, 406);
+            this.btnCancelar.Location = new System.Drawing.Point(438, 478);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 19;
@@ -267,7 +267,7 @@
             this.groupBox1.Controls.Add(this.txtRitmoCardio);
             this.groupBox1.Controls.Add(this.btnAgregarCardio);
             this.groupBox1.Controls.Add(this.txtDuracionCardio);
-            this.groupBox1.Location = new System.Drawing.Point(515, 19);
+            this.groupBox1.Location = new System.Drawing.Point(583, 19);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(233, 88);
             this.groupBox1.TabIndex = 24;
@@ -290,7 +290,7 @@
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.txtDuracionCalentamiento);
             this.groupBox2.Controls.Add(this.btnAgregarCalentamiento);
-            this.groupBox2.Location = new System.Drawing.Point(515, 113);
+            this.groupBox2.Location = new System.Drawing.Point(583, 113);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(233, 100);
             this.groupBox2.TabIndex = 25;
@@ -327,7 +327,7 @@
             this.gridTipoRutina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridTipoRutina.Location = new System.Drawing.Point(9, 16);
             this.gridTipoRutina.Name = "gridTipoRutina";
-            this.gridTipoRutina.Size = new System.Drawing.Size(275, 93);
+            this.gridTipoRutina.Size = new System.Drawing.Size(275, 162);
             this.gridTipoRutina.TabIndex = 26;
             // 
             // groupBox3
@@ -337,20 +337,10 @@
             this.groupBox3.Controls.Add(this.gridTipoRutina);
             this.groupBox3.Location = new System.Drawing.Point(12, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(374, 115);
+            this.groupBox3.Size = new System.Drawing.Size(374, 184);
             this.groupBox3.TabIndex = 27;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tipo de rutinas";
-            // 
-            // btnAgregarTipoRutina
-            // 
-            this.btnAgregarTipoRutina.Location = new System.Drawing.Point(290, 26);
-            this.btnAgregarTipoRutina.Name = "btnAgregarTipoRutina";
-            this.btnAgregarTipoRutina.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregarTipoRutina.TabIndex = 28;
-            this.btnAgregarTipoRutina.Text = "Agregar";
-            this.btnAgregarTipoRutina.UseVisualStyleBackColor = true;
-            this.btnAgregarTipoRutina.Click += new System.EventHandler(this.btnAgregarTipoRutina_Click);
             // 
             // btnQuitarTipoRutina
             // 
@@ -362,6 +352,16 @@
             this.btnQuitarTipoRutina.UseVisualStyleBackColor = true;
             this.btnQuitarTipoRutina.Click += new System.EventHandler(this.btnQuitarTipoRutina_Click);
             // 
+            // btnAgregarTipoRutina
+            // 
+            this.btnAgregarTipoRutina.Location = new System.Drawing.Point(290, 26);
+            this.btnAgregarTipoRutina.Name = "btnAgregarTipoRutina";
+            this.btnAgregarTipoRutina.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregarTipoRutina.TabIndex = 28;
+            this.btnAgregarTipoRutina.Text = "Agregar";
+            this.btnAgregarTipoRutina.UseVisualStyleBackColor = true;
+            this.btnAgregarTipoRutina.Click += new System.EventHandler(this.btnAgregarTipoRutina_Click);
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.btnQuitarEjercicio);
@@ -369,14 +369,14 @@
             this.groupBox4.Controls.Add(this.gridEjercicio);
             this.groupBox4.Location = new System.Drawing.Point(409, 12);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(374, 115);
+            this.groupBox4.Size = new System.Drawing.Size(447, 184);
             this.groupBox4.TabIndex = 30;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Ejercicios";
             // 
             // btnQuitarEjercicio
             // 
-            this.btnQuitarEjercicio.Location = new System.Drawing.Point(290, 65);
+            this.btnQuitarEjercicio.Location = new System.Drawing.Point(353, 65);
             this.btnQuitarEjercicio.Name = "btnQuitarEjercicio";
             this.btnQuitarEjercicio.Size = new System.Drawing.Size(75, 23);
             this.btnQuitarEjercicio.TabIndex = 29;
@@ -385,19 +385,20 @@
             // 
             // btnAgregarEjercicio
             // 
-            this.btnAgregarEjercicio.Location = new System.Drawing.Point(290, 26);
+            this.btnAgregarEjercicio.Location = new System.Drawing.Point(353, 26);
             this.btnAgregarEjercicio.Name = "btnAgregarEjercicio";
             this.btnAgregarEjercicio.Size = new System.Drawing.Size(75, 23);
             this.btnAgregarEjercicio.TabIndex = 28;
             this.btnAgregarEjercicio.Text = "Agregar";
             this.btnAgregarEjercicio.UseVisualStyleBackColor = true;
+            this.btnAgregarEjercicio.Click += new System.EventHandler(this.btnAgregarEjercicio_Click);
             // 
             // gridEjercicio
             // 
             this.gridEjercicio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridEjercicio.Location = new System.Drawing.Point(9, 16);
             this.gridEjercicio.Name = "gridEjercicio";
-            this.gridEjercicio.Size = new System.Drawing.Size(275, 93);
+            this.gridEjercicio.Size = new System.Drawing.Size(338, 162);
             this.gridEjercicio.TabIndex = 26;
             // 
             // groupBox5
@@ -418,9 +419,9 @@
             this.groupBox5.Controls.Add(this.label3);
             this.groupBox5.Controls.Add(this.txtSeries);
             this.groupBox5.Controls.Add(this.label2);
-            this.groupBox5.Location = new System.Drawing.Point(12, 153);
+            this.groupBox5.Location = new System.Drawing.Point(21, 225);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(771, 236);
+            this.groupBox5.Size = new System.Drawing.Size(835, 236);
             this.groupBox5.TabIndex = 31;
             this.groupBox5.TabStop = false;
             // 
@@ -428,7 +429,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 449);
+            this.ClientSize = new System.Drawing.Size(878, 514);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);

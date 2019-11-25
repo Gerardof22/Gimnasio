@@ -143,5 +143,10 @@ namespace Gimnasio
 
             return celdasFilaActual[column].Value;
         }
+
+        private void btnAgregarEjercicio_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

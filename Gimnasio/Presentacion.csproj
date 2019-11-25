@@ -82,6 +82,12 @@
     <Compile Include="FrmGestionDomicilio.Designer.cs">
       <DependentUpon>FrmGestionDomicilio.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmGestionEjercicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGestionEjercicio.Designer.cs">
+      <DependentUpon>FrmGestionEjercicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGestionLocalidad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,12 @@
     <Compile Include="FrmNuevoEditarDomicilio.Designer.cs">
       <DependentUpon>FrmNuevoEditarDomicilio.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmNuevoEditarEjercicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNuevoEditarEjercicio.Designer.cs">
+      <DependentUpon>FrmNuevoEditarEjercicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmNuevoEditarRutina.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +192,9 @@
     <EmbeddedResource Include="FrmGestionDomicilio.resx">
       <DependentUpon>FrmGestionDomicilio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestionEjercicio.resx">
+      <DependentUpon>FrmGestionEjercicio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionLocalidad.resx">
       <DependentUpon>FrmGestionLocalidad.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNuevoEditarDomicilio.resx">
       <DependentUpon>FrmNuevoEditarDomicilio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNuevoEditarEjercicio.resx">
+      <DependentUpon>FrmNuevoEditarEjercicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNuevoEditarRutina.resx">
       <DependentUpon>FrmNuevoEditarRutina.cs</DependentUpon>
