@@ -18,7 +18,9 @@ namespace Gimnasio
         GimnasioContext dbGimnasio;
         Telefono telefono;
 
-        public int idtelefono { get; set; }
+        internal static int idtelefono { get; set; }
+        internal static int idtipotelefono { get; set; }
+        internal static int numero { get; set; }
 
         public FrmNuevoEditarTelefono()
         {
@@ -66,8 +68,11 @@ namespace Gimnasio
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            telefono.Tipos_Telefonos = (Tipo_Telefono)cboTipoTelefono.SelectedItem;
-            telefono.telefono_numero = txtNumeroTelefono.Text;
+            idtipotelefono = (int)cboTipoTelefono.SelectedValue;
+            numero = Int32.Parse(txtNumeroTelefono.Text);
+
+            Console.WriteLine(idtelefono);
+            Console.WriteLine(idtelefono);
 
             if (telefono.telefono_idtelefono > 0)
             {
@@ -81,7 +86,7 @@ namespace Gimnasio
                 MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            dbGimnasio.SaveChanges();
+            //dbGimnasio.SaveChanges();
             this.Close();
         }
     }

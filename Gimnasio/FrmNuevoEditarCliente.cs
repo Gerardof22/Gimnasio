@@ -66,7 +66,7 @@ namespace Gimnasio
                 var listaTelefonos = from telefono in cliente.Telefonos
                                      select new
                                      {
-                                         //idtelefono = telefono.telefono_idtelefono,
+                                         idtelefono = telefono.telefono_idtelefono,
                                          //idtipotelefono = telefono.Tipos_Telefonos.tipo_telefono_idtipotelefono,
                                          tipotelefono = telefono.Tipos_Telefonos.tipo_telefono_telefono,
                                          numero = telefono.telefono_numero,
@@ -82,10 +82,11 @@ namespace Gimnasio
             var listaTelefonos = from telefonos in cliente.Telefonos
                                  //Validamos el campo idcliente de la tabla para que nos ignore aquellos que son null,
                                  //sí no hariamos esta validación nos daria un error de referencia nula en el bloque select new
-                                 where telefonos.Cliente.clientes_idcliente != null 
+                                 where telefonos.Cliente.clientes_idcliente != null && telefonos.telefono_idtelefono != null
                                  select new
                                  {
                                      idcliente = telefonos.Cliente.clientes_idcliente,
+                                     idtelefono = telefonos.telefono_idtelefono,
                                      tipo = telefonos.Tipos_Telefonos.tipo_telefono_telefono,
                                      numero = telefonos.telefono_numero
                                  };
@@ -178,24 +179,23 @@ namespace Gimnasio
             txtNumCalle.Text = frmGestionDomicilio.numero.ToString();
         }
 
-        private void btnSeleccionarTelefono_Click(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
-            FrmGestionTelefono frmGestionTelefono = new FrmGestionTelefono();
-            frmGestionTelefono.ShowDialog();
-            agregarAGrillaTelefono(frmGestionTelefono);
+            FrmNuevoEditarTelefono frmNuevoEditarTelefono = new FrmNuevoEditarTelefono();
+            frmNuevoEditarTelefono.ShowDialog();
+            agregarAGrillaTelefono();
             cargarGrillaTelefono();
-            //Close();
         }
 
-        private void agregarAGrillaTelefono(FrmGestionTelefono frmGestionTelefono)
+        private void agregarAGrillaTelefono()
         {
-            if (dbGimnasio.Tipo_Telefonos.Find(frmGestionTelefono.idTipoTelefono) != null)
+            if (dbGimnasio.Tipo_Telefonos.Find(FrmNuevoEditarTelefono.idtipotelefono) != null)
             {
                 telefono = new Telefono();
-                telefono.telefono_idtelefono = frmGestionTelefono.idTelefono;
-                telefono.telefono_idtipotelefono = frmGestionTelefono.idTipoTelefono;
-                telefono.Tipos_Telefonos = dbGimnasio.Tipo_Telefonos.Find(frmGestionTelefono.idTipoTelefono);
-                telefono.telefono_numero = frmGestionTelefono.numeroTelefono;
+                telefono.telefono_idtelefono = FrmNuevoEditarTelefono.idtelefono;
+                telefono.telefono_idtipotelefono = FrmNuevoEditarTelefono.idtipotelefono;
+                telefono.Tipos_Telefonos = dbGimnasio.Tipo_Telefonos.Find(FrmNuevoEditarTelefono.idtipotelefono);
+                telefono.telefono_numero = FrmNuevoEditarTelefono.numero.ToString();
 
                 if (cliente.Telefonos == null)
                 {
@@ -208,6 +208,37 @@ namespace Gimnasio
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnQuitar_Click(object sender, EventArgs e)
+        {
+            int idSeleccionado = (int)celdaFilaActual(gridTelefonos, 1);
+            string clienteSeleccionado = (string)celdaFilaActual(gridTelefonos, 3);
+
+            string mensaje = "¿Está seguro que desea eliminar: " + clienteSeleccionado + "?";
+            string titulo = "Eliminación";
+            DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (respuesta == DialogResult.Yes)
+            {
+                telefono = new Telefono();
+                telefono = dbGimnasio.Telefonos.Find(idSeleccionado);
+                dbGimnasio.Telefonos.Remove(telefono);
+                dbGimnasio.SaveChanges();
+                cargarGrillaTelefono();
+            }
+        }
+
+        /// <summary>
+        /// Obtiene la celda y la fila actual seleccionada.
+        /// </summary>
+        /// <param name="dataGridView"> Nombre del DataGridView.</param>
+        /// <param name="column">Índice de columna del DataGridView.</param>
+        /// <returns>Retorna un object.</returns>
+        private object celdaFilaActual(DataGridView dataGridView, int column)
+        {
+            DataGridViewCellCollection celdasFilaActual = dataGridView.CurrentRow.Cells;
+
+            return celdasFilaActual[column].Value;
         }
     }
 }

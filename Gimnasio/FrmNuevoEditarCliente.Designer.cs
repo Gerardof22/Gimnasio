@@ -45,7 +45,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.gridTelefonos = new System.Windows.Forms.DataGridView();
-            this.btnSeleccionarTelefono = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnSeleccionarDomicilio = new System.Windows.Forms.Button();
             this.txtNumCalle = new System.Windows.Forms.TextBox();
@@ -61,6 +61,7 @@
             this.txtLecturaCorporal = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnQuitar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridTelefonos)).BeginInit();
@@ -216,8 +217,9 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnQuitar);
             this.groupBox3.Controls.Add(this.gridTelefonos);
-            this.groupBox3.Controls.Add(this.btnSeleccionarTelefono);
+            this.groupBox3.Controls.Add(this.btnAgregar);
             this.groupBox3.Location = new System.Drawing.Point(12, 195);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(531, 118);
@@ -234,15 +236,15 @@
             this.gridTelefonos.Size = new System.Drawing.Size(421, 93);
             this.gridTelefonos.TabIndex = 20;
             // 
-            // btnSeleccionarTelefono
+            // btnAgregar
             // 
-            this.btnSeleccionarTelefono.Location = new System.Drawing.Point(443, 56);
-            this.btnSeleccionarTelefono.Name = "btnSeleccionarTelefono";
-            this.btnSeleccionarTelefono.Size = new System.Drawing.Size(75, 23);
-            this.btnSeleccionarTelefono.TabIndex = 19;
-            this.btnSeleccionarTelefono.Text = "Seleccionar";
-            this.btnSeleccionarTelefono.UseVisualStyleBackColor = true;
-            this.btnSeleccionarTelefono.Click += new System.EventHandler(this.btnSeleccionarTelefono_Click);
+            this.btnAgregar.Location = new System.Drawing.Point(442, 42);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 19;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // groupBox4
             // 
@@ -389,6 +391,16 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // btnQuitar
+            // 
+            this.btnQuitar.Location = new System.Drawing.Point(442, 71);
+            this.btnQuitar.Name = "btnQuitar";
+            this.btnQuitar.Size = new System.Drawing.Size(75, 23);
+            this.btnQuitar.TabIndex = 21;
+            this.btnQuitar.Text = "Quitar";
+            this.btnQuitar.UseVisualStyleBackColor = true;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
+            // 
             // FrmNuevoEditarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -435,7 +447,7 @@
         private System.Windows.Forms.ComboBox cboLocalidad;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cboTipoTelefono;
-        private System.Windows.Forms.Button btnSeleccionarTelefono;
+        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.TextBox txtNumero;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -453,5 +465,6 @@
         public System.Windows.Forms.TextBox txtNumCalle;
         public System.Windows.Forms.TextBox txtNombreCalle;
         internal System.Windows.Forms.DataGridView gridTelefonos;
+        private System.Windows.Forms.Button btnQuitar;
     }
 }
