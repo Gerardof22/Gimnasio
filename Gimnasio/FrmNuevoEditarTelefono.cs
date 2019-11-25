@@ -80,7 +80,7 @@ namespace Gimnasio
             else
             {
                 //idtelefono --> buscar dentro de la tabla telefono el ultimo id agregado y sumarle 1, si es el primer registro
-                //de la tabla, se debera agregarle uno nomas
+                //de la tabla, se debera agregarle uno nomas, hacer una segunda variable aux para que almacene el id anterior del nuevo registro
                 idtipotelefono = (int)cboTipoTelefono.SelectedValue;
                 numero = txtNumeroTelefono.Text;
                 this.Close();
