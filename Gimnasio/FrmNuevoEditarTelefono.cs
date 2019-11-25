@@ -20,7 +20,7 @@ namespace Gimnasio
 
         internal static int idtelefono { get; set; }
         internal static int idtipotelefono { get; set; }
-        internal static int numero { get; set; }
+        internal static string numero { get; set; }
 
         public FrmNuevoEditarTelefono()
         {
@@ -68,26 +68,25 @@ namespace Gimnasio
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            idtipotelefono = (int)cboTipoTelefono.SelectedValue;
-            numero = Int32.Parse(txtNumeroTelefono.Text);
-
-            Console.WriteLine(idtelefono);
-            Console.WriteLine(idtelefono);
+            
 
             if (telefono.telefono_idtelefono > 0)
             {
                 dbGimnasio.Entry(telefono).State = EntityState.Modified;
+                //dbGimnasio.SaveChanges();
                 MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             else
             {
-                dbGimnasio.Telefonos.Add(telefono);
-                
-                MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //idtelefono --> buscar dentro de la tabla telefono el ultimo id agregado y sumarle 1, si es el primer registro
+                //de la tabla, se debera agregarle uno nomas
+                idtipotelefono = (int)cboTipoTelefono.SelectedValue;
+                numero = txtNumeroTelefono.Text;
+                this.Close();
             }
 
-            //dbGimnasio.SaveChanges();
-            this.Close();
+            
         }
     }
 }

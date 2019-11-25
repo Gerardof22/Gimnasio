@@ -58,5 +58,11 @@ namespace Gimnasio
             FrmCobranza frmCobranza = new FrmCobranza();
             frmCobranza.ShowDialog();
         }
+
+        private void gestiónTelefonoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGestionTelefono frmGestionTelefono = new FrmGestionTelefono();
+            frmGestionTelefono.ShowDialog();
+        }
     }
 }

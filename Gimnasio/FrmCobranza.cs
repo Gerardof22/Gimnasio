@@ -113,8 +113,6 @@ namespace Gimnasio
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             detalle_cobranza = new Detalle_Cobranza();
-            //cobranza.Cliente = dbGimnasio.Clientes.Find((int)cboClientes.SelectedValue);
-            //cobranza.Cliente.clientes_idcliente = (int)cboClientes.SelectedValue;
             detalle_cobranza.detalleCobranza_recargoMes = numRecargo.Value;
             detalle_cobranza.detalleCobranza_importe = numImporte.Value;
             detalle_cobranza.detalleCobranza_total = numTotal.Value;
@@ -130,7 +128,6 @@ namespace Gimnasio
 
         private void limpiarPanel()
         {
-            //cboClientes.SelectedValue = 0;
             chekDebe.Checked = false;
             numRecargo.Value = 0;
             numImporte.Value = 0;

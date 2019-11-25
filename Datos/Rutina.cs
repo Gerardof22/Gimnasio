@@ -13,10 +13,10 @@ namespace Datos
         [Key]
         public int rutina_idrutina { get; set; }
         [Required]
-        public int rutina_idcardio { get; set; }
+        public int? rutina_idcardio { get; set; }
         public virtual Cardio Cardio { get; set; }
         [Required]
-        public int rutina_idcalentamiento { get; set; }
+        public int? rutina_idcalentamiento { get; set; }
         public virtual Calentamiento Calentamiento { get; set; }
         
         [Required]
@@ -37,6 +37,6 @@ namespace Datos
         public bool rutina_delete { get; set; } = false;
 
         public virtual ObservableCollection<Tipo_Rutina> Tipos_Rutinas { get; set; }
-        public virtual ObservableCollection<Rutina> Ejercicios { get; set; }
+        public virtual ObservableCollection<Ejercicio> Ejercicios { get; set; }
     }
 }

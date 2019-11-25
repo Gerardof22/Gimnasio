@@ -112,6 +112,12 @@
     <Compile Include="FrmNuevoEditarDomicilio.Designer.cs">
       <DependentUpon>FrmNuevoEditarDomicilio.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmNuevoEditarRutina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNuevoEditarRutina.Designer.cs">
+      <DependentUpon>FrmNuevoEditarRutina.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmNuevoEditarTelefono.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNuevoEditarDomicilio.resx">
       <DependentUpon>FrmNuevoEditarDomicilio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNuevoEditarRutina.resx">
+      <DependentUpon>FrmNuevoEditarRutina.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNuevoEditarTelefono.resx">
       <DependentUpon>FrmNuevoEditarTelefono.cs</DependentUpon>
