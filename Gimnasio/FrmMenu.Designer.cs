@@ -78,7 +78,6 @@
             this.nuevoIngresoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestiónIngresoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entrenamientosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevoEjercicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestiónEjercicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rutinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevaRutinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -467,23 +466,15 @@
             // entrenamientosToolStripMenuItem1
             // 
             this.entrenamientosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevoEjercicioToolStripMenuItem,
             this.gestiónEjercicioToolStripMenuItem});
             this.entrenamientosToolStripMenuItem1.Name = "entrenamientosToolStripMenuItem1";
             this.entrenamientosToolStripMenuItem1.Size = new System.Drawing.Size(68, 20);
             this.entrenamientosToolStripMenuItem1.Text = "Ejercicios";
             // 
-            // nuevoEjercicioToolStripMenuItem
-            // 
-            this.nuevoEjercicioToolStripMenuItem.Name = "nuevoEjercicioToolStripMenuItem";
-            this.nuevoEjercicioToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.nuevoEjercicioToolStripMenuItem.Text = "Nuevo ejercicio";
-            this.nuevoEjercicioToolStripMenuItem.Click += new System.EventHandler(this.nuevoEjercicioToolStripMenuItem_Click);
-            // 
             // gestiónEjercicioToolStripMenuItem
             // 
             this.gestiónEjercicioToolStripMenuItem.Name = "gestiónEjercicioToolStripMenuItem";
-            this.gestiónEjercicioToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.gestiónEjercicioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gestiónEjercicioToolStripMenuItem.Text = "Gestión ejercicio";
             this.gestiónEjercicioToolStripMenuItem.Click += new System.EventHandler(this.gestiónEjercicioToolStripMenuItem_Click);
             // 
@@ -499,14 +490,14 @@
             // nuevaRutinaToolStripMenuItem
             // 
             this.nuevaRutinaToolStripMenuItem.Name = "nuevaRutinaToolStripMenuItem";
-            this.nuevaRutinaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nuevaRutinaToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.nuevaRutinaToolStripMenuItem.Text = "Nueva rutina";
             this.nuevaRutinaToolStripMenuItem.Click += new System.EventHandler(this.nuevaRutinaToolStripMenuItem_Click);
             // 
             // gestiónRutinaToolStripMenuItem
             // 
             this.gestiónRutinaToolStripMenuItem.Name = "gestiónRutinaToolStripMenuItem";
-            this.gestiónRutinaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gestiónRutinaToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.gestiónRutinaToolStripMenuItem.Text = "Gestión rutina";
             this.gestiónRutinaToolStripMenuItem.Click += new System.EventHandler(this.gestiónRutinaToolStripMenuItem_Click);
             // 
@@ -585,7 +576,6 @@
         private System.Windows.Forms.ToolStripMenuItem gestiónClienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevoIngresoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestiónIngresoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nuevoEjercicioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestiónEjercicioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rutinasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevaRutinaToolStripMenuItem;
