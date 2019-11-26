@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -65,8 +67,8 @@ namespace Gimnasio
             FrmGestionCardio frmGestionCardio = new FrmGestionCardio();
             frmGestionCardio.ShowDialog();
 
-            txtDuracionCardio.Text = FrmGestionCardio.duracion.ToString();
-            txtRitmoCardio.Text = FrmGestionCardio.ritmo;
+            txtDuracionCardio.Text = frmGestionCardio.duracion.ToString();
+            txtRitmoCardio.Text = frmGestionCardio.ritmo;
         }
 
         private void btnAgregarCalentamiento_Click(object sender, EventArgs e)
@@ -204,7 +206,76 @@ namespace Gimnasio
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                rutina.rutina_fechaDesde = dtpFechaDesde.Value;
+                rutina.rutina_fechaHasta = dtpFechaHasta.Value;
+                rutina.rutina_serie = int.Parse(txtSeries.Text);
+                rutina.rutina_repeticion = int.Parse(txtRepeticiones.Text);
+                rutina.rutina_tiempoduracion = txtTiempoDuracion.Text;
+                rutina.rutina_descanso = txtDescanso.Text;
+                rutina.rutina_pesokg = float.Parse(txtKg.Text);
 
+                if (dbGimnasio.Cardios.Find(FrmGestionCardio.idcardio) != null)
+                {
+                    Console.WriteLine("Validado cardio");
+                    rutina.Cardio = dbGimnasio.Cardios.Find(FrmGestionCardio.idcardio);
+                    rutina.Cardio.cardio_idcardio = FrmGestionCardio.idcardio;
+                    Console.WriteLine("id cardio " + FrmGestionCardio.idcardio);
+                }
+                if (dbGimnasio.Calentamientos.Find(FrmGestionCaletamiento.idcalentamiento) != null)
+                {
+                    Console.WriteLine("Validado calentamiento");
+                    rutina.Calentamiento = dbGimnasio.Calentamientos.Find(FrmGestionCaletamiento.idcalentamiento);
+                    rutina.Calentamiento.calentamiento_idcalentamiento = FrmGestionCaletamiento.idcalentamiento;
+                    Console.WriteLine("id calentamiento " + FrmGestionCaletamiento.idcalentamiento);
+                }
+
+                if (rutina.rutina_idrutina > 0)
+                {
+                    dbGimnasio.Entry(rutina).State = EntityState.Modified;
+                    MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    dbGimnasio.Rutinas.Add(rutina);
+                    MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                dbGimnasio.SaveChanges();
+                Close();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                foreach (var eve in ex.EntityValidationErrors)
+                {
+                    Console.WriteLine("El tipo de entidad \"{0}\" en el estado \"{1}\" tiene los siguientes errores de validación:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Console.WriteLine("- Propiedad: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw;
+            }
+        }
+
+        private void validarRelacionesTablas()
+        {
+            //Console.WriteLine("id cardio " + FrmGestionCardio.idcardio);
+            //Console.WriteLine("id calentamiento " + FrmGestionCaletamiento.idcalentamiento);
+            Console.WriteLine("Validando..");
+            if (dbGimnasio.Cardios.Find(FrmGestionCardio.idcardio) != null)
+            {
+                rutina.Cardio = dbGimnasio.Cardios.Find(FrmGestionCardio.idcardio);
+                Console.WriteLine("id cardio " + FrmGestionCardio.idcardio);
+            }
+            if (dbGimnasio.Calentamientos.Find(FrmGestionCaletamiento.idcalentamiento) != null)
+            {
+                rutina.Calentamiento = dbGimnasio.Calentamientos.Find(FrmGestionCaletamiento.idcalentamiento);
+                Console.WriteLine("id calentamiento " + FrmGestionCaletamiento.idcalentamiento);
+            }
         }
     }
 }

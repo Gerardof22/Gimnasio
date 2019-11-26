@@ -12,10 +12,10 @@ namespace Datos
     {
         [Key]
         public int rutina_idrutina { get; set; }
-        [Required]
+        
         public int? rutina_idcardio { get; set; }
         public virtual Cardio Cardio { get; set; }
-        [Required]
+        
         public int? rutina_idcalentamiento { get; set; }
         public virtual Calentamiento Calentamiento { get; set; }
         

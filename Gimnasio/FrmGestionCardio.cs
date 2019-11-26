@@ -20,8 +20,8 @@ namespace Gimnasio
         internal static int idcardio { get; set; }
 
         //Propiedades que se llenan con los datos de la fila seleccionada de la grilla.
-        internal static float duracion { get; set; }
-        internal static string ritmo { get; set; }
+        internal  float duracion { get; set; }
+        internal  string ritmo { get; set; }
 
 
         public FrmGestionCardio()

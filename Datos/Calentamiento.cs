@@ -16,7 +16,7 @@ namespace Datos
         [Required]
         [StringLength (10)]
         public string calentamiento_duracion { get; set; }
-        [Required]
+        
         [StringLength (200)]
         public string calentamiento_descripcion { get; set; }
         

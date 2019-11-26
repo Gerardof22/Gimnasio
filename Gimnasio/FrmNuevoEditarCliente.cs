@@ -175,6 +175,7 @@ namespace Gimnasio
         {
             FrmGestionDomicilio frmGestionDomicilio = new FrmGestionDomicilio();
             frmGestionDomicilio.ShowDialog();
+
             txtNombreCalle.Text = frmGestionDomicilio.calle;
             txtNumCalle.Text = frmGestionDomicilio.numero.ToString();
         }
