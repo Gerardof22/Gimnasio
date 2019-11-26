@@ -148,5 +148,10 @@ namespace Gimnasio
         {
 
         }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

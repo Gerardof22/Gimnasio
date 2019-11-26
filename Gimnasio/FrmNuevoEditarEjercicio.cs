@@ -50,7 +50,7 @@ namespace Gimnasio
             pbxImagen.Image = byteArrayToImage(ejercicio.ejercicio_imagen);
         }
 
-        private Image byteArrayToImage(byte[] ejercicio_imagen)
+        public static Image byteArrayToImage(byte[] ejercicio_imagen)
         {
             MemoryStream ms = new MemoryStream(ejercicio_imagen);
             Image returnImage = Image.FromStream(ms);
