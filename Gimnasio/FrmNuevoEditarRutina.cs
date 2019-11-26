@@ -215,21 +215,7 @@ namespace Gimnasio
                 rutina.rutina_tiempoduracion = txtTiempoDuracion.Text;
                 rutina.rutina_descanso = txtDescanso.Text;
                 rutina.rutina_pesokg = float.Parse(txtKg.Text);
-
-                if (dbGimnasio.Cardios.Find(FrmGestionCardio.idcardio) != null)
-                {
-                    Console.WriteLine("Validado cardio");
-                    rutina.Cardio = dbGimnasio.Cardios.Find(FrmGestionCardio.idcardio);
-                    rutina.Cardio.cardio_idcardio = FrmGestionCardio.idcardio;
-                    Console.WriteLine("id cardio " + FrmGestionCardio.idcardio);
-                }
-                if (dbGimnasio.Calentamientos.Find(FrmGestionCaletamiento.idcalentamiento) != null)
-                {
-                    Console.WriteLine("Validado calentamiento");
-                    rutina.Calentamiento = dbGimnasio.Calentamientos.Find(FrmGestionCaletamiento.idcalentamiento);
-                    rutina.Calentamiento.calentamiento_idcalentamiento = FrmGestionCaletamiento.idcalentamiento;
-                    Console.WriteLine("id calentamiento " + FrmGestionCaletamiento.idcalentamiento);
-                }
+                this.validarRelacionesTablas();
 
                 if (rutina.rutina_idrutina > 0)
                 {
@@ -245,13 +231,13 @@ namespace Gimnasio
                 dbGimnasio.SaveChanges();
                 Close();
             }
-            catch (DbEntityValidationException ex)
+            catch (DbEntityValidationException ex) //<-- Sí ocurre alguna excepción al guardar 
             {
-                foreach (var eve in ex.EntityValidationErrors)
+                foreach (var dbEntityValidation in ex.EntityValidationErrors)
                 {
                     Console.WriteLine("El tipo de entidad \"{0}\" en el estado \"{1}\" tiene los siguientes errores de validación:",
-                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
-                    foreach (var ve in eve.ValidationErrors)
+                        dbEntityValidation.Entry.Entity.GetType().Name, dbEntityValidation.Entry.State);
+                    foreach (var ve in dbEntityValidation.ValidationErrors)
                     {
                         Console.WriteLine("- Propiedad: \"{0}\", Error: \"{1}\"",
                             ve.PropertyName, ve.ErrorMessage);
@@ -263,18 +249,13 @@ namespace Gimnasio
 
         private void validarRelacionesTablas()
         {
-            //Console.WriteLine("id cardio " + FrmGestionCardio.idcardio);
-            //Console.WriteLine("id calentamiento " + FrmGestionCaletamiento.idcalentamiento);
-            Console.WriteLine("Validando..");
             if (dbGimnasio.Cardios.Find(FrmGestionCardio.idcardio) != null)
             {
                 rutina.Cardio = dbGimnasio.Cardios.Find(FrmGestionCardio.idcardio);
-                Console.WriteLine("id cardio " + FrmGestionCardio.idcardio);
             }
             if (dbGimnasio.Calentamientos.Find(FrmGestionCaletamiento.idcalentamiento) != null)
             {
                 rutina.Calentamiento = dbGimnasio.Calentamientos.Find(FrmGestionCaletamiento.idcalentamiento);
-                Console.WriteLine("id calentamiento " + FrmGestionCaletamiento.idcalentamiento);
             }
         }
     }

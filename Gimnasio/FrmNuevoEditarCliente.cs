@@ -2,6 +2,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -118,35 +119,51 @@ namespace Gimnasio
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            //telefono = new Telefono();
-            cliente.clientes_nombre = txtNombre.Text;
-            cliente.clientes_apellido = txtApellido.Text;
-            cliente.clientes_edad = Int32.Parse(txtEdad.Text);
-            genero();
-            cliente.localidad = (Localidad)cboLocalidad.SelectedItem;
-            cliente.clientes_fechaIngreso = dtpFechaIngreso.Value;
-            if (dbGimnasio.Domicilios.Find(FrmGestionDomicilio.iddomicilio) != null)
+            try
             {
-                cliente.domicilio = dbGimnasio.Domicilios.Find(FrmGestionDomicilio.iddomicilio);
-            }
-            cliente.clientes_objetivos = txtObjetivos.Text;
-            cliente.clientes_lecturaCorporal = txtLecturaCorporal.Text;
-            cliente.clientes_peso = float.Parse(txtPeso.Text);
+                cliente.clientes_nombre = txtNombre.Text;
+                cliente.clientes_apellido = txtApellido.Text;
+                cliente.clientes_edad = Int32.Parse(txtEdad.Text);
+                genero();
+                cliente.localidad = (Localidad)cboLocalidad.SelectedItem;
+                cliente.clientes_fechaIngreso = dtpFechaIngreso.Value;
+                if (dbGimnasio.Domicilios.Find(FrmGestionDomicilio.iddomicilio) != null)
+                {
+                    cliente.domicilio = dbGimnasio.Domicilios.Find(FrmGestionDomicilio.iddomicilio);
+                }
+                cliente.clientes_objetivos = txtObjetivos.Text;
+                cliente.clientes_lecturaCorporal = txtLecturaCorporal.Text;
+                cliente.clientes_peso = float.Parse(txtPeso.Text);
 
 
-            if (cliente.clientes_idcliente > 0)
-            {
-                dbGimnasio.Entry(cliente).State = EntityState.Modified;
-                MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                dbGimnasio.Clientes.Add(cliente);
-                MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                if (cliente.clientes_idcliente > 0)
+                {
+                    dbGimnasio.Entry(cliente).State = EntityState.Modified;
+                    MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    dbGimnasio.Clientes.Add(cliente);
+                    MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
-            dbGimnasio.SaveChanges();
-            Close();
+                dbGimnasio.SaveChanges();
+                Close();
+            }
+            catch (DbEntityValidationException ex) //<-- Sí ocurre alguna excepción al guardar 
+            {
+                foreach (var dbEntityValidation in ex.EntityValidationErrors)
+                {
+                    Console.WriteLine("El tipo de entidad \"{0}\" en el estado \"{1}\" tiene los siguientes errores de validación:",
+                        dbEntityValidation.Entry.Entity.GetType().Name, dbEntityValidation.Entry.State);
+                    foreach (var ve in dbEntityValidation.ValidationErrors)
+                    {
+                        Console.WriteLine("- Propiedad: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw;
+            }
         }
 
         private void genero()

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -175,13 +176,30 @@ namespace Gimnasio
 
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
-            Cliente cliente = dbGimnasio.Clientes.Find(cboClientes.SelectedValue);
-            cobranza.Cliente = cliente;
-            cobranza.Cliente.clientes_idcliente = cliente.clientes_idcliente;
-            cobranza.cobranza_fechaPago = dtpFecha.Value;
-            dbGimnasio.Cobranzas.Add(cobranza);
-            dbGimnasio.SaveChanges();
-            this.Close();
+            try
+            {
+                Cliente cliente = dbGimnasio.Clientes.Find(cboClientes.SelectedValue);
+                cobranza.Cliente = cliente;
+                cobranza.Cliente.clientes_idcliente = cliente.clientes_idcliente;
+                cobranza.cobranza_fechaPago = dtpFecha.Value;
+                dbGimnasio.Cobranzas.Add(cobranza);
+                dbGimnasio.SaveChanges();
+                this.Close();
+            }
+            catch (DbEntityValidationException ex) //<-- Sí ocurre alguna excepción al guardar 
+            {
+                foreach (var dbEntityValidation in ex.EntityValidationErrors)
+                {
+                    Console.WriteLine("El tipo de entidad \"{0}\" en el estado \"{1}\" tiene los siguientes errores de validación:",
+                        dbEntityValidation.Entry.Entity.GetType().Name, dbEntityValidation.Entry.State);
+                    foreach (var ve in dbEntityValidation.ValidationErrors)
+                    {
+                        Console.WriteLine("- Propiedad: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw;
+            }
         }
 
         private void chekDebe_CheckedChanged(object sender, EventArgs e)
