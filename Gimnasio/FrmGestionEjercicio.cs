@@ -27,6 +27,13 @@ namespace Gimnasio
         {
             InitializeComponent();
             listarEjrcicios();
+            ocultarColumnas();
+        }
+
+        private void ocultarColumnas()
+        {
+            this.gridEjercicio.Columns[0].Visible = false;
+            this.gridEjercicio.Columns[3].Visible = false;
         }
 
         private void listarEjrcicios()

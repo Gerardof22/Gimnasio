@@ -1,4 +1,5 @@
 ﻿using Datos;
+using ImageMagick;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -96,7 +97,7 @@ namespace Gimnasio
                 try
                 {
                     ejercicio.ejercicio_nombre = txtNombreEjercicio.Text;
-                    ejercicio.ejercicio_imagen = imageToByteArray(pbxImagen.Image);
+                    ejercicio.ejercicio_imagen = resizeImage(imageToByteArray(pbxImagen.Image));
 
                     dbGimnasio.Entry(ejercicio).State = EntityState.Modified;
 
@@ -131,10 +132,28 @@ namespace Gimnasio
                 else
                 {
                     ejercicio_nombre = txtNombreEjercicio.Text;
-                    image = imageToByteArray(pbxImagen.Image);
+                    image = resizeImage(imageToByteArray(pbxImagen.Image));
                     this.Close();
                 }
             }
+        }
+
+        /// <summary>
+        /// Redimenciona una imagen.
+        /// </summary>
+        /// <param name="image">Array de byte de la imagen.</param>
+        /// <returns></returns>
+        private byte[] resizeImage(byte[] image)
+        {
+            byte[] imageResize = new byte[0];
+
+            using (MagickImage img = new MagickImage(image))
+            {
+                img.Resize(500, 0);
+                imageResize = img.ToByteArray();
+            }
+
+            return imageResize;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

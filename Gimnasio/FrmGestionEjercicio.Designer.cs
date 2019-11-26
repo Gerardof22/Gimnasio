@@ -31,20 +31,19 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gridEjercicio = new System.Windows.Forms.DataGridView();
             this.pxbImagen = new System.Windows.Forms.PictureBox();
-            this.btnExaminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridEjercicio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pxbImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(512, 15);
+            this.btnSalir.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnSalir.Location = new System.Drawing.Point(320, 317);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 31;
@@ -54,8 +53,8 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEliminar.Location = new System.Drawing.Point(397, 265);
+            this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnEliminar.Location = new System.Drawing.Point(239, 317);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 30;
@@ -65,25 +64,14 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEditar.Location = new System.Drawing.Point(262, 265);
+            this.btnEditar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnEditar.Location = new System.Drawing.Point(157, 317);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 29;
             this.btnEditar.Text = "&Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAgregar.Location = new System.Drawing.Point(142, 265);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 28;
-            this.btnAgregar.Text = "&Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnLimpiar
             // 
@@ -121,7 +109,7 @@
             this.gridEjercicio.Location = new System.Drawing.Point(14, 44);
             this.gridEjercicio.Name = "gridEjercicio";
             this.gridEjercicio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridEjercicio.Size = new System.Drawing.Size(573, 202);
+            this.gridEjercicio.Size = new System.Drawing.Size(573, 254);
             this.gridEjercicio.TabIndex = 32;
             this.gridEjercicio.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridEjercicio_CellClick);
             this.gridEjercicio.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridEjercicio_RowEnter);
@@ -129,39 +117,29 @@
             // 
             // pxbImagen
             // 
+            this.pxbImagen.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pxbImagen.Location = new System.Drawing.Point(593, 44);
             this.pxbImagen.Name = "pxbImagen";
-            this.pxbImagen.Size = new System.Drawing.Size(245, 202);
+            this.pxbImagen.Size = new System.Drawing.Size(356, 254);
             this.pxbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pxbImagen.TabIndex = 33;
             this.pxbImagen.TabStop = false;
-            // 
-            // btnExaminar
-            // 
-            this.btnExaminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnExaminar.Location = new System.Drawing.Point(680, 265);
-            this.btnExaminar.Name = "btnExaminar";
-            this.btnExaminar.Size = new System.Drawing.Size(75, 23);
-            this.btnExaminar.TabIndex = 34;
-            this.btnExaminar.Text = "&Examinar";
-            this.btnExaminar.UseVisualStyleBackColor = true;
             // 
             // FrmGestionEjercicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 300);
-            this.Controls.Add(this.btnExaminar);
+            this.ClientSize = new System.Drawing.Size(961, 352);
             this.Controls.Add(this.pxbImagen);
             this.Controls.Add(this.gridEjercicio);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label1);
             this.Name = "FrmGestionEjercicio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmGestionEjercicio";
             ((System.ComponentModel.ISupportInitialize)(this.gridEjercicio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pxbImagen)).EndInit();
@@ -175,12 +153,10 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView gridEjercicio;
         private System.Windows.Forms.PictureBox pxbImagen;
-        private System.Windows.Forms.Button btnExaminar;
     }
 }
