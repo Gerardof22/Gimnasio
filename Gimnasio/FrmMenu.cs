@@ -64,5 +64,17 @@ namespace Gimnasio
             FrmGestionTelefono frmGestionTelefono = new FrmGestionTelefono();
             frmGestionTelefono.ShowDialog();
         }
+
+        private void nuevoEjercicioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmNuevoEditarEjercicio frmNuevoEditarEjercicio = new FrmNuevoEditarEjercicio();
+            frmNuevoEditarEjercicio.ShowDialog();
+        }
+
+        private void gestiónEjercicioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGestionEjercicio frmGestionEjercicio = new FrmGestionEjercicio();
+            frmGestionEjercicio.ShowDialog();
+        }
     }
 }
