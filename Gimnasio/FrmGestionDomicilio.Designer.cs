@@ -30,12 +30,12 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.dgvDomicilio = new System.Windows.Forms.DataGridView();
+            this.gridDomicilio = new System.Windows.Forms.DataGridView();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDomicilio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridDomicilio)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -55,16 +55,16 @@
             this.txtBuscar.TabIndex = 1;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
-            // dgvDomicilio
+            // gridDomicilio
             // 
-            this.dgvDomicilio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDomicilio.Location = new System.Drawing.Point(16, 58);
-            this.dgvDomicilio.Name = "dgvDomicilio";
-            this.dgvDomicilio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDomicilio.Size = new System.Drawing.Size(468, 150);
-            this.dgvDomicilio.TabIndex = 2;
-            this.dgvDomicilio.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDomicilio_CellDoubleClick);
-            this.dgvDomicilio.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dgvDomicilio_PreviewKeyDown);
+            this.gridDomicilio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridDomicilio.Location = new System.Drawing.Point(16, 58);
+            this.gridDomicilio.Name = "gridDomicilio";
+            this.gridDomicilio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridDomicilio.Size = new System.Drawing.Size(468, 150);
+            this.gridDomicilio.TabIndex = 2;
+            this.gridDomicilio.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDomicilio_CellDoubleClick);
+            this.gridDomicilio.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dgvDomicilio_PreviewKeyDown);
             // 
             // btnSalir
             // 
@@ -115,12 +115,12 @@
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.dgvDomicilio);
+            this.Controls.Add(this.gridDomicilio);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label1);
             this.Name = "FrmGestionDomicilio";
             this.Text = "FrmGestionDomicilio";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDomicilio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridDomicilio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,6 +134,6 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.DataGridView dgvDomicilio;
+        private System.Windows.Forms.DataGridView gridDomicilio;
     }
 }

@@ -84,8 +84,11 @@ namespace Gimnasio
         {
             FrmNuevoEditarTipoRutina frmNuevoEditarTipoRutina = new FrmNuevoEditarTipoRutina();
             frmNuevoEditarTipoRutina.ShowDialog();
-            llenarGrillaTipoRutina();
-            cargarGrillaTipoRutina();
+            if (!string.IsNullOrEmpty(FrmNuevoEditarTipoRutina.tipo_rutina_nombre))
+            {
+                llenarGrillaTipoRutina();
+                cargarGrillaTipoRutina();
+            }
         }
 
         private void llenarGrillaTipoRutina()
@@ -99,6 +102,8 @@ namespace Gimnasio
             }
 
             rutina.Tipos_Rutinas.Add(tipo_Rutina);
+
+            FrmNuevoEditarTipoRutina.tipo_rutina_nombre = "";
         }
 
         private void cargarGrillaTipoRutina()
@@ -121,16 +126,19 @@ namespace Gimnasio
 
         private void btnQuitarTipoRutina_Click(object sender, EventArgs e)
         {
-            int idSeleccionado = (int)celdaFilaActual(gridTipoRutina, 0);
-
-            string mensaje = "¿Está seguro que desea quitar?";
-            string titulo = "Eliminación";
-            DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (respuesta == DialogResult.Yes)
+            if (gridTipoRutina.Rows.Count > 0 && gridTipoRutina.SelectedRows.Count > 0)
             {
-                int idDetalleSeleccionado = gridTipoRutina.CurrentRow.Index;
-                rutina.Tipos_Rutinas.RemoveAt(idDetalleSeleccionado);
-                cargarGrillaTipoRutina();
+                int idSeleccionado = (int)celdaFilaActual(gridTipoRutina, 0);
+
+                string mensaje = "¿Está seguro que desea quitar?";
+                string titulo = "Eliminación";
+                DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes)
+                {
+                    int idDetalleSeleccionado = gridTipoRutina.CurrentRow.Index;
+                    rutina.Tipos_Rutinas.RemoveAt(idDetalleSeleccionado);
+                    cargarGrillaTipoRutina();
+                }
             }
         }
 
@@ -196,16 +204,19 @@ namespace Gimnasio
 
         private void btnQuitarEjercicio_Click(object sender, EventArgs e)
         {
-            int idSeleccionado = (int)celdaFilaActual(gridEjercicio, 0);
-
-            string mensaje = "¿Está seguro que desea quitar?";
-            string titulo = "Eliminación";
-            DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (respuesta == DialogResult.Yes)
+            if (gridEjercicio.Rows.Count > 0 && gridEjercicio.SelectedRows.Count > 0)
             {
-                int idDetalleSeleccionado = gridEjercicio.CurrentRow.Index;
-                rutina.Ejercicios.RemoveAt(idDetalleSeleccionado);
-                cargarGrillaEjercicios();
+                int idSeleccionado = (int)celdaFilaActual(gridEjercicio, 0);
+
+                string mensaje = "¿Está seguro que desea quitar?";
+                string titulo = "Eliminación";
+                DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes)
+                {
+                    int idDetalleSeleccionado = gridEjercicio.CurrentRow.Index;
+                    rutina.Ejercicios.RemoveAt(idDetalleSeleccionado);
+                    cargarGrillaEjercicios();
+                }
             }
         }
 

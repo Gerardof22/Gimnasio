@@ -203,6 +203,7 @@ namespace Gimnasio
             frmNuevoEditarTelefono.ShowDialog();
             if (FrmNuevoEditarTelefono.idtipotelefono != 0 && FrmNuevoEditarTelefono.numero != "")
             {
+                btnQuitar.Enabled = true;
                 agregarAGrillaTelefono();
                 cargarGrillaTelefono();
             }
@@ -236,16 +237,19 @@ namespace Gimnasio
 
         private void btnQuitar_Click(object sender, EventArgs e)
         {
-            int idSeleccionado = (int)celdaFilaActual(gridTelefonos, 0);
-
-            string mensaje = "¿Está seguro que desea quitar?";
-            string titulo = "Eliminación";
-            DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (respuesta == DialogResult.Yes)
+            if (gridTelefonos.Rows.Count > 0)
             {
-                int idDetalleSeleccionado = gridTelefonos.CurrentRow.Index;
-                cliente.Telefonos.RemoveAt(idDetalleSeleccionado);
-                cargarGrillaTelefono();
+                int idSeleccionado = (int)celdaFilaActual(gridTelefonos, 0);
+
+                string mensaje = "¿Está seguro que desea quitar?";
+                string titulo = "Eliminación";
+                DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes)
+                {
+                    int idDetalleSeleccionado = gridTelefonos.CurrentRow.Index;
+                    cliente.Telefonos.RemoveAt(idDetalleSeleccionado);
+                    cargarGrillaTelefono();
+                }
             }
         }
 

@@ -34,7 +34,7 @@ namespace Gimnasio
                                       numero = domicilio.domocilio_numero,
                                       isDelete = domicilio.domocilio_delete
                                   };
-            dgvDomicilio.DataSource = listaDomicilios.Where(d => d.isDelete == false).ToList();
+            gridDomicilio.DataSource = listaDomicilios.Where(d => d.isDelete == false).ToList();
         }
 
         private void buscarDomicilio(string textoABuscar)
@@ -48,7 +48,7 @@ namespace Gimnasio
                                       isDelete = domicilio.domocilio_delete
                                   };
 
-            dgvDomicilio.DataSource = listaDomicilios.Where(d => d.calle.Contains(textoABuscar))
+            gridDomicilio.DataSource = listaDomicilios.Where(d => d.calle.Contains(textoABuscar))
                                                      .Where(d => d.isDelete == false).ToList();
         }
 
@@ -61,7 +61,7 @@ namespace Gimnasio
 
         private void btnEditar_Click(object sender, System.EventArgs e)
         {
-            int idSeleccionado = (int)celdaFilaActual(dgvDomicilio, 0);
+            int idSeleccionado = (int)celdaFilaActual(gridDomicilio, 0);
             
             FrmNuevoEditarDomicilio frmNuevoEditarDomicilio = new FrmNuevoEditarDomicilio(idSeleccionado, dbGimnasio);
             frmNuevoEditarDomicilio.ShowDialog();
@@ -83,20 +83,22 @@ namespace Gimnasio
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            DataGridViewCellCollection celdasFilaActual = dgvDomicilio.CurrentRow.Cells;
-            int idSeleccionado = (int)celdasFilaActual[0].Value;
-            string dimicilioSeleccionado = (string)celdasFilaActual[1].Value;
-
-            string mensaje = "¿Está seguro que desea eliminar: " + dimicilioSeleccionado + "?";
-            string titulo = "Eliminación";
-            DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (respuesta == DialogResult.Yes)
+            if (gridDomicilio.Rows.Count > 0 && gridDomicilio.SelectedRows.Count > 0)
             {
-                domicilio = dbGimnasio.Domicilios.Find(idSeleccionado);
-                domicilio.domocilio_delete = true;
-                dbGimnasio.SaveChanges();
-                //recargamos el listado de categorias
-                listarGrillaDomicilios();
+                DataGridViewCellCollection celdasFilaActual = gridDomicilio.CurrentRow.Cells;
+                int idSeleccionado = (int)celdasFilaActual[0].Value;
+                string dimicilioSeleccionado = (string)celdasFilaActual[1].Value;
+
+                string mensaje = "¿Está seguro que desea eliminar: " + dimicilioSeleccionado + "?";
+                string titulo = "Eliminación";
+                DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes)
+                {
+                    domicilio = dbGimnasio.Domicilios.Find(idSeleccionado);
+                    domicilio.domocilio_delete = true;
+                    dbGimnasio.SaveChanges();
+                    listarGrillaDomicilios();
+                }
             }
         }
 
@@ -112,13 +114,13 @@ namespace Gimnasio
 
         private void dgvDomicilio_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            if (dgvDomicilio.RowCount > 0 && dgvDomicilio.SelectedRows.Count > 0)
+            if (gridDomicilio.RowCount > 0 && gridDomicilio.SelectedRows.Count > 0)
             {
                 if (e.KeyCode == Keys.Enter)
                 {
-                    iddomicilio = (int)this.dgvDomicilio.CurrentRow.Cells[0].Value;
-                    calle = this.dgvDomicilio.CurrentRow.Cells[1].Value.ToString();
-                    numero = (int)this.dgvDomicilio.CurrentRow.Cells[2].Value;
+                    iddomicilio = (int)this.gridDomicilio.CurrentRow.Cells[0].Value;
+                    calle = this.gridDomicilio.CurrentRow.Cells[1].Value.ToString();
+                    numero = (int)this.gridDomicilio.CurrentRow.Cells[2].Value;
                     this.Close();
                 }
             }
@@ -127,11 +129,11 @@ namespace Gimnasio
 
         private void dgvDomicilio_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvDomicilio.RowCount > 0 && dgvDomicilio.SelectedRows.Count > 0)
+            if (gridDomicilio.RowCount > 0 && gridDomicilio.SelectedRows.Count > 0)
             {
-                iddomicilio = (int)this.dgvDomicilio.CurrentRow.Cells[0].Value;
-                calle = this.dgvDomicilio.CurrentRow.Cells[1].Value.ToString();
-                numero = (int)this.dgvDomicilio.CurrentRow.Cells[2].Value;
+                iddomicilio = (int)this.gridDomicilio.CurrentRow.Cells[0].Value;
+                calle = this.gridDomicilio.CurrentRow.Cells[1].Value.ToString();
+                numero = (int)this.gridDomicilio.CurrentRow.Cells[2].Value;
                 this.Close();
             }
         }

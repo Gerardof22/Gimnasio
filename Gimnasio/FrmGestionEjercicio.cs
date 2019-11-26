@@ -100,6 +100,7 @@ namespace Gimnasio
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            
             int idSeleccionado = (int)celdaFilaActual(gridEjercicio, 0);
 
             string mensaje = "¿Está seguro que desea eliminar?";
