@@ -328,6 +328,7 @@
             this.gridTipoRutina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridTipoRutina.Location = new System.Drawing.Point(9, 16);
             this.gridTipoRutina.Name = "gridTipoRutina";
+            this.gridTipoRutina.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridTipoRutina.Size = new System.Drawing.Size(275, 162);
             this.gridTipoRutina.TabIndex = 26;
             // 
@@ -383,6 +384,7 @@
             this.btnQuitarEjercicio.TabIndex = 29;
             this.btnQuitarEjercicio.Text = "Quitar";
             this.btnQuitarEjercicio.UseVisualStyleBackColor = true;
+            this.btnQuitarEjercicio.Click += new System.EventHandler(this.btnQuitarEjercicio_Click);
             // 
             // btnAgregarEjercicio
             // 
@@ -399,6 +401,7 @@
             this.gridEjercicio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridEjercicio.Location = new System.Drawing.Point(9, 16);
             this.gridEjercicio.Name = "gridEjercicio";
+            this.gridEjercicio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridEjercicio.Size = new System.Drawing.Size(338, 162);
             this.gridEjercicio.TabIndex = 26;
             // 

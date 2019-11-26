@@ -76,5 +76,16 @@ namespace Gimnasio
             FrmGestionEjercicio frmGestionEjercicio = new FrmGestionEjercicio();
             frmGestionEjercicio.ShowDialog();
         }
+
+        private void nuevaRutinaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmNuevoEditarRutina frmNuevoEditarRutina = new FrmNuevoEditarRutina();
+            frmNuevoEditarRutina.ShowDialog();
+        }
+
+        private void gestiónRutinaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

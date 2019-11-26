@@ -476,14 +476,14 @@
             // nuevoEjercicioToolStripMenuItem
             // 
             this.nuevoEjercicioToolStripMenuItem.Name = "nuevoEjercicioToolStripMenuItem";
-            this.nuevoEjercicioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nuevoEjercicioToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.nuevoEjercicioToolStripMenuItem.Text = "Nuevo ejercicio";
             this.nuevoEjercicioToolStripMenuItem.Click += new System.EventHandler(this.nuevoEjercicioToolStripMenuItem_Click);
             // 
             // gestiónEjercicioToolStripMenuItem
             // 
             this.gestiónEjercicioToolStripMenuItem.Name = "gestiónEjercicioToolStripMenuItem";
-            this.gestiónEjercicioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gestiónEjercicioToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.gestiónEjercicioToolStripMenuItem.Text = "Gestión ejercicio";
             this.gestiónEjercicioToolStripMenuItem.Click += new System.EventHandler(this.gestiónEjercicioToolStripMenuItem_Click);
             // 
@@ -499,14 +499,16 @@
             // nuevaRutinaToolStripMenuItem
             // 
             this.nuevaRutinaToolStripMenuItem.Name = "nuevaRutinaToolStripMenuItem";
-            this.nuevaRutinaToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.nuevaRutinaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.nuevaRutinaToolStripMenuItem.Text = "Nueva rutina";
+            this.nuevaRutinaToolStripMenuItem.Click += new System.EventHandler(this.nuevaRutinaToolStripMenuItem_Click);
             // 
             // gestiónRutinaToolStripMenuItem
             // 
             this.gestiónRutinaToolStripMenuItem.Name = "gestiónRutinaToolStripMenuItem";
-            this.gestiónRutinaToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.gestiónRutinaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gestiónRutinaToolStripMenuItem.Text = "Gestión rutina";
+            this.gestiónRutinaToolStripMenuItem.Click += new System.EventHandler(this.gestiónRutinaToolStripMenuItem_Click);
             // 
             // cobranzasToolStripMenuItem
             // 

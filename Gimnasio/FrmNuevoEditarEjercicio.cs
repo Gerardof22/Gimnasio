@@ -19,7 +19,7 @@ namespace Gimnasio
         Ejercicio ejercicio;
 
         internal static string ejercicio_nombre { get; set; }
-        public static Image image { get; set; }
+        public static byte[] image { get; set; }
 
         public FrmNuevoEditarEjercicio()
         {
@@ -99,7 +99,7 @@ namespace Gimnasio
             else
             {
                 ejercicio_nombre = txtNombreEjercicio.Text;
-                image = pbxImagen.Image;
+                image = imageToByteArray(pbxImagen.Image);
                 this.Close();
             }
         }
