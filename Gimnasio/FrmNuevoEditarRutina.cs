@@ -151,9 +151,11 @@ namespace Gimnasio
         {
             FrmNuevoEditarEjercicio frmNuevoEditarEjercicio = new FrmNuevoEditarEjercicio();
             frmNuevoEditarEjercicio.ShowDialog();
-            llenarGrillaEjercicio();
-            cargarGrillaEjercicios();
-
+            if (FrmNuevoEditarEjercicio.ejercicio_nombre != "" && FrmNuevoEditarEjercicio.image != null)
+            {
+                llenarGrillaEjercicio();
+                cargarGrillaEjercicios();
+            }
         }
 
         private void llenarGrillaEjercicio()
@@ -168,6 +170,9 @@ namespace Gimnasio
             }
 
             rutina.Ejercicios.Add(ejercicio);
+
+            FrmNuevoEditarEjercicio.ejercicio_nombre = "";
+            FrmNuevoEditarEjercicio.image = null;
         }
 
         private void cargarGrillaEjercicios()

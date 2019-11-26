@@ -136,9 +136,9 @@ namespace Gimnasio
         {
             if (gridEjercicio.CurrentRow != null)
             {
-                if (celdaFilaActual(gridEjercicio, 3) != System.DBNull.Value)
+                if (celdaFilaActual(gridEjercicio, 2) != System.DBNull.Value)
                 {
-                    this.pxbImagen.Image = FrmNuevoEditarEjercicio.byteArrayToImage((byte[])celdaFilaActual(gridEjercicio, 3));
+                    this.pxbImagen.Image = FrmNuevoEditarEjercicio.byteArrayToImage((byte[])celdaFilaActual(gridEjercicio, 2));
                 }
                 else
                 {

@@ -201,8 +201,11 @@ namespace Gimnasio
         {
             FrmNuevoEditarTelefono frmNuevoEditarTelefono = new FrmNuevoEditarTelefono();
             frmNuevoEditarTelefono.ShowDialog();
-            agregarAGrillaTelefono();
-            cargarGrillaTelefono();
+            if (FrmNuevoEditarTelefono.idtipotelefono != 0 && FrmNuevoEditarTelefono.numero != "")
+            {
+                agregarAGrillaTelefono();
+                cargarGrillaTelefono();
+            }
         }
 
         private void agregarAGrillaTelefono()
@@ -220,6 +223,9 @@ namespace Gimnasio
                     cliente.Telefonos = new ObservableCollection<Telefono>();
                 }
                 cliente.Telefonos.Add(telefono);
+
+                FrmNuevoEditarTelefono.idtipotelefono = 0;
+                FrmNuevoEditarTelefono.numero = "";
             }
         }
 

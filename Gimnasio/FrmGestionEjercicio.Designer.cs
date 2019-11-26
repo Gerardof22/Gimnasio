@@ -132,6 +132,7 @@
             this.pxbImagen.Location = new System.Drawing.Point(593, 44);
             this.pxbImagen.Name = "pxbImagen";
             this.pxbImagen.Size = new System.Drawing.Size(245, 202);
+            this.pxbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pxbImagen.TabIndex = 33;
             this.pxbImagen.TabStop = false;
             // 

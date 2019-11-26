@@ -19,6 +19,9 @@ namespace Gimnasio
         GimnasioContext dbGimnasio;
         Ejercicio ejercicio;
 
+        static MemoryStream ms;
+        static Image returnImage;
+
         internal static string ejercicio_nombre { get; set; }
         public static byte[] image { get; set; }
 
@@ -53,8 +56,11 @@ namespace Gimnasio
 
         public static Image byteArrayToImage(byte[] ejercicio_imagen)
         {
-            MemoryStream ms = new MemoryStream(ejercicio_imagen);
-            Image returnImage = Image.FromStream(ms);
+            if (ejercicio_imagen != null)
+            {
+                ms = new MemoryStream(ejercicio_imagen);
+                returnImage = Image.FromStream(ms);
+            }
             return returnImage;
         }
 
@@ -113,12 +119,21 @@ namespace Gimnasio
                     }
                     throw;
                 }
+                
             }
             else
             {
-                ejercicio_nombre = txtNombreEjercicio.Text;
-                image = imageToByteArray(pbxImagen.Image);
-                this.Close();
+                if (string.IsNullOrEmpty(txtNombreEjercicio.Text))
+                {
+                    MessageBox.Show("El campo 'Ejercicio' no puede estar vacio.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtNombreEjercicio.Focus();
+                }
+                else
+                {
+                    ejercicio_nombre = txtNombreEjercicio.Text;
+                    image = imageToByteArray(pbxImagen.Image);
+                    this.Close();
+                }
             }
         }
 
