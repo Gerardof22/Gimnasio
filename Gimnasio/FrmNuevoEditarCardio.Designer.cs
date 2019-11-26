@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txtDuracion = new System.Windows.Forms.TextBox();
             this.txtRitmo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.numDuracion = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numDuracion)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -44,13 +45,6 @@
             this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Duración";
-            // 
-            // txtDuracion
-            // 
-            this.txtDuracion.Location = new System.Drawing.Point(68, 13);
-            this.txtDuracion.Name = "txtDuracion";
-            this.txtDuracion.Size = new System.Drawing.Size(136, 20);
-            this.txtDuracion.TabIndex = 1;
             // 
             // txtRitmo
             // 
@@ -88,19 +82,28 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // numDuracion
+            // 
+            this.numDuracion.DecimalPlaces = 1;
+            this.numDuracion.Location = new System.Drawing.Point(68, 14);
+            this.numDuracion.Name = "numDuracion";
+            this.numDuracion.Size = new System.Drawing.Size(88, 20);
+            this.numDuracion.TabIndex = 6;
+            // 
             // FrmNuevoEditarCardio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(225, 142);
+            this.Controls.Add(this.numDuracion);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtRitmo);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtDuracion);
             this.Controls.Add(this.label1);
             this.Name = "FrmNuevoEditarCardio";
             this.Text = "FrmNuevoEditarCardio";
+            ((System.ComponentModel.ISupportInitialize)(this.numDuracion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,10 +112,10 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtDuracion;
         private System.Windows.Forms.TextBox txtRitmo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.NumericUpDown numDuracion;
     }
 }

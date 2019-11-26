@@ -69,8 +69,8 @@ namespace Gimnasio
         {
             int idSeleccionado = (int)celdaFilaActual(gridCalentamiento, 0);
 
-            FrmNuevoEditarDomicilio frmNuevoEditarDomicilio = new FrmNuevoEditarDomicilio(idSeleccionado, dbGimnasio);
-            frmNuevoEditarDomicilio.ShowDialog();
+            FrmNuevoEditarCalentamiento frmNuevoEditarCalentamiento = new FrmNuevoEditarCalentamiento(idSeleccionado, dbGimnasio);
+            frmNuevoEditarCalentamiento.ShowDialog();
             listarCalentaientos();
         }
 

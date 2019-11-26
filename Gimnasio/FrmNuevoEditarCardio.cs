@@ -29,7 +29,6 @@ namespace Gimnasio
             InitializeComponent();
             dbGimnasio = dbEnviado;
             cardio = new Cardio();
-            cargarCardio(0);
         }
         public FrmNuevoEditarCardio(int idSeleccionado, GimnasioContext dbEnviado)
         {
@@ -42,13 +41,13 @@ namespace Gimnasio
         private void cargarCardio(int idSeleccionado)
         {
             cardio = dbGimnasio.Cardios.Find(idSeleccionado);
-            txtDuracion.Text = cardio.cardio_duracion.ToString();
+            numDuracion.Value = (decimal)cardio.cardio_duracion;
             txtRitmo.Text = cardio.cardio_ritmo;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            cardio.cardio_duracion = float.Parse(txtDuracion.Text);
+            cardio.cardio_duracion = (float)numDuracion.Value;
             cardio.cardio_ritmo = txtRitmo.Text;
 
             if (cardio.cardio_idcardio > 0)
