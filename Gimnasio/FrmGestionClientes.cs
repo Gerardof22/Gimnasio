@@ -84,11 +84,14 @@ namespace Gimnasio
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            int idSeleccionado = (int)celdaFilaActual(gridClientes, 0);
+            if (gridClientes.Rows.Count > 0 && gridClientes.SelectedRows.Count > 0)
+            {
+                int idSeleccionado = (int)celdaFilaActual(gridClientes, 0);
 
-            FrmNuevoEditarCliente frmNuevoEditarCliente = new FrmNuevoEditarCliente(idSeleccionado, dbGimnasio);
-            frmNuevoEditarCliente.ShowDialog();
-            listarGrillaClientes();
+                FrmNuevoEditarCliente frmNuevoEditarCliente = new FrmNuevoEditarCliente(idSeleccionado, dbGimnasio);
+                frmNuevoEditarCliente.ShowDialog();
+                listarGrillaClientes();
+            }
         }
 
         /// <summary>
@@ -106,19 +109,22 @@ namespace Gimnasio
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            int idSeleccionado = (int)celdaFilaActual(gridClientes, 0);
-            string clienteSeleccionado = (string)celdaFilaActual(gridClientes, 1);
-
-            string mensaje = "¿Está seguro que desea eliminar: " + clienteSeleccionado + "?";
-            string titulo = "Eliminación";
-            DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (respuesta == DialogResult.Yes)
+            if (gridClientes.Rows.Count > 0 && gridClientes.SelectedRows.Count > 0)
             {
-                cliente = new Cliente();
-                cliente = dbGimnasio.Clientes.Find(idSeleccionado);
-                cliente.clientes_delete = true;
-                dbGimnasio.SaveChanges();
-                listarGrillaClientes();
+                int idSeleccionado = (int)celdaFilaActual(gridClientes, 0);
+                string clienteSeleccionado = (string)celdaFilaActual(gridClientes, 1);
+
+                string mensaje = "¿Está seguro que desea eliminar: " + clienteSeleccionado + "?";
+                string titulo = "Eliminación";
+                DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes)
+                {
+                    cliente = new Cliente();
+                    cliente = dbGimnasio.Clientes.Find(idSeleccionado);
+                    cliente.clientes_delete = true;
+                    dbGimnasio.SaveChanges();
+                    listarGrillaClientes();
+                }
             }
         }
 

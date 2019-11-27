@@ -63,12 +63,15 @@ namespace Gimnasio
 
         private void btnEditar_Click(object sender, System.EventArgs e)
         {
-            int idSeleccionado = (int)this.celdaFilaActual(gridGestionTelefono, 0);
-            string numTelefonoSeleccionado = (string)this.celdaFilaActual(gridGestionTelefono, 3);
+            if (gridGestionTelefono.Rows.Count > 0 && gridGestionTelefono.SelectedRows.Count > 0)
+            {
+                int idSeleccionado = (int)this.celdaFilaActual(gridGestionTelefono, 0);
+                string numTelefonoSeleccionado = (string)this.celdaFilaActual(gridGestionTelefono, 3);
 
-            FrmNuevoEditarTelefono frmNuevoEditarTelefono = new FrmNuevoEditarTelefono(idSeleccionado, dbGimnasio);
-            frmNuevoEditarTelefono.ShowDialog();
-            this.cargarGrillaTelefonos();       
+                FrmNuevoEditarTelefono frmNuevoEditarTelefono = new FrmNuevoEditarTelefono(idSeleccionado, dbGimnasio);
+                frmNuevoEditarTelefono.ShowDialog();
+                this.cargarGrillaTelefonos();
+            }    
         }
 
         /// <summary>
@@ -86,20 +89,21 @@ namespace Gimnasio
 
         private void btnEliminar_Click(object sender, System.EventArgs e)
         {
-            DataGridViewCellCollection celdasFilaActual = gridGestionTelefono.CurrentRow.Cells;
-            int idSeleccionado = (int)celdasFilaActual[0].Value;
-            //string clienteSeleccionado = (string)celdasFilaActual[2].Value;
-            string telefonoSeleccionado = (string)celdasFilaActual[2].Value;
-
-            string mensaje = "¿Está seguro que desea eliminar: " + telefonoSeleccionado + /*" del cliente " + clienteSeleccionado +*/ "?";
-            string titulo = "Eliminación";
-            DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (respuesta == DialogResult.Yes)
+            if (gridGestionTelefono.Rows.Count > 0 && gridGestionTelefono.SelectedRows.Count > 0)
             {
-                telefono = dbGimnasio.Telefonos.Find(idSeleccionado);
-                telefono.telefono_delete = true;
-                dbGimnasio.SaveChanges();
-                cargarGrillaTelefonos();
+                int idSeleccionado = (int)celdaFilaActual(gridGestionTelefono, 0);
+                string telefonoSeleccionado = (string)celdaFilaActual(gridGestionTelefono, 2);
+
+                string mensaje = "¿Está seguro que desea eliminar: " + telefonoSeleccionado + "?";
+                string titulo = "Eliminación";
+                DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes)
+                {
+                    telefono = dbGimnasio.Telefonos.Find(idSeleccionado);
+                    telefono.telefono_delete = true;
+                    dbGimnasio.SaveChanges();
+                    cargarGrillaTelefonos();
+                }
             }
         }
 

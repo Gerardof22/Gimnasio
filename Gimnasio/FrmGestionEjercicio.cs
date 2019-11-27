@@ -78,11 +78,14 @@ namespace Gimnasio
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            int idSeleccionado = (int)celdaFilaActual(gridEjercicio, 0);
+            if (gridEjercicio.Rows.Count > 0 && gridEjercicio.SelectedRows.Count > 0)
+            {
+                int idSeleccionado = (int)celdaFilaActual(gridEjercicio, 0);
 
-            FrmNuevoEditarEjercicio frmNuevoEditarEjercicio = new FrmNuevoEditarEjercicio(idSeleccionado, dbGimnasio);
-            frmNuevoEditarEjercicio.ShowDialog();
-            listarEjrcicios();
+                FrmNuevoEditarEjercicio frmNuevoEditarEjercicio = new FrmNuevoEditarEjercicio(idSeleccionado, dbGimnasio);
+                frmNuevoEditarEjercicio.ShowDialog();
+                listarEjrcicios();
+            }
         }
 
         /// <summary>
@@ -100,18 +103,20 @@ namespace Gimnasio
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            
-            int idSeleccionado = (int)celdaFilaActual(gridEjercicio, 0);
-
-            string mensaje = "¿Está seguro que desea eliminar?";
-            string titulo = "Eliminación";
-            DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (respuesta == DialogResult.Yes)
+            if (gridEjercicio.Rows.Count > 0 && gridEjercicio.SelectedRows.Count > 0)
             {
-                ejercicio = dbGimnasio.Ejercicios.Find(idSeleccionado);
-                ejercicio.ejercicio_delete = true;
-                dbGimnasio.SaveChanges();
-                listarEjrcicios();
+                int idSeleccionado = (int)celdaFilaActual(gridEjercicio, 0);
+
+                string mensaje = "¿Está seguro que desea eliminar?";
+                string titulo = "Eliminación";
+                DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes)
+                {
+                    ejercicio = dbGimnasio.Ejercicios.Find(idSeleccionado);
+                    ejercicio.ejercicio_delete = true;
+                    dbGimnasio.SaveChanges();
+                    listarEjrcicios();
+                }
             }
         }
 

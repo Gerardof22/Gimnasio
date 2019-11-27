@@ -56,28 +56,34 @@ namespace Gimnasio
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            int idSeleccionado = (int)celdaFilaActual(gridLocalidad, 0);
+            if (gridLocalidad.Rows.Count > 0 && gridLocalidad.SelectedRows.Count > 0)
+            {
+                int idSeleccionado = (int)celdaFilaActual(gridLocalidad, 0);
 
-            FrmNuevaEditarLocalidad frmNuevaEditarLocalidad = new FrmNuevaEditarLocalidad(idSeleccionado, dbGimnasio);
-            frmNuevaEditarLocalidad.ShowDialog();
-            listarLocalidades();
+                FrmNuevaEditarLocalidad frmNuevaEditarLocalidad = new FrmNuevaEditarLocalidad(idSeleccionado, dbGimnasio);
+                frmNuevaEditarLocalidad.ShowDialog();
+                listarLocalidades();
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            int idSeleccionado = (int)celdaFilaActual(gridLocalidad, 0);
-            string localidadSeleccionada = (string)celdaFilaActual(gridLocalidad, 1);
-
-            string mensaje = "¿Está seguro que desea eliminar: " + localidadSeleccionada + "?";
-            string titulo = "Eliminación";
-            DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (respuesta == DialogResult.Yes)
+            if (gridLocalidad.Rows.Count > 0 && gridLocalidad.SelectedRows.Count > 0)
             {
-                localidad = new Localidad();
-                localidad = dbGimnasio.Localidads.Find(idSeleccionado);
-                localidad.localidad_delete = true;
-                dbGimnasio.SaveChanges();
-                listarLocalidades();
+                int idSeleccionado = (int)celdaFilaActual(gridLocalidad, 0);
+                string localidadSeleccionada = (string)celdaFilaActual(gridLocalidad, 1);
+
+                string mensaje = "¿Está seguro que desea eliminar: " + localidadSeleccionada + "?";
+                string titulo = "Eliminación";
+                DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes)
+                {
+                    localidad = new Localidad();
+                    localidad = dbGimnasio.Localidads.Find(idSeleccionado);
+                    localidad.localidad_delete = true;
+                    dbGimnasio.SaveChanges();
+                    listarLocalidades();
+                }
             }
         }
 

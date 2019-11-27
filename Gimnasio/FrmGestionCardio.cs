@@ -68,11 +68,14 @@ namespace Gimnasio
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            int idSeleccionado = (int)celdaFilaActual(gridCardio, 0);
-            
-            FrmNuevoEditarDomicilio frmNuevoEditarDomicilio = new FrmNuevoEditarDomicilio(idSeleccionado, dbGimnasio);
-            frmNuevoEditarDomicilio.ShowDialog();
-            listarGrillaCardios();
+            if (gridCardio.Rows.Count > 0 && gridCardio.SelectedRows.Count > 0)
+            {
+                int idSeleccionado = (int)celdaFilaActual(gridCardio, 0);
+
+                FrmNuevoEditarDomicilio frmNuevoEditarDomicilio = new FrmNuevoEditarDomicilio(idSeleccionado, dbGimnasio);
+                frmNuevoEditarDomicilio.ShowDialog();
+                listarGrillaCardios();
+            }
         }
 
         /// <summary>
@@ -90,17 +93,20 @@ namespace Gimnasio
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            int idSeleccionado = (int)celdaFilaActual(gridCardio, 0);
-
-            string mensaje = "¿Está seguro que desea eliminar?";
-            string titulo = "Eliminación";
-            DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (respuesta == DialogResult.Yes)
+            if (gridCardio.Rows.Count > 0 && gridCardio.SelectedRows.Count > 0)
             {
-                cardio = dbGimnasio.Cardios.Find(idSeleccionado);
-                cardio.cardio_delete = true;
-                dbGimnasio.SaveChanges();
-                listarGrillaCardios();
+                int idSeleccionado = (int)celdaFilaActual(gridCardio, 0);
+
+                string mensaje = "¿Está seguro que desea eliminar?";
+                string titulo = "Eliminación";
+                DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes)
+                {
+                    cardio = dbGimnasio.Cardios.Find(idSeleccionado);
+                    cardio.cardio_delete = true;
+                    dbGimnasio.SaveChanges();
+                    listarGrillaCardios();
+                }
             }
         }
 

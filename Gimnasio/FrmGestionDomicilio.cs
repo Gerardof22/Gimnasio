@@ -61,11 +61,14 @@ namespace Gimnasio
 
         private void btnEditar_Click(object sender, System.EventArgs e)
         {
-            int idSeleccionado = (int)celdaFilaActual(gridDomicilio, 0);
-            
-            FrmNuevoEditarDomicilio frmNuevoEditarDomicilio = new FrmNuevoEditarDomicilio(idSeleccionado, dbGimnasio);
-            frmNuevoEditarDomicilio.ShowDialog();
-            listarGrillaDomicilios();
+            if (gridDomicilio.Rows.Count > 0 && gridDomicilio.SelectedRows.Count > 0)
+            {
+                int idSeleccionado = (int)celdaFilaActual(gridDomicilio, 0);
+
+                FrmNuevoEditarDomicilio frmNuevoEditarDomicilio = new FrmNuevoEditarDomicilio(idSeleccionado, dbGimnasio);
+                frmNuevoEditarDomicilio.ShowDialog();
+                listarGrillaDomicilios();
+            }
         }
 
         /// <summary>

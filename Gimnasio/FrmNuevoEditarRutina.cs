@@ -67,17 +67,23 @@ namespace Gimnasio
             FrmGestionCardio frmGestionCardio = new FrmGestionCardio();
             frmGestionCardio.ShowDialog();
 
-            txtDuracionCardio.Text = frmGestionCardio.duracion.ToString();
-            txtRitmoCardio.Text = frmGestionCardio.ritmo;
+            if (frmGestionCardio.duracion != 0 && frmGestionCardio.ritmo != "")
+            {
+                txtDuracionCardio.Text = frmGestionCardio.duracion.ToString();
+                txtRitmoCardio.Text = frmGestionCardio.ritmo;
+            }
+            
         }
 
         private void btnAgregarCalentamiento_Click(object sender, EventArgs e)
         {
             FrmGestionCaletamiento frmGestionCaletamiento = new FrmGestionCaletamiento();
             frmGestionCaletamiento.ShowDialog();
-
-            txtDuracionCalentamiento.Text = FrmGestionCaletamiento.duracion;
-            txtDescripcionCalentamiento.Text = FrmGestionCaletamiento.descripcion;
+            if (FrmGestionCaletamiento.duracion != "")
+            {
+                txtDuracionCalentamiento.Text = FrmGestionCaletamiento.duracion;
+                txtDescripcionCalentamiento.Text = FrmGestionCaletamiento.descripcion;
+            }
         }
 
         private void btnAgregarTipoRutina_Click(object sender, EventArgs e)

@@ -137,30 +137,36 @@ namespace Gimnasio
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            int idSeleccionado = (int)gridDetalleCobranza.CurrentRow.Cells[0].Value;
-            string mensaje = "¿Está seguro que desea eliminar: " + idSeleccionado + "?";
-            string titulo = "Eliminación";
-            DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (respuesta == DialogResult.Yes)
+            if (gridDetalleCobranza.Rows.Count > 0)
             {
-                int detalleSeleccionado = gridDetalleCobranza.CurrentRow.Index;
-                cobranza.DetalleCobranzas.RemoveAt(detalleSeleccionado);
-                actualizarGrillaDetalle();
-                calcularTotales();
+                int idSeleccionado = (int)gridDetalleCobranza.CurrentRow.Cells[0].Value;
+                string mensaje = "¿Está seguro que desea eliminar: " + idSeleccionado + "?";
+                string titulo = "Eliminación";
+                DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes)
+                {
+                    int detalleSeleccionado = gridDetalleCobranza.CurrentRow.Index;
+                    cobranza.DetalleCobranzas.RemoveAt(detalleSeleccionado);
+                    actualizarGrillaDetalle();
+                    calcularTotales();
+                }
             }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            int detalleSeleccionado = gridDetalleCobranza.CurrentRow.Index;
-            Detalle_Cobranza detalle_Cobranza = cobranza.DetalleCobranzas[detalleSeleccionado];
-            chekDebe.Checked = detalle_Cobranza.detalleCobranza_debe;
-            numRecargo.Value = detalle_Cobranza.detalleCobranza_recargoMes;
-            numImporte.Value = detalle_Cobranza.detalleCobranza_importe;
-            numTotal.Value = detalle_Cobranza.detalleCobranza_total;
-            cobranza.DetalleCobranzas.RemoveAt(detalleSeleccionado);
-            actualizarGrillaDetalle();
-            calcularTotales();
+            if (gridDetalleCobranza.Rows.Count > 0 && gridDetalleCobranza.SelectedRows.Count > 0)
+            {
+                int detalleSeleccionado = gridDetalleCobranza.CurrentRow.Index;
+                Detalle_Cobranza detalle_Cobranza = cobranza.DetalleCobranzas[detalleSeleccionado];
+                chekDebe.Checked = detalle_Cobranza.detalleCobranza_debe;
+                numRecargo.Value = detalle_Cobranza.detalleCobranza_recargoMes;
+                numImporte.Value = detalle_Cobranza.detalleCobranza_importe;
+                numTotal.Value = detalle_Cobranza.detalleCobranza_total;
+                cobranza.DetalleCobranzas.RemoveAt(detalleSeleccionado);
+                actualizarGrillaDetalle();
+                calcularTotales();
+            }
         }
 
         private void calcularTotales()
@@ -178,13 +184,16 @@ namespace Gimnasio
         {
             try
             {
-                Cliente cliente = dbGimnasio.Clientes.Find(cboClientes.SelectedValue);
-                cobranza.Cliente = cliente;
-                cobranza.Cliente.clientes_idcliente = cliente.clientes_idcliente;
-                cobranza.cobranza_fechaPago = dtpFecha.Value;
-                dbGimnasio.Cobranzas.Add(cobranza);
-                dbGimnasio.SaveChanges();
-                this.Close();
+                if (gridDetalleCobranza.Rows.Count > 0)
+                {
+                    Cliente cliente = dbGimnasio.Clientes.Find(cboClientes.SelectedValue);
+                    cobranza.Cliente = cliente;
+                    cobranza.Cliente.clientes_idcliente = cliente.clientes_idcliente;
+                    cobranza.cobranza_fechaPago = dtpFecha.Value;
+                    dbGimnasio.Cobranzas.Add(cobranza);
+                    dbGimnasio.SaveChanges();
+                    this.Close();
+                }
             }
             catch (DbEntityValidationException ex) //<-- Sí ocurre alguna excepción al guardar 
             {

@@ -67,11 +67,14 @@ namespace Gimnasio
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            int idSeleccionado = (int)celdaFilaActual(gridCalentamiento, 0);
+            if (gridCalentamiento.Rows.Count > 0 && gridCalentamiento.SelectedRows.Count > 0)
+            {
+                int idSeleccionado = (int)celdaFilaActual(gridCalentamiento, 0);
 
-            FrmNuevoEditarCalentamiento frmNuevoEditarCalentamiento = new FrmNuevoEditarCalentamiento(idSeleccionado, dbGimnasio);
-            frmNuevoEditarCalentamiento.ShowDialog();
-            listarCalentaientos();
+                FrmNuevoEditarCalentamiento frmNuevoEditarCalentamiento = new FrmNuevoEditarCalentamiento(idSeleccionado, dbGimnasio);
+                frmNuevoEditarCalentamiento.ShowDialog();
+                listarCalentaientos();
+            }
         }
 
         /// <summary>
@@ -89,17 +92,20 @@ namespace Gimnasio
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            int idSeleccionado = (int)celdaFilaActual(gridCalentamiento, 0);
-
-            string mensaje = "¿Está seguro que desea eliminar?";
-            string titulo = "Eliminación";
-            DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (respuesta == DialogResult.Yes)
+            if (gridCalentamiento.Rows.Count > 0 && gridCalentamiento.SelectedRows.Count > 0)
             {
-                calentamiento = dbGimnasio.Calentamientos.Find(idSeleccionado);
-                calentamiento.calentamiento_delete = true;
-                dbGimnasio.SaveChanges();
-                listarCalentaientos();
+                int idSeleccionado = (int)celdaFilaActual(gridCalentamiento, 0);
+
+                string mensaje = "¿Está seguro que desea eliminar?";
+                string titulo = "Eliminación";
+                DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes)
+                {
+                    calentamiento = dbGimnasio.Calentamientos.Find(idSeleccionado);
+                    calentamiento.calentamiento_delete = true;
+                    dbGimnasio.SaveChanges();
+                    listarCalentaientos();
+                }
             }
         }
 
