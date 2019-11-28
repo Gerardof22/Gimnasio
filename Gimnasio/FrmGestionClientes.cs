@@ -142,5 +142,11 @@ namespace Gimnasio
         {
             this.Close();
         }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            Reportes.ReporteCliente reporteCliente = new Reportes.ReporteCliente();
+            reporteCliente.ShowDialog();
+        }
     }
 }

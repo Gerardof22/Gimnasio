@@ -209,6 +209,9 @@ namespace Gimnasio
                 }
                 throw;
             }
+
+            Reportes.Cobranzas cobranzas = new Reportes.Cobranzas(this.cobranza.cobranza_idcobranza);
+            cobranzas.ShowDialog();
         }
 
         private void chekDebe_CheckedChanged(object sender, EventArgs e)
