@@ -12,7 +12,8 @@ namespace Gimnasio
     {
         GimnasioContext dbGimnasio = new GimnasioContext();
         Cliente cliente;
-        
+
+        bool botonPresionado = false;
 
         public FrmGestionClientes()
         {
@@ -147,6 +148,41 @@ namespace Gimnasio
         {
             Reportes.ReporteCliente reporteCliente = new Reportes.ReporteCliente();
             reporteCliente.ShowDialog();
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            botonPresionado = true;
+            if (botonPresionado)
+            {
+                consultarDatos();
+            }
+        }
+
+        private void consultarDatos()
+        {
+            if (gridClientes.Rows.Count > 0 && gridClientes.SelectedRows.Count > 0)
+            {
+                int idSeleccionado = (int)celdaFilaActual(gridClientes, 0);
+
+                FrmNuevoEditarCliente frmNuevoEditarCliente = new FrmNuevoEditarCliente(idSeleccionado, dbGimnasio);
+                frmNuevoEditarCliente.ShowDialog();
+                desabilitarCampos(frmNuevoEditarCliente);
+            }
+            
+            botonPresionado = false;
+        }
+
+        private void desabilitarCampos(FrmNuevoEditarCliente frmNuevoEditarCliente)
+        {
+            
+            frmNuevoEditarCliente.gpbDatosPersonales.Enabled = false;
+            frmNuevoEditarCliente.gpbDomicilio.Enabled = false;
+            frmNuevoEditarCliente.gpbContactos.Enabled = false;
+            frmNuevoEditarCliente.gpbObservaciones.Enabled = false;
+            Console.WriteLine("Se preciono");
+
+            
         }
     }
 }

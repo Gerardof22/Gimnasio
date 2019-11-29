@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gpbDatosPersonales = new System.Windows.Forms.GroupBox();
             this.dtpFechaIngreso = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.btnAgregarLocalidad = new System.Windows.Forms.Button();
@@ -43,17 +43,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gpbContactos = new System.Windows.Forms.GroupBox();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.gridTelefonos = new System.Windows.Forms.DataGridView();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.gpbDomicilio = new System.Windows.Forms.GroupBox();
             this.btnSeleccionarDomicilio = new System.Windows.Forms.Button();
             this.txtNumCalle = new System.Windows.Forms.TextBox();
             this.txtNombreCalle = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.gpbObservaciones = new System.Windows.Forms.GroupBox();
             this.txtObjetivos = new System.Windows.Forms.TextBox();
             this.txtPeso = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -62,35 +62,35 @@
             this.txtLecturaCorporal = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.gpbDatosPersonales.SuspendLayout();
+            this.gpbContactos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridTelefonos)).BeginInit();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            this.gpbDomicilio.SuspendLayout();
+            this.gpbObservaciones.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gpbDatosPersonales
             // 
-            this.groupBox1.Controls.Add(this.dtpFechaIngreso);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.btnAgregarLocalidad);
-            this.groupBox1.Controls.Add(this.cboLocalidad);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.rbtnMujer);
-            this.groupBox1.Controls.Add(this.rbtnHombre);
-            this.groupBox1.Controls.Add(this.txtEdad);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtApellido);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtNombre);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(740, 94);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Datos personales";
+            this.gpbDatosPersonales.Controls.Add(this.dtpFechaIngreso);
+            this.gpbDatosPersonales.Controls.Add(this.label7);
+            this.gpbDatosPersonales.Controls.Add(this.btnAgregarLocalidad);
+            this.gpbDatosPersonales.Controls.Add(this.cboLocalidad);
+            this.gpbDatosPersonales.Controls.Add(this.label9);
+            this.gpbDatosPersonales.Controls.Add(this.rbtnMujer);
+            this.gpbDatosPersonales.Controls.Add(this.rbtnHombre);
+            this.gpbDatosPersonales.Controls.Add(this.txtEdad);
+            this.gpbDatosPersonales.Controls.Add(this.label3);
+            this.gpbDatosPersonales.Controls.Add(this.label4);
+            this.gpbDatosPersonales.Controls.Add(this.txtApellido);
+            this.gpbDatosPersonales.Controls.Add(this.label2);
+            this.gpbDatosPersonales.Controls.Add(this.txtNombre);
+            this.gpbDatosPersonales.Controls.Add(this.label1);
+            this.gpbDatosPersonales.Location = new System.Drawing.Point(12, 12);
+            this.gpbDatosPersonales.Name = "gpbDatosPersonales";
+            this.gpbDatosPersonales.Size = new System.Drawing.Size(740, 94);
+            this.gpbDatosPersonales.TabIndex = 0;
+            this.gpbDatosPersonales.TabStop = false;
+            this.gpbDatosPersonales.Text = "Datos personales";
             // 
             // dtpFechaIngreso
             // 
@@ -215,17 +215,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
-            // groupBox3
+            // gpbContactos
             // 
-            this.groupBox3.Controls.Add(this.btnQuitar);
-            this.groupBox3.Controls.Add(this.gridTelefonos);
-            this.groupBox3.Controls.Add(this.btnAgregar);
-            this.groupBox3.Location = new System.Drawing.Point(12, 195);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(531, 118);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Contactos";
+            this.gpbContactos.Controls.Add(this.btnQuitar);
+            this.gpbContactos.Controls.Add(this.gridTelefonos);
+            this.gpbContactos.Controls.Add(this.btnAgregar);
+            this.gpbContactos.Location = new System.Drawing.Point(12, 195);
+            this.gpbContactos.Name = "gpbContactos";
+            this.gpbContactos.Size = new System.Drawing.Size(531, 118);
+            this.gpbContactos.TabIndex = 2;
+            this.gpbContactos.TabStop = false;
+            this.gpbContactos.Text = "Contactos";
             // 
             // btnQuitar
             // 
@@ -257,19 +257,19 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // groupBox4
+            // gpbDomicilio
             // 
-            this.groupBox4.Controls.Add(this.btnSeleccionarDomicilio);
-            this.groupBox4.Controls.Add(this.txtNumCalle);
-            this.groupBox4.Controls.Add(this.txtNombreCalle);
-            this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Location = new System.Drawing.Point(12, 112);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(548, 77);
-            this.groupBox4.TabIndex = 3;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Domicilio";
+            this.gpbDomicilio.Controls.Add(this.btnSeleccionarDomicilio);
+            this.gpbDomicilio.Controls.Add(this.txtNumCalle);
+            this.gpbDomicilio.Controls.Add(this.txtNombreCalle);
+            this.gpbDomicilio.Controls.Add(this.label5);
+            this.gpbDomicilio.Controls.Add(this.label6);
+            this.gpbDomicilio.Location = new System.Drawing.Point(12, 112);
+            this.gpbDomicilio.Name = "gpbDomicilio";
+            this.gpbDomicilio.Size = new System.Drawing.Size(548, 77);
+            this.gpbDomicilio.TabIndex = 3;
+            this.gpbDomicilio.TabStop = false;
+            this.gpbDomicilio.Text = "Domicilio";
             // 
             // btnSeleccionarDomicilio
             // 
@@ -315,20 +315,20 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Calle";
             // 
-            // groupBox5
+            // gpbObservaciones
             // 
-            this.groupBox5.Controls.Add(this.txtObjetivos);
-            this.groupBox5.Controls.Add(this.txtPeso);
-            this.groupBox5.Controls.Add(this.label12);
-            this.groupBox5.Controls.Add(this.label10);
-            this.groupBox5.Controls.Add(this.label11);
-            this.groupBox5.Controls.Add(this.txtLecturaCorporal);
-            this.groupBox5.Location = new System.Drawing.Point(12, 319);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(768, 174);
-            this.groupBox5.TabIndex = 4;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Observaciones";
+            this.gpbObservaciones.Controls.Add(this.txtObjetivos);
+            this.gpbObservaciones.Controls.Add(this.txtPeso);
+            this.gpbObservaciones.Controls.Add(this.label12);
+            this.gpbObservaciones.Controls.Add(this.label10);
+            this.gpbObservaciones.Controls.Add(this.label11);
+            this.gpbObservaciones.Controls.Add(this.txtLecturaCorporal);
+            this.gpbObservaciones.Location = new System.Drawing.Point(12, 319);
+            this.gpbObservaciones.Name = "gpbObservaciones";
+            this.gpbObservaciones.Size = new System.Drawing.Size(768, 174);
+            this.gpbObservaciones.TabIndex = 4;
+            this.gpbObservaciones.TabStop = false;
+            this.gpbObservaciones.Text = "Observaciones";
             // 
             // txtObjetivos
             // 
@@ -409,28 +409,26 @@
             this.ClientSize = new System.Drawing.Size(796, 551);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gpbObservaciones);
+            this.Controls.Add(this.gpbDomicilio);
+            this.Controls.Add(this.gpbContactos);
+            this.Controls.Add(this.gpbDatosPersonales);
             this.Name = "FrmNuevoEditarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmNuevoEditarCliente";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
+            this.gpbDatosPersonales.ResumeLayout(false);
+            this.gpbDatosPersonales.PerformLayout();
+            this.gpbContactos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridTelefonos)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.gpbDomicilio.ResumeLayout(false);
+            this.gpbDomicilio.PerformLayout();
+            this.gpbObservaciones.ResumeLayout(false);
+            this.gpbObservaciones.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton rbtnMujer;
         private System.Windows.Forms.RadioButton rbtnHombre;
@@ -439,10 +437,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.DateTimePicker dtpFechaIngreso;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cboLocalidad;
@@ -453,7 +448,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnAgregarLocalidad;
-        private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox txtObjetivos;
         private System.Windows.Forms.TextBox txtPeso;
         private System.Windows.Forms.Label label12;
@@ -467,5 +461,10 @@
         public System.Windows.Forms.TextBox txtNombreCalle;
         internal System.Windows.Forms.DataGridView gridTelefonos;
         private System.Windows.Forms.Button btnQuitar;
+        internal System.Windows.Forms.GroupBox gpbContactos;
+        private System.Windows.Forms.TextBox txtNombre;
+        public System.Windows.Forms.GroupBox gpbDatosPersonales;
+        public System.Windows.Forms.GroupBox gpbDomicilio;
+        public System.Windows.Forms.GroupBox gpbObservaciones;
     }
 }

@@ -192,9 +192,11 @@ namespace Gimnasio
         {
             FrmGestionDomicilio frmGestionDomicilio = new FrmGestionDomicilio();
             frmGestionDomicilio.ShowDialog();
-
-            txtNombreCalle.Text = frmGestionDomicilio.calle;
-            txtNumCalle.Text = frmGestionDomicilio.numero.ToString();
+            if (frmGestionDomicilio.calle != "" && frmGestionDomicilio.numero != 0)
+            {
+                txtNombreCalle.Text = frmGestionDomicilio.calle;
+                txtNumCalle.Text = frmGestionDomicilio.numero.ToString();
+            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -203,7 +205,6 @@ namespace Gimnasio
             frmNuevoEditarTelefono.ShowDialog();
             if (FrmNuevoEditarTelefono.idtipotelefono != 0 && FrmNuevoEditarTelefono.numero != "")
             {
-                btnQuitar.Enabled = true;
                 agregarAGrillaTelefono();
                 cargarGrillaTelefono();
             }
