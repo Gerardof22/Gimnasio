@@ -42,6 +42,7 @@ namespace Gimnasio
 
         private void CargarCalle(int idSeleccionado)
         {
+            calle = dbGimnasio.Calles.Find(idSeleccionado);
             txtNombreCalle.Text = calle.nombre_calle;
         }
 
@@ -84,6 +85,11 @@ namespace Gimnasio
                         ve.PropertyName, ve.ErrorMessage);
                 }
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

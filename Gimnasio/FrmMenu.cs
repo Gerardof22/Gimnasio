@@ -81,5 +81,11 @@ namespace Gimnasio
         {
             
         }
+
+        private void gestiónCallesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGestionCalle frmGestionCalle = new FrmGestionCalle();
+            frmGestionCalle.ShowDialog();
+        }
     }
 }
