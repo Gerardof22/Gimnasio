@@ -25,6 +25,7 @@ namespace Datos
         [Required]
         public decimal detalleCobranza_total { get; set; }
 
-        public bool detalleCobranza_delete { get; set; } = false;
+        [DefaultValue(false)]
+        public bool detalleCobranza_delete { get; set; }
     }
 }

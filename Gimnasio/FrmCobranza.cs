@@ -155,7 +155,7 @@ namespace Gimnasio
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (gridDetalleCobranza.Rows.Count > 0 && gridDetalleCobranza.SelectedRows.Count > 0)
+            if (gridDetalleCobranza.Rows.Count > 0)
             {
                 int detalleSeleccionado = gridDetalleCobranza.CurrentRow.Index;
                 Detalle_Cobranza detalle_Cobranza = cobranza.DetalleCobranzas[detalleSeleccionado];

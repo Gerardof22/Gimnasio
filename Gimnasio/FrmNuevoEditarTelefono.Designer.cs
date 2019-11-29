@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnNuevoTipo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -89,11 +90,22 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // btnNuevoTipo
+            // 
+            this.btnNuevoTipo.Location = new System.Drawing.Point(234, 13);
+            this.btnNuevoTipo.Name = "btnNuevoTipo";
+            this.btnNuevoTipo.Size = new System.Drawing.Size(25, 23);
+            this.btnNuevoTipo.TabIndex = 6;
+            this.btnNuevoTipo.Text = "...";
+            this.btnNuevoTipo.UseVisualStyleBackColor = true;
+            this.btnNuevoTipo.Click += new System.EventHandler(this.btnNuevoTipo_Click);
+            // 
             // FrmNuevoEditarTelefono
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(245, 128);
+            this.ClientSize = new System.Drawing.Size(268, 128);
+            this.Controls.Add(this.btnNuevoTipo);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.label2);
@@ -115,5 +127,6 @@
         private System.Windows.Forms.Button btnCancelar;
         internal System.Windows.Forms.ComboBox cboTipoTelefono;
         internal System.Windows.Forms.TextBox txtNumeroTelefono;
+        private System.Windows.Forms.Button btnNuevoTipo;
     }
 }

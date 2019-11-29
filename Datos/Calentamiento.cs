@@ -19,8 +19,9 @@ namespace Datos
         
         [StringLength (200)]
         public string calentamiento_descripcion { get; set; }
-        
-        public bool calentamiento_delete { get; set; } = false;
+
+        [DefaultValue(false)]
+        public bool calentamiento_delete { get; set; }
 
 
         public virtual ObservableCollection<Rutina> Rutinas { get; set; }

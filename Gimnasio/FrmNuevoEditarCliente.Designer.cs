@@ -62,6 +62,8 @@
             this.txtLecturaCorporal = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
             this.gpbDatosPersonales.SuspendLayout();
             this.gpbContactos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridTelefonos)).BeginInit();
@@ -71,6 +73,8 @@
             // 
             // gpbDatosPersonales
             // 
+            this.gpbDatosPersonales.Controls.Add(this.dtpFechaNacimiento);
+            this.gpbDatosPersonales.Controls.Add(this.label13);
             this.gpbDatosPersonales.Controls.Add(this.dtpFechaIngreso);
             this.gpbDatosPersonales.Controls.Add(this.label7);
             this.gpbDatosPersonales.Controls.Add(this.btnAgregarLocalidad);
@@ -87,7 +91,7 @@
             this.gpbDatosPersonales.Controls.Add(this.label1);
             this.gpbDatosPersonales.Location = new System.Drawing.Point(12, 12);
             this.gpbDatosPersonales.Name = "gpbDatosPersonales";
-            this.gpbDatosPersonales.Size = new System.Drawing.Size(740, 94);
+            this.gpbDatosPersonales.Size = new System.Drawing.Size(872, 94);
             this.gpbDatosPersonales.TabIndex = 0;
             this.gpbDatosPersonales.TabStop = false;
             this.gpbDatosPersonales.Text = "Datos personales";
@@ -95,7 +99,7 @@
             // dtpFechaIngreso
             // 
             this.dtpFechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaIngreso.Location = new System.Drawing.Point(634, 58);
+            this.dtpFechaIngreso.Location = new System.Drawing.Point(645, 58);
             this.dtpFechaIngreso.Name = "dtpFechaIngreso";
             this.dtpFechaIngreso.Size = new System.Drawing.Size(96, 20);
             this.dtpFechaIngreso.TabIndex = 0;
@@ -111,7 +115,7 @@
             // 
             // btnAgregarLocalidad
             // 
-            this.btnAgregarLocalidad.Location = new System.Drawing.Point(493, 58);
+            this.btnAgregarLocalidad.Location = new System.Drawing.Point(499, 57);
             this.btnAgregarLocalidad.Name = "btnAgregarLocalidad";
             this.btnAgregarLocalidad.Size = new System.Drawing.Size(75, 23);
             this.btnAgregarLocalidad.TabIndex = 15;
@@ -122,15 +126,15 @@
             // cboLocalidad
             // 
             this.cboLocalidad.FormattingEnabled = true;
-            this.cboLocalidad.Location = new System.Drawing.Point(348, 59);
+            this.cboLocalidad.Location = new System.Drawing.Point(331, 58);
             this.cboLocalidad.Name = "cboLocalidad";
-            this.cboLocalidad.Size = new System.Drawing.Size(139, 21);
+            this.cboLocalidad.Size = new System.Drawing.Size(162, 21);
             this.cboLocalidad.TabIndex = 21;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(294, 63);
+            this.label9.Location = new System.Drawing.Point(277, 62);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 13);
             this.label9.TabIndex = 10;
@@ -160,7 +164,7 @@
             // 
             // txtEdad
             // 
-            this.txtEdad.Location = new System.Drawing.Point(635, 19);
+            this.txtEdad.Location = new System.Drawing.Point(803, 20);
             this.txtEdad.Name = "txtEdad";
             this.txtEdad.Size = new System.Drawing.Size(63, 20);
             this.txtEdad.TabIndex = 7;
@@ -168,7 +172,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(593, 23);
+            this.label3.Location = new System.Drawing.Point(766, 24);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 6;
@@ -185,7 +189,7 @@
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(348, 20);
+            this.txtApellido.Location = new System.Drawing.Point(331, 19);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(200, 20);
             this.txtApellido.TabIndex = 3;
@@ -193,7 +197,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(294, 23);
+            this.label2.Location = new System.Drawing.Point(277, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 2;
@@ -325,7 +329,7 @@
             this.gpbObservaciones.Controls.Add(this.txtLecturaCorporal);
             this.gpbObservaciones.Location = new System.Drawing.Point(12, 319);
             this.gpbObservaciones.Name = "gpbObservaciones";
-            this.gpbObservaciones.Size = new System.Drawing.Size(768, 174);
+            this.gpbObservaciones.Size = new System.Drawing.Size(866, 174);
             this.gpbObservaciones.TabIndex = 4;
             this.gpbObservaciones.TabStop = false;
             this.gpbObservaciones.Text = "Observaciones";
@@ -379,7 +383,7 @@
             this.txtLecturaCorporal.Multiline = true;
             this.txtLecturaCorporal.Name = "txtLecturaCorporal";
             this.txtLecturaCorporal.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtLecturaCorporal.Size = new System.Drawing.Size(296, 146);
+            this.txtLecturaCorporal.Size = new System.Drawing.Size(412, 146);
             this.txtLecturaCorporal.TabIndex = 25;
             // 
             // btnGuardar
@@ -402,11 +406,29 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // dtpFechaNacimiento
+            // 
+            this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(645, 19);
+            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
+            this.dtpFechaNacimiento.Size = new System.Drawing.Size(96, 20);
+            this.dtpFechaNacimiento.TabIndex = 23;
+            this.dtpFechaNacimiento.ValueChanged += new System.EventHandler(this.dtpFechaNacimiento_ValueChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(544, 22);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(91, 13);
+            this.label13.TabIndex = 24;
+            this.label13.Text = "Fecha nacimiento";
+            // 
             // FrmNuevoEditarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(796, 551);
+            this.ClientSize = new System.Drawing.Size(896, 551);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.gpbObservaciones);
@@ -466,5 +488,7 @@
         public System.Windows.Forms.GroupBox gpbDatosPersonales;
         public System.Windows.Forms.GroupBox gpbDomicilio;
         public System.Windows.Forms.GroupBox gpbObservaciones;
+        private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
+        private System.Windows.Forms.Label label13;
     }
 }

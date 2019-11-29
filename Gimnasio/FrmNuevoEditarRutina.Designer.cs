@@ -384,7 +384,6 @@
             this.btnQuitarEjercicio.TabIndex = 29;
             this.btnQuitarEjercicio.Text = "Quitar";
             this.btnQuitarEjercicio.UseVisualStyleBackColor = true;
-            this.btnQuitarEjercicio.Click += new System.EventHandler(this.btnQuitarEjercicio_Click);
             // 
             // btnAgregarEjercicio
             // 

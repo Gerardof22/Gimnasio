@@ -111,5 +111,12 @@ namespace Gimnasio
         {
             this.Close();
         }
+
+        private void btnNuevoTipo_Click(object sender, EventArgs e)
+        {
+            FrmNuevoEditarTipoTelefono frmNuevoEditarTipoTelefono = new FrmNuevoEditarTipoTelefono();
+            frmNuevoEditarTipoTelefono.ShowDialog();
+            cargarComboTipoTelefono(frmNuevoEditarTipoTelefono.tipo_Telefono.tipo_telefono_idtipotelefono);
+        }
     }
 }

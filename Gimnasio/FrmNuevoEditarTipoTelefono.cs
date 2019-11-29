@@ -16,7 +16,7 @@ namespace Gimnasio
     public partial class FrmNuevoEditarTipoTelefono : Form
     {
         GimnasioContext dbGimnasio;
-        Tipo_Telefono tipo_Telefono;
+        public Tipo_Telefono tipo_Telefono;
 
         public FrmNuevoEditarTipoTelefono()
         {

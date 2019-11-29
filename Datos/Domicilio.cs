@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,8 @@ namespace Datos
         
         public int domocilio_numero { get; set; }
 
-        public bool domocilio_delete { get; set; } = false;
+        [DefaultValue(false)]
+        public bool domocilio_delete { get; set; }
 
         public virtual ObservableCollection<Cliente> Clientes { get; set; }
         

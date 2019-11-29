@@ -27,8 +27,8 @@ namespace Gimnasio
         private void listarGrillaClientes()
         {
             var listaCliente = from cliente in dbGimnasio.Clientes
-                               join domicilio in dbGimnasio.Domicilios on cliente.domicilio.domicilio_iddomicilio equals domicilio.domicilio_iddomicilio
-                               join localidad in dbGimnasio.Localidads on cliente.localidad.localidad_idlocalidad equals localidad.localidad_idlocalidad
+                               join domicilio in dbGimnasio.Domicilios on cliente.Domicilio.domicilio_iddomicilio equals domicilio.domicilio_iddomicilio
+                               join localidad in dbGimnasio.Localidads on cliente.Localidad.localidad_idlocalidad equals localidad.localidad_idlocalidad
 
                                select new
                                {
@@ -55,8 +55,8 @@ namespace Gimnasio
         private void buscarCliente(string textToSearch)
         {
             var listaCliente = from cliente in dbGimnasio.Clientes
-                               join domicilio in dbGimnasio.Domicilios on cliente.domicilio.domicilio_iddomicilio equals domicilio.domicilio_iddomicilio
-                               join localidad in dbGimnasio.Localidads on cliente.localidad.localidad_idlocalidad equals localidad.localidad_idlocalidad
+                               join domicilio in dbGimnasio.Domicilios on cliente.Domicilio.domicilio_iddomicilio equals domicilio.domicilio_iddomicilio
+                               join localidad in dbGimnasio.Localidads on cliente.Localidad.localidad_idlocalidad equals localidad.localidad_idlocalidad
 
                                select new
                                {

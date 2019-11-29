@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace Datos
         [Required]
         public DateTime control_ingreso_fecha { get; set; }
 
-        public bool control_ingreso_delete { get; set; } = false; //Estable el valor por defecto en 'false'.
+        [DefaultValue(false)] //Estable el valor por defecto en 'false'.
+        public bool control_ingreso_delete { get; set; } 
     }
 }

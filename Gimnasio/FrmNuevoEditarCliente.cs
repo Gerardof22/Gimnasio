@@ -47,13 +47,14 @@ namespace Gimnasio
             cliente                 = dbGimnasio.Clientes.Find(idSeleccionado);
             txtNombre.Text          = cliente.clientes_nombre;
             txtApellido.Text        = cliente.clientes_apellido;
+            dtpFechaNacimiento.Value = cliente.fechaNacimiento;
             txtEdad.Text            = cliente.clientes_edad.ToString();
             validateGenero();
-            cargarComboLocalidad(cliente.localidad.localidad_idlocalidad);
+            cargarComboLocalidad(cliente.Localidad.localidad_idlocalidad);
             dtpFechaIngreso.Value   = cliente.clientes_fechaIngreso;
-            cliente.domicilio       = dbGimnasio.Domicilios.Find((int)cliente.domicilio.domicilio_iddomicilio);
-            txtNombreCalle.Text     = cliente.domicilio.domicilio_calle;
-            txtNumCalle.Text        = cliente.domicilio.domocilio_numero.ToString();
+            cliente.Domicilio       = dbGimnasio.Domicilios.Find((int)cliente.Domicilio.domicilio_iddomicilio);
+            txtNombreCalle.Text     = cliente.Domicilio.domicilio_calle;
+            txtNumCalle.Text        = cliente.Domicilio.domocilio_numero.ToString();
             cargarGrillaTelefono(idSeleccionado);
             txtObjetivos.Text       = cliente.clientes_objetivos;
             txtLecturaCorporal.Text = cliente.clientes_lecturaCorporal;
@@ -123,13 +124,14 @@ namespace Gimnasio
             {
                 cliente.clientes_nombre = txtNombre.Text;
                 cliente.clientes_apellido = txtApellido.Text;
-                cliente.clientes_edad = Int32.Parse(txtEdad.Text);
+                cliente.fechaNacimiento = dtpFechaNacimiento.Value;
+                cliente.clientes_edad = Int32.Parse(CalcularEdad(dtpFechaNacimiento.Value).ToString());
                 genero();
-                cliente.localidad = (Localidad)cboLocalidad.SelectedItem;
+                cliente.Localidad = (Localidad)cboLocalidad.SelectedItem;
                 cliente.clientes_fechaIngreso = dtpFechaIngreso.Value;
                 if (dbGimnasio.Domicilios.Find(FrmGestionDomicilio.iddomicilio) != null)
                 {
-                    cliente.domicilio = dbGimnasio.Domicilios.Find(FrmGestionDomicilio.iddomicilio);
+                    cliente.Domicilio = dbGimnasio.Domicilios.Find(FrmGestionDomicilio.iddomicilio);
                 }
                 cliente.clientes_objetivos = txtObjetivos.Text;
                 cliente.clientes_lecturaCorporal = txtLecturaCorporal.Text;
@@ -265,6 +267,24 @@ namespace Gimnasio
             DataGridViewCellCollection celdasFilaActual = dataGridView.CurrentRow.Cells;
 
             return celdasFilaActual[column].Value;
+        }
+
+        public int CalcularEdad(DateTime FechaNacimiento)
+        {
+            DateTime now = DateTime.Today;
+            int edad = now.Year - FechaNacimiento.Year;
+
+            if (FechaNacimiento.AddYears(edad) > now)
+            {
+                edad--;
+            }
+
+            return edad;
+        }
+
+        private void dtpFechaNacimiento_ValueChanged(object sender, EventArgs e)
+        {
+            txtEdad.Text = CalcularEdad(dtpFechaNacimiento.Value).ToString();
         }
     }
 }

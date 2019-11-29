@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,8 @@ namespace Datos
         [StringLength (70)]
         public string localidad_localidad { get; set; }
 
-        public bool localidad_delete { get; set; } = false;
+        [DefaultValue(false)]
+        public bool localidad_delete { get; set; }
 
         public virtual ObservableCollection<Cliente> clientes { get; set; }
 

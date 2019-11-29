@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,8 @@ namespace Datos
         [Required]
         public decimal cobranza_total { get; set; }
 
-        public bool cobranza_delete { get; set; } = false;
+        [DefaultValue(false)]
+        public bool cobranza_delete { get; set; }
 
         //Según la pagína de EF dice que, ésto es el equivalente de one to Many
         public virtual ObservableCollection<Detalle_Cobranza> DetalleCobranzas { get; set; }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,13 @@ namespace Datos
         
         public int? rutina_idcalentamiento { get; set; }
         public virtual Calentamiento Calentamiento { get; set; }
-        
+        [Required]
+        public int idcalentamiento { get; set; }
+        public virtual Ejercicio Ejercicio { get; set; }
+
+        public int? idcliente { get; set; }
+        public virtual Cliente Cliente { get; set; }
+
         [Required]
         public DateTime rutina_fechaDesde { get; set; }
 
@@ -34,9 +41,9 @@ namespace Datos
 
         public float rutina_pesokg { get; set; }
 
-        public bool rutina_delete { get; set; } = false;
+        [DefaultValue(false)]
+        public bool rutina_delete { get; set; }
 
         public virtual ObservableCollection<Tipo_Rutina> Tipos_Rutinas { get; set; }
-        public virtual ObservableCollection<Ejercicio> Ejercicios { get; set; }
     }
 }

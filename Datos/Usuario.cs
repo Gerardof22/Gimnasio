@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,8 @@ namespace Datos
         [MaxLength (128)]
         public string usuario_password { get; set; }
 
-        public bool login_delete { get; set; } = false;
+        [DefaultValue(false)]
+        public bool login_delete { get; set; }
 
         public virtual ObservableCollection<Tipo_Usuario> Tipos_Usuarios { get; set; }
     }
