@@ -30,7 +30,7 @@ namespace Gimnasio
                                   select new
                                   {
                                       iddomicilio = domicilio.domicilio_iddomicilio,
-                                      calle = domicilio.domicilio_calle,
+                                      calle = domicilio.Calle.nombre_calle,
                                       numero = domicilio.domocilio_numero,
                                       isDelete = domicilio.domocilio_delete
                                   };
@@ -43,7 +43,7 @@ namespace Gimnasio
                                   select new
                                   {
                                       iddomicilio = domicilio.domicilio_iddomicilio,
-                                      calle = domicilio.domicilio_calle,
+                                      calle = domicilio.Calle.nombre_calle,
                                       numero = domicilio.domocilio_numero,
                                       isDelete = domicilio.domocilio_delete
                                   };

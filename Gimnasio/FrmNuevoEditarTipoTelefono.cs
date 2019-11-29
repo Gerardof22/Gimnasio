@@ -42,7 +42,7 @@ namespace Gimnasio
 
         private void cargarTipoTelefono(int idSeleccionado)
         {
-            tipo_Telefono = dbGimnasio.Tipo_Telefonos.Find(idSeleccionado);
+            tipo_Telefono = dbGimnasio.Tipos_Telefonos.Find(idSeleccionado);
             txtTipoTelefono.Text = tipo_Telefono.tipo_telefono_telefono;
         }
 
@@ -59,7 +59,7 @@ namespace Gimnasio
                 }
                 else
                 {
-                    dbGimnasio.Tipo_Telefonos.Add(tipo_Telefono);
+                    dbGimnasio.Tipos_Telefonos.Add(tipo_Telefono);
                     MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 

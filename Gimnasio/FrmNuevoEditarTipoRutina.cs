@@ -44,7 +44,7 @@ namespace Gimnasio
 
         private void cargarTipoRutina(int idSeleccionado)
         {
-            tipo_rutina = dbGimnasio.Tipo_Rutinas.Find(idSeleccionado);
+            tipo_rutina = dbGimnasio.Tipos_Rutinas.Find(idSeleccionado);
             txtTipoRutina.Text = tipo_rutina.tipo_rutina_nombre;
         }
 

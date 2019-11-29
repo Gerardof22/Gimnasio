@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmNuevoEditarCalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNuevoEditarCalle.Designer.cs">
+      <DependentUpon>FrmNuevoEditarCalle.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCobranza.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,9 @@
     <Compile Include="Reportes\ReporteCliente.Designer.cs">
       <DependentUpon>ReporteCliente.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmNuevoEditarCalle.resx">
+      <DependentUpon>FrmNuevoEditarCalle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCobranza.resx">
       <DependentUpon>FrmCobranza.cs</DependentUpon>
     </EmbeddedResource>

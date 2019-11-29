@@ -57,7 +57,7 @@ namespace Gimnasio
 
         private void cargarComboTipoTelefono(int idtipoTelefono)
         {
-            cboTipoTelefono.DataSource = dbGimnasio.Tipo_Telefonos.ToList();
+            cboTipoTelefono.DataSource = dbGimnasio.Tipos_Telefonos.ToList();
 
             //campo que vera el usuario
             cboTipoTelefono.DisplayMember = "tipo_telefono_telefono";

@@ -44,7 +44,7 @@ namespace Gimnasio
         private void cargarGrillaTelefonos(string textoABuscar)
         {
             var listaTelefonos = from telefono in dbGimnasio.Telefonos
-                                 join tipoTelefono in dbGimnasio.Tipo_Telefonos on telefono.telefono_idtipotelefono equals tipoTelefono.tipo_telefono_idtipotelefono
+                                 join tipoTelefono in dbGimnasio.Tipos_Telefonos on telefono.telefono_idtipotelefono equals tipoTelefono.tipo_telefono_idtipotelefono
                                  join cliente in dbGimnasio.Clientes on telefono.telefono_idcliente equals cliente.clientes_idcliente
                                  select new
                                  {

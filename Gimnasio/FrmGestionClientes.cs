@@ -34,7 +34,7 @@ namespace Gimnasio
                                {
                                    idcliente = cliente.clientes_idcliente,
                                    nombre_apellido = cliente.clientes_nombre + " " + cliente.clientes_apellido,
-                                   direccion = domicilio.domicilio_calle + " " + domicilio.domocilio_numero,
+                                   direccion = domicilio.Calle.nombre_calle + " " + domicilio.domocilio_numero,
                                    localidad = localidad.localidad_localidad,
                                    fechaIngreso = cliente.clientes_fechaIngreso,
                                    genero = cliente.clientes_genero,
@@ -62,7 +62,7 @@ namespace Gimnasio
                                {
                                    idcliente = cliente.clientes_idcliente,
                                    nombre_apellido = cliente.clientes_nombre + " " + cliente.clientes_apellido,
-                                   direccion = domicilio.domicilio_calle + " " + domicilio.domocilio_numero,
+                                   direccion = domicilio.Calle.nombre_calle + " " + domicilio.domocilio_numero,
                                    localidad = localidad.localidad_localidad,
                                    fechaIngreso = cliente.clientes_fechaIngreso,
                                    genero = cliente.clientes_genero,

@@ -15,6 +15,7 @@ namespace Datos
         }
 
         public DbSet<Calentamiento> Calentamientos { get; set; }
+        public DbSet<Calle> Calles { get; set; }
         public DbSet<Cardio> Cardios { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Cobranza> Cobranzas { get; set; }
@@ -25,9 +26,9 @@ namespace Datos
         public DbSet<Localidad> Localidads { get; set; }
         public DbSet<Rutina> Rutinas { get; set; }
         public DbSet<Telefono> Telefonos { get; set; }
-        public DbSet<Tipo_Calentamiento> Tipo_Calentamientos { get; set; }
-        public DbSet<Tipo_Rutina> Tipo_Rutinas { get; set; }
-        public DbSet<Tipo_Telefono> Tipo_Telefonos { get; set; }
+        public DbSet<Tipo_Calentamiento> Tipos_Calentamientos { get; set; }
+        public DbSet<Tipo_Rutina> Tipos_Rutinas { get; set; }
+        public DbSet<Tipo_Telefono> Tipos_Telefonos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
 
     }

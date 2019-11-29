@@ -53,7 +53,7 @@ namespace Gimnasio
             cargarComboLocalidad(cliente.Localidad.localidad_idlocalidad);
             dtpFechaIngreso.Value   = cliente.clientes_fechaIngreso;
             cliente.Domicilio       = dbGimnasio.Domicilios.Find((int)cliente.Domicilio.domicilio_iddomicilio);
-            txtNombreCalle.Text     = cliente.Domicilio.domicilio_calle;
+            txtNombreCalle.Text     = cliente.Domicilio.Calle.nombre_calle;
             txtNumCalle.Text        = cliente.Domicilio.domocilio_numero.ToString();
             cargarGrillaTelefono(idSeleccionado);
             txtObjetivos.Text       = cliente.clientes_objetivos;
@@ -214,12 +214,12 @@ namespace Gimnasio
 
         private void agregarAGrillaTelefono()
         {
-            if (dbGimnasio.Tipo_Telefonos.Find(FrmNuevoEditarTelefono.idtipotelefono) != null)
+            if (dbGimnasio.Tipos_Telefonos.Find(FrmNuevoEditarTelefono.idtipotelefono) != null)
             {
                 telefono = new Telefono();
                 telefono.telefono_idtelefono = FrmNuevoEditarTelefono.idtelefono;
                 telefono.telefono_idtipotelefono = FrmNuevoEditarTelefono.idtipotelefono;
-                telefono.Tipos_Telefonos = dbGimnasio.Tipo_Telefonos.Find(FrmNuevoEditarTelefono.idtipotelefono);
+                telefono.Tipos_Telefonos = dbGimnasio.Tipos_Telefonos.Find(FrmNuevoEditarTelefono.idtipotelefono);
                 telefono.telefono_numero = FrmNuevoEditarTelefono.numero.ToString();
 
                 if (cliente.Telefonos == null)

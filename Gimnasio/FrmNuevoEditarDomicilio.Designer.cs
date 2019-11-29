@@ -30,10 +30,11 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtNombreCalle = new System.Windows.Forms.TextBox();
             this.txtNumeroCalle = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAgregarCalle = new System.Windows.Forms.Button();
+            this.cboCalle = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -54,18 +55,11 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Número";
             // 
-            // txtNombreCalle
-            // 
-            this.txtNombreCalle.Location = new System.Drawing.Point(60, 13);
-            this.txtNombreCalle.Name = "txtNombreCalle";
-            this.txtNombreCalle.Size = new System.Drawing.Size(161, 20);
-            this.txtNombreCalle.TabIndex = 2;
-            // 
             // txtNumeroCalle
             // 
             this.txtNumeroCalle.Location = new System.Drawing.Point(60, 42);
             this.txtNumeroCalle.Name = "txtNumeroCalle";
-            this.txtNumeroCalle.Size = new System.Drawing.Size(161, 20);
+            this.txtNumeroCalle.Size = new System.Drawing.Size(186, 20);
             this.txtNumeroCalle.TabIndex = 3;
             // 
             // btnGuardar
@@ -80,7 +74,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(146, 78);
+            this.btnCancelar.Location = new System.Drawing.Point(171, 78);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 5;
@@ -88,15 +82,34 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // btnAgregarCalle
+            // 
+            this.btnAgregarCalle.Location = new System.Drawing.Point(252, 8);
+            this.btnAgregarCalle.Name = "btnAgregarCalle";
+            this.btnAgregarCalle.Size = new System.Drawing.Size(27, 23);
+            this.btnAgregarCalle.TabIndex = 6;
+            this.btnAgregarCalle.Text = "...";
+            this.btnAgregarCalle.UseVisualStyleBackColor = true;
+            this.btnAgregarCalle.Click += new System.EventHandler(this.btnAgregarCalle_Click);
+            // 
+            // cboCalle
+            // 
+            this.cboCalle.FormattingEnabled = true;
+            this.cboCalle.Location = new System.Drawing.Point(60, 10);
+            this.cboCalle.Name = "cboCalle";
+            this.cboCalle.Size = new System.Drawing.Size(186, 21);
+            this.cboCalle.TabIndex = 7;
+            // 
             // FrmNuevoEditarDomicilio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(234, 116);
+            this.ClientSize = new System.Drawing.Size(291, 116);
+            this.Controls.Add(this.cboCalle);
+            this.Controls.Add(this.btnAgregarCalle);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtNumeroCalle);
-            this.Controls.Add(this.txtNombreCalle);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmNuevoEditarDomicilio";
@@ -110,9 +123,10 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNombreCalle;
         private System.Windows.Forms.TextBox txtNumeroCalle;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnAgregarCalle;
+        private System.Windows.Forms.ComboBox cboCalle;
     }
 }

@@ -9,21 +9,18 @@ using System.Threading.Tasks;
 
 namespace Datos
 {
-    public class Domicilio
+    public class Calle
     {
         [Key]
-        public int domicilio_iddomicilio { get; set; }
+        public int idcalle { get; set; }
 
         [Required]
-        public int idcalle { get; set; }
-        public virtual Calle Calle { get; set; }
-
-        public int domocilio_numero { get; set; }
+        [StringLength(60)]
+        public string nombre_calle { get; set; }
 
         [DefaultValue(false)]
-        public bool domocilio_delete { get; set; }
+        public bool IsDelected { get; set; }
 
-        public virtual ObservableCollection<Cliente> Clientes { get; set; }
-        
+        public virtual ObservableCollection<Domicilio> Domicilios { get; set; }
     }
 }
