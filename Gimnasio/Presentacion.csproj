@@ -55,6 +55,12 @@
     <Compile Include="FrmGestionCalle.Designer.cs">
       <DependentUpon>FrmGestionCalle.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmGestionTipoTelefono.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGestionTipoTelefono.Designer.cs">
+      <DependentUpon>FrmGestionTipoTelefono.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmNuevoEditarCalle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,6 +214,9 @@
     </Compile>
     <EmbeddedResource Include="FrmGestionCalle.resx">
       <DependentUpon>FrmGestionCalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestionTipoTelefono.resx">
+      <DependentUpon>FrmGestionTipoTelefono.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNuevoEditarCalle.resx">
       <DependentUpon>FrmNuevoEditarCalle.cs</DependentUpon>

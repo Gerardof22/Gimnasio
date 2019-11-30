@@ -93,5 +93,108 @@ namespace Gimnasio
             FrmNuevoEditarEjercicio frmNuevoEditarEjercicio = new FrmNuevoEditarEjercicio();
             frmNuevoEditarEjercicio.ShowDialog();
         }
+
+        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Sistema realizado por Gerardo Ferreyra.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void entrenamientosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Sistema realizado por Gerardo Ferreyra.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void salirToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void nuevoClienteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmNuevoEditarCliente frmNuevoEditarCliente = new FrmNuevoEditarCliente();
+            frmNuevoEditarCliente.ShowDialog();
+        }
+
+        private void gestiónClienteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmGestionClientes frmGestionClientes = new FrmGestionClientes();
+            frmGestionClientes.ShowDialog();
+        }
+
+        private void nuevoIngresoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmNuevoEditarControlIngreso frmNuevoEditarControlIngreso = new FrmNuevoEditarControlIngreso();
+            frmNuevoEditarControlIngreso.ShowDialog();
+        }
+
+        private void gestiónDeIngresoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGestionControlIngreso frmGestionControlIngreso = new FrmGestionControlIngreso();
+            frmGestionControlIngreso.ShowDialog();
+        }
+
+        private void nuevoDomicilioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmNuevoEditarDomicilio frmNuevoEditarDomicilio = new FrmNuevoEditarDomicilio();
+            frmNuevoEditarDomicilio.ShowDialog();
+        }
+
+        private void gestiónDomicilioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGestionDomicilio frmGestionDomicilio = new FrmGestionDomicilio();
+            frmGestionDomicilio.ShowDialog();
+        }
+
+        private void nuevoTelefonoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmNuevoEditarTelefono frmNuevoEditarTelefono = new FrmNuevoEditarTelefono();
+            frmNuevoEditarTelefono.ShowDialog();
+        }
+
+        private void nuevoTipoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmNuevoEditarTipoTelefono frmNuevoEditarTipoTelefono = new FrmNuevoEditarTipoTelefono();
+            frmNuevoEditarTipoTelefono.ShowDialog();
+        }
+
+        private void gestiónDeTiposDeTelefonosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGestionTipoTelefono frmGestionTipoTelefono = new FrmGestionTipoTelefono();
+            frmGestionTipoTelefono.ShowDialog();
+        }
+
+        private void nuevaCobranzaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCobranza frmCobranza = new FrmCobranza();
+            frmCobranza.ShowDialog();
+        }
+
+        private void nuevoEjercicioToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FrmNuevoEditarEjercicio frmNuevoEditarEjercicio = new FrmNuevoEditarEjercicio();
+            frmNuevoEditarEjercicio.ShowDialog();
+        }
+
+        private void nuevoCalentamientoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void nuevoCardioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmNuevoEditarCardio frmNuevoEditarCardio = new FrmNuevoEditarCardio();
+            frmNuevoEditarCardio.ShowDialog();
+        }
+
+        private void gestiónCardioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGestionCardio frmGestionCardio = new FrmGestionCardio();
+            frmGestionCardio.ShowDialog();
+        }
     }
 }

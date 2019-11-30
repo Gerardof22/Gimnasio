@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.gpbDatosPersonales = new System.Windows.Forms.GroupBox();
+            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
             this.dtpFechaIngreso = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.btnAgregarLocalidad = new System.Windows.Forms.Button();
@@ -62,8 +64,6 @@
             this.txtLecturaCorporal = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
-            this.label13 = new System.Windows.Forms.Label();
             this.gpbDatosPersonales.SuspendLayout();
             this.gpbContactos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridTelefonos)).BeginInit();
@@ -96,13 +96,31 @@
             this.gpbDatosPersonales.TabStop = false;
             this.gpbDatosPersonales.Text = "Datos personales";
             // 
+            // dtpFechaNacimiento
+            // 
+            this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(645, 19);
+            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
+            this.dtpFechaNacimiento.Size = new System.Drawing.Size(96, 20);
+            this.dtpFechaNacimiento.TabIndex = 3;
+            this.dtpFechaNacimiento.ValueChanged += new System.EventHandler(this.dtpFechaNacimiento_ValueChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(544, 22);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(91, 13);
+            this.label13.TabIndex = 24;
+            this.label13.Text = "Fecha nacimiento";
+            // 
             // dtpFechaIngreso
             // 
             this.dtpFechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaIngreso.Location = new System.Drawing.Point(645, 58);
             this.dtpFechaIngreso.Name = "dtpFechaIngreso";
             this.dtpFechaIngreso.Size = new System.Drawing.Size(96, 20);
-            this.dtpFechaIngreso.TabIndex = 0;
+            this.dtpFechaIngreso.TabIndex = 8;
             // 
             // label7
             // 
@@ -118,7 +136,7 @@
             this.btnAgregarLocalidad.Location = new System.Drawing.Point(499, 57);
             this.btnAgregarLocalidad.Name = "btnAgregarLocalidad";
             this.btnAgregarLocalidad.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregarLocalidad.TabIndex = 15;
+            this.btnAgregarLocalidad.TabIndex = 7;
             this.btnAgregarLocalidad.Text = "Agregar";
             this.btnAgregarLocalidad.UseVisualStyleBackColor = true;
             this.btnAgregarLocalidad.Click += new System.EventHandler(this.btnAgregarLocalidad_Click);
@@ -129,7 +147,7 @@
             this.cboLocalidad.Location = new System.Drawing.Point(331, 58);
             this.cboLocalidad.Name = "cboLocalidad";
             this.cboLocalidad.Size = new System.Drawing.Size(162, 21);
-            this.cboLocalidad.TabIndex = 21;
+            this.cboLocalidad.TabIndex = 6;
             // 
             // label9
             // 
@@ -146,7 +164,7 @@
             this.rbtnMujer.Location = new System.Drawing.Point(207, 65);
             this.rbtnMujer.Name = "rbtnMujer";
             this.rbtnMujer.Size = new System.Drawing.Size(51, 17);
-            this.rbtnMujer.TabIndex = 9;
+            this.rbtnMujer.TabIndex = 5;
             this.rbtnMujer.Text = "Mujer";
             this.rbtnMujer.UseVisualStyleBackColor = true;
             // 
@@ -157,13 +175,14 @@
             this.rbtnHombre.Location = new System.Drawing.Point(58, 63);
             this.rbtnHombre.Name = "rbtnHombre";
             this.rbtnHombre.Size = new System.Drawing.Size(62, 17);
-            this.rbtnHombre.TabIndex = 8;
+            this.rbtnHombre.TabIndex = 4;
             this.rbtnHombre.TabStop = true;
             this.rbtnHombre.Text = "Hombre";
             this.rbtnHombre.UseVisualStyleBackColor = true;
             // 
             // txtEdad
             // 
+            this.txtEdad.Enabled = false;
             this.txtEdad.Location = new System.Drawing.Point(803, 20);
             this.txtEdad.Name = "txtEdad";
             this.txtEdad.Size = new System.Drawing.Size(63, 20);
@@ -192,7 +211,7 @@
             this.txtApellido.Location = new System.Drawing.Point(331, 19);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(200, 20);
-            this.txtApellido.TabIndex = 3;
+            this.txtApellido.TabIndex = 2;
             // 
             // label2
             // 
@@ -236,7 +255,7 @@
             this.btnQuitar.Location = new System.Drawing.Point(442, 71);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(75, 23);
-            this.btnQuitar.TabIndex = 21;
+            this.btnQuitar.TabIndex = 11;
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = true;
             this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
@@ -256,7 +275,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(442, 42);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 19;
+            this.btnAgregar.TabIndex = 10;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -280,7 +299,7 @@
             this.btnSeleccionarDomicilio.Location = new System.Drawing.Point(438, 38);
             this.btnSeleccionarDomicilio.Name = "btnSeleccionarDomicilio";
             this.btnSeleccionarDomicilio.Size = new System.Drawing.Size(75, 23);
-            this.btnSeleccionarDomicilio.TabIndex = 15;
+            this.btnSeleccionarDomicilio.TabIndex = 9;
             this.btnSeleccionarDomicilio.Text = "Seleccionar domicilio";
             this.btnSeleccionarDomicilio.UseVisualStyleBackColor = true;
             this.btnSeleccionarDomicilio.Click += new System.EventHandler(this.btnSeleccionarDomicilio_Click);
@@ -341,14 +360,14 @@
             this.txtObjetivos.Name = "txtObjetivos";
             this.txtObjetivos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtObjetivos.Size = new System.Drawing.Size(282, 82);
-            this.txtObjetivos.TabIndex = 27;
+            this.txtObjetivos.TabIndex = 12;
             // 
             // txtPeso
             // 
             this.txtPeso.Location = new System.Drawing.Point(65, 134);
             this.txtPeso.Name = "txtPeso";
             this.txtPeso.Size = new System.Drawing.Size(103, 20);
-            this.txtPeso.TabIndex = 23;
+            this.txtPeso.TabIndex = 14;
             // 
             // label12
             // 
@@ -384,7 +403,7 @@
             this.txtLecturaCorporal.Name = "txtLecturaCorporal";
             this.txtLecturaCorporal.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtLecturaCorporal.Size = new System.Drawing.Size(412, 146);
-            this.txtLecturaCorporal.TabIndex = 25;
+            this.txtLecturaCorporal.TabIndex = 13;
             // 
             // btnGuardar
             // 
@@ -405,24 +424,6 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // dtpFechaNacimiento
-            // 
-            this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaNacimiento.Location = new System.Drawing.Point(645, 19);
-            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            this.dtpFechaNacimiento.Size = new System.Drawing.Size(96, 20);
-            this.dtpFechaNacimiento.TabIndex = 23;
-            this.dtpFechaNacimiento.ValueChanged += new System.EventHandler(this.dtpFechaNacimiento_ValueChanged);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(544, 22);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(91, 13);
-            this.label13.TabIndex = 24;
-            this.label13.Text = "Fecha nacimiento";
             // 
             // FrmNuevoEditarCliente
             // 

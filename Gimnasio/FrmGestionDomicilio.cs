@@ -88,9 +88,8 @@ namespace Gimnasio
         {
             if (gridDomicilio.Rows.Count > 0 && gridDomicilio.SelectedRows.Count > 0)
             {
-                DataGridViewCellCollection celdasFilaActual = gridDomicilio.CurrentRow.Cells;
-                int idSeleccionado = (int)celdasFilaActual[0].Value;
-                string dimicilioSeleccionado = (string)celdasFilaActual[1].Value;
+                int idSeleccionado = (int)celdaFilaActual(gridDomicilio, 0);
+                string dimicilioSeleccionado = (string)celdaFilaActual(gridDomicilio, 1);
 
                 string mensaje = "¿Está seguro que desea eliminar: " + dimicilioSeleccionado + "?";
                 string titulo = "Eliminación";
