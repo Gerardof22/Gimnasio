@@ -1,6 +1,7 @@
 ﻿using Datos;
 using ImageMagick;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -24,6 +25,7 @@ namespace Gimnasio
         Tipo_Rutina tipo_Rutina;
 
         static MemoryStream ms;
+        MemoryStream ms2;
         static Image returnImage;
 
         internal static string ejercicio_nombre { get; set; }
@@ -34,6 +36,7 @@ namespace Gimnasio
             InitializeComponent();
             dbGimnasio = new GimnasioContext();
             ejercicio = new Ejercicio();
+            cargarComboCliente(0);
         }
 
         public FrmNuevoEditarEjercicio(GimnasioContext dbEnviado)
@@ -41,6 +44,7 @@ namespace Gimnasio
             InitializeComponent();
             dbGimnasio = dbEnviado;
             ejercicio = new Ejercicio();
+            cargarComboCliente(0);
         }
 
         public FrmNuevoEditarEjercicio(int idSeleccionado, GimnasioContext dbEnviado)
@@ -88,11 +92,18 @@ namespace Gimnasio
             return returnImage;
         }
 
-        public byte[] imageToByteArray(Image imageIn)
+        public  byte[] imageToByteArray(Image imageIn)
         {
-            MemoryStream ms = new MemoryStream();
-            imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
-            return ms.ToArray();
+            if (imageIn != null)
+            {
+                MemoryStream ms = new MemoryStream();
+                imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
+                return ms.ToArray();
+            }
+            else
+            {
+                return null;
+            }
         }
 
         private void btnExaminar_Click(object sender, EventArgs e)
@@ -115,50 +126,51 @@ namespace Gimnasio
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            ejercicio.ejercicio_nombre = txtNombreEjercicio.Text;
+            ejercicio.ejercicio_imagen = resizeImage(imageToByteArray(pbxImagen.Image));
+
             if (ejercicio.ejercicio_idejercicio > 0)
             {
                 try
                 {
-                    ejercicio.ejercicio_nombre = txtNombreEjercicio.Text;
-                    ejercicio.ejercicio_imagen = resizeImage(imageToByteArray(pbxImagen.Image));
-
                     dbGimnasio.Entry(ejercicio).State = EntityState.Modified;
 
                     MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                     dbGimnasio.SaveChanges();
                     this.Close();
                 }
                 catch (DbEntityValidationException ex) //<-- Sí ocurre alguna excepción al guardar 
                 {
-                    foreach (var dbEntityValidation in ex.EntityValidationErrors)
-                    {
-                        Console.WriteLine("El tipo de entidad \"{0}\" en el estado \"{1}\" tiene los siguientes errores de validación:",
-                            dbEntityValidation.Entry.Entity.GetType().Name, dbEntityValidation.Entry.State);
-                        foreach (var ve in dbEntityValidation.ValidationErrors)
-                        {
-                            Console.WriteLine("- Propiedad: \"{0}\", Error: \"{1}\"",
-                                ve.PropertyName, ve.ErrorMessage);
-                        }
-                    }
+                    this.validarCatch(ex);
                     throw;
                 }
                 
             }
             else
             {
-                if (string.IsNullOrEmpty(txtNombreEjercicio.Text))
+                try
                 {
-                    MessageBox.Show("El campo 'Ejercicio' no puede estar vacio.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtNombreEjercicio.Focus();
+                    if (string.IsNullOrEmpty(txtNombreEjercicio.Text))
+                    {
+                        MessageBox.Show("El campo 'Ejercicio' no puede estar vacio.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtNombreEjercicio.Focus();
+                    }
+                    else
+                    {
+                        dbGimnasio.Ejercicios.Add(ejercicio);
+                        MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        dbGimnasio.SaveChanges();
+                        this.Close();
+                    }
                 }
-                else
+                catch (DbEntityValidationException ex)
                 {
-                    ejercicio_nombre = txtNombreEjercicio.Text;
-                    image = resizeImage(imageToByteArray(pbxImagen.Image));
-                    this.Close();
+                    this.validarCatch(ex);
+                    throw;
                 }
             }
+
+            
         }
 
         /// <summary>
@@ -170,13 +182,33 @@ namespace Gimnasio
         {
             byte[] imageResize = new byte[0];
 
-            using (MagickImage img = new MagickImage(image))
+            if (image != null)
             {
-                img.Resize(500, 0);
-                imageResize = img.ToByteArray();
+                using (MagickImage img = new MagickImage(image))
+                {
+                    img.Resize(500, 0);
+                    imageResize = img.ToByteArray();
+                }
+                return imageResize;
             }
+            else
+            {
+                return null;
+            }
+        }
 
-            return imageResize;
+        private void validarCatch(DbEntityValidationException ex)
+        {
+            foreach (var dbEntityValidation in ex.EntityValidationErrors)
+            {
+                Console.WriteLine("El tipo de entidad \"{0}\" en el estado \"{1}\" tiene los siguientes errores de validación:",
+                    dbEntityValidation.Entry.Entity.GetType().Name, dbEntityValidation.Entry.State);
+                foreach (var ve in dbEntityValidation.ValidationErrors)
+                {
+                    Console.WriteLine("- Propiedad: \"{0}\", Error: \"{1}\"",
+                        ve.PropertyName, ve.ErrorMessage);
+                }
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -212,29 +244,60 @@ namespace Gimnasio
         {
             FrmNuevoEditarCliente frmNuevoEditarCliente = new FrmNuevoEditarCliente();
             frmNuevoEditarCliente.ShowDialog();
-            cargarComboCliente(frmNuevoEditarCliente.cliente.clientes_idcliente);
+            if (frmNuevoEditarCliente.cliente.clientes_idcliente != 0)
+            {
+                cargarComboCliente(frmNuevoEditarCliente.cliente.clientes_idcliente);
+            }
+            
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            rutina = new Rutina();
-            rutina.rutina_fechaDesde = dtpFechaDesde.Value;
-            rutina.rutina_fechaHasta = dtpFechaHasta.Value;
-            rutina.rutina_serie = int.Parse(txtSeries.Text);
-            rutina.rutina_repeticion = int.Parse(txtRepeticiones.Text);
-            rutina.rutina_tiempoduracion = txtTiempoDuracion.Text;
-            rutina.rutina_descanso = txtDescanso.Text;
-            rutina.rutina_pesokg = float.Parse(txtKg.Text);
-
-
-            if (ejercicio.Rutinas == null)
+            if (IsValidateControls())
             {
-                ejercicio.Rutinas = new ObservableCollection<Rutina>();
+                rutina = new Rutina();
+                rutina.rutina_fechaDesde = dtpFechaDesde.Value;
+                rutina.rutina_fechaHasta = dtpFechaHasta.Value;
+                rutina.rutina_serie = int.Parse(txtSeries.Text);
+                rutina.rutina_repeticion = int.Parse(txtRepeticiones.Text);
+                rutina.rutina_tiempoduracion = txtTiempoDuracion.Text;
+                rutina.rutina_pesokg = float.Parse(txtKg.Text);
+                rutina.rutina_descanso = txtDescanso.Text;
+                rutina.Cardio = dbGimnasio.Cardios.Find(FrmGestionCardio.idcardio);
+                rutina.Calentamiento = dbGimnasio.Calentamientos.Find(FrmGestionCaletamiento.idcalentamiento);
+                rutina.Cliente = dbGimnasio.Clientes.Find(cboClientes.SelectedValue);
+
+                if (ejercicio.Rutinas == null)
+                {
+                    ejercicio.Rutinas = new ObservableCollection<Rutina>();
+                }
+
+                ejercicio.Rutinas.Add(rutina);
+                actualizarGrillaDetalle();
+                limpiarPanel();
+            }
+        }
+
+        private bool IsValidateControls()
+        {
+            ArrayList arrayTextBox = new ArrayList();
+            bool val = true;
+
+            foreach (Control control in gpbCamposRutina.Controls)
+            {
+                if (control is TextBox)
+                {
+                    TextBox textBox = (TextBox)control;
+
+                    if (string.IsNullOrEmpty(textBox.Text))
+                    {
+                        val = false;
+                    }
+                }
             }
 
-            ejercicio.Rutinas.Add(rutina);
-            actualizarGrillaDetalle();
-            limpiarPanel();
+            
+            return val;
         }
 
         private void actualizarGrillaDetalle()
@@ -242,7 +305,6 @@ namespace Gimnasio
             if (ejercicio.Rutinas != null)
             {
                 var listaRutinas = from r in ejercicio.Rutinas
-                                   //from rutina in dbGimnasio.Rutinas join cardio in dbGimnasio.Cardios on rutina.rutina_idcardio equals cardio.cardio_idcardio
                                    select new
                                    {
                                        idrutina = r.rutina_idrutina,
@@ -253,8 +315,10 @@ namespace Gimnasio
                                        tiempoDuracion = r.rutina_tiempoduracion,
                                        descanso = r.rutina_descanso,
                                        pesoKG = r.rutina_pesokg,
-                                       //duracionCardio = FrmGestionCardio.duracion,
-                                       //ritmoCardio = FrmGestionCardio.ritmo,
+                                       duracionCardio = r.Cardio?.cardio_duracion, // <-- la expreción r.Cardio? nos permite null
+                                       ritmoCardio = r.Cardio?.cardio_ritmo,
+                                       duracionCalentamiento = r.Calentamiento?.calentamiento_duracion,
+                                       descripcionCalentamiento = r.Calentamiento?.calentamiento_descripcion,
                                        IsDelected = r.rutina_delete
                                    };
 
@@ -264,7 +328,18 @@ namespace Gimnasio
 
         private void limpiarPanel()
         {
-            throw new NotImplementedException();
+            DateTime now = DateTime.Today;
+            dtpFechaDesde.Value = now;
+            dtpFechaHasta.Value = now;
+            txtSeries.Text = "";
+            txtRepeticiones.Text = "";
+            txtKg.Text = "";
+            txtTiempoDuracion.Text = "";
+            txtDescanso.Text = "";
+            txtDuracionCardio.Text = "";
+            txtRitmoCardio.Text = "";
+            txtDuracionCalentamiento.Text = "";
+            txtDescripcionCalentamiento.Text = "";
         }
 
         private void validarRelacionesTablas()
@@ -364,7 +439,7 @@ namespace Gimnasio
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (gridRutinas.Rows.Count > 0 && gridRutinas.SelectedRows.Count > 0)
+            if (gridRutinas.Rows.Count > 0)
             {
                 int detalleSeleccionado = gridRutinas.CurrentRow.Index;
                 Rutina rutinaDetalle = ejercicio.Rutinas[detalleSeleccionado];
@@ -375,6 +450,42 @@ namespace Gimnasio
                 txtTiempoDuracion.Text = rutinaDetalle.rutina_tiempoduracion;
                 txtDescanso.Text = rutinaDetalle.rutina_descanso;
                 txtKg.Text = rutinaDetalle.rutina_pesokg.ToString();
+                this.ValidarCardioAndCalentamiento(rutinaDetalle);
+                ejercicio.Rutinas.RemoveAt(detalleSeleccionado);
+                actualizarGrillaDetalle();
+            }
+        }
+
+        private void ValidarCardioAndCalentamiento(Rutina rutinaDetalle)
+        {
+            if (rutinaDetalle.Cardio != null)
+            {
+                txtDuracionCardio.Text = rutinaDetalle.Cardio.cardio_duracion.ToString();
+                txtRitmoCardio.Text = rutinaDetalle.Cardio.cardio_ritmo;
+            }
+
+            if (rutina.Calentamiento != null)
+            {
+                txtDuracionCalentamiento.Text = rutina.Calentamiento.calentamiento_duracion;
+                txtDescripcionCalentamiento.Text = rutinaDetalle.Calentamiento.calentamiento_descripcion;
+            }
+        }
+
+        private void btnQuitar_Click(object sender, EventArgs e)
+        {
+            if (gridRutinas.RowCount > 0)
+            {
+                int idSeleccionado = (int)celdaFilaActual(gridRutinas, 0);
+
+                string mensaje = "¿Está seguro que desea quitar?";
+                string titulo = "Eliminación";
+                DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes)
+                {
+                    int idDetalleSeleccionado = gridRutinas.CurrentRow.Index;
+                    ejercicio.Rutinas.RemoveAt(idDetalleSeleccionado);
+                    actualizarGrillaDetalle();
+                }
             }
         }
     }

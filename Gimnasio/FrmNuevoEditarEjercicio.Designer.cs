@@ -65,6 +65,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.txtRepeticiones = new System.Windows.Forms.TextBox();
             this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
@@ -75,7 +76,6 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.cboClientes = new System.Windows.Forms.ComboBox();
-            this.btnAgregar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).BeginInit();
             this.gpbEjercicio.SuspendLayout();
             this.gpbRutinas.SuspendLayout();
@@ -120,14 +120,14 @@
             this.txtNombreEjercicio.Location = new System.Drawing.Point(74, 32);
             this.txtNombreEjercicio.Name = "txtNombreEjercicio";
             this.txtNombreEjercicio.Size = new System.Drawing.Size(264, 20);
-            this.txtNombreEjercicio.TabIndex = 3;
+            this.txtNombreEjercicio.TabIndex = 1;
             // 
             // btnExaminar
             // 
             this.btnExaminar.Location = new System.Drawing.Point(344, 235);
             this.btnExaminar.Name = "btnExaminar";
             this.btnExaminar.Size = new System.Drawing.Size(75, 23);
-            this.btnExaminar.TabIndex = 4;
+            this.btnExaminar.TabIndex = 2;
             this.btnExaminar.Text = "Examinar";
             this.btnExaminar.UseVisualStyleBackColor = true;
             this.btnExaminar.Click += new System.EventHandler(this.btnExaminar_Click);
@@ -137,7 +137,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(479, 628);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 5;
+            this.btnGuardar.TabIndex = 19;
             this.btnGuardar.Text = "Gurardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -147,7 +147,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(608, 628);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.TabIndex = 20;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -183,14 +183,13 @@
             this.gpbRutinas.Size = new System.Drawing.Size(912, 583);
             this.gpbRutinas.TabIndex = 8;
             this.gpbRutinas.TabStop = false;
-            this.gpbRutinas.Text = "Rutinas";
             // 
             // btnAgregarCliente
             // 
             this.btnAgregarCliente.Location = new System.Drawing.Point(256, 29);
             this.btnAgregarCliente.Name = "btnAgregarCliente";
             this.btnAgregarCliente.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregarCliente.TabIndex = 37;
+            this.btnAgregarCliente.TabIndex = 4;
             this.btnAgregarCliente.Text = "Agregar";
             this.btnAgregarCliente.UseVisualStyleBackColor = true;
             this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
@@ -200,7 +199,7 @@
             this.btnQuitarTipoRutina.Location = new System.Drawing.Point(746, 544);
             this.btnQuitarTipoRutina.Name = "btnQuitarTipoRutina";
             this.btnQuitarTipoRutina.Size = new System.Drawing.Size(75, 23);
-            this.btnQuitarTipoRutina.TabIndex = 36;
+            this.btnQuitarTipoRutina.TabIndex = 18;
             this.btnQuitarTipoRutina.Text = "Quitar";
             this.btnQuitarTipoRutina.UseVisualStyleBackColor = true;
             this.btnQuitarTipoRutina.Click += new System.EventHandler(this.btnQuitarTipoRutina_Click);
@@ -210,7 +209,7 @@
             this.btnAgregarTipoRutina.Location = new System.Drawing.Point(665, 544);
             this.btnAgregarTipoRutina.Name = "btnAgregarTipoRutina";
             this.btnAgregarTipoRutina.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregarTipoRutina.TabIndex = 35;
+            this.btnAgregarTipoRutina.TabIndex = 17;
             this.btnAgregarTipoRutina.Text = "Agregar";
             this.btnAgregarTipoRutina.UseVisualStyleBackColor = true;
             this.btnAgregarTipoRutina.Click += new System.EventHandler(this.btnAgregarTipoRutina_Click);
@@ -282,14 +281,14 @@
             this.txtKg.Location = new System.Drawing.Point(312, 42);
             this.txtKg.Name = "txtKg";
             this.txtKg.Size = new System.Drawing.Size(100, 20);
-            this.txtKg.TabIndex = 12;
+            this.txtKg.TabIndex = 9;
             // 
             // txtTiempoDuracion
             // 
             this.txtTiempoDuracion.Location = new System.Drawing.Point(312, 101);
             this.txtTiempoDuracion.Name = "txtTiempoDuracion";
             this.txtTiempoDuracion.Size = new System.Drawing.Size(100, 20);
-            this.txtTiempoDuracion.TabIndex = 8;
+            this.txtTiempoDuracion.TabIndex = 10;
             // 
             // label5
             // 
@@ -353,7 +352,7 @@
             this.btnAgregarCalentamiento.Location = new System.Drawing.Point(198, 39);
             this.btnAgregarCalentamiento.Name = "btnAgregarCalentamiento";
             this.btnAgregarCalentamiento.Size = new System.Drawing.Size(26, 23);
-            this.btnAgregarCalentamiento.TabIndex = 21;
+            this.btnAgregarCalentamiento.TabIndex = 13;
             this.btnAgregarCalentamiento.Text = "...";
             this.btnAgregarCalentamiento.UseVisualStyleBackColor = true;
             this.btnAgregarCalentamiento.Click += new System.EventHandler(this.btnAgregarCalentamiento_Click);
@@ -363,7 +362,7 @@
             this.txtDescanso.Location = new System.Drawing.Point(312, 160);
             this.txtDescanso.Name = "txtDescanso";
             this.txtDescanso.Size = new System.Drawing.Size(100, 20);
-            this.txtDescanso.TabIndex = 10;
+            this.txtDescanso.TabIndex = 11;
             // 
             // groupBox1
             // 
@@ -410,7 +409,7 @@
             this.btnAgregarCardio.Location = new System.Drawing.Point(198, 37);
             this.btnAgregarCardio.Name = "btnAgregarCardio";
             this.btnAgregarCardio.Size = new System.Drawing.Size(26, 23);
-            this.btnAgregarCardio.TabIndex = 20;
+            this.btnAgregarCardio.TabIndex = 12;
             this.btnAgregarCardio.Text = "...";
             this.btnAgregarCardio.UseVisualStyleBackColor = true;
             this.btnAgregarCardio.Click += new System.EventHandler(this.btnAgregarCardio_Click);
@@ -447,7 +446,7 @@
             this.dtpFechaDesde.Location = new System.Drawing.Point(80, 19);
             this.dtpFechaDesde.Name = "dtpFechaDesde";
             this.dtpFechaDesde.Size = new System.Drawing.Size(100, 20);
-            this.dtpFechaDesde.TabIndex = 0;
+            this.dtpFechaDesde.TabIndex = 5;
             // 
             // label4
             // 
@@ -457,6 +456,17 @@
             this.label4.Size = new System.Drawing.Size(69, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Repeticiones";
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(704, 101);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 14;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // label12
             // 
@@ -472,7 +482,7 @@
             this.txtRepeticiones.Location = new System.Drawing.Point(80, 193);
             this.txtRepeticiones.Name = "txtRepeticiones";
             this.txtRepeticiones.Size = new System.Drawing.Size(100, 20);
-            this.txtRepeticiones.TabIndex = 6;
+            this.txtRepeticiones.TabIndex = 8;
             // 
             // dtpFechaHasta
             // 
@@ -480,7 +490,7 @@
             this.dtpFechaHasta.Location = new System.Drawing.Point(80, 72);
             this.dtpFechaHasta.Name = "dtpFechaHasta";
             this.dtpFechaHasta.Size = new System.Drawing.Size(100, 20);
-            this.dtpFechaHasta.TabIndex = 2;
+            this.dtpFechaHasta.TabIndex = 6;
             // 
             // label13
             // 
@@ -496,7 +506,7 @@
             this.txtSeries.Location = new System.Drawing.Point(80, 131);
             this.txtSeries.Name = "txtSeries";
             this.txtSeries.Size = new System.Drawing.Size(100, 20);
-            this.txtSeries.TabIndex = 3;
+            this.txtSeries.TabIndex = 7;
             // 
             // label14
             // 
@@ -512,16 +522,17 @@
             this.btnQuitar.Location = new System.Drawing.Point(298, 544);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(75, 23);
-            this.btnQuitar.TabIndex = 7;
+            this.btnQuitar.TabIndex = 16;
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = true;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
             // btnEditar
             // 
             this.btnEditar.Location = new System.Drawing.Point(217, 544);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 6;
+            this.btnEditar.TabIndex = 15;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -541,19 +552,8 @@
             this.cboClientes.Location = new System.Drawing.Point(60, 29);
             this.cboClientes.Name = "cboClientes";
             this.cboClientes.Size = new System.Drawing.Size(190, 21);
-            this.cboClientes.TabIndex = 2;
+            this.cboClientes.TabIndex = 3;
             this.cboClientes.SelectedIndexChanged += new System.EventHandler(this.cboClientes_SelectedIndexChanged);
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Location = new System.Drawing.Point(704, 101);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 1;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // FrmNuevoEditarEjercicio
             // 
@@ -566,6 +566,7 @@
             this.Controls.Add(this.btnGuardar);
             this.Name = "FrmNuevoEditarEjercicio";
             this.Text = "FrmNuevoEditarEjercicio";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).EndInit();
             this.gpbEjercicio.ResumeLayout(false);
             this.gpbEjercicio.PerformLayout();
