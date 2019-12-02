@@ -11,21 +11,21 @@ namespace Datos
     public class Detalle_Cobranza
     {
         [Key]
-        public int detalleCobranza_iddetallecobranza { get; set; }
+        public int iddetallecobranza { get; set; }
         [Required]
-        public int detalleCobranza_idcobranza { get; set; }
+        public int idcobranza { get; set; }
         public virtual Cobranza Cobranza { get; set; }
         [Required]
         [DefaultValue(false)]
-        public bool detalleCobranza_debe { get; set; } //Sí es true se habilita el campo 'recargoMes'
+        public bool aplazado { get; set; } //Sí es true se habilita el campo 'recargoMes'
 
-        public decimal detalleCobranza_recargoMes { get; set; }
+        public decimal recargoMes { get; set; }
         [Required]
-        public decimal detalleCobranza_importe { get; set; }
+        public decimal importe { get; set; }
         [Required]
         public decimal detalleCobranza_total { get; set; }
 
         [DefaultValue(false)]
-        public bool detalleCobranza_delete { get; set; }
+        public bool IsDelete { get; set; }
     }
 }

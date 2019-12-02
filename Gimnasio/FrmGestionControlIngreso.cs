@@ -27,11 +27,11 @@ namespace Gimnasio
             var listaControlIngreso = from controlIngreso in dbGimnasio.Control_Ingresos
                                        select new
                                        {
-                                           idcontrol = controlIngreso.control_ingreso_idcontrolingreso,
-                                           cliente = controlIngreso.Cliente.clientes_nombre + " " + controlIngreso.Cliente.clientes_apellido,
-                                           turno = controlIngreso.control_ingreso_turno,
-                                           fecha = controlIngreso.control_ingreso_fecha,
-                                           isDelected = controlIngreso.control_ingreso_delete
+                                           idcontrol = controlIngreso.idcontrolingreso,
+                                           cliente = controlIngreso.Cliente.nombre + " " + controlIngreso.Cliente.apellido,
+                                           turno = controlIngreso.turno,
+                                           fecha = controlIngreso.fecha,
+                                           isDelected = controlIngreso.IsDelete
                                        };
             gridControlIngreso.DataSource = listaControlIngreso.Where(ctrl => ctrl.isDelected == false).ToList();
         }
@@ -41,11 +41,11 @@ namespace Gimnasio
             var listaControlIngreso = from controlIngreso in dbGimnasio.Control_Ingresos
                                       select new
                                       {
-                                          idcontrol = controlIngreso.control_ingreso_idcontrolingreso,
-                                          cliente = controlIngreso.Cliente.clientes_nombre + " " + controlIngreso.Cliente.clientes_apellido,
-                                          turno = controlIngreso.control_ingreso_turno,
-                                          fecha = controlIngreso.control_ingreso_fecha,
-                                          isDelected = controlIngreso.control_ingreso_delete
+                                          idcontrol = controlIngreso.idcontrolingreso,
+                                          cliente = controlIngreso.Cliente.nombre + " " + controlIngreso.Cliente.apellido,
+                                          turno = controlIngreso.turno,
+                                          fecha = controlIngreso.fecha,
+                                          isDelected = controlIngreso.IsDelete
                                       };
             gridControlIngreso.DataSource = listaControlIngreso.Where(ctrl => ctrl.cliente.Contains(textToSearch))
                                                                .Where(ctrl => ctrl.isDelected == false).ToList();
@@ -85,7 +85,7 @@ namespace Gimnasio
                 {
                     control_Ingreso = new Control_Ingreso();
                     control_Ingreso = dbGimnasio.Control_Ingresos.Find(idSeleccionado);
-                    control_Ingreso.control_ingreso_delete = true;
+                    control_Ingreso.IsDelete = true;
                     dbGimnasio.SaveChanges();
                     listarControlIngreso();
                 }

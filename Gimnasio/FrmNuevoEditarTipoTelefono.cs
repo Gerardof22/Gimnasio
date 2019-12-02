@@ -43,16 +43,16 @@ namespace Gimnasio
         private void cargarTipoTelefono(int idSeleccionado)
         {
             tipo_Telefono = dbGimnasio.Tipos_Telefonos.Find(idSeleccionado);
-            txtTipoTelefono.Text = tipo_Telefono.tipo_telefono_telefono;
+            txtTipoTelefono.Text = tipo_Telefono.tipo_telefono;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
-                tipo_Telefono.tipo_telefono_telefono = txtTipoTelefono.Text;
+                tipo_Telefono.tipo_telefono = txtTipoTelefono.Text;
 
-                if (tipo_Telefono.tipo_telefono_idtipotelefono > 0)
+                if (tipo_Telefono.idtipotelefono > 0)
                 {
                     dbGimnasio.Entry(tipo_Telefono).State = EntityState.Modified;
                     MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);

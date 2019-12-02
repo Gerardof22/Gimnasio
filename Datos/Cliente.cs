@@ -12,47 +12,47 @@ namespace Datos
     public class Cliente
     {
         [Key]
-        public int clientes_idcliente { get; set; }
+        public int idcliente { get; set; }
 
         [Required]
-        public int clientes_iddomicilio { get; set; }
+        public int iddomicilio { get; set; }
         public virtual Domicilio Domicilio { get; set; }
 
         [Required]
-        public int clientes_idlocalidad { get; set; }
+        public int idlocalidad { get; set; }
         public virtual Localidad Localidad { get; set; }
 
         [Required]
         [StringLength (60)]
-        public string clientes_nombre { get; set; }
+        public string nombre { get; set; }
 
         [Required]
         [StringLength (60)]
-        public string clientes_apellido { get; set; }
+        public string apellido { get; set; }
 
         [Required]
         public DateTime fechaNacimiento { get; set; }
 
         [Required]
-        public DateTime clientes_fechaIngreso { get; set; }
+        public DateTime fechaIngreso { get; set; }
         [Required]
-        public bool clientes_genero { get; set; }
+        public bool genero { get; set; }
 
-        public int clientes_edad { get; set; }
+        public int edad { get; set; }
         
-        public float clientes_peso { get; set; }
+        public float peso { get; set; }
 
         [StringLength (200)]
-        public string clientes_objetivos { get; set; }
+        public string objetivos { get; set; }
 
-        [StringLength (300)]
-        public string clientes_lecturaCorporal { get; set; }
+        [StringLength (400)]
+        public string lecturaCorporal { get; set; }
         
         [DefaultValue(false)]
-        public bool clientes_delete { get; set; }
+        public bool IsDelete { get; set; }
 
         public virtual ObservableCollection<Telefono> Telefonos { get; set; }
-        public virtual ObservableCollection<Control_Ingreso> Control_Ingresos { get; set; }
+        public virtual ObservableCollection<Control_Ingreso> Controles_Ingresos { get; set; }
         public virtual ObservableCollection<Cobranza> Cobranzas { get; set; }
     }
 }

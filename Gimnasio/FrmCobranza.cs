@@ -29,9 +29,9 @@ namespace Gimnasio
                                             
                                             select new
                                             {
-                                                iddetalle = detalle_cobranza.detalleCobranza_iddetallecobranza,
-                                                recargo = detalle_cobranza.detalleCobranza_recargoMes,
-                                                importe = detalle_cobranza.detalleCobranza_importe,
+                                                iddetalle = detalle_cobranza.iddetallecobranza,
+                                                recargo = detalle_cobranza.recargoMes,
+                                                importe = detalle_cobranza.importe,
                                                 total = detalle_cobranza.detalleCobranza_total
                                             };
 
@@ -42,8 +42,8 @@ namespace Gimnasio
         private void cargarComboCliente(int idSeleccionado)
         {
             cboClientes.DataSource = dbGimnasio.Clientes.ToList();
-            cboClientes.DisplayMember = "clientes_nombre";
-            cboClientes.ValueMember = "clientes_idcliente";
+            cboClientes.DisplayMember = "nombre";
+            cboClientes.ValueMember = "idcliente";
             cboClientes.SelectedValue = idSeleccionado;
 
             //***********PREPARAMOS EL AUTOCOMPLETADO DEL COMBO
@@ -51,7 +51,7 @@ namespace Gimnasio
             //recorremos el datatable y vamos llenando el autoCompletado
             foreach (Cliente cliente in dbGimnasio.Clientes)
             {
-                autoCompletadoCbo.Add(cliente.clientes_nombre);
+                autoCompletadoCbo.Add(cliente.nombre);
             }
             //configuramos el combo para que utilice el autoCompletado
             cboClientes.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -63,7 +63,7 @@ namespace Gimnasio
         {
             FrmNuevoEditarCliente frmNuevoEditarCliente = new FrmNuevoEditarCliente();
             frmNuevoEditarCliente.ShowDialog();
-            cargarComboCliente(frmNuevoEditarCliente.cliente.clientes_idcliente);
+            cargarComboCliente(frmNuevoEditarCliente.cliente.idcliente);
         }
 
         private void cboClientes_SelectedIndexChanged(object sender, EventArgs e)
@@ -114,8 +114,8 @@ namespace Gimnasio
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             detalle_cobranza = new Detalle_Cobranza();
-            detalle_cobranza.detalleCobranza_recargoMes = numRecargo.Value;
-            detalle_cobranza.detalleCobranza_importe = numImporte.Value;
+            detalle_cobranza.recargoMes = numRecargo.Value;
+            detalle_cobranza.importe = numImporte.Value;
             detalle_cobranza.detalleCobranza_total = numTotal.Value;
             if (cobranza.DetalleCobranzas == null)
             {
@@ -159,9 +159,9 @@ namespace Gimnasio
             {
                 int detalleSeleccionado = gridDetalleCobranza.CurrentRow.Index;
                 Detalle_Cobranza detalle_Cobranza = cobranza.DetalleCobranzas[detalleSeleccionado];
-                chekDebe.Checked = detalle_Cobranza.detalleCobranza_debe;
-                numRecargo.Value = detalle_Cobranza.detalleCobranza_recargoMes;
-                numImporte.Value = detalle_Cobranza.detalleCobranza_importe;
+                chekDebe.Checked = detalle_Cobranza.aplazado;
+                numRecargo.Value = detalle_Cobranza.recargoMes;
+                numImporte.Value = detalle_Cobranza.importe;
                 numTotal.Value = detalle_Cobranza.detalleCobranza_total;
                 cobranza.DetalleCobranzas.RemoveAt(detalleSeleccionado);
                 actualizarGrillaDetalle();
@@ -188,8 +188,8 @@ namespace Gimnasio
                 {
                     Cliente cliente = dbGimnasio.Clientes.Find(cboClientes.SelectedValue);
                     cobranza.Cliente = cliente;
-                    cobranza.Cliente.clientes_idcliente = cliente.clientes_idcliente;
-                    cobranza.cobranza_fechaPago = dtpFecha.Value;
+                    cobranza.Cliente.idcliente = cliente.idcliente;
+                    cobranza.fechaPago = dtpFecha.Value;
                     dbGimnasio.Cobranzas.Add(cobranza);
                     dbGimnasio.SaveChanges();
                     this.Close();
@@ -210,7 +210,7 @@ namespace Gimnasio
                 throw;
             }
 
-            Reportes.Cobranzas cobranzas = new Reportes.Cobranzas(this.cobranza.cobranza_idcobranza);
+            Reportes.Cobranzas cobranzas = new Reportes.Cobranzas(this.cobranza.idcobranza);
             cobranzas.ShowDialog();
         }
 

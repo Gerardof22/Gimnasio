@@ -27,9 +27,9 @@ namespace Gimnasio
             var listaTipoTelefono = from tipoT in dbGimnasio.Tipos_Telefonos
                                     select new
                                     {
-                                        id = tipoT.tipo_telefono_idtipotelefono,
-                                        tipo = tipoT.tipo_telefono_telefono,
-                                        IsDelected = tipoT.tipo_telefono_delete
+                                        id = tipoT.idtipotelefono,
+                                        tipo = tipoT.tipo_telefono,
+                                        IsDelected = tipoT.IsDelete
                                     };
 
             gridTipoTelefono.DataSource = listaTipoTelefono.Where(t => t.IsDelected == false).ToList(); 
@@ -40,9 +40,9 @@ namespace Gimnasio
             var listaTipoTelefono = from tipoT in dbGimnasio.Tipos_Telefonos
                                     select new
                                     {
-                                        id = tipoT.tipo_telefono_idtipotelefono,
-                                        tipo = tipoT.tipo_telefono_telefono,
-                                        IsDelected = tipoT.tipo_telefono_delete
+                                        id = tipoT.idtipotelefono,
+                                        tipo = tipoT.tipo_telefono,
+                                        IsDelected = tipoT.IsDelete
                                     };
 
             gridTipoTelefono.DataSource = listaTipoTelefono.Where(t => t.tipo.Contains(TextToSearch))
@@ -95,7 +95,7 @@ namespace Gimnasio
                 if (respuesta == DialogResult.Yes)
                 {
                     tipo_Telefono = dbGimnasio.Tipos_Telefonos.Find(idSeleccionado);
-                    tipo_Telefono.tipo_telefono_delete = true;
+                    tipo_Telefono.IsDelete = true;
                     dbGimnasio.SaveChanges();
                     ListarGrillaTipoTelefonos();
                 }

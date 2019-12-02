@@ -58,15 +58,15 @@ namespace Gimnasio
         private void cargarEjercicio(int idSeleccionado)
         {
             ejercicio = dbGimnasio.Ejercicios.Find(idSeleccionado);
-            txtNombreEjercicio.Text = ejercicio.ejercicio_nombre;
-            pbxImagen.Image = byteArrayToImage(ejercicio.ejercicio_imagen);
+            txtNombreEjercicio.Text = ejercicio.nombre;
+            pbxImagen.Image = byteArrayToImage(ejercicio.imagen);
         }
 
         private void cargarComboCliente(int idSeleccionado)
         {
             cboClientes.DataSource = dbGimnasio.Clientes.ToList();
-            cboClientes.DisplayMember = "clientes_nombre";
-            cboClientes.ValueMember = "clientes_idcliente";
+            cboClientes.DisplayMember = "nombre";
+            cboClientes.ValueMember = "idcliente";
             cboClientes.SelectedValue = idSeleccionado;
 
             //***********PREPARAMOS EL AUTOCOMPLETADO DEL COMBO
@@ -74,7 +74,7 @@ namespace Gimnasio
             //recorremos el datatable y vamos llenando el autoCompletado
             foreach (Cliente cliente in dbGimnasio.Clientes)
             {
-                autoCompletadoCbo.Add(cliente.clientes_nombre);
+                autoCompletadoCbo.Add(cliente.nombre);
             }
             //configuramos el combo para que utilice el autoCompletado
             cboClientes.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -126,10 +126,10 @@ namespace Gimnasio
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            ejercicio.ejercicio_nombre = txtNombreEjercicio.Text;
-            ejercicio.ejercicio_imagen = resizeImage(imageToByteArray(pbxImagen.Image));
+            ejercicio.nombre = txtNombreEjercicio.Text;
+            ejercicio.imagen = resizeImage(imageToByteArray(pbxImagen.Image));
 
-            if (ejercicio.ejercicio_idejercicio > 0)
+            if (ejercicio.idejercicio > 0)
             {
                 try
                 {
@@ -244,9 +244,9 @@ namespace Gimnasio
         {
             FrmNuevoEditarCliente frmNuevoEditarCliente = new FrmNuevoEditarCliente();
             frmNuevoEditarCliente.ShowDialog();
-            if (frmNuevoEditarCliente.cliente.clientes_idcliente != 0)
+            if (frmNuevoEditarCliente.cliente.idcliente != 0)
             {
-                cargarComboCliente(frmNuevoEditarCliente.cliente.clientes_idcliente);
+                cargarComboCliente(frmNuevoEditarCliente.cliente.idcliente);
             }
             
         }
@@ -256,13 +256,13 @@ namespace Gimnasio
             if (IsValidateControls())
             {
                 rutina = new Rutina();
-                rutina.rutina_fechaDesde = dtpFechaDesde.Value;
-                rutina.rutina_fechaHasta = dtpFechaHasta.Value;
-                rutina.rutina_serie = int.Parse(txtSeries.Text);
-                rutina.rutina_repeticion = int.Parse(txtRepeticiones.Text);
-                rutina.rutina_tiempoduracion = txtTiempoDuracion.Text;
-                rutina.rutina_pesokg = float.Parse(txtKg.Text);
-                rutina.rutina_descanso = txtDescanso.Text;
+                rutina.fechaDesde = dtpFechaDesde.Value;
+                rutina.fechaHasta = dtpFechaHasta.Value;
+                rutina.serie = int.Parse(txtSeries.Text);
+                rutina.repeticion = int.Parse(txtRepeticiones.Text);
+                rutina.tiempoduracion = txtTiempoDuracion.Text;
+                rutina.pesokg = float.Parse(txtKg.Text);
+                rutina.descanso = txtDescanso.Text;
                 rutina.Cardio = dbGimnasio.Cardios.Find(FrmGestionCardio.idcardio);
                 rutina.Calentamiento = dbGimnasio.Calentamientos.Find(FrmGestionCaletamiento.idcalentamiento);
                 rutina.Cliente = dbGimnasio.Clientes.Find(cboClientes.SelectedValue);
@@ -307,19 +307,19 @@ namespace Gimnasio
                 var listaRutinas = from r in ejercicio.Rutinas
                                    select new
                                    {
-                                       idrutina = r.rutina_idrutina,
-                                       fechaDesde = r.rutina_fechaDesde,
-                                       fechaHasta = r.rutina_fechaHasta,
-                                       serie = r.rutina_serie,
-                                       repeticiones = r.rutina_repeticion,
-                                       tiempoDuracion = r.rutina_tiempoduracion,
-                                       descanso = r.rutina_descanso,
-                                       pesoKG = r.rutina_pesokg,
-                                       duracionCardio = r.Cardio?.cardio_duracion, // <-- la expreción r.Cardio? nos permite null
-                                       ritmoCardio = r.Cardio?.cardio_ritmo,
-                                       duracionCalentamiento = r.Calentamiento?.calentamiento_duracion,
-                                       descripcionCalentamiento = r.Calentamiento?.calentamiento_descripcion,
-                                       IsDelected = r.rutina_delete
+                                       idrutina = r.idrutina,
+                                       fechaDesde = r.fechaDesde,
+                                       fechaHasta = r.fechaHasta,
+                                       serie = r.serie,
+                                       repeticiones = r.repeticion,
+                                       tiempoDuracion = r.tiempoduracion,
+                                       descanso = r.descanso,
+                                       pesoKG = r.pesokg,
+                                       duracionCardio = r.Cardio?.duracion, // <-- la expreción r.Cardio? nos permite null
+                                       ritmoCardio = r.Cardio?.ritmo,
+                                       duracionCalentamiento = r.Calentamiento?.duracion,
+                                       descripcionCalentamiento = r.Calentamiento?.descripcion,
+                                       IsDelected = r.IsDelete
                                    };
 
                 gridRutinas.DataSource = listaRutinas.Where(r => r.IsDelected == false).ToList();
@@ -368,7 +368,7 @@ namespace Gimnasio
         private void llenarGrillaTipoRutina()
         {
             tipo_Rutina = new Tipo_Rutina();
-            tipo_Rutina.tipo_rutina_nombre = FrmNuevoEditarTipoRutina.tipo_rutina_nombre;
+            tipo_Rutina.nombre = FrmNuevoEditarTipoRutina.tipo_rutina_nombre;
 
             if (rutina.Tipos_Rutinas == null)
             {
@@ -387,9 +387,9 @@ namespace Gimnasio
                 var listaTipoRutina = from tipo in rutina.Tipos_Rutinas
                                       select new
                                       {
-                                          idtiporutina = tipo.tipo_rutina_idtiporutina,
-                                          rutina = tipo.tipo_rutina_nombre,
-                                          isDelected = tipo.tipo_rutina_delete
+                                          idtiporutina = tipo.idtiporutina,
+                                          rutina = tipo.nombre,
+                                          isDelected = tipo.IsDelete
                                       };
 
                 gridTiposRutinas.DataSource = listaTipoRutina.Where(tr => tr.isDelected == false).ToList();
@@ -443,13 +443,13 @@ namespace Gimnasio
             {
                 int detalleSeleccionado = gridRutinas.CurrentRow.Index;
                 Rutina rutinaDetalle = ejercicio.Rutinas[detalleSeleccionado];
-                dtpFechaDesde.Value = rutinaDetalle.rutina_fechaDesde;
-                dtpFechaHasta.Value = rutinaDetalle.rutina_fechaHasta;
-                txtSeries.Text = rutinaDetalle.rutina_serie.ToString();
-                txtRepeticiones.Text = rutinaDetalle.rutina_repeticion.ToString();
-                txtTiempoDuracion.Text = rutinaDetalle.rutina_tiempoduracion;
-                txtDescanso.Text = rutinaDetalle.rutina_descanso;
-                txtKg.Text = rutinaDetalle.rutina_pesokg.ToString();
+                dtpFechaDesde.Value = rutinaDetalle.fechaDesde;
+                dtpFechaHasta.Value = rutinaDetalle.fechaHasta;
+                txtSeries.Text = rutinaDetalle.serie.ToString();
+                txtRepeticiones.Text = rutinaDetalle.repeticion.ToString();
+                txtTiempoDuracion.Text = rutinaDetalle.tiempoduracion;
+                txtDescanso.Text = rutinaDetalle.descanso;
+                txtKg.Text = rutinaDetalle.pesokg.ToString();
                 this.ValidarCardioAndCalentamiento(rutinaDetalle);
                 ejercicio.Rutinas.RemoveAt(detalleSeleccionado);
                 actualizarGrillaDetalle();
@@ -460,14 +460,14 @@ namespace Gimnasio
         {
             if (rutinaDetalle.Cardio != null)
             {
-                txtDuracionCardio.Text = rutinaDetalle.Cardio.cardio_duracion.ToString();
-                txtRitmoCardio.Text = rutinaDetalle.Cardio.cardio_ritmo;
+                txtDuracionCardio.Text = rutinaDetalle.Cardio.duracion.ToString();
+                txtRitmoCardio.Text = rutinaDetalle.Cardio.ritmo;
             }
 
             if (rutina.Calentamiento != null)
             {
-                txtDuracionCalentamiento.Text = rutina.Calentamiento.calentamiento_duracion;
-                txtDescripcionCalentamiento.Text = rutinaDetalle.Calentamiento.calentamiento_descripcion;
+                txtDuracionCalentamiento.Text = rutina.Calentamiento.duracion;
+                txtDescripcionCalentamiento.Text = rutinaDetalle.Calentamiento.descripcion;
             }
         }
 

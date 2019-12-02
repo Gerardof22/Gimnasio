@@ -27,22 +27,22 @@ namespace Gimnasio
         private void listarGrillaClientes()
         {
             var listaCliente = from cliente in dbGimnasio.Clientes
-                               join domicilio in dbGimnasio.Domicilios on cliente.Domicilio.domicilio_iddomicilio equals domicilio.domicilio_iddomicilio
-                               join localidad in dbGimnasio.Localidads on cliente.Localidad.localidad_idlocalidad equals localidad.localidad_idlocalidad
+                               join domicilio in dbGimnasio.Domicilios on cliente.Domicilio.iddomicilio equals domicilio.iddomicilio
+                               join localidad in dbGimnasio.Localidads on cliente.Localidad.idlocalidad equals localidad.idlocalidad
 
                                select new
                                {
-                                   idcliente = cliente.clientes_idcliente,
-                                   nombre_apellido = cliente.clientes_nombre + " " + cliente.clientes_apellido,
-                                   direccion = domicilio.Calle.nombre_calle + " " + domicilio.domocilio_numero,
-                                   localidad = localidad.localidad_localidad,
-                                   fechaIngreso = cliente.clientes_fechaIngreso,
-                                   genero = cliente.clientes_genero,
-                                   edad = cliente.clientes_edad,
-                                   peso = cliente.clientes_peso,
-                                   objetivos = cliente.clientes_objetivos,
-                                   lectura_corporal = cliente.clientes_lecturaCorporal,
-                                   isDelected = cliente.clientes_delete
+                                   idcliente = cliente.idcliente,
+                                   nombre_apellido = cliente.nombre + " " + cliente.apellido,
+                                   direccion = domicilio.Calle.nombre_calle + " " + domicilio.numero,
+                                   localidad = localidad.localidad,
+                                   fechaIngreso = cliente.fechaIngreso,
+                                   genero = cliente.genero,
+                                   edad = cliente.edad,
+                                   peso = cliente.peso,
+                                   objetivos = cliente.objetivos,
+                                   lectura_corporal = cliente.lecturaCorporal,
+                                   isDelected = cliente.IsDelete
                                };
             
             gridClientes.DataSource = listaCliente.Where(c => c.isDelected == false).ToList();
@@ -55,22 +55,22 @@ namespace Gimnasio
         private void buscarCliente(string textToSearch)
         {
             var listaCliente = from cliente in dbGimnasio.Clientes
-                               join domicilio in dbGimnasio.Domicilios on cliente.Domicilio.domicilio_iddomicilio equals domicilio.domicilio_iddomicilio
-                               join localidad in dbGimnasio.Localidads on cliente.Localidad.localidad_idlocalidad equals localidad.localidad_idlocalidad
+                               join domicilio in dbGimnasio.Domicilios on cliente.Domicilio.iddomicilio equals domicilio.iddomicilio
+                               join localidad in dbGimnasio.Localidads on cliente.Localidad.idlocalidad equals localidad.idlocalidad
 
                                select new
                                {
-                                   idcliente = cliente.clientes_idcliente,
-                                   nombre_apellido = cliente.clientes_nombre + " " + cliente.clientes_apellido,
-                                   direccion = domicilio.Calle.nombre_calle + " " + domicilio.domocilio_numero,
-                                   localidad = localidad.localidad_localidad,
-                                   fechaIngreso = cliente.clientes_fechaIngreso,
-                                   genero = cliente.clientes_genero,
-                                   edad = cliente.clientes_edad,
-                                   peso = cliente.clientes_peso,
-                                   objetivos = cliente.clientes_objetivos,
-                                   lectura_corporal = cliente.clientes_lecturaCorporal,
-                                   isDelected = cliente.clientes_delete
+                                   idcliente = cliente.idcliente,
+                                   nombre_apellido = cliente.nombre + " " + cliente.apellido,
+                                   direccion = domicilio.Calle.nombre_calle + " " + domicilio.numero,
+                                   localidad = localidad.localidad,
+                                   fechaIngreso = cliente.fechaIngreso,
+                                   genero = cliente.genero,
+                                   edad = cliente.edad,
+                                   peso = cliente.peso,
+                                   objetivos = cliente.objetivos,
+                                   lectura_corporal = cliente.lecturaCorporal,
+                                   isDelected = cliente.IsDelete
                                };
 
             gridClientes.DataSource = listaCliente.Where(c => c.nombre_apellido.Contains(textToSearch) || c.direccion.Contains                  (textToSearch) || c.localidad.Contains(textToSearch)).Where(c => c.isDelected == false).ToList();
@@ -122,7 +122,7 @@ namespace Gimnasio
                 {
                     cliente = new Cliente();
                     cliente = dbGimnasio.Clientes.Find(idSeleccionado);
-                    cliente.clientes_delete = true;
+                    cliente.IsDelete = true;
                     dbGimnasio.SaveChanges();
                     listarGrillaClientes();
                 }

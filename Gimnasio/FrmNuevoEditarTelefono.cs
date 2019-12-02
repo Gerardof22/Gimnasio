@@ -50,9 +50,9 @@ namespace Gimnasio
         private void cargarTelefono(int idSeleccionado)
         {
             telefono = dbGimnasio.Telefonos.Find(idSeleccionado);
-            cargarComboTipoTelefono(telefono.telefono_idtipotelefono);
-            txtNumeroTelefono.Text = telefono.telefono_numero;
-            cargarComboTipoTelefono(telefono.telefono_idtelefono);
+            cargarComboTipoTelefono(telefono.idtipotelefono);
+            txtNumeroTelefono.Text = telefono.numero;
+            cargarComboTipoTelefono(telefono.idtelefono);
         }
 
         private void cargarComboTipoTelefono(int idtipoTelefono)
@@ -60,20 +60,20 @@ namespace Gimnasio
             cboTipoTelefono.DataSource = dbGimnasio.Tipos_Telefonos.ToList();
 
             //campo que vera el usuario
-            cboTipoTelefono.DisplayMember = "tipo_telefono_telefono";
+            cboTipoTelefono.DisplayMember = "tipo_telefono";
 
             //campo que es el valor real
-            cboTipoTelefono.ValueMember = "tipo_telefono_idtipotelefono";
+            cboTipoTelefono.ValueMember = "idtipotelefono";
             cboTipoTelefono.SelectedValue = idtipoTelefono;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (telefono.telefono_idtelefono > 0)
+            if (telefono.idtelefono > 0)
             {
                 try
                 {
-                    telefono.telefono_numero = txtNumeroTelefono.Text;
+                    telefono.numero = txtNumeroTelefono.Text;
 
                     dbGimnasio.Entry(telefono).State = EntityState.Modified;
 
@@ -84,16 +84,7 @@ namespace Gimnasio
                 }
                 catch (DbEntityValidationException ex) //<-- Sí ocurre alguna excepción al guardar 
                 {
-                    foreach (var dbEntityValidation in ex.EntityValidationErrors)
-                    {
-                        Console.WriteLine("El tipo de entidad \"{0}\" en el estado \"{1}\" tiene los siguientes errores de validación:",
-                            dbEntityValidation.Entry.Entity.GetType().Name, dbEntityValidation.Entry.State);
-                        foreach (var ve in dbEntityValidation.ValidationErrors)
-                        {
-                            Console.WriteLine("- Propiedad: \"{0}\", Error: \"{1}\"",
-                                ve.PropertyName, ve.ErrorMessage);
-                        }
-                    }
+                    this.ValidateCatch(ex);
                     throw;
                 }
             }
@@ -107,6 +98,20 @@ namespace Gimnasio
             
         }
 
+        private void ValidateCatch(DbEntityValidationException ex)
+        {
+            foreach (var dbEntityValidation in ex.EntityValidationErrors)
+            {
+                Console.WriteLine("El tipo de entidad \"{0}\" en el estado \"{1}\" tiene los siguientes errores de validación:",
+                    dbEntityValidation.Entry.Entity.GetType().Name, dbEntityValidation.Entry.State);
+                foreach (var ve in dbEntityValidation.ValidationErrors)
+                {
+                    Console.WriteLine("- Propiedad: \"{0}\", Error: \"{1}\"",
+                        ve.PropertyName, ve.ErrorMessage);
+                }
+            }
+        }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -116,7 +121,7 @@ namespace Gimnasio
         {
             FrmNuevoEditarTipoTelefono frmNuevoEditarTipoTelefono = new FrmNuevoEditarTipoTelefono();
             frmNuevoEditarTipoTelefono.ShowDialog();
-            cargarComboTipoTelefono(frmNuevoEditarTipoTelefono.tipo_Telefono.tipo_telefono_idtipotelefono);
+            cargarComboTipoTelefono(frmNuevoEditarTipoTelefono.tipo_Telefono.idtipotelefono);
         }
     }
 }

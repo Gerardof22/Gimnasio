@@ -47,19 +47,19 @@ namespace Gimnasio
         private void cargarRutina(int idSeleccionado)
         {
             rutina = dbGimnasio.Rutinas.Find(idSeleccionado);
-            dtpFechaDesde.Value              = rutina.rutina_fechaDesde;
-            dtpFechaHasta.Value              = rutina.rutina_fechaHasta;
-            txtSeries.Text                   = rutina.rutina_serie.ToString();
-            txtRepeticiones.Text             = rutina.rutina_repeticion.ToString();
-            txtTiempoDuracion.Text           = rutina.rutina_tiempoduracion;
-            txtDescanso.Text                 = rutina.rutina_descanso;
-            txtKg.Text                       = rutina.rutina_pesokg.ToString();
-            rutina.Cardio                    = dbGimnasio.Cardios.Find(rutina.Cardio.cardio_idcardio);
-            txtDuracionCardio.Text           = rutina.Cardio.cardio_duracion.ToString();
-            txtRitmoCardio.Text              = rutina.Cardio.cardio_ritmo;
-            rutina.Calentamiento             = dbGimnasio.Calentamientos.Find(rutina.Calentamiento.calentamiento_idcalentamiento);
-            txtDuracionCalentamiento.Text    = rutina.Calentamiento.calentamiento_duracion;
-            txtDescripcionCalentamiento.Text = rutina.Calentamiento.calentamiento_descripcion;
+            dtpFechaDesde.Value              = rutina.fechaDesde;
+            dtpFechaHasta.Value              = rutina.fechaHasta;
+            txtSeries.Text                   = rutina.serie.ToString();
+            txtRepeticiones.Text             = rutina.repeticion.ToString();
+            txtTiempoDuracion.Text           = rutina.tiempoduracion;
+            txtDescanso.Text                 = rutina.descanso;
+            txtKg.Text                       = rutina.pesokg.ToString();
+            rutina.Cardio                    = dbGimnasio.Cardios.Find(rutina.Cardio.idcardio);
+            txtDuracionCardio.Text           = rutina.Cardio.duracion.ToString();
+            txtRitmoCardio.Text              = rutina.Cardio.ritmo;
+            rutina.Calentamiento             = dbGimnasio.Calentamientos.Find(rutina.Calentamiento.idcalentamiento);
+            txtDuracionCalentamiento.Text    = rutina.Calentamiento.duracion;
+            txtDescripcionCalentamiento.Text = rutina.Calentamiento.descripcion;
         }
 
         private void btnAgregarCardio_Click(object sender, EventArgs e)
@@ -100,7 +100,7 @@ namespace Gimnasio
         private void llenarGrillaTipoRutina()
         {
             tipo_Rutina = new Tipo_Rutina();
-            tipo_Rutina.tipo_rutina_nombre = FrmNuevoEditarTipoRutina.tipo_rutina_nombre;
+            tipo_Rutina.nombre = FrmNuevoEditarTipoRutina.tipo_rutina_nombre;
 
             if (rutina.Tipos_Rutinas == null)
             {
@@ -119,9 +119,9 @@ namespace Gimnasio
                 var listaTipoRutina = from tipo in rutina.Tipos_Rutinas
                                       select new
                                       {
-                                          idtiporutina = tipo.tipo_rutina_idtiporutina,
-                                          rutina = tipo.tipo_rutina_nombre,
-                                          isDelected = tipo.tipo_rutina_delete
+                                          idtiporutina = tipo.idtiporutina,
+                                          rutina = tipo.nombre,
+                                          isDelected = tipo.IsDelete
                                       };
 
                 gridTipoRutina.DataSource = listaTipoRutina.Where(tr => tr.isDelected == false).ToList();
@@ -230,16 +230,16 @@ namespace Gimnasio
         {
             try
             {
-                rutina.rutina_fechaDesde = dtpFechaDesde.Value;
-                rutina.rutina_fechaHasta = dtpFechaHasta.Value;
-                rutina.rutina_serie = int.Parse(txtSeries.Text);
-                rutina.rutina_repeticion = int.Parse(txtRepeticiones.Text);
-                rutina.rutina_tiempoduracion = txtTiempoDuracion.Text;
-                rutina.rutina_descanso = txtDescanso.Text;
-                rutina.rutina_pesokg = float.Parse(txtKg.Text);
+                rutina.fechaDesde = dtpFechaDesde.Value;
+                rutina.fechaHasta = dtpFechaHasta.Value;
+                rutina.serie = int.Parse(txtSeries.Text);
+                rutina.repeticion = int.Parse(txtRepeticiones.Text);
+                rutina.tiempoduracion = txtTiempoDuracion.Text;
+                rutina.descanso = txtDescanso.Text;
+                rutina.pesokg = float.Parse(txtKg.Text);
                 this.validarRelacionesTablas();
 
-                if (rutina.rutina_idrutina > 0)
+                if (rutina.idrutina > 0)
                 {
                     dbGimnasio.Entry(rutina).State = EntityState.Modified;
                     MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -193,6 +193,12 @@
     <Compile Include="FrmNuevoEditarTipoTelefono.Designer.cs">
       <DependentUpon>FrmNuevoEditarTipoTelefono.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmNuevoTipoCalentamiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNuevoTipoCalentamiento.Designer.cs">
+      <DependentUpon>FrmNuevoTipoCalentamiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="GimnasioContextDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -283,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNuevoEditarTipoTelefono.resx">
       <DependentUpon>FrmNuevoEditarTipoTelefono.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNuevoTipoCalentamiento.resx">
+      <DependentUpon>FrmNuevoTipoCalentamiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

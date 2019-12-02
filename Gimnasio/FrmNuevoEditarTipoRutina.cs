@@ -45,16 +45,16 @@ namespace Gimnasio
         private void cargarTipoRutina(int idSeleccionado)
         {
             tipo_rutina = dbGimnasio.Tipos_Rutinas.Find(idSeleccionado);
-            txtTipoRutina.Text = tipo_rutina.tipo_rutina_nombre;
+            txtTipoRutina.Text = tipo_rutina.nombre;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (tipo_rutina.tipo_rutina_idtiporutina > 0)
+            if (tipo_rutina.idtiporutina > 0)
             {
                 try
                 {
-                    tipo_rutina.tipo_rutina_nombre = txtTipoRutina.Text;
+                    tipo_rutina.nombre = txtTipoRutina.Text;
 
                     dbGimnasio.Entry(tipo_rutina).State = EntityState.Modified;
 

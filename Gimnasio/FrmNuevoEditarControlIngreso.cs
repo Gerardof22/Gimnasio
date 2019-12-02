@@ -45,14 +45,14 @@ namespace Gimnasio
         private void cargarIngreso(int idSeleccionado)
         {
             control_Ingreso = dbGimnasio.Control_Ingresos.Find(idSeleccionado);
-            this.cargarComboClientes(control_Ingreso.Cliente.clientes_idcliente);
+            this.cargarComboClientes(control_Ingreso.Cliente.idcliente);
             this.validarTurno();
-            dtpFechaIngreso.Value = control_Ingreso.control_ingreso_fecha;
+            dtpFechaIngreso.Value = control_Ingreso.fecha;
         }
 
         private void validarTurno()
         {
-            if (control_Ingreso.control_ingreso_turno)
+            if (control_Ingreso.turno)
             {
                 rbtnMañana.Checked = true;
             }
@@ -66,10 +66,10 @@ namespace Gimnasio
         {
             cboCliente.DataSource = dbGimnasio.Clientes.ToList();
             //campo que vera el usuario
-            cboCliente.DisplayMember = "clientes_nombre";
+            cboCliente.DisplayMember = "nombre";
 
             //campo que es el valor real
-            cboCliente.ValueMember = "clientes_idcliente";
+            cboCliente.ValueMember = "idcliente";
             cboCliente.SelectedValue = idcliente;
         }
 
@@ -77,13 +77,13 @@ namespace Gimnasio
         {
             if (rbtnMañana.Checked)
             {
-                control_Ingreso.control_ingreso_turno = true;
+                control_Ingreso.turno = true;
             }
             else
             {
                 if (rbtnTarde.Checked)
                 {
-                    control_Ingreso.control_ingreso_turno = false;
+                    control_Ingreso.turno = false;
                 }
             }
         }
@@ -94,9 +94,9 @@ namespace Gimnasio
             {
                 control_Ingreso.Cliente = (Cliente)this.cboCliente.SelectedItem;
                 this.Turnos();
-                control_Ingreso.control_ingreso_fecha = dtpFechaIngreso.Value;
+                control_Ingreso.fecha = dtpFechaIngreso.Value;
 
-                if (control_Ingreso.control_ingreso_idcontrolingreso > 0)
+                if (control_Ingreso.idcontrolingreso > 0)
                 {
                     dbGimnasio.Entry(control_Ingreso).State = EntityState.Modified;
                     MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);

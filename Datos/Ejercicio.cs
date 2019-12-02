@@ -12,15 +12,15 @@ namespace Datos
     public class Ejercicio
     {
         [Key]
-        public int ejercicio_idejercicio { get; set; }
+        public int idejercicio { get; set; }
 
         [Required]
-        public string ejercicio_nombre { get; set; }
+        public string nombre { get; set; }
         
-        public byte[] ejercicio_imagen { get; set; }
+        public byte[] imagen { get; set; }
 
         [DefaultValue(false)]
-        public bool ejercicio_delete { get; set; }
+        public bool IsDelete { get; set; }
 
         public virtual ObservableCollection<Rutina> Rutinas { get; set; }
     }

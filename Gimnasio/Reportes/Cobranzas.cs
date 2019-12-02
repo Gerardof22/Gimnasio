@@ -25,15 +25,15 @@ namespace Gimnasio.Reportes
         private void Cobranzas_Load(object sender, EventArgs e)
         {
             var listaCobranza = from cobranza in dbGimnasio.Cobranzas
-                                join detalleCobranza in dbGimnasio.Detalle_Cobranzas on cobranza.cobranza_idcobranza equals detalleCobranza.Cobranza.cobranza_idcobranza
-                                where cobranza.cobranza_idcobranza == this.idcobranza
+                                join detalleCobranza in dbGimnasio.Detalle_Cobranzas on cobranza.idcobranza equals detalleCobranza.Cobranza.idcobranza
+                                where cobranza.idcobranza == this.idcobranza
                                 select new
                                 {
-                                    cobranza_idcobranza = cobranza.cobranza_idcobranza,
-                                    cobranza_fechaPago = cobranza.cobranza_fechaPago,
+                                    cobranza_idcobranza = cobranza.idcobranza,
+                                    cobranza_fechaPago = cobranza.fechaPago,
                                     cobranza_total = cobranza.cobranza_total,
-                                    detalleCobranza_recargoMes = detalleCobranza.detalleCobranza_recargoMes,
-                                    detalleCobranza_importe = detalleCobranza.detalleCobranza_importe,
+                                    detalleCobranza_recargoMes = detalleCobranza.recargoMes,
+                                    detalleCobranza_importe = detalleCobranza.importe,
                                     detalleCobranza_total = detalleCobranza.detalleCobranza_total
                                 };
 

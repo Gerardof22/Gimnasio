@@ -34,6 +34,12 @@
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.gridTipoCalentamiento = new System.Windows.Forms.DataGridView();
+            this.btnQuitar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.gpbTipoCalentamiento = new System.Windows.Forms.GroupBox();
+            ((System.ComponentModel.ISupportInitialize)(this.gridTipoCalentamiento)).BeginInit();
+            this.gpbTipoCalentamiento.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -58,19 +64,19 @@
             // 
             this.txtDuracion.Location = new System.Drawing.Point(81, 10);
             this.txtDuracion.Name = "txtDuracion";
-            this.txtDuracion.Size = new System.Drawing.Size(113, 20);
+            this.txtDuracion.Size = new System.Drawing.Size(222, 20);
             this.txtDuracion.TabIndex = 2;
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(81, 43);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(113, 20);
+            this.txtDescripcion.Size = new System.Drawing.Size(222, 20);
             this.txtDescripcion.TabIndex = 3;
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(73, 81);
+            this.btnGuardar.Location = new System.Drawing.Point(81, 226);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(56, 23);
             this.btnGuardar.TabIndex = 4;
@@ -80,7 +86,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(135, 81);
+            this.btnCancelar.Location = new System.Drawing.Point(143, 226);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(59, 23);
             this.btnCancelar.TabIndex = 5;
@@ -88,11 +94,52 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // gridTipoCalentamiento
+            // 
+            this.gridTipoCalentamiento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridTipoCalentamiento.Location = new System.Drawing.Point(6, 19);
+            this.gridTipoCalentamiento.Name = "gridTipoCalentamiento";
+            this.gridTipoCalentamiento.Size = new System.Drawing.Size(281, 106);
+            this.gridTipoCalentamiento.TabIndex = 6;
+            // 
+            // btnQuitar
+            // 
+            this.btnQuitar.Location = new System.Drawing.Point(293, 77);
+            this.btnQuitar.Name = "btnQuitar";
+            this.btnQuitar.Size = new System.Drawing.Size(59, 23);
+            this.btnQuitar.TabIndex = 9;
+            this.btnQuitar.Text = "Quitar";
+            this.btnQuitar.UseVisualStyleBackColor = true;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(293, 48);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(59, 23);
+            this.btnAgregar.TabIndex = 8;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // gpbTipoCalentamiento
+            // 
+            this.gpbTipoCalentamiento.Controls.Add(this.gridTipoCalentamiento);
+            this.gpbTipoCalentamiento.Controls.Add(this.btnQuitar);
+            this.gpbTipoCalentamiento.Controls.Add(this.btnAgregar);
+            this.gpbTipoCalentamiento.Location = new System.Drawing.Point(16, 81);
+            this.gpbTipoCalentamiento.Name = "gpbTipoCalentamiento";
+            this.gpbTipoCalentamiento.Size = new System.Drawing.Size(365, 139);
+            this.gpbTipoCalentamiento.TabIndex = 10;
+            this.gpbTipoCalentamiento.TabStop = false;
+            this.gpbTipoCalentamiento.Text = "Tipo de calentamiento";
+            // 
             // FrmNuevoEditarCalentamiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(215, 124);
+            this.ClientSize = new System.Drawing.Size(395, 260);
+            this.Controls.Add(this.gpbTipoCalentamiento);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtDescripcion);
@@ -101,6 +148,8 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmNuevoEditarCalentamiento";
             this.Text = "FrmNuevoEditarCalentamiento";
+            ((System.ComponentModel.ISupportInitialize)(this.gridTipoCalentamiento)).EndInit();
+            this.gpbTipoCalentamiento.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,5 +163,9 @@
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.DataGridView gridTipoCalentamiento;
+        private System.Windows.Forms.Button btnQuitar;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.GroupBox gpbTipoCalentamiento;
     }
 }

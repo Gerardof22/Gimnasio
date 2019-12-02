@@ -11,15 +11,15 @@ namespace Datos
     public class Tipo_Calentamiento
     {
         [Key]
-        public int tipoCalentamiento_idtipocalentamiento { get; set; }
+        public int idtipocalentamiento { get; set; }
         [Required]
-        public int tipoCalentamiento_idcalentamiento { get; set; }
+        public int idcalentamiento { get; set; }
         public virtual Calentamiento Calentamiento { get; set; }
         [Required]
         [StringLength (50)]
-        public string tipoCalentamiento_nombre { get; set; }
+        public string nombre { get; set; }
 
         [DefaultValue(false)]
-        public bool tipoCalentamiento_delete { get; set; }
+        public bool IsDelete { get; set; }
     }
 }

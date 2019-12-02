@@ -17,7 +17,6 @@ namespace Gimnasio
     {
         GimnasioContext dbGimnasio;
         Domicilio domicilio;
-        Cliente cliente;
 
         public FrmNuevoEditarDomicilio()
         {
@@ -31,6 +30,7 @@ namespace Gimnasio
             InitializeComponent();
             dbGimnasio = dbEnviado;
             domicilio = new Domicilio();
+            CargarComboCalle(0);
         }
 
         public FrmNuevoEditarDomicilio(int idSeleccionado, GimnasioContext dbEnviado)
@@ -45,7 +45,7 @@ namespace Gimnasio
         {
             domicilio = dbGimnasio.Domicilios.Find(idSeleccionado);
             this.CargarComboCalle(domicilio.Calle.idcalle);
-            txtNumeroCalle.Text = domicilio.domocilio_numero.ToString();
+            txtNumeroCalle.Text = domicilio.numero.ToString();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -53,9 +53,9 @@ namespace Gimnasio
             try
             {
                 domicilio.Calle = (Calle)cboCalle.SelectedItem;
-                domicilio.domocilio_numero = Convert.ToInt32(txtNumeroCalle.Text);
+                domicilio.numero = Convert.ToInt32(txtNumeroCalle.Text);
 
-                if (domicilio.domicilio_iddomicilio > 0)
+                if (domicilio.iddomicilio > 0)
                 {
                     dbGimnasio.Entry(domicilio).State = EntityState.Modified;
                     MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);

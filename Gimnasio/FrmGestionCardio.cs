@@ -35,10 +35,10 @@ namespace Gimnasio
             var listaCardio = from cardio in dbGimnasio.Cardios
                               select new
                               {
-                                  idcardio = cardio.cardio_idcardio,
-                                  duracion = cardio.cardio_duracion,
-                                  ritmo = cardio.cardio_ritmo,
-                                  isDelected = cardio.cardio_delete
+                                  idcardio = cardio.idcardio,
+                                  duracion = cardio.duracion,
+                                  ritmo = cardio.ritmo,
+                                  isDelected = cardio.IsDelete
                               };
 
             gridCardio.DataSource = listaCardio.Where(c => c.isDelected == false).ToList();
@@ -49,10 +49,10 @@ namespace Gimnasio
             var listaCardio = from cardio in dbGimnasio.Cardios
                               select new
                               {
-                                  idcardio = cardio.cardio_idcardio,
-                                  duracion = cardio.cardio_duracion,
-                                  ritmo = cardio.cardio_ritmo,
-                                  isDelected = cardio.cardio_delete
+                                  idcardio = cardio.idcardio,
+                                  duracion = cardio.duracion,
+                                  ritmo = cardio.ritmo,
+                                  isDelected = cardio.IsDelete
                               };
 
             gridCardio.DataSource = listaCardio.Where(c => c.ritmo.Contains(textToSearch))
@@ -72,8 +72,8 @@ namespace Gimnasio
             {
                 int idSeleccionado = (int)celdaFilaActual(gridCardio, 0);
 
-                FrmNuevoEditarDomicilio frmNuevoEditarDomicilio = new FrmNuevoEditarDomicilio(idSeleccionado, dbGimnasio);
-                frmNuevoEditarDomicilio.ShowDialog();
+                FrmNuevoEditarCardio frmNuevoEditarCardio = new FrmNuevoEditarCardio(idSeleccionado, dbGimnasio);
+                frmNuevoEditarCardio.ShowDialog();
                 listarGrillaCardios();
             }
         }
@@ -103,7 +103,7 @@ namespace Gimnasio
                 if (respuesta == DialogResult.Yes)
                 {
                     cardio = dbGimnasio.Cardios.Find(idSeleccionado);
-                    cardio.cardio_delete = true;
+                    cardio.IsDelete = true;
                     dbGimnasio.SaveChanges();
                     listarGrillaCardios();
                 }

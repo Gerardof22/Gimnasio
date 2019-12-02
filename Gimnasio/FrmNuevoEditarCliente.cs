@@ -45,20 +45,20 @@ namespace Gimnasio
         private void cargarCliente(int idSeleccionado)
         {
             cliente                 = dbGimnasio.Clientes.Find(idSeleccionado);
-            txtNombre.Text          = cliente.clientes_nombre;
-            txtApellido.Text        = cliente.clientes_apellido;
+            txtNombre.Text          = cliente.nombre;
+            txtApellido.Text        = cliente.apellido;
             dtpFechaNacimiento.Value = cliente.fechaNacimiento;
-            txtEdad.Text            = cliente.clientes_edad.ToString();
+            txtEdad.Text            = cliente.edad.ToString();
             validateGenero();
-            cargarComboLocalidad(cliente.Localidad.localidad_idlocalidad);
-            dtpFechaIngreso.Value   = cliente.clientes_fechaIngreso;
-            cliente.Domicilio       = dbGimnasio.Domicilios.Find((int)cliente.Domicilio.domicilio_iddomicilio);
+            cargarComboLocalidad(cliente.Localidad.idlocalidad);
+            dtpFechaIngreso.Value   = cliente.fechaIngreso;
+            cliente.Domicilio       = dbGimnasio.Domicilios.Find((int)cliente.Domicilio.iddomicilio);
             txtNombreCalle.Text     = cliente.Domicilio.Calle.nombre_calle;
-            txtNumCalle.Text        = cliente.Domicilio.domocilio_numero.ToString();
+            txtNumCalle.Text        = cliente.Domicilio.numero.ToString();
             cargarGrillaTelefono(idSeleccionado);
-            txtObjetivos.Text       = cliente.clientes_objetivos;
-            txtLecturaCorporal.Text = cliente.clientes_lecturaCorporal;
-            txtPeso.Text            = cliente.clientes_peso.ToString();
+            txtObjetivos.Text       = cliente.objetivos;
+            txtLecturaCorporal.Text = cliente.lecturaCorporal;
+            txtPeso.Text            = cliente.peso.ToString();
         }
 
         private void cargarGrillaTelefono()
@@ -68,11 +68,11 @@ namespace Gimnasio
                 var listaTelefonos = from telefono in cliente.Telefonos
                                      select new
                                      {
-                                         idtelefono = telefono.telefono_idtelefono,
+                                         idtelefono = telefono.idtelefono,
                                          //idtipotelefono = telefono.Tipos_Telefonos.tipo_telefono_idtipotelefono,
-                                         tipotelefono = telefono.Tipos_Telefonos.tipo_telefono_telefono,
-                                         numero = telefono.telefono_numero,
-                                         isDelected = telefono.telefono_delete
+                                         tipotelefono = telefono.Tipos_Telefonos.tipo_telefono,
+                                         numero = telefono.numero,
+                                         isDelected = telefono.IsDelete
                                      };
 
                 gridTelefonos.DataSource = listaTelefonos.Where(t => t.isDelected == false).ToList();
@@ -84,13 +84,13 @@ namespace Gimnasio
             var listaTelefonos = from telefonos in cliente.Telefonos
                                  //Validamos el campo idcliente de la tabla para que nos ignore aquellos que son null,
                                  //sí no hariamos esta validación nos daria un error de referencia nula en el bloque select new
-                                 where telefonos.Cliente.clientes_idcliente != null && telefonos.telefono_idtelefono != null
+                                 where telefonos.Cliente.idcliente != null && telefonos.idtelefono != null
                                  select new
                                  {
-                                     idcliente = telefonos.Cliente.clientes_idcliente,
-                                     idtelefono = telefonos.telefono_idtelefono,
-                                     tipo = telefonos.Tipos_Telefonos.tipo_telefono_telefono,
-                                     numero = telefonos.telefono_numero
+                                     idcliente = telefonos.Cliente.idcliente,
+                                     idtelefono = telefonos.idtelefono,
+                                     tipo = telefonos.Tipos_Telefonos.tipo_telefono,
+                                     numero = telefonos.numero
                                  };
             gridTelefonos.DataSource = listaTelefonos.Where(t => t.idcliente == idSeleccionado).ToList();
         }
@@ -99,16 +99,16 @@ namespace Gimnasio
         {
             cboLocalidad.DataSource = dbGimnasio.Localidads.ToList();
             //campo que vera el usuario
-            cboLocalidad.DisplayMember = "localidad_localidad";
+            cboLocalidad.DisplayMember = "localidad";
 
             //campo que es el valor real
-            cboLocalidad.ValueMember = "localidad_idlocalidad";
+            cboLocalidad.ValueMember = "idlocalidad";
             cboLocalidad.SelectedValue = idlocalidad;
         }
 
         private void validateGenero()
         {
-            if (cliente.clientes_genero)
+            if (cliente.genero)
             {
                 rbtnHombre.Checked = true;
             }
@@ -122,23 +122,23 @@ namespace Gimnasio
         {
             try
             {
-                cliente.clientes_nombre = txtNombre.Text;
-                cliente.clientes_apellido = txtApellido.Text;
+                cliente.nombre = txtNombre.Text;
+                cliente.apellido = txtApellido.Text;
                 cliente.fechaNacimiento = dtpFechaNacimiento.Value;
-                cliente.clientes_edad = Int32.Parse(CalcularEdad(dtpFechaNacimiento.Value).ToString());
+                cliente.edad = Int32.Parse(CalcularEdad(dtpFechaNacimiento.Value).ToString());
                 genero();
                 cliente.Localidad = (Localidad)cboLocalidad.SelectedItem;
-                cliente.clientes_fechaIngreso = dtpFechaIngreso.Value;
+                cliente.fechaIngreso = dtpFechaIngreso.Value;
                 if (dbGimnasio.Domicilios.Find(FrmGestionDomicilio.iddomicilio) != null)
                 {
                     cliente.Domicilio = dbGimnasio.Domicilios.Find(FrmGestionDomicilio.iddomicilio);
                 }
-                cliente.clientes_objetivos = txtObjetivos.Text;
-                cliente.clientes_lecturaCorporal = txtLecturaCorporal.Text;
-                cliente.clientes_peso = float.Parse(txtPeso.Text);
+                cliente.objetivos = txtObjetivos.Text;
+                cliente.lecturaCorporal = txtLecturaCorporal.Text;
+                cliente.peso = float.Parse(txtPeso.Text);
 
 
-                if (cliente.clientes_idcliente > 0)
+                if (cliente.idcliente > 0)
                 {
                     dbGimnasio.Entry(cliente).State = EntityState.Modified;
                     MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -172,13 +172,13 @@ namespace Gimnasio
         {
             if (rbtnHombre.Checked)
             {
-                cliente.clientes_genero = true;
+                cliente.genero = true;
             }
             else
             {
                 if (rbtnMujer.Checked)
                 {
-                    cliente.clientes_genero = false;
+                    cliente.genero = false;
                 }
             }
         }
@@ -187,7 +187,7 @@ namespace Gimnasio
         {
             FrmNuevaEditarLocalidad frmNuevaEditarLocalidad = new FrmNuevaEditarLocalidad();
             frmNuevaEditarLocalidad.ShowDialog();
-            cargarComboLocalidad(frmNuevaEditarLocalidad.localidad.localidad_idlocalidad);
+            cargarComboLocalidad(frmNuevaEditarLocalidad.localidad.idlocalidad);
         }
 
         private void btnSeleccionarDomicilio_Click(object sender, EventArgs e)
@@ -217,10 +217,10 @@ namespace Gimnasio
             if (dbGimnasio.Tipos_Telefonos.Find(FrmNuevoEditarTelefono.idtipotelefono) != null)
             {
                 telefono = new Telefono();
-                telefono.telefono_idtelefono = FrmNuevoEditarTelefono.idtelefono;
-                telefono.telefono_idtipotelefono = FrmNuevoEditarTelefono.idtipotelefono;
+                telefono.idtelefono = FrmNuevoEditarTelefono.idtelefono;
+                telefono.idtipotelefono = FrmNuevoEditarTelefono.idtipotelefono;
                 telefono.Tipos_Telefonos = dbGimnasio.Tipos_Telefonos.Find(FrmNuevoEditarTelefono.idtipotelefono);
-                telefono.telefono_numero = FrmNuevoEditarTelefono.numero.ToString();
+                telefono.numero = FrmNuevoEditarTelefono.numero.ToString();
 
                 if (cliente.Telefonos == null)
                 {

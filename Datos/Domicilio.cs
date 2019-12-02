@@ -12,16 +12,16 @@ namespace Datos
     public class Domicilio
     {
         [Key]
-        public int domicilio_iddomicilio { get; set; }
+        public int iddomicilio { get; set; }
 
         [Required]
         public int idcalle { get; set; }
         public virtual Calle Calle { get; set; }
 
-        public int domocilio_numero { get; set; }
+        public int numero { get; set; }
 
         [DefaultValue(false)]
-        public bool domocilio_delete { get; set; }
+        public bool IsDelete { get; set; }
 
         public virtual ObservableCollection<Cliente> Clientes { get; set; }
         

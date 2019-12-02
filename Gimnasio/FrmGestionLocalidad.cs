@@ -27,9 +27,9 @@ namespace Gimnasio
             var listaLocalidades = from localidads in dbGimnasio.Localidads
                                    select new
                                    {
-                                       idlocalidad = localidads.localidad_idlocalidad,
-                                       localidad = localidads.localidad_localidad,
-                                       isDelected = localidads.localidad_delete
+                                       idlocalidad = localidads.idlocalidad,
+                                       localidad = localidads.localidad,
+                                       isDelected = localidads.IsDelete
                                    };
             gridLocalidad.DataSource = listaLocalidades.Where(l => l.isDelected == false).ToList();
         }
@@ -39,9 +39,9 @@ namespace Gimnasio
             var listaLocalidades = from localidads in dbGimnasio.Localidads
                                    select new
                                    {
-                                       idlocalidad = localidads.localidad_idlocalidad,
-                                       localidad = localidads.localidad_localidad,
-                                       isDelected = localidads.localidad_delete
+                                       idlocalidad = localidads.idlocalidad,
+                                       localidad = localidads.localidad,
+                                       isDelected = localidads.IsDelete
                                    };
             gridLocalidad.DataSource = listaLocalidades.Where(l => l.localidad.Contains(textToSearch))
                                                        .Where(l => l.isDelected == false).ToList();
@@ -80,7 +80,7 @@ namespace Gimnasio
                 {
                     localidad = new Localidad();
                     localidad = dbGimnasio.Localidads.Find(idSeleccionado);
-                    localidad.localidad_delete = true;
+                    localidad.IsDelete = true;
                     dbGimnasio.SaveChanges();
                     listarLocalidades();
                 }

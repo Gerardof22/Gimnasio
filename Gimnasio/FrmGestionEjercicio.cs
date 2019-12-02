@@ -41,10 +41,10 @@ namespace Gimnasio
             var listaEjercicio = from e in dbGimnasio.Ejercicios
                                  select new
                                  {
-                                     idEjercicio = e.ejercicio_idejercicio,
-                                     nombre = e.ejercicio_nombre,
-                                     imagen = e.ejercicio_imagen,
-                                     isDelected = e.ejercicio_delete
+                                     idEjercicio = e.idejercicio,
+                                     nombre = e.nombre,
+                                     imagen = e.imagen,
+                                     isDelected = e.IsDelete
                                  };
 
             gridEjercicio.DataSource = listaEjercicio.Where(e => e.isDelected == false).ToList();
@@ -57,10 +57,10 @@ namespace Gimnasio
             var listaEjercicio = from e in dbGimnasio.Ejercicios
                                  select new
                                  {
-                                     idEjercicio = e.ejercicio_idejercicio,
-                                     nombre = e.ejercicio_nombre,
-                                     imagen = e.ejercicio_imagen,
-                                     isDelected = e.ejercicio_delete
+                                     idEjercicio = e.idejercicio,
+                                     nombre = e.nombre,
+                                     imagen = e.imagen,
+                                     isDelected = e.IsDelete
                                  };
 
             gridEjercicio.DataSource = listaEjercicio.Where(e => e.nombre.Contains(textToSearch))
@@ -113,7 +113,7 @@ namespace Gimnasio
                 if (respuesta == DialogResult.Yes)
                 {
                     ejercicio = dbGimnasio.Ejercicios.Find(idSeleccionado);
-                    ejercicio.ejercicio_delete = true;
+                    ejercicio.IsDelete = true;
                     dbGimnasio.SaveChanges();
                     listarEjrcicios();
                 }

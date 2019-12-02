@@ -12,16 +12,16 @@ namespace Datos
     public class Calentamiento
     {
         [Key]
-        public int calentamiento_idcalentamiento { get; set; }
+        public int idcalentamiento { get; set; }
         [Required]
         [StringLength (10)]
-        public string calentamiento_duracion { get; set; }
+        public string duracion { get; set; }
         
         [StringLength (200)]
-        public string calentamiento_descripcion { get; set; }
+        public string descripcion { get; set; }
 
         [DefaultValue(false)]
-        public bool calentamiento_delete { get; set; }
+        public bool IsDelete { get; set; }
 
 
         public virtual ObservableCollection<Rutina> Rutinas { get; set; }

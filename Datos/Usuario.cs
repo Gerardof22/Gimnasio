@@ -12,15 +12,15 @@ namespace Datos
     public class Usuario
     {
         [Key]
-        public int usuario_idusuario { get; set; }
+        public int idusuario { get; set; }
         [Required]
         [MaxLength (60)]
-        public string usuario_user { get; set; }
+        public string user { get; set; }
         [MaxLength (128)]
-        public string usuario_password { get; set; }
+        public string password { get; set; }
 
         [DefaultValue(false)]
-        public bool login_delete { get; set; }
+        public bool IsDelete { get; set; }
 
         public virtual ObservableCollection<Tipo_Usuario> Tipos_Usuarios { get; set; }
     }

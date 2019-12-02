@@ -12,37 +12,37 @@ namespace Datos
     public class Rutina
     {
         [Key]
-        public int rutina_idrutina { get; set; }
+        public int idrutina { get; set; }
         
-        public int? rutina_idcardio { get; set; }
+        public int? idcardio { get; set; }
         public virtual Cardio Cardio { get; set; }
         
-        public int? rutina_idcalentamiento { get; set; }
+        public int? idcalentamiento { get; set; }
         public virtual Calentamiento Calentamiento { get; set; }
         [Required]
-        public int idcalentamiento { get; set; }
+        public int idejercicio { get; set; }
         public virtual Ejercicio Ejercicio { get; set; }
 
         public int? idcliente { get; set; }
         public virtual Cliente Cliente { get; set; }
 
         [Required]
-        public DateTime rutina_fechaDesde { get; set; }
+        public DateTime fechaDesde { get; set; }
 
-        public DateTime rutina_fechaHasta { get; set; }
+        public DateTime fechaHasta { get; set; }
 
-        public int rutina_serie { get; set; }
+        public int serie { get; set; }
 
-        public int rutina_repeticion { get; set; }
+        public int repeticion { get; set; }
         [StringLength (20)]
-        public string rutina_tiempoduracion { get; set; }
+        public string tiempoduracion { get; set; }
         [StringLength (20)]
-        public string rutina_descanso { get; set; }
+        public string descanso { get; set; }
 
-        public float rutina_pesokg { get; set; }
+        public float pesokg { get; set; }
 
         [DefaultValue(false)]
-        public bool rutina_delete { get; set; }
+        public bool IsDelete { get; set; }
 
         public virtual ObservableCollection<Tipo_Rutina> Tipos_Rutinas { get; set; }
     }

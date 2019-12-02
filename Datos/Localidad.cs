@@ -12,15 +12,15 @@ namespace Datos
     public class Localidad
     {
         [Key]
-        public int localidad_idlocalidad { get; set; }
+        public int idlocalidad { get; set; }
         [Required]
         [StringLength (70)]
-        public string localidad_localidad { get; set; }
+        public string localidad { get; set; }
 
         [DefaultValue(false)]
-        public bool localidad_delete { get; set; }
+        public bool IsDelete { get; set; }
 
-        public virtual ObservableCollection<Cliente> clientes { get; set; }
+        public virtual ObservableCollection<Cliente> Clientes { get; set; }
 
     }
 }

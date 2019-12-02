@@ -12,15 +12,15 @@ namespace Datos
     public class Cardio
     {
         [Key]
-        public int cardio_idcardio { get; set; }
+        public int idcardio { get; set; }
         [Required]
-        public float cardio_duracion { get; set; }
+        public float duracion { get; set; }
         [Required]
         [StringLength (50)]
-        public string cardio_ritmo { get; set; }
+        public string ritmo { get; set; }
 
         [DefaultValue(false)]
-        public bool cardio_delete { get; set; }
+        public bool IsDelete { get; set; }
 
         public virtual ObservableCollection<Rutina> Rutinas { get; set; }
     }

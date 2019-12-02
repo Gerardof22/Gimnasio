@@ -11,16 +11,16 @@ namespace Datos
     public class Control_Ingreso
     {
         [Key]
-        public int control_ingreso_idcontrolingreso { get; set; }
+        public int idcontrolingreso { get; set; }
         
-        public int control_ingreso_idcliente { get; set; } // int? representa un tipo de valor que se puede asignar nulo.
+        public int idcliente { get; set; } // int? representa un tipo de valor que se puede asignar nulo.
         public virtual Cliente Cliente { get; set; }
         [Required]
-        public bool control_ingreso_turno { get; set; }
+        public bool turno { get; set; }
         [Required]
-        public DateTime control_ingreso_fecha { get; set; }
+        public DateTime fecha { get; set; }
 
         [DefaultValue(false)] //Estable el valor por defecto en 'false'.
-        public bool control_ingreso_delete { get; set; } 
+        public bool IsDelete { get; set; } 
     }
 }

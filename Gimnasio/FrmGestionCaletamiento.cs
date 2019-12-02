@@ -34,10 +34,10 @@ namespace Gimnasio
             var listaCalentamientos = from calentamiento in dbGimnasio.Calentamientos
                                       select new
                                       {
-                                          idcalentamiento = calentamiento.calentamiento_idcalentamiento,
-                                          duracion = calentamiento.calentamiento_duracion,
-                                          descripcion = calentamiento.calentamiento_descripcion,
-                                          isDelected = calentamiento.calentamiento_delete
+                                          idcalentamiento = calentamiento.idcalentamiento,
+                                          duracion = calentamiento.duracion,
+                                          descripcion = calentamiento.descripcion,
+                                          isDelected = calentamiento.IsDelete
                                       };
 
             gridCalentamiento.DataSource = listaCalentamientos.Where(c => c.isDelected == false).ToList();
@@ -48,10 +48,10 @@ namespace Gimnasio
             var listaCalentamientos = from calentamiento in dbGimnasio.Calentamientos
                                       select new
                                       {
-                                          idcalentamiento = calentamiento.calentamiento_idcalentamiento,
-                                          duracion = calentamiento.calentamiento_duracion,
-                                          descripcion = calentamiento.calentamiento_descripcion,
-                                          isDelected = calentamiento.calentamiento_delete
+                                          idcalentamiento = calentamiento.idcalentamiento,
+                                          duracion = calentamiento.duracion,
+                                          descripcion = calentamiento.descripcion,
+                                          isDelected = calentamiento.IsDelete
                                       };
 
             gridCalentamiento.DataSource = listaCalentamientos.Where(c => c.descripcion.Contains(textToSearch))
@@ -102,7 +102,7 @@ namespace Gimnasio
                 if (respuesta == DialogResult.Yes)
                 {
                     calentamiento = dbGimnasio.Calentamientos.Find(idSeleccionado);
-                    calentamiento.calentamiento_delete = true;
+                    calentamiento.IsDelete = true;
                     dbGimnasio.SaveChanges();
                     listarCalentaientos();
                 }

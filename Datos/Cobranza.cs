@@ -12,17 +12,17 @@ namespace Datos
     public class Cobranza
     {
         [Key]
-        public int cobranza_idcobranza { get; set; }
+        public int idcobranza { get; set; }
         [Required]
-        public int cobranza_idcliente { get; set; }
+        public int idcliente { get; set; }
         public virtual Cliente Cliente { get; set; }
         [Required]
-        public DateTime cobranza_fechaPago { get; set; }
+        public DateTime fechaPago { get; set; }
         [Required]
         public decimal cobranza_total { get; set; }
 
         [DefaultValue(false)]
-        public bool cobranza_delete { get; set; }
+        public bool IsDelete { get; set; }
 
         //Según la pagína de EF dice que, ésto es el equivalente de one to Many
         public virtual ObservableCollection<Detalle_Cobranza> DetalleCobranzas { get; set; }

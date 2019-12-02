@@ -30,12 +30,12 @@ namespace Gimnasio
                                  /*join cliente in dbGimnasio.Clientes on telefono.telefono_idcliente equals cliente.clientes_idcliente*/
                                  select new
                                  {
-                                     idtelefono = telefono.telefono_idtelefono,
-                                     idtipotelefono = telefono.Tipos_Telefonos.tipo_telefono_idtipotelefono,
-                                     tipotelefono = telefono.Tipos_Telefonos.tipo_telefono_telefono,
+                                     idtelefono = telefono.idtelefono,
+                                     idtipotelefono = telefono.Tipos_Telefonos.idtipotelefono,
+                                     tipotelefono = telefono.Tipos_Telefonos.tipo_telefono,
                                      //cliente = cliente.clientes_nombre + " " + cliente.clientes_apellido,
-                                     numero = telefono.telefono_numero,
-                                     isDelected = telefono.telefono_delete
+                                     numero = telefono.numero,
+                                     isDelected = telefono.IsDelete
                                  };
 
             gridGestionTelefono.DataSource = listaTelefonos.Where(t => t.isDelected == false).ToList();
@@ -44,15 +44,15 @@ namespace Gimnasio
         private void cargarGrillaTelefonos(string textoABuscar)
         {
             var listaTelefonos = from telefono in dbGimnasio.Telefonos
-                                 join tipoTelefono in dbGimnasio.Tipos_Telefonos on telefono.telefono_idtipotelefono equals tipoTelefono.tipo_telefono_idtipotelefono
-                                 join cliente in dbGimnasio.Clientes on telefono.telefono_idcliente equals cliente.clientes_idcliente
+                                 join tipoTelefono in dbGimnasio.Tipos_Telefonos on telefono.idtipotelefono equals tipoTelefono.idtipotelefono
+                                 join cliente in dbGimnasio.Clientes on telefono.idcliente equals cliente.idcliente
                                  select new
                                  {
-                                     idtelefono = telefono.telefono_idtelefono,
-                                     tipotelefono = tipoTelefono.tipo_telefono_telefono,
-                                     cliente = cliente.clientes_nombre + " " + cliente.clientes_apellido,
-                                     numero = telefono.telefono_numero,
-                                     isDelected = telefono.telefono_delete
+                                     idtelefono = telefono.idtelefono,
+                                     tipotelefono = tipoTelefono.tipo_telefono,
+                                     cliente = cliente.nombre + " " + cliente.apellido,
+                                     numero = telefono.numero,
+                                     isDelected = telefono.IsDelete
                                  };
 
             gridGestionTelefono.DataSource = listaTelefonos.Where(t => t.cliente.Contains(textoABuscar))
@@ -100,7 +100,7 @@ namespace Gimnasio
                 if (respuesta == DialogResult.Yes)
                 {
                     telefono = dbGimnasio.Telefonos.Find(idSeleccionado);
-                    telefono.telefono_delete = true;
+                    telefono.IsDelete = true;
                     dbGimnasio.SaveChanges();
                     cargarGrillaTelefonos();
                 }

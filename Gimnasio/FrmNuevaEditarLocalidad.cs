@@ -44,16 +44,16 @@ namespace Gimnasio
         private void cargarLocalidad(int idSeleccionado)
         {
             localidad = dbGimnasio.Localidads.Find(idSeleccionado);
-            txtLocalidadNombre.Text = localidad.localidad_localidad;
+            txtLocalidadNombre.Text = localidad.localidad;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
-                localidad.localidad_localidad = txtLocalidadNombre.Text;
+                localidad.localidad = txtLocalidadNombre.Text;
 
-                if (localidad.localidad_idlocalidad > 0)
+                if (localidad.idlocalidad > 0)
                 {
                     dbGimnasio.Entry(localidad).State = EntityState.Modified;
                     MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -42,18 +42,18 @@ namespace Gimnasio
         private void cargarCardio(int idSeleccionado)
         {
             cardio = dbGimnasio.Cardios.Find(idSeleccionado);
-            numDuracion.Value = (decimal)cardio.cardio_duracion;
-            txtRitmo.Text = cardio.cardio_ritmo;
+            numDuracion.Value = (decimal)cardio.duracion;
+            txtRitmo.Text = cardio.ritmo;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
-                cardio.cardio_duracion = (float)numDuracion.Value;
-                cardio.cardio_ritmo = txtRitmo.Text;
+                cardio.duracion = (float)numDuracion.Value;
+                cardio.ritmo = txtRitmo.Text;
 
-                if (cardio.cardio_idcardio > 0)
+                if (cardio.idcardio > 0)
                 {
                     dbGimnasio.Entry(cardio).State = EntityState.Modified;
                     MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);

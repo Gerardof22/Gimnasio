@@ -25,12 +25,12 @@ namespace Gimnasio.Reportes
             var listaClientes = from cliente in dbGimnasio.Clientes
                                 select new
                                 {
-                                    clientes_idcliente = cliente.clientes_idcliente,
-                                    clientes_nombre = cliente.clientes_nombre,
-                                    clientes_apellido = cliente.clientes_apellido,
-                                    clientes_fechaIngreso = cliente.clientes_fechaIngreso,
-                                    clientes_edad = cliente.clientes_edad,
-                                    clientes_peso = cliente.clientes_peso
+                                    clientes_idcliente = cliente.idcliente,
+                                    clientes_nombre = cliente.nombre,
+                                    clientes_apellido = cliente.apellido,
+                                    clientes_fechaIngreso = cliente.fechaIngreso,
+                                    clientes_edad = cliente.edad,
+                                    clientes_peso = cliente.peso
                                 };
             clientesBindingSource.DataSource = listaClientes.ToList();
             this.reportViewer1.RefreshReport();

@@ -12,13 +12,13 @@ namespace Datos
     public class Tipo_Telefono
     {
         [Key]
-        public int    tipo_telefono_idtipotelefono { get; set; }
+        public int idtipotelefono { get; set; }
         [Required]
         [StringLength (45)]
-        public string tipo_telefono_telefono { get; set; }
+        public string tipo_telefono { get; set; }
 
         [DefaultValue(false)]
-        public bool   tipo_telefono_delete { get; set; }
+        public bool IsDelete { get; set; }
 
         public virtual ObservableCollection<Telefono> Telefonos { get; set; }
     }

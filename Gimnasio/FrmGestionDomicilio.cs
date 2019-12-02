@@ -29,10 +29,10 @@ namespace Gimnasio
             var listaDomicilios = from domicilio in dbGimnasio.Domicilios
                                   select new
                                   {
-                                      iddomicilio = domicilio.domicilio_iddomicilio,
+                                      iddomicilio = domicilio.iddomicilio,
                                       calle = domicilio.Calle.nombre_calle,
-                                      numero = domicilio.domocilio_numero,
-                                      isDelete = domicilio.domocilio_delete
+                                      numero = domicilio.numero,
+                                      isDelete = domicilio.IsDelete
                                   };
             gridDomicilio.DataSource = listaDomicilios.Where(d => d.isDelete == false).ToList();
         }
@@ -42,10 +42,10 @@ namespace Gimnasio
             var listaDomicilios = from domicilio in dbGimnasio.Domicilios
                                   select new
                                   {
-                                      iddomicilio = domicilio.domicilio_iddomicilio,
+                                      iddomicilio = domicilio.iddomicilio,
                                       calle = domicilio.Calle.nombre_calle,
-                                      numero = domicilio.domocilio_numero,
-                                      isDelete = domicilio.domocilio_delete
+                                      numero = domicilio.numero,
+                                      isDelete = domicilio.IsDelete
                                   };
 
             gridDomicilio.DataSource = listaDomicilios.Where(d => d.calle.Contains(textoABuscar))
@@ -97,7 +97,7 @@ namespace Gimnasio
                 if (respuesta == DialogResult.Yes)
                 {
                     domicilio = dbGimnasio.Domicilios.Find(idSeleccionado);
-                    domicilio.domocilio_delete = true;
+                    domicilio.IsDelete = true;
                     dbGimnasio.SaveChanges();
                     listarGrillaDomicilios();
                 }
