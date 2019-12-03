@@ -49,11 +49,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmAdministracionUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAdministracionUsuarios.Designer.cs">
+      <DependentUpon>FrmAdministracionUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAdministradorTipoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAdministradorTipoUsuario.Designer.cs">
+      <DependentUpon>FrmAdministradorTipoUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGestionCalle.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmGestionCalle.Designer.cs">
       <DependentUpon>FrmGestionCalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestionTipoCalentamiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGestionTipoCalentamiento.Designer.cs">
+      <DependentUpon>FrmGestionTipoCalentamiento.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmGestionTipoTelefono.cs">
       <SubType>Form</SubType>
@@ -193,11 +211,23 @@
     <Compile Include="FrmNuevoEditarTipoTelefono.Designer.cs">
       <DependentUpon>FrmNuevoEditarTipoTelefono.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmNuevoEditarTipoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNuevoEditarTipoUsuario.Designer.cs">
+      <DependentUpon>FrmNuevoEditarTipoUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmNuevoTipoCalentamiento.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmNuevoTipoCalentamiento.Designer.cs">
       <DependentUpon>FrmNuevoTipoCalentamiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNuevoEditarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNuevoEditarUsuario.Designer.cs">
+      <DependentUpon>FrmNuevoEditarUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="GimnasioContextDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -218,8 +248,17 @@
     <Compile Include="Reportes\ReporteCliente.Designer.cs">
       <DependentUpon>ReporteCliente.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmAdministracionUsuarios.resx">
+      <DependentUpon>FrmAdministracionUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAdministradorTipoUsuario.resx">
+      <DependentUpon>FrmAdministradorTipoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionCalle.resx">
       <DependentUpon>FrmGestionCalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestionTipoCalentamiento.resx">
+      <DependentUpon>FrmGestionTipoCalentamiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionTipoTelefono.resx">
       <DependentUpon>FrmGestionTipoTelefono.cs</DependentUpon>
@@ -290,8 +329,14 @@
     <EmbeddedResource Include="FrmNuevoEditarTipoTelefono.resx">
       <DependentUpon>FrmNuevoEditarTipoTelefono.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmNuevoEditarTipoUsuario.resx">
+      <DependentUpon>FrmNuevoEditarTipoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmNuevoTipoCalentamiento.resx">
       <DependentUpon>FrmNuevoTipoCalentamiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNuevoEditarUsuario.resx">
+      <DependentUpon>FrmNuevoEditarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

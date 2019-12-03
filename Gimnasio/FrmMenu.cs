@@ -182,7 +182,8 @@ namespace Gimnasio
 
         private void nuevoCalentamientoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            
+            FrmNuevoEditarCalentamiento frmNuevoEditarCalentamiento = new FrmNuevoEditarCalentamiento();
+            frmNuevoEditarCalentamiento.ShowDialog();
         }
 
         private void nuevoCardioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -195,6 +196,29 @@ namespace Gimnasio
         {
             FrmGestionCardio frmGestionCardio = new FrmGestionCardio();
             frmGestionCardio.ShowDialog();
+        }
+
+        private void gestiónTiposDeCalentamientosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmGestionTipoCalentamiento frmGestionTipoCalentamiento = new FrmGestionTipoCalentamiento();
+            frmGestionTipoCalentamiento.ShowDialog();
+        }
+
+        private void administradorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAdministracionUsuarios frmAdministracionUsuarios = new FrmAdministracionUsuarios();
+            frmAdministracionUsuarios.ShowDialog();
+        }
+
+        private void FrmMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void administradorTipoDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAdministradorTipoUsuario frmAdministradorTipoUsuario = new FrmAdministradorTipoUsuario();
+            frmAdministradorTipoUsuario.ShowDialog();
         }
     }
 }

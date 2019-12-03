@@ -13,15 +13,19 @@ namespace Datos
     {
         [Key]
         public int idusuario { get; set; }
+
+        [Required]
+        public int idtipo_usuario { get; set; }
+        public virtual Tipo_Usuario Tipo_Usuario { get; set; }
+
         [Required]
         [MaxLength (60)]
         public string user { get; set; }
+
         [MaxLength (128)]
         public string password { get; set; }
 
         [DefaultValue(false)]
         public bool IsDelete { get; set; }
-
-        public virtual ObservableCollection<Tipo_Usuario> Tipos_Usuarios { get; set; }
     }
 }

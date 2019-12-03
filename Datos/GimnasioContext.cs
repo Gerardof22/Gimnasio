@@ -29,6 +29,7 @@ namespace Datos
         public DbSet<Tipo_Calentamiento> Tipos_Calentamientos { get; set; }
         public DbSet<Tipo_Rutina> Tipos_Rutinas { get; set; }
         public DbSet<Tipo_Telefono> Tipos_Telefonos { get; set; }
+        public DbSet<Tipo_Usuario> Tipos_Usuarios { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
 
     }
