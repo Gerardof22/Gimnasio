@@ -42,14 +42,14 @@ namespace Gimnasio
         private void CargarTipoUsuario(int idSeleccionado)
         {
             tipo_Usuario = dbGimnasio.Tipos_Usuarios.Find(idSeleccionado);
-            txtTipoUsuario.Text = tipo_Usuario.tipo_usuario;
+            txtTipoUsuario.Text = tipo_Usuario.tipo;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
-                tipo_Usuario.tipo_usuario = txtTipoUsuario.Text;
+                tipo_Usuario.tipo = txtTipoUsuario.Text;
 
                 if (tipo_Usuario.idtipousuario > 0)
                 {

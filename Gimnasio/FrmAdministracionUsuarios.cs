@@ -30,7 +30,7 @@ namespace Gimnasio
                                 select new
                                 {
                                     idusuario = u.idusuario,
-                                    tipo_usuario = u.Tipo_Usuario.tipo_usuario,
+                                    tipo_usuario = u.Tipo_Usuario.tipo,
                                     usuario = u.user,
                                     IsDeleted = u.IsDelete
                                 };
@@ -45,7 +45,7 @@ namespace Gimnasio
                                 select new
                                 {
                                     idusuario = u.idusuario,
-                                    tipo_usuario = t_u.tipo_usuario,
+                                    tipo_usuario = t_u.tipo,
                                     usuario = u.user,
                                     IsDeleted = u.IsDelete
                                 };

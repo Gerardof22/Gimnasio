@@ -1,4 +1,5 @@
 ﻿using System;
+using Datos;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,9 @@ namespace Gimnasio
 {
     public partial class FrmMenu : Form
     {
+        Tipo_Usuario tipo_Usuario;
+        GimnasioContext dbGimnasio = new GimnasioContext();
+
         public FrmMenu()
         {
             InitializeComponent();
@@ -212,7 +216,22 @@ namespace Gimnasio
 
         private void FrmMenu_Load(object sender, EventArgs e)
         {
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.ShowDialog();
+            Usuario usuario = frmLogin.usuario;
+            
 
+            if (usuario != null)
+            {
+                if (usuario.Tipo_Usuario.tipo.Equals("Administrador"))
+                {
+                    administradorDeUsuariosToolStripMenuItem.Enabled = true;
+                }
+                else
+                {
+                    administradorDeUsuariosToolStripMenuItem.Enabled = false;
+                }
+            }
         }
 
         private void administradorTipoDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)

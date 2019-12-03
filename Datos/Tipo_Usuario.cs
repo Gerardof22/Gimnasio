@@ -16,7 +16,7 @@ namespace Datos
 
         [Required]
         [StringLength(50)]
-        public string tipo_usuario { get; set; }
+        public string tipo { get; set; }
 
         [DefaultValue(false)]
         public bool IsDelete { get; set; }

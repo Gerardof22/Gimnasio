@@ -79,6 +79,12 @@
     <Compile Include="FrmGestionTipoTelefono.Designer.cs">
       <DependentUpon>FrmGestionTipoTelefono.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmNuevoEditarCalle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +268,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionTipoTelefono.resx">
       <DependentUpon>FrmGestionTipoTelefono.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNuevoEditarCalle.resx">
       <DependentUpon>FrmNuevoEditarCalle.cs</DependentUpon>

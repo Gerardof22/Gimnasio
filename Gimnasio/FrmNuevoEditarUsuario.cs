@@ -17,8 +17,6 @@ namespace Gimnasio
     {
         GimnasioContext dbGimnasio;
         Usuario usuario;
-        Tipo_Usuario tipo_Usuario;
-        private int intentosFallidos = 0;
 
         public FrmNuevoEditarUsuario()
         {
@@ -55,7 +53,7 @@ namespace Gimnasio
         {
             cboTipoUsuario.DataSource = dbGimnasio.Tipos_Usuarios.ToList();
             //campo que vera el usuario
-            cboTipoUsuario.DisplayMember = "tipo_usuario";
+            cboTipoUsuario.DisplayMember = "tipo";
 
             //campo que es el valor real
             cboTipoUsuario.ValueMember = "idtipousuario";

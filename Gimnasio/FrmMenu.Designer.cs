@@ -86,10 +86,10 @@
             this.nuevaCobranzaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.administradorDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.administradorTipoDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.administradorTipoDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -555,6 +555,13 @@
             this.administradorToolStripMenuItem.Text = "Administrador usuario";
             this.administradorToolStripMenuItem.Click += new System.EventHandler(this.administradorToolStripMenuItem_Click);
             // 
+            // administradorTipoDeUsuarioToolStripMenuItem
+            // 
+            this.administradorTipoDeUsuarioToolStripMenuItem.Name = "administradorTipoDeUsuarioToolStripMenuItem";
+            this.administradorTipoDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.administradorTipoDeUsuarioToolStripMenuItem.Text = "Administrador tipo de usuario";
+            this.administradorTipoDeUsuarioToolStripMenuItem.Click += new System.EventHandler(this.administradorTipoDeUsuarioToolStripMenuItem_Click);
+            // 
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
@@ -576,13 +583,6 @@
             this.salirToolStripMenuItem1.Name = "salirToolStripMenuItem1";
             this.salirToolStripMenuItem1.Size = new System.Drawing.Size(96, 22);
             this.salirToolStripMenuItem1.Text = "Salir";
-            // 
-            // administradorTipoDeUsuarioToolStripMenuItem
-            // 
-            this.administradorTipoDeUsuarioToolStripMenuItem.Name = "administradorTipoDeUsuarioToolStripMenuItem";
-            this.administradorTipoDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.administradorTipoDeUsuarioToolStripMenuItem.Text = "Administrador tipo de usuario";
-            this.administradorTipoDeUsuarioToolStripMenuItem.Click += new System.EventHandler(this.administradorTipoDeUsuarioToolStripMenuItem_Click);
             // 
             // FrmMenu
             // 
