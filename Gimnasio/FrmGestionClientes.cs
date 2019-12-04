@@ -146,8 +146,7 @@ namespace Gimnasio
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            Reportes.ReporteCliente reporteCliente = new Reportes.ReporteCliente();
-            reporteCliente.ShowDialog();
+            
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
