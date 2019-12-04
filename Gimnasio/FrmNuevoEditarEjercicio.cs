@@ -187,51 +187,52 @@ namespace Gimnasio
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            ejercicio.nombre = txtNombreEjercicio.Text;
-            ejercicio.imagen = resizeImage(imageToByteArray(pbxImagen.Image));
+            //ejercicio.nombre = txtNombreEjercicio.Text;
+            //ejercicio.imagen = resizeImage(imageToByteArray(pbxImagen.Image));
 
-            if (ejercicio.idejercicio > 0)
-            {
-                try
-                {
-                    dbGimnasio.Entry(ejercicio).State = EntityState.Modified;
+            //if (ejercicio.idejercicio > 0)
+            //{
+            //    try
+            //    {
+            //        dbGimnasio.Entry(ejercicio).State = EntityState.Modified;
 
-                    MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    dbGimnasio.SaveChanges();
-                    this.Close();
-                }
-                catch (DbEntityValidationException ex) //<-- Sí ocurre alguna excepción al guardar 
-                {
-                    this.validarCatch(ex);
-                    throw;
-                }
-                
-            }
-            else
-            {
-                try
-                {
-                    if (string.IsNullOrEmpty(txtNombreEjercicio.Text))
-                    {
-                        MessageBox.Show("El campo 'Ejercicio' no puede estar vacio.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        txtNombreEjercicio.Focus();
-                    }
-                    else
-                    {
-                        dbGimnasio.Ejercicios.Add(ejercicio);
-                        MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        dbGimnasio.SaveChanges();
-                        this.Close();
-                    }
-                }
-                catch (DbEntityValidationException ex)
-                {
-                    this.validarCatch(ex);
-                    throw;
-                }
-            }
+            //        MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //        dbGimnasio.SaveChanges();
+            //        this.Close();
+            //    }
+            //    catch (DbEntityValidationException ex) //<-- Sí ocurre alguna excepción al guardar 
+            //    {
+            //        this.validarCatch(ex);
+            //        throw;
+            //    }
 
-            
+            //}
+            //else
+            //{
+            //    try
+            //    {
+            //        if (string.IsNullOrEmpty(txtNombreEjercicio.Text))
+            //        {
+            //            MessageBox.Show("El campo 'Ejercicio' no puede estar vacio.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //            txtNombreEjercicio.Focus();
+            //        }
+            //        else
+            //        {
+            //            dbGimnasio.Ejercicios.Add(ejercicio);
+            //            MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //            dbGimnasio.SaveChanges();
+            //            this.Close();
+            //        }
+            //    }
+            //    catch (DbEntityValidationException ex)
+            //    {
+            //        this.validarCatch(ex);
+            //        throw;
+            //    }
+            //}
+
+            Reportes.ReporteEjercicio reporteEjercicio = new Reportes.ReporteEjercicio(1);
+            reporteEjercicio.ShowDialog();
         }
 
         /// <summary>
