@@ -33,5 +33,15 @@ namespace Gimnasio.Properties {
                 return ((string)(this["GimnasioContextConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=NOTEBOOK\\SQLEXPRESS;Initial Catalog=GimnasioContext;User ID=sa")]
+        public string GimnasioContext {
+            get {
+                return ((string)(this["GimnasioContext"]));
+            }
+        }
     }
 }

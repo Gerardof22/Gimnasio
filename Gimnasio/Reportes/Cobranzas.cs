@@ -29,11 +29,11 @@ namespace Gimnasio.Reportes
                                 where cobranza.idcobranza == this.idcobranza
                                 select new
                                 {
-                                    cobranza_idcobranza = cobranza.idcobranza,
-                                    cobranza_fechaPago = cobranza.fechaPago,
+                                    idcobranza = cobranza.idcobranza,
+                                    fechaPago = cobranza.fechaPago,
                                     cobranza_total = cobranza.cobranza_total,
-                                    detalleCobranza_recargoMes = detalleCobranza.recargoMes,
-                                    detalleCobranza_importe = detalleCobranza.importe,
+                                    recargoMes = detalleCobranza.recargoMes,
+                                    importe = detalleCobranza.importe,
                                     detalleCobranza_total = detalleCobranza.detalleCobranza_total
                                 };
 

@@ -235,11 +235,6 @@
     <Compile Include="FrmNuevoEditarUsuario.Designer.cs">
       <DependentUpon>FrmNuevoEditarUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="GimnasioContextDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GimnasioContextDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reportes\Cobranzas.cs">
@@ -356,7 +351,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Reportes\Cliente.rdlc" />
     <EmbeddedResource Include="Reportes\Cobranzas.rdlc" />
     <EmbeddedResource Include="Reportes\Cobranzas.resx">
       <DependentUpon>Cobranzas.cs</DependentUpon>
@@ -364,17 +358,24 @@
     <EmbeddedResource Include="Reportes\ReporteCliente.resx">
       <DependentUpon>ReporteCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="GimnasioContextDataSet.xsc">
-      <DependentUpon>GimnasioContextDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="GimnasioContextDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GimnasioContextDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="GimnasioContextDataSet.xss">
-      <DependentUpon>GimnasioContextDataSet.xsd</DependentUpon>
-    </None>
+    <None Include="Properties\DataSources\Datos.Calentamiento.datasource" />
+    <None Include="Properties\DataSources\Datos.Calle.datasource" />
+    <None Include="Properties\DataSources\Datos.Cardio.datasource" />
+    <None Include="Properties\DataSources\Datos.Cliente.datasource" />
+    <None Include="Properties\DataSources\Datos.Cobranza.datasource" />
+    <None Include="Properties\DataSources\Datos.Control_Ingreso.datasource" />
+    <None Include="Properties\DataSources\Datos.Detalle_Cobranza.datasource" />
+    <None Include="Properties\DataSources\Datos.Domicilio.datasource" />
+    <None Include="Properties\DataSources\Datos.Ejercicio.datasource" />
+    <None Include="Properties\DataSources\Datos.GimnasioContext.datasource" />
+    <None Include="Properties\DataSources\Datos.Localidad.datasource" />
+    <None Include="Properties\DataSources\Datos.Rutina.datasource" />
+    <None Include="Properties\DataSources\Datos.Telefono.datasource" />
+    <None Include="Properties\DataSources\Datos.Tipo_Calentamiento.datasource" />
+    <None Include="Properties\DataSources\Datos.Tipo_Rutina.datasource" />
+    <None Include="Properties\DataSources\Datos.Tipo_Telefono.datasource" />
+    <None Include="Properties\DataSources\Datos.Tipo_Usuario.datasource" />
+    <None Include="Properties\DataSources\Datos.Usuario.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

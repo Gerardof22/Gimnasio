@@ -9,8 +9,7 @@ namespace Datos
         
         public GimnasioContext() : base("GimnasioContext")
         {
-            Database.SetInitializer<GimnasioContext>(
-            new MigrateDatabaseToLatestVersion<GimnasioContext, Configuration>());
+            Database.SetInitializer<GimnasioContext>(new MigrateDatabaseToLatestVersion<GimnasioContext, Configuration>());
 
         }
 
