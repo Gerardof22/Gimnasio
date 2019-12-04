@@ -134,7 +134,7 @@ namespace Gimnasio
         {
             if (gridEjercicio.CurrentRow != null)
             {
-                if (celdaFilaActual(gridEjercicio, 2) != System.DBNull.Value)
+                if (celdaFilaActual(gridEjercicio, 2) != null)
                 {
                     this.pxbImagen.Image = FrmNuevoEditarEjercicio.byteArrayToImage((byte[])celdaFilaActual(gridEjercicio, 2));
                 }
@@ -149,7 +149,7 @@ namespace Gimnasio
         {
             if (gridEjercicio.CurrentRow != null)
             {
-                if (celdaFilaActual(gridEjercicio, 2) != System.DBNull.Value)
+                if (celdaFilaActual(gridEjercicio, 2) != null)
                 {
                     this.pxbImagen.Image = FrmNuevoEditarEjercicio.byteArrayToImage((byte[])celdaFilaActual(gridEjercicio, 2));
                 }

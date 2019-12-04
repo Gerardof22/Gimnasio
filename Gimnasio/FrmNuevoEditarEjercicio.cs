@@ -23,6 +23,7 @@ namespace Gimnasio
         Ejercicio ejercicio;
         Rutina rutina;
         Tipo_Rutina tipo_Rutina;
+        Cliente cliente;
 
         static MemoryStream ms;
         MemoryStream ms2;
@@ -52,14 +53,74 @@ namespace Gimnasio
             InitializeComponent();
             dbGimnasio = dbEnviado;
             ejercicio = new Ejercicio();
+            rutina = new Rutina();
+            cliente = new Cliente();
             this.cargarEjercicio(idSeleccionado);
         }
 
         private void cargarEjercicio(int idSeleccionado)
         {
+            
             ejercicio = dbGimnasio.Ejercicios.Find(idSeleccionado);
+            rutina = dbGimnasio.Rutinas.Find(ejercicio.idejercicio);
+            //cliente = dbGimnasio.Clientes.Find(rutina.Cliente.idcliente);
             txtNombreEjercicio.Text = ejercicio.nombre;
-            pbxImagen.Image = byteArrayToImage(ejercicio.imagen);
+            if (ejercicio.imagen != null)
+            {
+                pbxImagen.Image = byteArrayToImage(ejercicio.imagen);
+            }
+            this.CargarGrillaRutina(idSeleccionado);
+            this.CargarTipoRutina(idSeleccionado);
+            //dtpFechaDesde.Value = rutina.fechaDesde;
+            //dtpFechaHasta.Value = rutina.fechaHasta;
+            //txtSeries.Text = rutina.serie.ToString();
+            //txtRepeticiones.Text = rutina.repeticion.ToString();
+            //txtTiempoDuracion.Text = rutina.tiempoduracion;
+            //txtDescanso.Text = rutina.descanso;
+            //txtKg.Text = rutina.pesokg.ToString();
+            //txtDuracionCardio.Text = rutina.Cardio?.duracion.ToString();
+            //txtRitmoCardio.Text = rutina.Cardio?.ritmo;
+            //txtDuracionCalentamiento.Text = rutina.Calentamiento?.duracion;
+            //txtDescripcionCalentamiento.Text = rutina.Calentamiento?.descripcion;
+            this.cargarComboCliente(rutina.Cliente.idcliente);
+        }
+
+        private void CargarTipoRutina(int idSeleccionado)
+        {
+            var listTipoRutina = from e in dbGimnasio.Ejercicios join r in dbGimnasio.Rutinas on e.idejercicio equals                               r.idejercicio join tr in dbGimnasio.Tipos_Rutinas on r.idrutina equals tr.Rutina.idrutina
+                                 select new
+                                 {
+                                     idejercicio = e.idejercicio,
+                                     idrutina = r.idrutina,
+                                     idtipo_rutina = tr.idtiporutina,
+                                     tipo_rutina = tr.nombre
+                                 };
+
+            gridTiposRutinas.DataSource = listTipoRutina.Where(e => e.idejercicio == idSeleccionado).ToList();
+        }
+
+        private void CargarGrillaRutina(int idSeleccionado)
+        {
+            var listaRutina = from r in ejercicio.Rutinas
+
+                              select new
+                              {
+                                  idejercicio = r.idejercicio,
+                                  idrutina = r.idrutina,
+                                  fechaDesde = r.fechaDesde,
+                                  fechaHasta = r.fechaHasta,
+                                  serie = r.serie,
+                                  repticion = r.repeticion,
+                                  tiempoDuracion = r.tiempoduracion,
+                                  descanso = r.descanso,
+                                  Kg = r.pesokg,
+                                  duracion_cardio = r.Cardio?.duracion,
+                                  ritmo_cardio = r.Cardio?.ritmo,
+                                  duracion_calentamiento = r.Calentamiento?.duracion,
+                                  descripcion_calentamiento = r.Calentamiento?.descripcion
+                              };
+
+            gridRutinas.DataSource = listaRutina.Where(r => r.idejercicio == idSeleccionado).ToList();
         }
 
         private void cargarComboCliente(int idSeleccionado)
