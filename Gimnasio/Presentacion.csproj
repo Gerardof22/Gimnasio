@@ -237,6 +237,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\ReporteCobranza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\ReporteCobranza.Designer.cs">
+      <DependentUpon>ReporteCobranza.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\ReporteEjercicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -345,7 +351,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reportes\Cobranza.rdlc" />
     <EmbeddedResource Include="Reportes\Ejercicio.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteCobranza.resx">
+      <DependentUpon>ReporteCobranza.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReporteEjercicio.resx">
       <DependentUpon>ReporteEjercicio.cs</DependentUpon>
     </EmbeddedResource>
