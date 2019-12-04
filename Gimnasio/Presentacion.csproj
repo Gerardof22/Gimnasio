@@ -243,12 +243,6 @@
     <Compile Include="Reportes\Cobranzas.Designer.cs">
       <DependentUpon>Cobranzas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\ReporteCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reportes\ReporteCliente.Designer.cs">
-      <DependentUpon>ReporteCliente.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="FrmAdministracionUsuarios.resx">
       <DependentUpon>FrmAdministracionUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -354,9 +348,6 @@
     <EmbeddedResource Include="Reportes\Cobranzas.rdlc" />
     <EmbeddedResource Include="Reportes\Cobranzas.resx">
       <DependentUpon>Cobranzas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\ReporteCliente.resx">
-      <DependentUpon>ReporteCliente.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\Datos.Calentamiento.datasource" />
     <None Include="Properties\DataSources\Datos.Calle.datasource" />
