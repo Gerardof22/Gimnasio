@@ -210,8 +210,12 @@ namespace Gimnasio
                 throw;
             }
 
-            Reportes.ReporteCobranza cobranzas = new Reportes.ReporteCobranza(this.cobranza.idcobranza);
-            cobranzas.ShowDialog();
+            if ((int)cboClientes.SelectedIndex > -1 && cboClientes.SelectedValue.GetType() == typeof(Int32) && gridDetalleCobranza.RowCount > 0)
+            {
+                Reportes.ReporteCobranza cobranzas = new Reportes.ReporteCobranza(this.cobranza.idcobranza);
+                cobranzas.ShowDialog();
+            }
+            
         }
 
         private void chekDebe_CheckedChanged(object sender, EventArgs e)

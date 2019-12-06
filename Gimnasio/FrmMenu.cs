@@ -77,13 +77,14 @@ namespace Gimnasio
 
         private void nuevaRutinaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmNuevoEditarRutina frmNuevoEditarRutina = new FrmNuevoEditarRutina();
+            FrmEditarRutina frmNuevoEditarRutina = new FrmEditarRutina();
             frmNuevoEditarRutina.ShowDialog();
         }
 
         private void gestiónRutinaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            FrmGestionRutina frmGestionRutina = new FrmGestionRutina();
+            frmGestionRutina.ShowDialog();
         }
 
         private void gestiónCallesToolStripMenuItem_Click(object sender, EventArgs e)

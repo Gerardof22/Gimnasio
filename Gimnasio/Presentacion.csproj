@@ -61,11 +61,23 @@
     <Compile Include="FrmAdministradorTipoUsuario.Designer.cs">
       <DependentUpon>FrmAdministradorTipoUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEditarEjercicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditarEjercicio.Designer.cs">
+      <DependentUpon>FrmEditarEjercicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGestionCalle.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmGestionCalle.Designer.cs">
       <DependentUpon>FrmGestionCalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestionRutina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGestionRutina.Designer.cs">
+      <DependentUpon>FrmGestionRutina.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmGestionTipoCalentamiento.cs">
       <SubType>Form</SubType>
@@ -193,11 +205,11 @@
     <Compile Include="FrmNuevoEditarEjercicio.Designer.cs">
       <DependentUpon>FrmNuevoEditarEjercicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmNuevoEditarRutina.cs">
+    <Compile Include="FrmEditarRutina.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmNuevoEditarRutina.Designer.cs">
-      <DependentUpon>FrmNuevoEditarRutina.cs</DependentUpon>
+    <Compile Include="FrmEditarRutina.Designer.cs">
+      <DependentUpon>FrmEditarRutina.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmNuevoEditarTelefono.cs">
       <SubType>Form</SubType>
@@ -255,8 +267,14 @@
     <EmbeddedResource Include="FrmAdministradorTipoUsuario.resx">
       <DependentUpon>FrmAdministradorTipoUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditarEjercicio.resx">
+      <DependentUpon>FrmEditarEjercicio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionCalle.resx">
       <DependentUpon>FrmGestionCalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestionRutina.resx">
+      <DependentUpon>FrmGestionRutina.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionTipoCalentamiento.resx">
       <DependentUpon>FrmGestionTipoCalentamiento.cs</DependentUpon>
@@ -321,8 +339,8 @@
     <EmbeddedResource Include="FrmNuevoEditarEjercicio.resx">
       <DependentUpon>FrmNuevoEditarEjercicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmNuevoEditarRutina.resx">
-      <DependentUpon>FrmNuevoEditarRutina.cs</DependentUpon>
+    <EmbeddedResource Include="FrmEditarRutina.resx">
+      <DependentUpon>FrmEditarRutina.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNuevoEditarTelefono.resx">
       <DependentUpon>FrmNuevoEditarTelefono.cs</DependentUpon>

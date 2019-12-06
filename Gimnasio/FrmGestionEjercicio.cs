@@ -52,6 +52,29 @@ namespace Gimnasio
             ((DataGridViewImageColumn)gridEjercicio.Columns[2]).DefaultCellStyle.NullValue = null;
         }
 
+        private void CargarGillaRutinas(int idSeleccionado)
+        {
+            var listaRutina = from e in dbGimnasio.Ejercicios
+                              join r in dbGimnasio.Rutinas on e.idejercicio equals r.Ejercicio.idejercicio
+                              where e.idejercicio == idSeleccionado
+                              select new
+                              {
+                                  idrutina = r.idrutina,
+                                  fechaDesde = r.fechaDesde,
+                                  fechaHasta = r.fechaHasta,
+                                  serie = r.serie,
+                                  repeticion = r.repeticion,
+                                  tiempoDuracion = r.tiempoduracion,
+                                  descanso = r.descanso,
+                                  pesoKG = r.pesokg,
+                                  Cardio = r.Cardio.duracion + " " + r.Cardio.duracion,
+                                  Calentamiento = r.Calentamiento.duracion + " " + r.Calentamiento.descripcion,
+                                  IsDelected = r.IsDelete
+                              };
+
+            gridRutina.DataSource = listaRutina.ToList();
+        }
+
         private void buscarEjrcicios(string textToSearch)
         {
             var listaEjercicio = from e in dbGimnasio.Ejercicios
@@ -71,7 +94,7 @@ namespace Gimnasio
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            FrmNuevoEditarEjercicio frmNuevoEditarEjercicio = new FrmNuevoEditarEjercicio();
+            FrmNuevoEditarEjercicio frmNuevoEditarEjercicio = new FrmNuevoEditarEjercicio(dbGimnasio);
             frmNuevoEditarEjercicio.ShowDialog();
             listarEjrcicios();
         }
@@ -82,8 +105,8 @@ namespace Gimnasio
             {
                 int idSeleccionado = (int)celdaFilaActual(gridEjercicio, 0);
 
-                FrmNuevoEditarEjercicio frmNuevoEditarEjercicio = new FrmNuevoEditarEjercicio(idSeleccionado, dbGimnasio);
-                frmNuevoEditarEjercicio.ShowDialog();
+                FrmEditarEjercicio frmEditarEjercicio = new FrmEditarEjercicio(idSeleccionado, dbGimnasio);
+                frmEditarEjercicio.ShowDialog();
                 listarEjrcicios();
             }
         }
@@ -130,6 +153,30 @@ namespace Gimnasio
             this.Close();
         }
 
+        private void gridEjercicio_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (gridEjercicio.CurrentRow != null)
+            {
+                int idEjercicioSeleccionado = (int)celdaFilaActual(gridEjercicio, 0);
+
+                if (celdaFilaActual(gridEjercicio, 2) != null)
+                {
+                    this.pxbImagen.Image = FrmNuevoEditarEjercicio.byteArrayToImage((byte[])celdaFilaActual(gridEjercicio, 2));
+                }
+                else
+                {
+                    this.pxbImagen.Image = null;
+                }
+
+                this.CargarGillaRutinas(idEjercicioSeleccionado);
+            }
+        }
+
+        private void gridEjercicio_RowEnter(object sender, DataGridViewCellEventArgs celdaSeleccionada)
+        {
+            gridEjercicio_CellClick(gridEjercicio, celdaSeleccionada);
+        }
+
         private void gridEjercicio_SelectionChanged(object sender, EventArgs e)
         {
             if (gridEjercicio.CurrentRow != null)
@@ -143,26 +190,6 @@ namespace Gimnasio
                     this.pxbImagen.Image = null;
                 }
             }
-        }
-
-        private void gridEjercicio_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (gridEjercicio.CurrentRow != null)
-            {
-                if (celdaFilaActual(gridEjercicio, 2) != null)
-                {
-                    this.pxbImagen.Image = FrmNuevoEditarEjercicio.byteArrayToImage((byte[])celdaFilaActual(gridEjercicio, 2));
-                }
-                else
-                {
-                    this.pxbImagen.Image = null;
-                }
-            }
-        }
-
-        private void gridEjercicio_RowEnter(object sender, DataGridViewCellEventArgs celdaSeleccionada)
-        {
-            gridEjercicio_CellClick(gridEjercicio, celdaSeleccionada);
         }
     }
 }

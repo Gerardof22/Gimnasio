@@ -34,16 +34,22 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.gridEjercicio = new System.Windows.Forms.DataGridView();
             this.pxbImagen = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.gridEjercicio)).BeginInit();
+            this.gpbRutinas = new System.Windows.Forms.GroupBox();
+            this.gridRutina = new System.Windows.Forms.DataGridView();
+            this.gpbEjercicio = new System.Windows.Forms.GroupBox();
+            this.gridEjercicio = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pxbImagen)).BeginInit();
+            this.gpbRutinas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridRutina)).BeginInit();
+            this.gpbEjercicio.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridEjercicio)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSalir
             // 
             this.btnSalir.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSalir.Location = new System.Drawing.Point(320, 317);
+            this.btnSalir.Location = new System.Drawing.Point(668, 403);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 31;
@@ -54,7 +60,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnEliminar.Location = new System.Drawing.Point(239, 317);
+            this.btnEliminar.Location = new System.Drawing.Point(587, 403);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 30;
@@ -65,7 +71,7 @@
             // btnEditar
             // 
             this.btnEditar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnEditar.Location = new System.Drawing.Point(157, 317);
+            this.btnEditar.Location = new System.Drawing.Point(505, 403);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 29;
@@ -99,6 +105,49 @@
             this.label1.TabIndex = 24;
             this.label1.Text = "Buscar";
             // 
+            // pxbImagen
+            // 
+            this.pxbImagen.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pxbImagen.Location = new System.Drawing.Point(1002, 44);
+            this.pxbImagen.Name = "pxbImagen";
+            this.pxbImagen.Size = new System.Drawing.Size(312, 342);
+            this.pxbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pxbImagen.TabIndex = 33;
+            this.pxbImagen.TabStop = false;
+            // 
+            // gpbRutinas
+            // 
+            this.gpbRutinas.Controls.Add(this.gridRutina);
+            this.gpbRutinas.Location = new System.Drawing.Point(249, 44);
+            this.gpbRutinas.Name = "gpbRutinas";
+            this.gpbRutinas.Size = new System.Drawing.Size(747, 342);
+            this.gpbRutinas.TabIndex = 34;
+            this.gpbRutinas.TabStop = false;
+            this.gpbRutinas.Text = "Rutinas";
+            // 
+            // gridRutina
+            // 
+            this.gridRutina.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridRutina.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridRutina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridRutina.Location = new System.Drawing.Point(6, 19);
+            this.gridRutina.Name = "gridRutina";
+            this.gridRutina.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridRutina.Size = new System.Drawing.Size(735, 317);
+            this.gridRutina.TabIndex = 35;
+            // 
+            // gpbEjercicio
+            // 
+            this.gpbEjercicio.Controls.Add(this.gridEjercicio);
+            this.gpbEjercicio.Location = new System.Drawing.Point(14, 44);
+            this.gpbEjercicio.Name = "gpbEjercicio";
+            this.gpbEjercicio.Size = new System.Drawing.Size(229, 342);
+            this.gpbEjercicio.TabIndex = 35;
+            this.gpbEjercicio.TabStop = false;
+            this.gpbEjercicio.Text = "Ejercicios";
+            // 
             // gridEjercicio
             // 
             this.gridEjercicio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -106,32 +155,23 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridEjercicio.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridEjercicio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridEjercicio.Location = new System.Drawing.Point(14, 44);
+            this.gridEjercicio.Location = new System.Drawing.Point(6, 19);
             this.gridEjercicio.Name = "gridEjercicio";
             this.gridEjercicio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridEjercicio.Size = new System.Drawing.Size(573, 254);
-            this.gridEjercicio.TabIndex = 32;
+            this.gridEjercicio.Size = new System.Drawing.Size(217, 317);
+            this.gridEjercicio.TabIndex = 33;
             this.gridEjercicio.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridEjercicio_CellClick);
             this.gridEjercicio.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridEjercicio_RowEnter);
             this.gridEjercicio.SelectionChanged += new System.EventHandler(this.gridEjercicio_SelectionChanged);
-            // 
-            // pxbImagen
-            // 
-            this.pxbImagen.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.pxbImagen.Location = new System.Drawing.Point(593, 44);
-            this.pxbImagen.Name = "pxbImagen";
-            this.pxbImagen.Size = new System.Drawing.Size(356, 254);
-            this.pxbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pxbImagen.TabIndex = 33;
-            this.pxbImagen.TabStop = false;
             // 
             // FrmGestionEjercicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(961, 352);
+            this.ClientSize = new System.Drawing.Size(1326, 438);
+            this.Controls.Add(this.gpbEjercicio);
+            this.Controls.Add(this.gpbRutinas);
             this.Controls.Add(this.pxbImagen);
-            this.Controls.Add(this.gridEjercicio);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
@@ -141,8 +181,11 @@
             this.Name = "FrmGestionEjercicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmGestionEjercicio";
-            ((System.ComponentModel.ISupportInitialize)(this.gridEjercicio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pxbImagen)).EndInit();
+            this.gpbRutinas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridRutina)).EndInit();
+            this.gpbEjercicio.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridEjercicio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,7 +199,10 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView gridEjercicio;
         private System.Windows.Forms.PictureBox pxbImagen;
+        private System.Windows.Forms.GroupBox gpbRutinas;
+        private System.Windows.Forms.DataGridView gridRutina;
+        private System.Windows.Forms.GroupBox gpbEjercicio;
+        private System.Windows.Forms.DataGridView gridEjercicio;
     }
 }
