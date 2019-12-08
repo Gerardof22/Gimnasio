@@ -243,7 +243,7 @@ namespace Gimnasio
                 }
             }
 
-            Reportes.ReporteEjercicio reporteEjercicio = new Reportes.ReporteEjercicio(2);
+            Reportes.ReporteEjercicio reporteEjercicio = new Reportes.ReporteEjercicio(ejercicio.idejercicio);
             reporteEjercicio.ShowDialog();
         }
 
@@ -414,6 +414,8 @@ namespace Gimnasio
             txtRitmoCardio.Text = "";
             txtDuracionCalentamiento.Text = "";
             txtDescripcionCalentamiento.Text = "";
+            FrmGestionCardio.idcardio = 0;
+            FrmGestionCaletamiento.idcalentamiento = 0;
         }
 
         private void validarRelacionesTablas()
@@ -430,12 +432,19 @@ namespace Gimnasio
 
         private void btnAgregarTipoRutina_Click(object sender, EventArgs e)
         {
-            FrmNuevoEditarTipoRutina frmNuevoEditarTipoRutina = new FrmNuevoEditarTipoRutina();
-            frmNuevoEditarTipoRutina.ShowDialog();
-            if (!string.IsNullOrEmpty(FrmNuevoEditarTipoRutina.tipo_rutina_nombre))
+            if (gridRutinas.RowCount > 0)
             {
-                llenarGrillaTipoRutina();
-                cargarGrillaTipoRutina();
+                FrmNuevoEditarTipoRutina frmNuevoEditarTipoRutina = new FrmNuevoEditarTipoRutina();
+                frmNuevoEditarTipoRutina.ShowDialog();
+                if (!string.IsNullOrEmpty(FrmNuevoEditarTipoRutina.tipo_rutina_nombre))
+                {
+                    llenarGrillaTipoRutina();
+                    cargarGrillaTipoRutina();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe de agregar primero una Rutina, luego indicar el Tipo de Rutina.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -474,7 +483,7 @@ namespace Gimnasio
 
         private void btnQuitarTipoRutina_Click(object sender, EventArgs e)
         {
-            if (gridTiposRutinas.Rows.Count > 0 && gridTiposRutinas.SelectedRows.Count > 0)
+            if (gridTiposRutinas.Rows.Count > 0)
             {
                 int idSeleccionado = (int)celdaFilaActual(gridTiposRutinas, 0);
 

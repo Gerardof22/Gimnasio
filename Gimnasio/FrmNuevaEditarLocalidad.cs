@@ -49,6 +49,16 @@ namespace Gimnasio
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            this.Guardar();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Guardar()
+        {
             try
             {
                 localidad.localidad = txtLocalidadNombre.Text;
@@ -56,16 +66,25 @@ namespace Gimnasio
                 if (localidad.idlocalidad > 0)
                 {
                     dbGimnasio.Entry(localidad).State = EntityState.Modified;
+                    dbGimnasio.SaveChanges();
                     MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
                 else
                 {
-                    dbGimnasio.Localidads.Add(localidad);
-                    MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (!string.IsNullOrEmpty(txtLocalidadNombre.Text))
+                    {
+                        dbGimnasio.Localidads.Add(localidad);
+                        dbGimnasio.SaveChanges();
+                        MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El campo de texto no puede estar vacío.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtLocalidadNombre.Focus();
+                    }
                 }
-
-                dbGimnasio.SaveChanges();
-                this.Close();
             }
             catch (DbEntityValidationException ex) //<-- Sí ocurre alguna excepción al guardar 
             {
@@ -83,9 +102,12 @@ namespace Gimnasio
             }
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void txtLocalidadNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            this.Close();
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                this.Guardar();
+            }
         }
     }
 }

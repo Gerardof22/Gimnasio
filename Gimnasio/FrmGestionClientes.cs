@@ -76,11 +76,17 @@ namespace Gimnasio
             gridClientes.DataSource = listaCliente.Where(c => c.nombre_apellido.Contains(textToSearch) || c.direccion.Contains                  (textToSearch) || c.localidad.Contains(textToSearch)).Where(c => c.isDelected == false).ToList();
         }
 
+        private void SeleccionarUltimaFila()
+        {
+            gridClientes.CurrentCell = gridClientes.Rows[gridClientes.Rows.Count - 1].Cells[0];
+        }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             FrmNuevoEditarCliente frmNuevoEditarCliente = new FrmNuevoEditarCliente(dbGimnasio);
             frmNuevoEditarCliente.ShowDialog();
             listarGrillaClientes();
+            this.SeleccionarUltimaFila();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -92,6 +98,7 @@ namespace Gimnasio
                 FrmNuevoEditarCliente frmNuevoEditarCliente = new FrmNuevoEditarCliente(idSeleccionado, dbGimnasio);
                 frmNuevoEditarCliente.ShowDialog();
                 listarGrillaClientes();
+                Helper.SeleccionarFilaActivaEditada(idSeleccionado, gridClientes);
             }
         }
 
@@ -142,11 +149,6 @@ namespace Gimnasio
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void btnImprimir_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)

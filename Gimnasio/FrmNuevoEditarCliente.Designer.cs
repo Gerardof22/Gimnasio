@@ -64,6 +64,7 @@
             this.txtLecturaCorporal = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
             this.gpbDatosPersonales.SuspendLayout();
             this.gpbContactos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridTelefonos)).BeginInit();
@@ -73,6 +74,8 @@
             // 
             // gpbDatosPersonales
             // 
+            this.gpbDatosPersonales.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gpbDatosPersonales.Controls.Add(this.dtpFechaNacimiento);
             this.gpbDatosPersonales.Controls.Add(this.label13);
             this.gpbDatosPersonales.Controls.Add(this.dtpFechaIngreso);
@@ -240,6 +243,8 @@
             // 
             // gpbContactos
             // 
+            this.gpbContactos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gpbContactos.Controls.Add(this.btnQuitar);
             this.gpbContactos.Controls.Add(this.gridTelefonos);
             this.gpbContactos.Controls.Add(this.btnAgregar);
@@ -282,6 +287,8 @@
             // 
             // gpbDomicilio
             // 
+            this.gpbDomicilio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gpbDomicilio.Controls.Add(this.btnSeleccionarDomicilio);
             this.gpbDomicilio.Controls.Add(this.txtNumCalle);
             this.gpbDomicilio.Controls.Add(this.txtNombreCalle);
@@ -340,6 +347,9 @@
             // 
             // gpbObservaciones
             // 
+            this.gpbObservaciones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gpbObservaciones.Controls.Add(this.label14);
             this.gpbObservaciones.Controls.Add(this.txtObjetivos);
             this.gpbObservaciones.Controls.Add(this.txtPeso);
             this.gpbObservaciones.Controls.Add(this.label12);
@@ -366,7 +376,7 @@
             // 
             this.txtPeso.Location = new System.Drawing.Point(65, 134);
             this.txtPeso.Name = "txtPeso";
-            this.txtPeso.Size = new System.Drawing.Size(103, 20);
+            this.txtPeso.Size = new System.Drawing.Size(66, 20);
             this.txtPeso.TabIndex = 14;
             // 
             // label12
@@ -407,6 +417,7 @@
             // 
             // btnGuardar
             // 
+            this.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnGuardar.Location = new System.Drawing.Point(255, 516);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
@@ -417,6 +428,7 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnCancelar.Location = new System.Drawing.Point(468, 516);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
@@ -424,6 +436,15 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(137, 137);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(20, 13);
+            this.label14.TabIndex = 27;
+            this.label14.Text = "Kg";
             // 
             // FrmNuevoEditarCliente
             // 
@@ -491,5 +512,6 @@
         public System.Windows.Forms.GroupBox gpbObservaciones;
         private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
     }
 }

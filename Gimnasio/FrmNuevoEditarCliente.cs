@@ -97,7 +97,7 @@ namespace Gimnasio
 
         private void cargarComboLocalidad(int idlocalidad)
         {
-            cboLocalidad.DataSource = dbGimnasio.Localidads.ToList();
+            cboLocalidad.DataSource = dbGimnasio.Localidads.Where(l => l.IsDelete == false).ToList();
             //campo que vera el usuario
             cboLocalidad.DisplayMember = "localidad";
 

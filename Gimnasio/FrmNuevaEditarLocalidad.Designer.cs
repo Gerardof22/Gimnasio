@@ -60,6 +60,7 @@
             this.txtLocalidadNombre.Name = "txtLocalidadNombre";
             this.txtLocalidadNombre.Size = new System.Drawing.Size(132, 20);
             this.txtLocalidadNombre.TabIndex = 8;
+            this.txtLocalidadNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLocalidadNombre_KeyPress);
             // 
             // label1
             // 

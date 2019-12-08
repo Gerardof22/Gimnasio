@@ -229,6 +229,7 @@
             this.gridRutinas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridRutinas.Location = new System.Drawing.Point(6, 19);
             this.gridRutinas.Name = "gridRutinas";
+            this.gridRutinas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridRutinas.Size = new System.Drawing.Size(520, 172);
             this.gridRutinas.TabIndex = 0;
             // 
@@ -247,6 +248,7 @@
             this.gridTiposRutinas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridTiposRutinas.Location = new System.Drawing.Point(7, 19);
             this.gridTiposRutinas.Name = "gridTiposRutinas";
+            this.gridTiposRutinas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridTiposRutinas.Size = new System.Drawing.Size(346, 172);
             this.gridTiposRutinas.TabIndex = 34;
             // 
