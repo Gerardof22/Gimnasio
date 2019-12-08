@@ -58,6 +58,7 @@
             // rbtnMañana
             // 
             this.rbtnMañana.AutoSize = true;
+            this.rbtnMañana.Checked = true;
             this.rbtnMañana.Location = new System.Drawing.Point(53, 75);
             this.rbtnMañana.Name = "rbtnMañana";
             this.rbtnMañana.Size = new System.Drawing.Size(64, 17);
@@ -73,7 +74,6 @@
             this.rbtnTarde.Name = "rbtnTarde";
             this.rbtnTarde.Size = new System.Drawing.Size(53, 17);
             this.rbtnTarde.TabIndex = 5;
-            this.rbtnTarde.TabStop = true;
             this.rbtnTarde.Text = "Tarde";
             this.rbtnTarde.UseVisualStyleBackColor = true;
             // 
@@ -123,7 +123,7 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "Cliente";
             // 
-            // FrmIngresoDiarioClientes
+            // FrmNuevoEditarControlIngreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -137,7 +137,7 @@
             this.Controls.Add(this.rbtnMañana);
             this.Controls.Add(this.dtpFechaIngreso);
             this.Controls.Add(this.label1);
-            this.Name = "FrmIngresoDiarioClientes";
+            this.Name = "FrmNuevoEditarControlIngreso";
             this.Text = "FrmIngresoDiarioClientes";
             this.ResumeLayout(false);
             this.PerformLayout();

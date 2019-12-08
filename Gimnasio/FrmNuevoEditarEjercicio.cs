@@ -125,7 +125,7 @@ namespace Gimnasio
 
         private void cargarComboCliente(int idSeleccionado)
         {
-            cboClientes.DataSource = dbGimnasio.Clientes.ToList();
+            cboClientes.DataSource = this.CargarClientes();
             cboClientes.DisplayMember = "nombre";
             cboClientes.ValueMember = "idcliente";
             cboClientes.SelectedValue = idSeleccionado;
@@ -141,6 +141,17 @@ namespace Gimnasio
             cboClientes.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cboClientes.AutoCompleteSource = AutoCompleteSource.CustomSource;
             cboClientes.AutoCompleteCustomSource = autoCompletadoCbo;
+        }
+
+        private IList CargarClientes()
+        {
+            var clientes = from c in dbGimnasio.Clientes
+                           select new
+                           {
+                               idcliente = c.idcliente,
+                               nombre = c.nombre + " " + c.apellido
+                           };
+            return clientes.ToList();
         }
 
         public static Image byteArrayToImage(byte[] ejercicio_imagen)

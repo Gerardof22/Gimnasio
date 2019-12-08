@@ -1,5 +1,6 @@
 ﻿using Datos;
 using System;
+using System.Collections;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.Entity.Validation;
@@ -41,7 +42,7 @@ namespace Gimnasio
 
         private void cargarComboCliente(int idSeleccionado)
         {
-            cboClientes.DataSource = dbGimnasio.Clientes.ToList();
+            cboClientes.DataSource = this.CargarCliente();
             cboClientes.DisplayMember = "nombre";
             cboClientes.ValueMember = "idcliente";
             cboClientes.SelectedValue = idSeleccionado;
@@ -57,6 +58,17 @@ namespace Gimnasio
             cboClientes.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cboClientes.AutoCompleteSource = AutoCompleteSource.CustomSource;
             cboClientes.AutoCompleteCustomSource = autoCompletadoCbo;
+        }
+
+        private IList CargarCliente()
+        {
+            var clientes = from c in dbGimnasio.Clientes
+                           select new
+                           {
+                               idcliente = c.idcliente,
+                               nombre = c.nombre + " " + c.apellido
+                           };
+            return clientes.ToList();
         }
 
         private void btnAgregarCliente_Click(object sender, EventArgs e)

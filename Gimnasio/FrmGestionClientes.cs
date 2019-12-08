@@ -29,8 +29,8 @@ namespace Gimnasio
             var listaCliente = from cliente in dbGimnasio.Clientes
                                join domicilio in dbGimnasio.Domicilios on cliente.Domicilio.iddomicilio equals domicilio.iddomicilio
                                join localidad in dbGimnasio.Localidads on cliente.Localidad.idlocalidad equals localidad.idlocalidad
-
-                               select new
+                               select
+                               new
                                {
                                    idcliente = cliente.idcliente,
                                    nombre_apellido = cliente.nombre + " " + cliente.apellido,
@@ -44,7 +44,7 @@ namespace Gimnasio
                                    lectura_corporal = cliente.lecturaCorporal,
                                    isDelected = cliente.IsDelete
                                };
-            
+
             gridClientes.DataSource = listaCliente.Where(c => c.isDelected == false).ToList();
         }
 

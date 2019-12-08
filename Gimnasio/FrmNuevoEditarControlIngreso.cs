@@ -1,5 +1,6 @@
 ﻿using Datos;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -64,13 +65,24 @@ namespace Gimnasio
 
         private void cargarComboClientes(int idcliente)
         {
-            cboCliente.DataSource = dbGimnasio.Clientes.ToList();
+            cboCliente.DataSource = this.CargarClientes();
             //campo que vera el usuario
             cboCliente.DisplayMember = "nombre";
 
             //campo que es el valor real
             cboCliente.ValueMember = "idcliente";
             cboCliente.SelectedValue = idcliente;
+        }
+
+        private IList CargarClientes()
+        {
+            var clientes = from c in dbGimnasio.Clientes
+                           select new
+                           {
+                               idcliente = c.idcliente,
+                               nombre = c.nombre + " " + c.apellido
+                           };
+            return clientes.ToList();
         }
 
         private void Turnos()
