@@ -101,7 +101,7 @@ namespace Gimnasio
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }
 
         private void dgvDomicilio_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)

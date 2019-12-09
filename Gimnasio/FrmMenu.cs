@@ -248,5 +248,10 @@ namespace Gimnasio
             FrmGestionCaletamiento frmGestionCaletamiento = new FrmGestionCaletamiento();
             frmGestionCaletamiento.ShowDialog();
         }
+
+        private void salirToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

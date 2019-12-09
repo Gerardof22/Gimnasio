@@ -135,5 +135,10 @@ namespace Gimnasio
         {
             
         }
+
+        private void btnSalir_Click(object sender, System.EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

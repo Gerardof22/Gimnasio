@@ -61,20 +61,20 @@
             this.btnQuitarTipoRutina = new System.Windows.Forms.Button();
             this.btnAgregarTipoRutina = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.pbxImagen = new System.Windows.Forms.PictureBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.btnQuitarEjercicio = new System.Windows.Forms.Button();
+            this.txtNombreEjercicio = new System.Windows.Forms.TextBox();
             this.btnAgregarEjercicio = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.txtNombreEjercicio = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.pbxImagen = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridTipoRutina)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).BeginInit();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtpFechaDesde
@@ -227,6 +227,7 @@
             this.btnCancelar.TabIndex = 19;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAgregarCardio
             // 
@@ -382,6 +383,33 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Ejercicios";
             // 
+            // pbxImagen
+            // 
+            this.pbxImagen.Location = new System.Drawing.Point(62, 55);
+            this.pbxImagen.Name = "pbxImagen";
+            this.pbxImagen.Size = new System.Drawing.Size(226, 123);
+            this.pbxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxImagen.TabIndex = 31;
+            this.pbxImagen.TabStop = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 104);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(42, 13);
+            this.label13.TabIndex = 30;
+            this.label13.Text = "Imagen";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 22);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(50, 13);
+            this.label12.TabIndex = 25;
+            this.label12.Text = "Duración";
+            // 
             // btnQuitarEjercicio
             // 
             this.btnQuitarEjercicio.Location = new System.Drawing.Point(309, 55);
@@ -390,6 +418,14 @@
             this.btnQuitarEjercicio.TabIndex = 29;
             this.btnQuitarEjercicio.Text = "Quitar";
             this.btnQuitarEjercicio.UseVisualStyleBackColor = true;
+            // 
+            // txtNombreEjercicio
+            // 
+            this.txtNombreEjercicio.Enabled = false;
+            this.txtNombreEjercicio.Location = new System.Drawing.Point(62, 19);
+            this.txtNombreEjercicio.Name = "txtNombreEjercicio";
+            this.txtNombreEjercicio.Size = new System.Drawing.Size(226, 20);
+            this.txtNombreEjercicio.TabIndex = 25;
             // 
             // btnAgregarEjercicio
             // 
@@ -427,41 +463,6 @@
             this.groupBox5.TabIndex = 31;
             this.groupBox5.TabStop = false;
             // 
-            // txtNombreEjercicio
-            // 
-            this.txtNombreEjercicio.Enabled = false;
-            this.txtNombreEjercicio.Location = new System.Drawing.Point(62, 19);
-            this.txtNombreEjercicio.Name = "txtNombreEjercicio";
-            this.txtNombreEjercicio.Size = new System.Drawing.Size(226, 20);
-            this.txtNombreEjercicio.TabIndex = 25;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 22);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(50, 13);
-            this.label12.TabIndex = 25;
-            this.label12.Text = "Duración";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 104);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(42, 13);
-            this.label13.TabIndex = 30;
-            this.label13.Text = "Imagen";
-            // 
-            // pbxImagen
-            // 
-            this.pbxImagen.Location = new System.Drawing.Point(62, 55);
-            this.pbxImagen.Name = "pbxImagen";
-            this.pbxImagen.Size = new System.Drawing.Size(226, 123);
-            this.pbxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbxImagen.TabIndex = 31;
-            this.pbxImagen.TabStop = false;
-            // 
             // FrmEditarRutina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -480,9 +481,9 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).EndInit();
             this.ResumeLayout(false);
 
         }

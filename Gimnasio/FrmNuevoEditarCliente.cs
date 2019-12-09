@@ -235,7 +235,7 @@ namespace Gimnasio
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }
 
         private void btnQuitar_Click(object sender, EventArgs e)
