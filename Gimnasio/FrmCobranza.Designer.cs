@@ -172,6 +172,7 @@
             this.numImporte.Size = new System.Drawing.Size(92, 20);
             this.numImporte.TabIndex = 2;
             this.numImporte.ValueChanged += new System.EventHandler(this.numImporte_ValueChanged);
+            this.numImporte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numImporte_KeyPress);
             // 
             // numRecargo
             // 

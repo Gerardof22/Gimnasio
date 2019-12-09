@@ -125,19 +125,27 @@ namespace Gimnasio
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            detalle_cobranza = new Detalle_Cobranza();
-            detalle_cobranza.recargoMes = numRecargo.Value;
-            detalle_cobranza.importe = numImporte.Value;
-            detalle_cobranza.detalleCobranza_total = numTotal.Value;
-            if (cobranza.DetalleCobranzas == null)
+            this.Agregar();
+        }
+
+        private void Agregar()
+        {
+            if (numImporte.Value != 0)
             {
-                cobranza.DetalleCobranzas = new ObservableCollection<Detalle_Cobranza>();
+                detalle_cobranza = new Detalle_Cobranza();
+                detalle_cobranza.recargoMes = numRecargo.Value;
+                detalle_cobranza.importe = numImporte.Value;
+                detalle_cobranza.detalleCobranza_total = numTotal.Value;
+                if (cobranza.DetalleCobranzas == null)
+                {
+                    cobranza.DetalleCobranzas = new ObservableCollection<Detalle_Cobranza>();
+                }
+                cobranza.DetalleCobranzas.Add(detalle_cobranza);
+                actualizarGrillaDetalle();
+                Helper.OcultarColumnas(gridDetalleCobranza, new int[] { 0 });
+                limpiarPanel();
+                calcularTotales();
             }
-            cobranza.DetalleCobranzas.Add(detalle_cobranza);
-            actualizarGrillaDetalle();
-            Helper.OcultarColumnas(gridDetalleCobranza, new int[] { 0 });
-            limpiarPanel();
-            calcularTotales();
         }
 
         private void limpiarPanel()
@@ -241,6 +249,14 @@ namespace Gimnasio
             {
                 numRecargo.Value = 0;
                 numRecargo.Enabled = false;
+            }
+        }
+
+        private void numImporte_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                this.Agregar();
             }
         }
     }
