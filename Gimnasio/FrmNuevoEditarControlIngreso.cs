@@ -104,7 +104,8 @@ namespace Gimnasio
         {
             try
             {
-                control_Ingreso.Cliente = (Cliente)this.cboCliente.SelectedItem;
+                //Lo cargamos de este modo porque el combo esta cargado con tipos anonimos.
+                control_Ingreso.Cliente = dbGimnasio.Clientes.Find(cboCliente.SelectedValue); 
                 this.Turnos();
                 control_Ingreso.fecha = dtpFechaIngreso.Value;
 
