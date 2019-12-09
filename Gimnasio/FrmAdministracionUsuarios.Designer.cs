@@ -94,6 +94,7 @@
             this.gridUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridUsuarios.Size = new System.Drawing.Size(366, 121);
             this.gridUsuarios.TabIndex = 27;
+            this.gridUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridUsuarios_CellContentClick);
             // 
             // btnLimpiar
             // 

@@ -94,6 +94,7 @@
             this.gridCalentamiento.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridCalentamiento.Size = new System.Drawing.Size(373, 206);
             this.gridCalentamiento.TabIndex = 27;
+            this.gridCalentamiento.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridCalentamiento_CellContentClick);
             this.gridCalentamiento.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridCalentamiento_CellDoubleClick);
             this.gridCalentamiento.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.gridCalentamiento_PreviewKeyDown);
             // 

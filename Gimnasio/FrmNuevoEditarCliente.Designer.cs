@@ -56,6 +56,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.gpbObservaciones = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.txtObjetivos = new System.Windows.Forms.TextBox();
             this.txtPeso = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -64,7 +65,6 @@
             this.txtLecturaCorporal = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
             this.gpbDatosPersonales.SuspendLayout();
             this.gpbContactos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridTelefonos)).BeginInit();
@@ -274,6 +274,7 @@
             this.gridTelefonos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridTelefonos.Size = new System.Drawing.Size(421, 93);
             this.gridTelefonos.TabIndex = 20;
+            this.gridTelefonos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridTelefonos_CellContentClick);
             // 
             // btnAgregar
             // 
@@ -363,6 +364,15 @@
             this.gpbObservaciones.TabStop = false;
             this.gpbObservaciones.Text = "Observaciones";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(137, 137);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(20, 13);
+            this.label14.TabIndex = 27;
+            this.label14.Text = "Kg";
+            // 
             // txtObjetivos
             // 
             this.txtObjetivos.Location = new System.Drawing.Point(65, 22);
@@ -436,15 +446,6 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(137, 137);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(20, 13);
-            this.label14.TabIndex = 27;
-            this.label14.Text = "Kg";
             // 
             // FrmNuevoEditarCliente
             // 

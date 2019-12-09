@@ -75,6 +75,7 @@
             this.gridRutina.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridRutina.Size = new System.Drawing.Size(741, 337);
             this.gridRutina.TabIndex = 16;
+            this.gridRutina.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridRutina_CellContentClick);
             // 
             // txtBuscar
             // 

@@ -10,6 +10,7 @@ namespace Gimnasio
     {
         GimnasioContext dbGimnasio = new GimnasioContext();
         Domicilio domicilio = new Domicilio();
+        
 
         //Está propiedad se encarga de capturar el id del domicilio que es seleccionado en la grilla.
         internal static int iddomicilio { get; set; }
@@ -22,6 +23,7 @@ namespace Gimnasio
         {
             InitializeComponent();
             listarGrillaDomicilios();
+            Helper.OcultarColumnas(gridDomicilio, new int[] { 3 });
         }
 
         private void listarGrillaDomicilios()
@@ -63,33 +65,21 @@ namespace Gimnasio
         {
             if (gridDomicilio.Rows.Count > 0 && gridDomicilio.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridDomicilio, 0);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridDomicilio, 0);
 
                 FrmNuevoEditarDomicilio frmNuevoEditarDomicilio = new FrmNuevoEditarDomicilio(idSeleccionado, dbGimnasio);
                 frmNuevoEditarDomicilio.ShowDialog();
                 listarGrillaDomicilios();
+                Helper.SeleccionarFilaActivaEditada(idSeleccionado, gridDomicilio);
             }
-        }
-
-        /// <summary>
-        /// Obtiene la celda y la fila actual seleccionada.
-        /// </summary>
-        /// <param name="dataGridView"> Corresponde al nombre del DataGridView.</param>
-        /// <param name="column">Correspone al índice de columna del DataGridView.</param>
-        /// <returns>Retorna un object.</returns>
-        private object celdaFilaActual(DataGridView dataGridView, int column)
-        {
-            DataGridViewCellCollection celdasFilaActual = dataGridView.CurrentRow.Cells;
-
-            return celdasFilaActual[column].Value;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (gridDomicilio.Rows.Count > 0 && gridDomicilio.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridDomicilio, 0);
-                string dimicilioSeleccionado = (string)celdaFilaActual(gridDomicilio, 1);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridDomicilio, 0);
+                string dimicilioSeleccionado = (string)Helper.CeldaFilaActual(gridDomicilio, 1);
 
                 string mensaje = "¿Está seguro que desea eliminar: " + dimicilioSeleccionado + "?";
                 string titulo = "Eliminación";
@@ -138,6 +128,11 @@ namespace Gimnasio
                 numero = (int)this.gridDomicilio.CurrentRow.Cells[2].Value;
                 this.Close();
             }
+        }
+
+        private void gridDomicilio_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }

@@ -19,6 +19,7 @@ namespace Gimnasio
         {
             InitializeComponent();
             this.ListarGrillaTipoUsuario();
+            Helper.OcultarColumnas(gridTipoUsuario, new int[] { 2 });
         }
 
         private void ListarGrillaTipoUsuario()
@@ -48,19 +49,6 @@ namespace Gimnasio
                                                          .Where(tu => tu.IsDelected == false).ToList();
         }
 
-        /// <summary>
-        /// Obtiene la celda y la fila actual seleccionada.
-        /// </summary>
-        /// <param name="dataGridView"> Corresponde al nombre del DataGridView.</param>
-        /// <param name="column">Correspone al índice de columna del DataGridView.</param>
-        /// <returns>Retorna un object.</returns>
-        private object celdaFilaActual(DataGridView dataGridView, int column)
-        {
-            DataGridViewCellCollection celdasFilaActual = dataGridView.CurrentRow.Cells;
-
-            return celdasFilaActual[column].Value;
-        }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             FrmNuevoEditarTipoUsuario frmNuevoEditarTipoUsuario = new FrmNuevoEditarTipoUsuario(dbGimnasio);
@@ -72,7 +60,7 @@ namespace Gimnasio
         {
             if (gridTipoUsuario.Rows.Count > 0 && gridTipoUsuario.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridTipoUsuario, 0);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridTipoUsuario, 0);
 
                 FrmNuevoEditarTipoUsuario frmNuevoEditarTipoUsuario = new FrmNuevoEditarTipoUsuario(idSeleccionado, dbGimnasio);
                 frmNuevoEditarTipoUsuario.ShowDialog();
@@ -84,8 +72,8 @@ namespace Gimnasio
         {
             if (gridTipoUsuario.Rows.Count > 0 && gridTipoUsuario.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridTipoUsuario, 0);
-                string TipoUserSeleccionada = (string)celdaFilaActual(gridTipoUsuario, 1);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridTipoUsuario, 0);
+                string TipoUserSeleccionada = (string)Helper.CeldaFilaActual(gridTipoUsuario, 1);
 
                 string mensaje = "¿Está seguro que desea eliminar: " + TipoUserSeleccionada + "?";
                 string titulo = "Eliminación";

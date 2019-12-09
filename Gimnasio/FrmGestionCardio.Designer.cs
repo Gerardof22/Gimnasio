@@ -94,6 +94,7 @@
             this.gridCardio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridCardio.Size = new System.Drawing.Size(577, 202);
             this.gridCardio.TabIndex = 19;
+            this.gridCardio.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridCardio_CellContentClick);
             this.gridCardio.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridCardio_CellDoubleClick);
             this.gridCardio.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.gridCardio_PreviewKeyDown);
             // 

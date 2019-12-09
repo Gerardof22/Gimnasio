@@ -15,11 +15,13 @@ namespace Gimnasio
     {
         GimnasioContext dbGimnasio = new GimnasioContext();
         Control_Ingreso control_Ingreso;
+        
 
         public FrmGestionControlIngreso()
         {
             InitializeComponent();
             this.listarControlIngreso();
+            Helper.OcultarColumnas(gridControlIngreso, new int[] { 4 });
         }
 
         private void listarControlIngreso()
@@ -62,11 +64,12 @@ namespace Gimnasio
         {
             if (gridControlIngreso.Rows.Count > 0 && gridControlIngreso.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridControlIngreso, 0);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridControlIngreso, 0);
 
                 FrmNuevoEditarControlIngreso frmNuevoEditarControlIngreso = new FrmNuevoEditarControlIngreso(idSeleccionado, dbGimnasio);
                 frmNuevoEditarControlIngreso.ShowDialog();
                 listarControlIngreso();
+                Helper.SeleccionarFilaActivaEditada(idSeleccionado, gridControlIngreso);
             }
             
         }
@@ -75,8 +78,8 @@ namespace Gimnasio
         {
             if (gridControlIngreso.Rows.Count > 0 && gridControlIngreso.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridControlIngreso, 0);
-                string clienteSeleccionado = (string)celdaFilaActual(gridControlIngreso, 1);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridControlIngreso, 0);
+                string clienteSeleccionado = (string)Helper.CeldaFilaActual(gridControlIngreso, 1);
 
                 string mensaje = "¿Está seguro que desea eliminar: " + clienteSeleccionado + "?";
                 string titulo = "Eliminación";
@@ -91,23 +94,15 @@ namespace Gimnasio
                 }
             }
         }
-        
-        /// <summary>
-        /// Obtiene la celda y la fila actual seleccionada.
-        /// </summary>
-        /// <param name="dataGridView"> Nombre del DataGridView.</param>
-        /// <param name="column">Índice de columna del DataGridView.</param>
-        /// <returns>Retorna un object.</returns>
-        private object celdaFilaActual(DataGridView dataGridView, int column)
-        {
-            DataGridViewCellCollection celdasFilaActual = dataGridView.CurrentRow.Cells;
-
-            return celdasFilaActual[column].Value;
-        }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             buscarControlIngreso(txtBuscar.Text);
+        }
+
+        private void gridControlIngreso_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }

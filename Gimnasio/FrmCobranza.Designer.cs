@@ -192,9 +192,9 @@
             this.chekDebe.AutoSize = true;
             this.chekDebe.Location = new System.Drawing.Point(38, 38);
             this.chekDebe.Name = "chekDebe";
-            this.chekDebe.Size = new System.Drawing.Size(52, 17);
+            this.chekDebe.Size = new System.Drawing.Size(68, 17);
             this.chekDebe.TabIndex = 0;
-            this.chekDebe.Text = "Debe";
+            this.chekDebe.Text = "Atrazado";
             this.chekDebe.UseVisualStyleBackColor = true;
             this.chekDebe.CheckedChanged += new System.EventHandler(this.chekDebe_CheckedChanged);
             // 

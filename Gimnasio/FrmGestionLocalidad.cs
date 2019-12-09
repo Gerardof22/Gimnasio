@@ -20,6 +20,7 @@ namespace Gimnasio
         {
             InitializeComponent();
             listarLocalidades();
+            Helper.OcultarColumnas(gridLocalidad, new int[] { 2 });
         }
 
         private void listarLocalidades()
@@ -58,11 +59,12 @@ namespace Gimnasio
         {
             if (gridLocalidad.Rows.Count > 0 && gridLocalidad.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridLocalidad, 0);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridLocalidad, 0);
 
                 FrmNuevaEditarLocalidad frmNuevaEditarLocalidad = new FrmNuevaEditarLocalidad(idSeleccionado, dbGimnasio);
                 frmNuevaEditarLocalidad.ShowDialog();
                 listarLocalidades();
+                Helper.SeleccionarFilaActivaEditada(idSeleccionado, gridLocalidad);
             }
         }
 
@@ -70,8 +72,8 @@ namespace Gimnasio
         {
             if (gridLocalidad.Rows.Count > 0 && gridLocalidad.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridLocalidad, 0);
-                string localidadSeleccionada = (string)celdaFilaActual(gridLocalidad, 1);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridLocalidad, 0);
+                string localidadSeleccionada = (string)Helper.CeldaFilaActual(gridLocalidad, 1);
 
                 string mensaje = "¿Está seguro que desea eliminar: " + localidadSeleccionada + "?";
                 string titulo = "Eliminación";
@@ -85,19 +87,6 @@ namespace Gimnasio
                     listarLocalidades();
                 }
             }
-        }
-
-        /// <summary>
-        /// Obtiene la celda y la fila actual seleccionada.
-        /// </summary>
-        /// <param name="dataGridView"> Nombre del DataGridView.</param>
-        /// <param name="column">Índice de columna del DataGridView.</param>
-        /// <returns>Retorna un object.</returns>
-        private object celdaFilaActual(DataGridView dataGridView, int column)
-        {
-            DataGridViewCellCollection celdasFilaActual = dataGridView.CurrentRow.Cells;
-
-            return celdasFilaActual[column].Value;
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)

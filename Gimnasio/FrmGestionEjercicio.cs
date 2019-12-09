@@ -16,6 +16,8 @@ namespace Gimnasio
         GimnasioContext dbGimnasio = new GimnasioContext();
         Ejercicio ejercicio = new Ejercicio();
 
+        
+
         //Está propiedad se encarga de capturar el idcardio que es seleccionado en la grilla.
         internal static int idejercicio { get; set; }
 
@@ -26,17 +28,11 @@ namespace Gimnasio
         public FrmGestionEjercicio()
         {
             InitializeComponent();
-            listarEjrcicios();
-            ocultarColumnas();
+            listarEjercicios();
+            Helper.OcultarColumnas(gridEjercicio, new int[] { 3 });
         }
 
-        private void ocultarColumnas()
-        {
-            this.gridEjercicio.Columns[0].Visible = false;
-            this.gridEjercicio.Columns[3].Visible = false;
-        }
-
-        private void listarEjrcicios()
+        private void listarEjercicios()
         {
             var listaEjercicio = from e in dbGimnasio.Ejercicios
                                  select new
@@ -96,39 +92,27 @@ namespace Gimnasio
         {
             FrmNuevoEditarEjercicio frmNuevoEditarEjercicio = new FrmNuevoEditarEjercicio(dbGimnasio);
             frmNuevoEditarEjercicio.ShowDialog();
-            listarEjrcicios();
+            listarEjercicios();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (gridEjercicio.Rows.Count > 0 && gridEjercicio.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridEjercicio, 0);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridEjercicio, 0);
 
                 FrmEditarEjercicio frmEditarEjercicio = new FrmEditarEjercicio(idSeleccionado, dbGimnasio);
                 frmEditarEjercicio.ShowDialog();
-                listarEjrcicios();
+                listarEjercicios();
+                Helper.SeleccionarFilaActivaEditada(idSeleccionado, gridEjercicio);
             }
-        }
-
-        /// <summary>
-        /// Obtiene la celda y la fila actual seleccionada.
-        /// </summary>
-        /// <param name="dataGridView"> Corresponde al nombre del DataGridView.</param>
-        /// <param name="column">Correspone al índice de columna del DataGridView.</param>
-        /// <returns>Retorna un object.</returns>
-        private object celdaFilaActual(DataGridView dataGridView, int column)
-        {
-            DataGridViewCellCollection celdasFilaActual = dataGridView.CurrentRow.Cells;
-
-            return celdasFilaActual[column].Value;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (gridEjercicio.Rows.Count > 0 && gridEjercicio.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridEjercicio, 0);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridEjercicio, 0);
 
                 string mensaje = "¿Está seguro que desea eliminar?";
                 string titulo = "Eliminación";
@@ -138,7 +122,7 @@ namespace Gimnasio
                     ejercicio = dbGimnasio.Ejercicios.Find(idSeleccionado);
                     ejercicio.IsDelete = true;
                     dbGimnasio.SaveChanges();
-                    listarEjrcicios();
+                    listarEjercicios();
                 }
             }
         }
@@ -157,11 +141,11 @@ namespace Gimnasio
         {
             if (gridEjercicio.CurrentRow != null)
             {
-                int idEjercicioSeleccionado = (int)celdaFilaActual(gridEjercicio, 0);
+                int idEjercicioSeleccionado = (int)Helper.CeldaFilaActual(gridEjercicio, 0);
 
-                if (celdaFilaActual(gridEjercicio, 2) != null)
+                if (Helper.CeldaFilaActual(gridEjercicio, 2) != null)
                 {
-                    this.pxbImagen.Image = FrmNuevoEditarEjercicio.byteArrayToImage((byte[])celdaFilaActual(gridEjercicio, 2));
+                    this.pxbImagen.Image = FrmNuevoEditarEjercicio.byteArrayToImage((byte[])Helper.CeldaFilaActual(gridEjercicio, 2));
                 }
                 else
                 {
@@ -169,6 +153,7 @@ namespace Gimnasio
                 }
 
                 this.CargarGillaRutinas(idEjercicioSeleccionado);
+                Helper.OcultarColumnas(gridRutina, new int[] { 0, 10 });
             }
         }
 
@@ -181,15 +166,20 @@ namespace Gimnasio
         {
             if (gridEjercicio.CurrentRow != null)
             {
-                if (celdaFilaActual(gridEjercicio, 2) != null)
+                if (Helper.CeldaFilaActual(gridEjercicio, 2) != null)
                 {
-                    this.pxbImagen.Image = FrmNuevoEditarEjercicio.byteArrayToImage((byte[])celdaFilaActual(gridEjercicio, 2));
+                    this.pxbImagen.Image = FrmNuevoEditarEjercicio.byteArrayToImage((byte[])Helper.CeldaFilaActual(gridEjercicio, 2));
                 }
                 else
                 {
                     this.pxbImagen.Image = null;
                 }
             }
+        }
+
+        private void gridEjercicio_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }

@@ -15,11 +15,13 @@ namespace Gimnasio
     {
         GimnasioContext dbGimnasio = new GimnasioContext();
         Calle calle = new Calle();
+        private int idColumnHide;
 
         public FrmGestionCalle()
         {
             InitializeComponent();
             this.ListarGrillaCalles();
+            Helper.OcultarColumnas(gridCalle, new int[] { 2 });
         }
 
         private void ListarGrillaCalles()
@@ -60,33 +62,21 @@ namespace Gimnasio
         {
             if (gridCalle.Rows.Count > 0 && gridCalle.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridCalle, 0);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridCalle, 0);
 
                 FrmNuevoEditarCalle frmNuevoEditarCalle = new FrmNuevoEditarCalle(idSeleccionado, dbGimnasio);
                 frmNuevoEditarCalle.ShowDialog();
                 ListarGrillaCalles();
+                Helper.SeleccionarFilaActivaEditada(idSeleccionado, gridCalle);
             }
-        }
-        
-        /// <summary>
-         /// Obtiene la celda y la fila actual seleccionada.
-         /// </summary>
-         /// <param name="dataGridView"> Corresponde al nombre del DataGridView.</param>
-         /// <param name="column">Correspone al índice de columna del DataGridView.</param>
-         /// <returns>Retorna un object.</returns>
-        private object celdaFilaActual(DataGridView dataGridView, int column)
-        {
-            DataGridViewCellCollection celdasFilaActual = dataGridView.CurrentRow.Cells;
-
-            return celdasFilaActual[column].Value;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (gridCalle.Rows.Count > 0 && gridCalle.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridCalle, 0);
-                string calleSeleccionada = (string)celdaFilaActual(gridCalle, 1);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridCalle, 0);
+                string calleSeleccionada = (string)Helper.CeldaFilaActual(gridCalle, 1);
 
                 string mensaje = "¿Está seguro que desea eliminar: " + calleSeleccionada + "?";
                 string titulo = "Eliminación";
@@ -109,6 +99,15 @@ namespace Gimnasio
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void gridCalle_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                idColumnHide = (int)gridCalle[0, e.RowIndex].Value;
+
+            }
         }
     }
 }

@@ -22,6 +22,7 @@ namespace Gimnasio
         {
             InitializeComponent();
             this.ListarTiposCalentamientos();
+            Helper.OcultarColumnas(gridTipoCalentamiento, new int[] { 2 });
         }
 
         private void ListarTiposCalentamientos()
@@ -62,32 +63,20 @@ namespace Gimnasio
         {
             if (gridTipoCalentamiento.Rows.Count > 0 && gridTipoCalentamiento.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridTipoCalentamiento, 0);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridTipoCalentamiento, 0);
 
                 FrmNuevoTipoCalentamiento frmNuevoTipoCalentamiento = new FrmNuevoTipoCalentamiento(idSeleccionado, dbGimnasio);
                 frmNuevoTipoCalentamiento.ShowDialog();
                 ListarTiposCalentamientos();
+                Helper.SeleccionarFilaActivaEditada(idSeleccionado, gridTipoCalentamiento);
             }
-        }
-
-        /// <summary>
-        /// Obtiene la celda y la fila actual seleccionada.
-        /// </summary>
-        /// <param name="dataGridView"> Corresponde al nombre del DataGridView.</param>
-        /// <param name="column">Correspone al índice de columna del DataGridView.</param>
-        /// <returns>Retorna un object.</returns>
-        private object celdaFilaActual(DataGridView dataGridView, int column)
-        {
-            DataGridViewCellCollection celdasFilaActual = dataGridView.CurrentRow.Cells;
-
-            return celdasFilaActual[column].Value;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (gridTipoCalentamiento.Rows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridTipoCalentamiento, 0);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridTipoCalentamiento, 0);
 
                 string mensaje = "¿Está seguro que desea eliminar?";
                 string titulo = "Eliminación";

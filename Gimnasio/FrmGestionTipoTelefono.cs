@@ -20,6 +20,7 @@ namespace Gimnasio
         {
             InitializeComponent();
             this.ListarGrillaTipoTelefonos();
+            Helper.OcultarColumnas(gridTipoTelefono, new int[] { 2 });
         }
 
         private void ListarGrillaTipoTelefonos()
@@ -60,33 +61,21 @@ namespace Gimnasio
         {
             if (gridTipoTelefono.Rows.Count > 0 && gridTipoTelefono.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridTipoTelefono, 0);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridTipoTelefono, 0);
 
                 FrmNuevoEditarTipoTelefono tipoTelefono = new FrmNuevoEditarTipoTelefono(idSeleccionado, dbGimnasio);
                 tipoTelefono.ShowDialog();
                 ListarGrillaTipoTelefonos();
+                Helper.SeleccionarFilaActivaEditada(idSeleccionado, gridTipoTelefono);
             }
-        }
-        
-        /// <summary>
-         /// Obtiene la celda y la fila actual seleccionada.
-         /// </summary>
-         /// <param name="dataGridView"> Corresponde al nombre del DataGridView.</param>
-         /// <param name="column">Correspone al índice de columna del DataGridView.</param>
-         /// <returns>Retorna un object.</returns>
-        private object celdaFilaActual(DataGridView dataGridView, int column)
-        {
-            DataGridViewCellCollection celdasFilaActual = dataGridView.CurrentRow.Cells;
-
-            return celdasFilaActual[column].Value;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (gridTipoTelefono.Rows.Count > 0 && gridTipoTelefono.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridTipoTelefono, 0);
-                string TipoTelefonoSeleccionado = (string)celdaFilaActual(gridTipoTelefono, 1);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridTipoTelefono, 0);
+                string TipoTelefonoSeleccionado = (string)Helper.CeldaFilaActual(gridTipoTelefono, 1);
 
                 string mensaje = "¿Está seguro que desea eliminar: " + TipoTelefonoSeleccionado + "?";
                 string titulo = "Eliminación";

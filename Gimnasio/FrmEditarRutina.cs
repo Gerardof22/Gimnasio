@@ -60,12 +60,55 @@ namespace Gimnasio
             txtTiempoDuracion.Text           = rutina.tiempoduracion;
             txtDescanso.Text                 = rutina.descanso;
             txtKg.Text                       = rutina.pesokg.ToString();
-            rutina.Cardio                    = dbGimnasio.Cardios.Find(rutina.Cardio.idcardio);
-            txtDuracionCardio.Text           = rutina.Cardio.duracion.ToString();
-            txtRitmoCardio.Text              = rutina.Cardio.ritmo;
-            rutina.Calentamiento             = dbGimnasio.Calentamientos.Find(rutina.Calentamiento.idcalentamiento);
-            txtDuracionCalentamiento.Text    = rutina.Calentamiento.duracion;
-            txtDescripcionCalentamiento.Text = rutina.Calentamiento.descripcion;
+            this.ValidarCardio();
+            this.ValidarCalentamiento();
+            
+        }
+
+
+        /// <summary>
+        /// Validamos si los campos son null no cargamos nada.
+        /// NOTA: ? nos permite validar un objeto null y compararlo, en caso contrario la expresion siempre será true dentro del
+        /// if.
+        /// </summary>
+        private void ValidarCardio()
+        {
+            if (rutina.Cardio?.idcardio != null)
+            {
+                rutina.Cardio = dbGimnasio.Cardios.Find(rutina.Cardio.idcardio);
+            }
+            if (!string.IsNullOrEmpty(rutina.Cardio?.duracion.ToString()))
+            {
+                txtDuracionCardio.Text = rutina.Cardio.duracion.ToString();
+            }
+            if (!string.IsNullOrEmpty(rutina.Cardio?.ritmo))
+            {
+                txtRitmoCardio.Text = rutina.Cardio.ritmo;
+            }
+        }
+
+        /// <summary>
+        /// Validamos si los campos son null no cargamos nada.
+        /// 
+        /// NOTA: ? nos permite validar un objeto null y compararlo, en caso contrario la expresion siempre será true dentro del
+        /// if.
+        /// </summary>
+        private void ValidarCalentamiento()
+        {
+            if (rutina.Calentamiento?.idcalentamiento != null)
+            {
+                rutina.Calentamiento = dbGimnasio.Calentamientos.Find(rutina.Calentamiento.idcalentamiento);
+            }
+
+            if (rutina.Calentamiento?.duracion != null)
+            {
+                txtDuracionCalentamiento.Text = rutina.Calentamiento.duracion;
+            }
+
+            if (rutina.Calentamiento?.descripcion != null)
+            {
+                txtDescripcionCalentamiento.Text = rutina.Calentamiento.descripcion;
+            }
         }
 
         private void btnAgregarCardio_Click(object sender, EventArgs e)

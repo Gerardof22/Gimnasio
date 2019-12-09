@@ -16,11 +16,13 @@ namespace Gimnasio
         GimnasioContext dbGimnasio = new GimnasioContext();
         Usuario usuario = new Usuario();
         Tipo_Usuario tipo_Usuario = new Tipo_Usuario();
+        
 
         public FrmAdministracionUsuarios()
         {
             InitializeComponent();
             this.listarGrillaUsuarios();
+            Helper.OcultarColumnas(gridUsuarios, new int[] { 3 });
         }
 
         private void listarGrillaUsuarios()
@@ -66,32 +68,20 @@ namespace Gimnasio
         {
             if (gridUsuarios.Rows.Count > 0 && gridUsuarios.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridUsuarios, 0);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridUsuarios, 0);
 
                 FrmNuevoEditarUsuario frmNuevoEditarUsuario = new FrmNuevoEditarUsuario(idSeleccionado, dbGimnasio);
                 frmNuevoEditarUsuario.ShowDialog();
                 listarGrillaUsuarios();
+                Helper.SeleccionarFilaActivaEditada(idSeleccionado, gridUsuarios);
             }
-        }
-
-        /// <summary>
-        /// Obtiene la celda y la fila actual seleccionada.
-        /// </summary>
-        /// <param name="dataGridView"> Corresponde al nombre del DataGridView.</param>
-        /// <param name="column">Correspone al índice de columna del DataGridView.</param>
-        /// <returns>Retorna un object.</returns>
-        private object celdaFilaActual(DataGridView dataGridView, int column)
-        {
-            DataGridViewCellCollection celdasFilaActual = dataGridView.CurrentRow.Cells;
-
-            return celdasFilaActual[column].Value;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (gridUsuarios.Rows.Count > 0 && gridUsuarios.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridUsuarios, 0);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridUsuarios, 0);
 
                 string mensaje = "¿Está seguro que desea eliminar?";
                 string titulo = "Eliminación";
@@ -114,6 +104,11 @@ namespace Gimnasio
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void gridUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }

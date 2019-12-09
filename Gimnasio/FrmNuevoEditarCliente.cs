@@ -15,7 +15,7 @@ namespace Gimnasio
         public Cliente cliente;
 
         Telefono telefono;
-
+        private int idColumnaOculta;
 
         public FrmNuevoEditarCliente()
         {
@@ -69,7 +69,6 @@ namespace Gimnasio
                                      select new
                                      {
                                          idtelefono = telefono.idtelefono,
-                                         //idtipotelefono = telefono.Tipos_Telefonos.tipo_telefono_idtipotelefono,
                                          tipotelefono = telefono.Tipos_Telefonos.tipo_telefono,
                                          numero = telefono.numero,
                                          isDelected = telefono.IsDelete
@@ -209,6 +208,7 @@ namespace Gimnasio
             {
                 agregarAGrillaTelefono();
                 cargarGrillaTelefono();
+                Helper.OcultarColumnas(gridTelefonos, new int[] { 0, 3 });
             }
         }
 
@@ -240,9 +240,11 @@ namespace Gimnasio
 
         private void btnQuitar_Click(object sender, EventArgs e)
         {
-            if (gridTelefonos.Rows.Count > 0)
+            if (gridTelefonos.Rows.Count > 0 && gridTelefonos.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridTelefonos, 0);
+                Console.WriteLine("Grilla -----------> " + gridTelefonos);
+                Console.WriteLine("columna oculta -----------> " + idColumnaOculta);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridTelefonos, idColumnaOculta);
 
                 string mensaje = "¿Está seguro que desea quitar?";
                 string titulo = "Eliminación";
@@ -254,19 +256,6 @@ namespace Gimnasio
                     cargarGrillaTelefono();
                 }
             }
-        }
-
-        /// <summary>
-        /// Obtiene la celda y la fila actual seleccionada.
-        /// </summary>
-        /// <param name="dataGridView"> Nombre del DataGridView.</param>
-        /// <param name="column">Índice de columna del DataGridView.</param>
-        /// <returns>Retorna un object.</returns>
-        private object celdaFilaActual(DataGridView dataGridView, int column)
-        {
-            DataGridViewCellCollection celdasFilaActual = dataGridView.CurrentRow.Cells;
-
-            return celdasFilaActual[column].Value;
         }
 
         public int CalcularEdad(DateTime FechaNacimiento)
@@ -285,6 +274,15 @@ namespace Gimnasio
         private void dtpFechaNacimiento_ValueChanged(object sender, EventArgs e)
         {
             txtEdad.Text = CalcularEdad(dtpFechaNacimiento.Value).ToString();
+        }
+
+        private void gridTelefonos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                idColumnaOculta = (int)gridTelefonos[0, e.RowIndex].Value;
+
+            }
         }
     }
 }

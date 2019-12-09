@@ -14,11 +14,13 @@ namespace Gimnasio
         Cliente cliente;
 
         bool botonPresionado = false;
+        
 
         public FrmGestionClientes()
         {
             InitializeComponent();
             listarGrillaClientes();
+            Helper.OcultarColumnas(gridClientes, new int[] { 10 });
         }
 
         /// <summary>
@@ -93,7 +95,7 @@ namespace Gimnasio
         {
             if (gridClientes.Rows.Count > 0 && gridClientes.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridClientes, 0);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridClientes, 0);
 
                 FrmNuevoEditarCliente frmNuevoEditarCliente = new FrmNuevoEditarCliente(idSeleccionado, dbGimnasio);
                 frmNuevoEditarCliente.ShowDialog();
@@ -102,25 +104,12 @@ namespace Gimnasio
             }
         }
 
-        /// <summary>
-        /// Obtiene la celda y la fila actual seleccionada.
-        /// </summary>
-        /// <param name="dataGridView"> Nombre del DataGridView.</param>
-        /// <param name="column">Índice de columna del DataGridView.</param>
-        /// <returns>Retorna un object.</returns>
-        private object celdaFilaActual(DataGridView dataGridView, int column)
-        {
-            DataGridViewCellCollection celdasFilaActual = dataGridView.CurrentRow.Cells;
-
-            return celdasFilaActual[column].Value;
-        }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (gridClientes.Rows.Count > 0 && gridClientes.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridClientes, 0);
-                string clienteSeleccionado = (string)celdaFilaActual(gridClientes, 1);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridClientes, 0);
+                string clienteSeleccionado = (string)Helper.CeldaFilaActual(gridClientes, 1);
 
                 string mensaje = "¿Está seguro que desea eliminar: " + clienteSeleccionado + "?";
                 string titulo = "Eliminación";
@@ -164,7 +153,7 @@ namespace Gimnasio
         {
             if (gridClientes.Rows.Count > 0 && gridClientes.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridClientes, 0);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridClientes, 0);
 
                 FrmNuevoEditarCliente frmNuevoEditarCliente = new FrmNuevoEditarCliente(idSeleccionado, dbGimnasio);
                 frmNuevoEditarCliente.ShowDialog();
@@ -183,6 +172,11 @@ namespace Gimnasio
             frmNuevoEditarCliente.gpbObservaciones.Enabled = false;
             Console.WriteLine("Se preciono");
 
+            
+        }
+
+        private void gridClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
             
         }
     }

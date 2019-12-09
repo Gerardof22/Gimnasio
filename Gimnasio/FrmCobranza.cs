@@ -135,6 +135,7 @@ namespace Gimnasio
             }
             cobranza.DetalleCobranzas.Add(detalle_cobranza);
             actualizarGrillaDetalle();
+            Helper.OcultarColumnas(gridDetalleCobranza, new int[] { 0 });
             limpiarPanel();
             calcularTotales();
         }

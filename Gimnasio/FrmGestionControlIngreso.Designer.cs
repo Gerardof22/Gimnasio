@@ -84,6 +84,7 @@
             this.gridControlIngreso.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridControlIngreso.Size = new System.Drawing.Size(776, 336);
             this.gridControlIngreso.TabIndex = 11;
+            this.gridControlIngreso.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridControlIngreso_CellContentClick);
             // 
             // btnLimpiar
             // 

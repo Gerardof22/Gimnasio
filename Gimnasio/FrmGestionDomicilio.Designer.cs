@@ -63,6 +63,7 @@
             this.gridDomicilio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDomicilio.Size = new System.Drawing.Size(468, 150);
             this.gridDomicilio.TabIndex = 2;
+            this.gridDomicilio.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDomicilio_CellContentClick);
             this.gridDomicilio.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDomicilio_CellDoubleClick);
             this.gridDomicilio.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dgvDomicilio_PreviewKeyDown);
             // 

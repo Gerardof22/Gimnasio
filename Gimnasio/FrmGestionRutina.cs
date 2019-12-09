@@ -15,11 +15,13 @@ namespace Gimnasio
     {
         GimnasioContext dbGimnasio = new GimnasioContext();
         Rutina rutina = new Rutina();
+        
 
         public FrmGestionRutina()
         {
             InitializeComponent();
             this.CargarGrillaRutunas();
+            Helper.OcultarColumnas(gridRutina, new int[] { 11 });
         }
 
         private void CargarGrillaRutunas()
@@ -28,6 +30,7 @@ namespace Gimnasio
                                select new
                                {
                                    idrutina = r.idrutina,
+                                   ejercicio = r.Ejercicio.nombre,
                                    fechaDesde = r.fechaDesde,
                                    fechaHasta = r.fechaHasta,
                                    serie = r.serie,
@@ -47,34 +50,22 @@ namespace Gimnasio
         {
             if (gridRutina.Rows.Count > 0 && gridRutina.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridRutina, 0);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridRutina, 0);
 
                 FrmEditarRutina frmEditarRutina = new FrmEditarRutina(idSeleccionado, dbGimnasio);
                 frmEditarRutina.ShowDialog();
                 CargarGrillaRutunas();
+                Helper.SeleccionarFilaActivaEditada(idSeleccionado, gridRutina);
             }
 
-        }
-
-        /// <summary>
-        /// Obtiene la celda y la fila actual seleccionada.
-        /// </summary>
-        /// <param name="dataGridView"> Corresponde al nombre del DataGridView.</param>
-        /// <param name="column">Correspone al índice de columna del DataGridView.</param>
-        /// <returns>Retorna un object.</returns>
-        private object celdaFilaActual(DataGridView dataGridView, int column)
-        {
-            DataGridViewCellCollection celdasFilaActual = dataGridView.CurrentRow.Cells;
-
-            return celdasFilaActual[column].Value;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (gridRutina.Rows.Count > 0 && gridRutina.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridRutina, 0);
-                string calleSeleccionada = (string)celdaFilaActual(gridRutina, 1);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridRutina, 0);
+                string calleSeleccionada = (string)Helper.CeldaFilaActual(gridRutina, 1);
 
                 string mensaje = "¿Está seguro que desea eliminar: " + calleSeleccionada + "?";
                 string titulo = "Eliminación";
@@ -92,6 +83,11 @@ namespace Gimnasio
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void gridRutina_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }

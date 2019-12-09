@@ -15,6 +15,7 @@ namespace Gimnasio
     {
         GimnasioContext dbGimnasio = new GimnasioContext();
         Cardio cardio = new Cardio();
+        
 
         //Está propiedad se encarga de capturar el idcardio que es seleccionado en la grilla.
         internal static int idcardio { get; set; }
@@ -28,6 +29,7 @@ namespace Gimnasio
         {
             InitializeComponent();
             listarGrillaCardios();
+            Helper.OcultarColumnas(gridCardio, new int[] { 3 });
         }
 
         private void listarGrillaCardios()
@@ -70,32 +72,20 @@ namespace Gimnasio
         {
             if (gridCardio.Rows.Count > 0 && gridCardio.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridCardio, 0);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridCardio, 0);
 
                 FrmNuevoEditarCardio frmNuevoEditarCardio = new FrmNuevoEditarCardio(idSeleccionado, dbGimnasio);
                 frmNuevoEditarCardio.ShowDialog();
                 listarGrillaCardios();
+                Helper.SeleccionarFilaActivaEditada(idSeleccionado, gridCardio);
             }
-        }
-
-        /// <summary>
-        /// Obtiene la celda y la fila actual seleccionada.
-        /// </summary>
-        /// <param name="dataGridView"> Corresponde al nombre del DataGridView.</param>
-        /// <param name="column">Correspone al índice de columna del DataGridView.</param>
-        /// <returns>Retorna un object.</returns>
-        private object celdaFilaActual(DataGridView dataGridView, int column)
-        {
-            DataGridViewCellCollection celdasFilaActual = dataGridView.CurrentRow.Cells;
-
-            return celdasFilaActual[column].Value;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (gridCardio.Rows.Count > 0 && gridCardio.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridCardio, 0);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridCardio, 0);
 
                 string mensaje = "¿Está seguro que desea eliminar?";
                 string titulo = "Eliminación";
@@ -143,6 +133,11 @@ namespace Gimnasio
                 ritmo = this.gridCardio.CurrentRow.Cells[2].Value.ToString();
                 this.Close();
             }
+        }
+
+        private void gridCardio_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }

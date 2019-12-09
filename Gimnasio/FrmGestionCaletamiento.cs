@@ -15,6 +15,7 @@ namespace Gimnasio
     {
         GimnasioContext dbGimnasio = new GimnasioContext();
         Calentamiento calentamiento = new Calentamiento();
+        
 
         //Está propiedad se encarga de capturar el id del domicilio que es seleccionado en la grilla.
         internal static int idcalentamiento { get; set; }
@@ -27,6 +28,7 @@ namespace Gimnasio
         {
             InitializeComponent();
             listarCalentaientos();
+            Helper.OcultarColumnas(gridCalentamiento, new int[] { 0, 3 });
         }
 
         private void listarCalentaientos()
@@ -69,32 +71,20 @@ namespace Gimnasio
         {
             if (gridCalentamiento.Rows.Count > 0 && gridCalentamiento.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridCalentamiento, 0);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridCalentamiento, 0);
 
                 FrmNuevoEditarCalentamiento frmNuevoEditarCalentamiento = new FrmNuevoEditarCalentamiento(idSeleccionado, dbGimnasio);
                 frmNuevoEditarCalentamiento.ShowDialog();
                 listarCalentaientos();
+                Helper.SeleccionarFilaActivaEditada(idSeleccionado, gridCalentamiento);
             }
-        }
-
-        /// <summary>
-        /// Obtiene la celda y la fila actual seleccionada.
-        /// </summary>
-        /// <param name="dataGridView"> Corresponde al nombre del DataGridView.</param>
-        /// <param name="column">Correspone al índice de columna del DataGridView.</param>
-        /// <returns>Retorna un object.</returns>
-        private object celdaFilaActual(DataGridView dataGridView, int column)
-        {
-            DataGridViewCellCollection celdasFilaActual = dataGridView.CurrentRow.Cells;
-
-            return celdasFilaActual[column].Value;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (gridCalentamiento.Rows.Count > 0 && gridCalentamiento.SelectedRows.Count > 0)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridCalentamiento, 0);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridCalentamiento, 0);
 
                 string mensaje = "¿Está seguro que desea eliminar?";
                 string titulo = "Eliminación";
@@ -142,6 +132,11 @@ namespace Gimnasio
                 descripcion = this.gridCalentamiento.CurrentRow.Cells[2].Value.ToString();
                 this.Close();
             }
+        }
+
+        private void gridCalentamiento_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }

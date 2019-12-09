@@ -53,6 +53,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(138, 20);
             this.txtBuscar.TabIndex = 1;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // gridGestionTelefono
             // 
@@ -62,6 +63,7 @@
             this.gridGestionTelefono.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridGestionTelefono.Size = new System.Drawing.Size(318, 163);
             this.gridGestionTelefono.TabIndex = 2;
+            this.gridGestionTelefono.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridGestionTelefono_CellContentClick);
             this.gridGestionTelefono.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridGestionTelefono_CellDoubleClick);
             this.gridGestionTelefono.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.gridGestionTelefono_PreviewKeyDown);
             // 

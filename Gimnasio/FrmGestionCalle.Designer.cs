@@ -40,7 +40,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(338, 141);
+            this.btnEliminar.Location = new System.Drawing.Point(269, 141);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 13;
@@ -50,7 +50,7 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(338, 112);
+            this.btnEditar.Location = new System.Drawing.Point(269, 112);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 12;
@@ -60,7 +60,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(338, 83);
+            this.btnAgregar.Location = new System.Drawing.Point(269, 83);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 11;
@@ -70,7 +70,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(338, 170);
+            this.btnSalir.Location = new System.Drawing.Point(269, 170);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 10;
@@ -84,8 +84,9 @@
             this.gridCalle.Location = new System.Drawing.Point(11, 60);
             this.gridCalle.Name = "gridCalle";
             this.gridCalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridCalle.Size = new System.Drawing.Size(321, 150);
+            this.gridCalle.Size = new System.Drawing.Size(252, 150);
             this.gridCalle.TabIndex = 9;
+            this.gridCalle.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridCalle_CellContentClick);
             // 
             // txtBuscar
             // 
@@ -108,7 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 232);
+            this.ClientSize = new System.Drawing.Size(358, 232);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnAgregar);

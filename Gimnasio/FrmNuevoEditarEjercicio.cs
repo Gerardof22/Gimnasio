@@ -348,6 +348,7 @@ namespace Gimnasio
 
                 ejercicio.Rutinas.Add(rutina);
                 actualizarGrillaDetalle();
+                Helper.OcultarColumnas(gridRutinas, new int[] { 0, 12 });
                 limpiarPanel();
             }
         }
@@ -440,6 +441,7 @@ namespace Gimnasio
                 {
                     llenarGrillaTipoRutina();
                     cargarGrillaTipoRutina();
+                    Helper.OcultarColumnas(gridTiposRutinas, new int[] { 2 });
                 }
             }
             else
