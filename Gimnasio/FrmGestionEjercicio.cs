@@ -181,5 +181,14 @@ namespace Gimnasio
         {
             
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtBuscar.Text))
+            {
+                txtBuscar.Text = "";
+            }
+
+        }
     }
 }

@@ -35,6 +35,7 @@
             this.gridCalle = new System.Windows.Forms.DataGridView();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridCalle)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,11 +106,22 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Buscar";
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(229, 9);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpiar.TabIndex = 14;
+            this.btnLimpiar.Text = "&Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // FrmGestionCalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(358, 232);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnAgregar);
@@ -134,5 +146,6 @@
         private System.Windows.Forms.DataGridView gridCalle;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }

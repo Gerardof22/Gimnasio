@@ -35,6 +35,7 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridDomicilio)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +64,6 @@
             this.gridDomicilio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDomicilio.Size = new System.Drawing.Size(468, 150);
             this.gridDomicilio.TabIndex = 2;
-            this.gridDomicilio.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDomicilio_CellContentClick);
             this.gridDomicilio.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDomicilio_CellDoubleClick);
             this.gridDomicilio.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dgvDomicilio_PreviewKeyDown);
             // 
@@ -107,11 +107,22 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(272, 8);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpiar.TabIndex = 7;
+            this.btnLimpiar.Text = "&Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // FrmGestionDomicilio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(498, 264);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnAgregar);
@@ -136,5 +147,6 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridView gridDomicilio;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }
