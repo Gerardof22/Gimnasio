@@ -24,7 +24,7 @@ namespace Gimnasio
             InitializeComponent();
             dbGimnasio = new GimnasioContext();
             control_Ingreso = new Control_Ingreso();
-            this.cargarComboClientes(0);
+            this.CargarComboClientes(0);
         }
 
         public FrmNuevoEditarControlIngreso(GimnasioContext dbEnviado)
@@ -32,7 +32,7 @@ namespace Gimnasio
             InitializeComponent();
             dbGimnasio = dbEnviado;
             control_Ingreso = new Control_Ingreso();
-            this.cargarComboClientes(0);
+            this.CargarComboClientes(0);
         }
 
         public FrmNuevoEditarControlIngreso(int idSeleccionado, GimnasioContext dbEnviado)
@@ -46,7 +46,7 @@ namespace Gimnasio
         private void cargarIngreso(int idSeleccionado)
         {
             control_Ingreso = dbGimnasio.Control_Ingresos.Find(idSeleccionado);
-            this.cargarComboClientes(control_Ingreso.Cliente.idcliente);
+            this.CargarComboClientes(control_Ingreso.Cliente.idcliente);
             this.validarTurno();
             dtpFechaIngreso.Value = control_Ingreso.fecha;
         }
@@ -63,7 +63,7 @@ namespace Gimnasio
             }
         }
 
-        private void cargarComboClientes(int idcliente)
+        private void CargarComboClientes(int idcliente)
         {
             cboCliente.DataSource = this.CargarClientes();
             //campo que vera el usuario
@@ -142,6 +142,16 @@ namespace Gimnasio
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnAgregarNuevoCliente_Click(object sender, EventArgs e)
+        {
+            FrmNuevoEditarCliente frmNuevoEditarCliente = new FrmNuevoEditarCliente();
+            frmNuevoEditarCliente.ShowDialog();
+            if (frmNuevoEditarCliente.cliente.idcliente != 0)
+            {
+                this.CargarComboClientes(frmNuevoEditarCliente.cliente.idcliente);
+            }
         }
     }
 }

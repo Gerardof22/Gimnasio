@@ -37,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cboCliente = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnAgregarNuevoCliente = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -109,7 +110,7 @@
             // cboCliente
             // 
             this.cboCliente.FormattingEnabled = true;
-            this.cboCliente.Location = new System.Drawing.Point(53, 24);
+            this.cboCliente.Location = new System.Drawing.Point(53, 22);
             this.cboCliente.Name = "cboCliente";
             this.cboCliente.Size = new System.Drawing.Size(200, 21);
             this.cboCliente.TabIndex = 9;
@@ -117,17 +118,28 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 27);
+            this.label3.Location = new System.Drawing.Point(10, 27);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "Cliente";
             // 
+            // btnAgregarNuevoCliente
+            // 
+            this.btnAgregarNuevoCliente.Location = new System.Drawing.Point(259, 22);
+            this.btnAgregarNuevoCliente.Name = "btnAgregarNuevoCliente";
+            this.btnAgregarNuevoCliente.Size = new System.Drawing.Size(26, 23);
+            this.btnAgregarNuevoCliente.TabIndex = 11;
+            this.btnAgregarNuevoCliente.Text = "...";
+            this.btnAgregarNuevoCliente.UseVisualStyleBackColor = true;
+            this.btnAgregarNuevoCliente.Click += new System.EventHandler(this.btnAgregarNuevoCliente_Click);
+            // 
             // FrmNuevoEditarControlIngreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(275, 210);
+            this.ClientSize = new System.Drawing.Size(296, 210);
+            this.Controls.Add(this.btnAgregarNuevoCliente);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cboCliente);
             this.Controls.Add(this.label2);
@@ -154,5 +166,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cboCliente;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnAgregarNuevoCliente;
     }
 }

@@ -63,7 +63,6 @@ namespace Gimnasio
             
             ejercicio = dbGimnasio.Ejercicios.Find(idSeleccionado);
             rutina = dbGimnasio.Rutinas.Find(ejercicio.idejercicio);
-            //cliente = dbGimnasio.Clientes.Find(rutina.Cliente.idcliente);
             txtNombreEjercicio.Text = ejercicio.nombre;
             if (ejercicio.imagen != null)
             {
@@ -71,17 +70,6 @@ namespace Gimnasio
             }
             this.CargarGrillaRutina(idSeleccionado);
             this.CargarTipoRutina(idSeleccionado);
-            //dtpFechaDesde.Value = rutina.fechaDesde;
-            //dtpFechaHasta.Value = rutina.fechaHasta;
-            //txtSeries.Text = rutina.serie.ToString();
-            //txtRepeticiones.Text = rutina.repeticion.ToString();
-            //txtTiempoDuracion.Text = rutina.tiempoduracion;
-            //txtDescanso.Text = rutina.descanso;
-            //txtKg.Text = rutina.pesokg.ToString();
-            //txtDuracionCardio.Text = rutina.Cardio?.duracion.ToString();
-            //txtRitmoCardio.Text = rutina.Cardio?.ritmo;
-            //txtDuracionCalentamiento.Text = rutina.Calentamiento?.duracion;
-            //txtDescripcionCalentamiento.Text = rutina.Calentamiento?.descripcion;
             this.cargarComboCliente(rutina.Cliente.idcliente);
         }
 
@@ -322,7 +310,6 @@ namespace Gimnasio
             {
                 cargarComboCliente(frmNuevoEditarCliente.cliente.idcliente);
             }
-            
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -370,7 +357,6 @@ namespace Gimnasio
                     }
                 }
             }
-
             
             return val;
         }
