@@ -15,7 +15,6 @@ namespace Gimnasio
         public Cliente cliente;
 
         Telefono telefono;
-        private int idColumnaOculta;
 
         public FrmNuevoEditarCliente()
         {
@@ -240,11 +239,9 @@ namespace Gimnasio
 
         private void btnQuitar_Click(object sender, EventArgs e)
         {
-            if (gridTelefonos.Rows.Count > 0 && gridTelefonos.SelectedRows.Count > 0)
+            if (gridTelefonos.Rows.Count > 0 && gridTelefonos.SelectedRows.Count > 0 && gridTelefonos.CurrentRow != null)
             {
-                Console.WriteLine("Grilla -----------> " + gridTelefonos);
-                Console.WriteLine("columna oculta -----------> " + idColumnaOculta);
-                int idSeleccionado = (int)Helper.CeldaFilaActual(gridTelefonos, idColumnaOculta);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridTelefonos, 0);
 
                 string mensaje = "¿Está seguro que desea quitar?";
                 string titulo = "Eliminación";
@@ -274,15 +271,6 @@ namespace Gimnasio
         private void dtpFechaNacimiento_ValueChanged(object sender, EventArgs e)
         {
             txtEdad.Text = CalcularEdad(dtpFechaNacimiento.Value).ToString();
-        }
-
-        private void gridTelefonos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex != -1)
-            {
-                idColumnaOculta = (int)gridTelefonos[0, e.RowIndex].Value;
-
-            }
         }
 
         private void FrmNuevoEditarCliente_Load(object sender, EventArgs e)

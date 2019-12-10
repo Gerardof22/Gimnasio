@@ -471,9 +471,9 @@ namespace Gimnasio
 
         private void btnQuitarTipoRutina_Click(object sender, EventArgs e)
         {
-            if (gridTiposRutinas.Rows.Count > 0)
+            if (gridTiposRutinas.Rows.Count > 0 && gridTiposRutinas.SelectedRows.Count > 0 && gridTiposRutinas.CurrentRow != null)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridTiposRutinas, 0);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridTiposRutinas, 0);
 
                 string mensaje = "¿Está seguro que desea quitar?";
                 string titulo = "Eliminación";
@@ -487,19 +487,6 @@ namespace Gimnasio
             }
         }
 
-        /// <summary>
-        /// Obtiene la celda y la fila actual seleccionada.
-        /// </summary>
-        /// <param name="dataGridView"> Nombre del DataGridView.</param>
-        /// <param name="column">Índice de columna del DataGridView.</param>
-        /// <returns>Retorna un object.</returns>
-        private object celdaFilaActual(DataGridView dataGridView, int column)
-        {
-            DataGridViewCellCollection celdasFilaActual = dataGridView.CurrentRow.Cells;
-
-            return celdasFilaActual[column].Value;
-        }
-
         private void cboClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
             if ((int)cboClientes.SelectedIndex > -1 && cboClientes.SelectedValue.GetType() == typeof(Int32))
@@ -510,7 +497,7 @@ namespace Gimnasio
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (gridRutinas.Rows.Count > 0)
+            if (gridRutinas.Rows.Count > 0 && gridRutinas.SelectedRows.Count > 0 && gridRutinas.CurrentRow != null)
             {
                 int detalleSeleccionado = gridRutinas.CurrentRow.Index;
                 Rutina rutinaDetalle = ejercicio.Rutinas[detalleSeleccionado];
@@ -544,9 +531,9 @@ namespace Gimnasio
 
         private void btnQuitar_Click(object sender, EventArgs e)
         {
-            if (gridRutinas.RowCount > 0)
+            if (gridRutinas.RowCount > 0 && gridRutinas.SelectedRows.Count > 0 && gridRutinas.CurrentRow != null)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridRutinas, 0);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridRutinas, 0);
 
                 string mensaje = "¿Está seguro que desea quitar?";
                 string titulo = "Eliminación";

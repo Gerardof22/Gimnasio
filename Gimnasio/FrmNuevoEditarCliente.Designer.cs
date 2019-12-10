@@ -274,7 +274,6 @@
             this.gridTelefonos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridTelefonos.Size = new System.Drawing.Size(421, 93);
             this.gridTelefonos.TabIndex = 20;
-            this.gridTelefonos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridTelefonos_CellContentClick);
             // 
             // btnAgregar
             // 
