@@ -159,23 +159,38 @@ namespace Gimnasio
                 int idSeleccionado = (int)Helper.CeldaFilaActual(gridClientes, 0);
 
                 FrmNuevoEditarCliente frmNuevoEditarCliente = new FrmNuevoEditarCliente(idSeleccionado, dbGimnasio);
+                DisableControls(frmNuevoEditarCliente, frmNuevoEditarCliente);
                 frmNuevoEditarCliente.ShowDialog();
-                desabilitarCampos(frmNuevoEditarCliente);
             }
             
             botonPresionado = false;
         }
 
-        private void desabilitarCampos(FrmNuevoEditarCliente frmNuevoEditarCliente)
+        /// <summary>
+        /// Desabilita todos los GroupBox y sus controles hijos más el botón Guardar.
+        /// </summary>
+        /// <param name="frmNuevoEditarCliente">Instancia del formulario</param>
+        /// <param name="control">Control padre que se desea recorrer para desactivar sus controles hijos.</param>
+        private void DisableControls(FrmNuevoEditarCliente frmNuevoEditarCliente, Control control)
         {
-            
-            frmNuevoEditarCliente.gpbDatosPersonales.Enabled = false;
-            frmNuevoEditarCliente.gpbDomicilio.Enabled = false;
-            frmNuevoEditarCliente.gpbContactos.Enabled = false;
-            frmNuevoEditarCliente.gpbObservaciones.Enabled = false;
-            Console.WriteLine("Se preciono");
+            foreach (Control ctrl in control.Controls)
+            {
+                if (ctrl is GroupBox)
+                {
+                    GroupBox groupBox = (GroupBox)ctrl;
+                    groupBox.Enabled = false;
+                }
 
-            
+                if (ctrl is Button)
+                {
+                    Button button = (Button)ctrl;
+                    if (button.Name == frmNuevoEditarCliente.btnGuardar.Name)
+                    {
+                        button.Enabled = false;
+                    }
+                }
+            }
+
         }
 
         private void gridClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)

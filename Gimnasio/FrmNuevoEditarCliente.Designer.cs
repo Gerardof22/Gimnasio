@@ -461,6 +461,7 @@
             this.Name = "FrmNuevoEditarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmNuevoEditarCliente";
+            this.Load += new System.EventHandler(this.FrmNuevoEditarCliente_Load);
             this.gpbDatosPersonales.ResumeLayout(false);
             this.gpbDatosPersonales.PerformLayout();
             this.gpbContactos.ResumeLayout(false);
@@ -499,7 +500,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtLecturaCorporal;
-        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnSeleccionarDomicilio;
         public System.Windows.Forms.TextBox txtNumCalle;
@@ -514,5 +514,6 @@
         private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
+        internal System.Windows.Forms.Button btnGuardar;
     }
 }

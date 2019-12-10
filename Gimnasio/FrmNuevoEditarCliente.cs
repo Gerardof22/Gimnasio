@@ -284,5 +284,32 @@ namespace Gimnasio
 
             }
         }
+
+        private void FrmNuevoEditarCliente_Load(object sender, EventArgs e)
+        {
+            //DisableControls(this);
+        }
+
+        private void DisableControls(Control con)
+        {
+            foreach (Control control in con.Controls)
+            {
+                if (control is GroupBox)
+                {
+                    GroupBox groupBox = (GroupBox)control;
+                    groupBox.Enabled = false;
+                }
+
+                if (control is Button)
+                {
+                    Button button = (Button)control;
+                    if (button.Name == btnGuardar.Name)
+                    {
+                        button.Enabled = false;
+                    }
+                }
+            }
+            
+        }
     }
 }
