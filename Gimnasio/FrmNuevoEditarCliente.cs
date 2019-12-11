@@ -86,18 +86,22 @@ namespace Gimnasio
 
         private void cargarGrillaTelefono(int idSeleccionado)
         {
-            var listaTelefonos = from telefonos in cliente.Telefonos
-                                 //Validamos el campo idcliente de la tabla para que nos ignore aquellos que son null,
-                                 //sí no hariamos esta validación nos daria un error de referencia nula en el bloque select new
-                                 where telefonos.Cliente.idcliente != null && telefonos.idtelefono != null
-                                 select new
-                                 {
-                                     idcliente = telefonos.Cliente.idcliente,
-                                     idtelefono = telefonos.idtelefono,
-                                     tipo = telefonos.Tipos_Telefonos.tipo_telefono,
-                                     numero = telefonos.numero
-                                 };
-            gridTelefonos.DataSource = listaTelefonos.Where(t => t.idcliente == idSeleccionado).ToList();
+            
+            if (cliente.Telefonos != null)
+            {
+                var listaTelefonos = from telefonos in cliente.Telefonos
+                                         //Validamos el campo idcliente de la tabla para que nos ignore aquellos que son null,
+                                         //sí no hariamos esta validación nos daria un error de referencia nula en el bloque select new
+                                     where telefonos.Cliente.idcliente != null && telefonos.idtelefono != null
+                                     select new
+                                     {
+                                         idcliente = telefonos.Cliente.idcliente,
+                                         idtelefono = telefonos.idtelefono,
+                                         tipo = telefonos.Tipos_Telefonos.tipo_telefono,
+                                         numero = telefonos.numero
+                                     };
+                gridTelefonos.DataSource = listaTelefonos.Where(t => t.idcliente == idSeleccionado).ToList();
+            }
         }
 
         private void cargarComboLocalidad(int idlocalidad)
@@ -194,6 +198,8 @@ namespace Gimnasio
                 }
                 throw;
             }
+
+            FrmGestionClientes.botonGuardarPresionado = true;
         }
 
         private bool IsValidate()

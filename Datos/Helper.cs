@@ -57,5 +57,12 @@ namespace Datos
 
             return celdasFilaActual[column].Value;
         }
+
+
+
+        public static void SeleccionarUltimaFila(DataGridView dataGridView)
+        {
+            dataGridView.CurrentCell = dataGridView.Rows[dataGridView.Rows.Count - 1].Cells[0];
+        }
     }
 }

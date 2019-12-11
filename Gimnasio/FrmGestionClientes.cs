@@ -13,8 +13,9 @@ namespace Gimnasio
         GimnasioContext dbGimnasio = new GimnasioContext();
         Cliente cliente;
 
-        bool botonPresionado = false;
-        
+        bool botonConsultarPresionado = false;
+        internal static bool botonGuardarPresionado = false;
+
 
         public FrmGestionClientes()
         {
@@ -78,18 +79,17 @@ namespace Gimnasio
             gridClientes.DataSource = listaCliente.Where(c => c.nombre_apellido.Contains(textToSearch) || c.direccion.Contains                  (textToSearch) || c.localidad.Contains(textToSearch)).Where(c => c.isDelected == false).ToList();
         }
 
-        private void SeleccionarUltimaFila()
-        {
-            gridClientes.CurrentCell = gridClientes.Rows[gridClientes.Rows.Count - 1].Cells[0];
-        }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             FrmNuevoEditarCliente frmNuevoEditarCliente = new FrmNuevoEditarCliente(dbGimnasio);
             frmNuevoEditarCliente.ShowDialog();
             listarGrillaClientes();
-            //Validar primero si los campos obligatorios fueron llenados, sino que no seleccione la ultima fila.
-            this.SeleccionarUltimaFila();
+            
+            if (botonGuardarPresionado)
+            {
+                Helper.SeleccionarUltimaFila(gridClientes);
+                botonGuardarPresionado = false;
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -146,8 +146,8 @@ namespace Gimnasio
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            botonPresionado = true;
-            if (botonPresionado)
+            botonConsultarPresionado = true;
+            if (botonConsultarPresionado)
             {
                 consultarDatos();
             }
@@ -155,7 +155,7 @@ namespace Gimnasio
 
         private void consultarDatos()
         {
-            if (gridClientes.Rows.Count > 0 && gridClientes.SelectedRows.Count > 0)
+            if (gridClientes.Rows.Count > 0 && gridClientes.SelectedRows.Count > 0 && gridClientes.CurrentRow != null)
             {
                 int idSeleccionado = (int)Helper.CeldaFilaActual(gridClientes, 0);
 
@@ -164,11 +164,11 @@ namespace Gimnasio
                 frmNuevoEditarCliente.ShowDialog();
             }
             
-            botonPresionado = false;
+            botonConsultarPresionado = false;
         }
 
         /// <summary>
-        /// Desabilita todos los GroupBox y sus controles hijos más el botón Guardar.
+        /// Desabilita todos los GroupBox y sus controles hijos junto con el botón Guardar.
         /// </summary>
         /// <param name="frmNuevoEditarCliente">Instancia del formulario</param>
         /// <param name="control">Control padre que se desea recorrer para desactivar sus controles hijos.</param>
