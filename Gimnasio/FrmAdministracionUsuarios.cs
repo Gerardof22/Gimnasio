@@ -55,6 +55,7 @@ namespace Gimnasio
             gridUsuarios.DataSource = listaUsuarios.Where(u => u.IsDeleted == false)
                                                    .Where(u => u.usuario.Contains(TextToSearch) || 
                                                    u.tipo_usuario.Contains(TextToSearch)).ToList();
+            
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

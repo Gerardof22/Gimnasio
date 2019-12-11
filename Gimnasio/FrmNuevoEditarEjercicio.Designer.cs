@@ -284,6 +284,7 @@
             this.txtKg.Name = "txtKg";
             this.txtKg.Size = new System.Drawing.Size(100, 20);
             this.txtKg.TabIndex = 9;
+            this.txtKg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKg_KeyPress);
             // 
             // txtTiempoDuracion
             // 
@@ -485,6 +486,7 @@
             this.txtRepeticiones.Name = "txtRepeticiones";
             this.txtRepeticiones.Size = new System.Drawing.Size(100, 20);
             this.txtRepeticiones.TabIndex = 8;
+            this.txtRepeticiones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRepeticiones_KeyPress);
             // 
             // dtpFechaHasta
             // 
@@ -509,6 +511,7 @@
             this.txtSeries.Name = "txtSeries";
             this.txtSeries.Size = new System.Drawing.Size(100, 20);
             this.txtSeries.TabIndex = 7;
+            this.txtSeries.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSeries_KeyPress);
             // 
             // label14
             // 

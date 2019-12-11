@@ -314,7 +314,7 @@ namespace Gimnasio
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (IsValidateControls())
+            if (IsValidateControls(txtSeries.Text, txtRepeticiones.Text, txtKg.Text))
             {
                 rutina = new Rutina();
                 rutina.fechaDesde = dtpFechaDesde.Value.Date;
@@ -340,25 +340,16 @@ namespace Gimnasio
             }
         }
 
-        private bool IsValidateControls()
+        private bool IsValidateControls(string serie, string repeticion, string kg)
         {
-            ArrayList arrayTextBox = new ArrayList();
-            bool val = true;
-
-            foreach (Control control in gpbCamposRutina.Controls)
+            if (!string.IsNullOrEmpty(serie) && !string.IsNullOrEmpty(repeticion) && !string.IsNullOrEmpty(kg))
             {
-                if (control is TextBox)
-                {
-                    TextBox textBox = (TextBox)control;
-
-                    if (string.IsNullOrEmpty(textBox.Text))
-                    {
-                        val = false;
-                    }
-                }
+                return true;
             }
-            
-            return val;
+            else
+            {
+                return false;
+            }
         }
 
         private void actualizarGrillaDetalle()
@@ -544,6 +535,56 @@ namespace Gimnasio
                     ejercicio.Rutinas.RemoveAt(idDetalleSeleccionado);
                     actualizarGrillaDetalle();
                 }
+            }
+        }
+
+        private void txtSeries_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Validamos si sólo son números, sino no escribe nada en el textbox.
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            //Permitimos borrar el textbox
+            //NOTA: Si no se realiza está validación al equivocarse no se podra borrar.
+            if (e.KeyChar == (char)8)
+            {
+                e.Handled = false;
+            }
+
+            //if (e.KeyChar == (char)13) btnSearch_Click(sender, e);  //<-- permite hacer Enter en un botón especificado.         
+        }
+
+        private void txtRepeticiones_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Validamos si sólo son números, sino no escribe nada en el textbox.
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            //Permitimos borrar el textbox
+            //NOTA: Si no se realiza está validación al equivocarse no se podra borrar.
+            if (e.KeyChar == (char)8)
+            {
+                e.Handled = false;
+            }
+        }
+
+        private void txtKg_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Validamos si sólo son números, sino no escribe nada en el textbox.
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            //Permitimos borrar el textbox
+            //NOTA: Si no se realiza está validación al equivocarse no se podra borrar.
+            if (e.KeyChar == (char)8)
+            {
+                e.Handled = false;
             }
         }
     }
