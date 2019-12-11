@@ -23,12 +23,13 @@ namespace Gimnasio
         //Propiedades que se llenan con los datos de la fila seleccionada de la grilla.
         internal static string duracion { get; set; }
         internal static string descripcion { get; set; }
+        internal static bool BotonGuardarPresionado = false;
 
         public FrmGestionCaletamiento()
         {
             InitializeComponent();
             listarCalentaientos();
-            Helper.OcultarColumnas(gridCalentamiento, new int[] { 0, 3 });
+            Helper.OcultarColumnas(gridCalentamiento, new int[] { 3 });
         }
 
         private void listarCalentaientos()
@@ -65,6 +66,12 @@ namespace Gimnasio
             FrmNuevoEditarCalentamiento frmNuevoEditarCalentamiento = new FrmNuevoEditarCalentamiento();
             frmNuevoEditarCalentamiento.ShowDialog();
             listarCalentaientos();
+
+            if (BotonGuardarPresionado)
+            {
+                Helper.SeleccionarUltimaFila(gridCalentamiento);
+                BotonGuardarPresionado = false;
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)

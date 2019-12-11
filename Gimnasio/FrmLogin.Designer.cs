@@ -35,6 +35,8 @@
             this.txtUser = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.llblNuevoUsuario = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label3
@@ -48,7 +50,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(163, 77);
+            this.btnCancelar.Location = new System.Drawing.Point(163, 106);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 5;
@@ -58,7 +60,7 @@
             // 
             // btnAcceder
             // 
-            this.btnAcceder.Location = new System.Drawing.Point(75, 77);
+            this.btnAcceder.Location = new System.Drawing.Point(75, 106);
             this.btnAcceder.Name = "btnAcceder";
             this.btnAcceder.Size = new System.Drawing.Size(75, 23);
             this.btnAcceder.TabIndex = 4;
@@ -77,6 +79,7 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(75, 38);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(163, 20);
             this.txtPassword.TabIndex = 3;
             // 
@@ -89,11 +92,33 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "Usuario";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(72, 77);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Nuevo usuario click";
+            // 
+            // llblNuevoUsuario
+            // 
+            this.llblNuevoUsuario.AutoSize = true;
+            this.llblNuevoUsuario.Location = new System.Drawing.Point(172, 76);
+            this.llblNuevoUsuario.Name = "llblNuevoUsuario";
+            this.llblNuevoUsuario.Size = new System.Drawing.Size(29, 13);
+            this.llblNuevoUsuario.TabIndex = 18;
+            this.llblNuevoUsuario.TabStop = true;
+            this.llblNuevoUsuario.Text = "aquí";
+            this.llblNuevoUsuario.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblNuevoUsuario_LinkClicked);
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(253, 115);
+            this.ClientSize = new System.Drawing.Size(254, 141);
+            this.Controls.Add(this.llblNuevoUsuario);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAcceder);
@@ -118,5 +143,7 @@
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel llblNuevoUsuario;
     }
 }

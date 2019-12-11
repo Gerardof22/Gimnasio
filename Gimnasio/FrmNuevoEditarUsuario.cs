@@ -23,6 +23,7 @@ namespace Gimnasio
             InitializeComponent();
             dbGimnasio = new GimnasioContext();
             usuario = new Usuario();
+            this.CargarComboTipoUsuario(0);
         }
 
         public FrmNuevoEditarUsuario(GimnasioContext dbEnviado)

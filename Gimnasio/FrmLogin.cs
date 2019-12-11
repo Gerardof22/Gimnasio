@@ -99,5 +99,11 @@ namespace Gimnasio
             this.Close();
             Application.Exit();
         }
+
+        private void llblNuevoUsuario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmNuevoEditarUsuario frmNuevoEditarUsuario = new FrmNuevoEditarUsuario();
+            frmNuevoEditarUsuario.ShowDialog();
+        }
     }
 }

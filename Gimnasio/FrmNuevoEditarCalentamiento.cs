@@ -85,6 +85,8 @@ namespace Gimnasio
                 this.ValidateCatch(ex);
                 throw;
             }
+
+            FrmGestionCaletamiento.BotonGuardarPresionado = true;
         }
 
         private void ValidateCatch(DbEntityValidationException ex)

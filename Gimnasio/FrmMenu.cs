@@ -217,24 +217,24 @@ namespace Gimnasio
 
         private void FrmMenu_Load(object sender, EventArgs e)
         {
-            //FrmLogin frmLogin = new FrmLogin();
-            //frmLogin.ShowDialog();
-            //Usuario usuario = frmLogin.usuario;
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.ShowDialog();
+            Usuario usuario = frmLogin.usuario;
 
 
-            //if (usuario != null)
-            //{
-            //    if (usuario.Tipo_Usuario.tipo.Equals("Administrador"))
-            //    {
-            //        administradorDeUsuariosToolStripMenuItem.Enabled = true;
-            //        usuariosToolStripMenuItem1.Enabled = true;
-            //    }
-            //    else
-            //    {
-            //        administradorDeUsuariosToolStripMenuItem.Enabled = false;
-            //        usuariosToolStripMenuItem1.Enabled = false;
-            //    }
-            //}
+            if (usuario != null)
+            {
+                if (usuario.Tipo_Usuario.tipo.Equals("Administrador"))
+                {
+                    administradorDeUsuariosToolStripMenuItem.Enabled = true;
+                    usuariosToolStripMenuItem1.Enabled = true;
+                }
+                else
+                {
+                    administradorDeUsuariosToolStripMenuItem.Enabled = false;
+                    usuariosToolStripMenuItem1.Enabled = false;
+                }
+            }
         }
 
         private void administradorTipoDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
