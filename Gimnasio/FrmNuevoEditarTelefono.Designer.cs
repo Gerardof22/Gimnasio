@@ -112,7 +112,9 @@
             this.Controls.Add(this.txtNumeroTelefono);
             this.Controls.Add(this.cboTipoTelefono);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "FrmNuevoEditarTelefono";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NuevoEditarTelefono";
             this.ResumeLayout(false);
             this.PerformLayout();

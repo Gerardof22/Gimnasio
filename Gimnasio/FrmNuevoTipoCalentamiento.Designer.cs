@@ -79,8 +79,10 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtTipoCalentamiento);
+            this.MaximizeBox = false;
             this.Name = "FrmNuevoTipoCalentamiento";
-            this.Text = "FrmNuevoTipoCalentamiento";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Tipo de Calentamiento";
             this.ResumeLayout(false);
             this.PerformLayout();
 

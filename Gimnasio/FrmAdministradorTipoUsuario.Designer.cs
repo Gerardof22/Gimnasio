@@ -116,7 +116,9 @@
             this.Controls.Add(this.gridTipoUsuario);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "FrmAdministradorTipoUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAdministradorTipoUsuario";
             ((System.ComponentModel.ISupportInitialize)(this.gridTipoUsuario)).EndInit();
             this.ResumeLayout(false);

@@ -344,7 +344,9 @@
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
+            this.MaximizeBox = false;
             this.Name = "FrmEditarRutina";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmNuevoEditarRutina";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

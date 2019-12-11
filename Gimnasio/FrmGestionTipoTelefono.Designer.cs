@@ -70,7 +70,8 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(405, 9);
+            this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalir.Location = new System.Drawing.Point(342, 9);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 6;
@@ -80,11 +81,14 @@
             // 
             // gridTipoTelefono
             // 
+            this.gridTipoTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridTipoTelefono.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridTipoTelefono.Location = new System.Drawing.Point(12, 57);
             this.gridTipoTelefono.Name = "gridTipoTelefono";
             this.gridTipoTelefono.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridTipoTelefono.Size = new System.Drawing.Size(468, 150);
+            this.gridTipoTelefono.Size = new System.Drawing.Size(405, 152);
             this.gridTipoTelefono.TabIndex = 2;
             // 
             // txtBuscar
@@ -108,7 +112,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 263);
+            this.ClientSize = new System.Drawing.Size(443, 254);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnAgregar);
@@ -117,6 +121,7 @@
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label1);
             this.Name = "FrmGestionTipoTelefono";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmGestionTipoTelefono";
             ((System.ComponentModel.ISupportInitialize)(this.gridTipoTelefono)).EndInit();
             this.ResumeLayout(false);

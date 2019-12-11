@@ -138,7 +138,9 @@
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "FrmGestionCardio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmGestionCardio";
             ((System.ComponentModel.ISupportInitialize)(this.gridCardio)).EndInit();
             this.ResumeLayout(false);

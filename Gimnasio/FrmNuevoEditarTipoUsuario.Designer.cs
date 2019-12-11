@@ -79,8 +79,10 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtTipoUsuario);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "FrmNuevoEditarTipoUsuario";
-            this.Text = "FrmNuevoEditarTipoUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Tipo de Usuario";
             this.ResumeLayout(false);
             this.PerformLayout();
 

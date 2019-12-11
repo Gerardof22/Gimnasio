@@ -126,7 +126,9 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.gpbEjercicio);
+            this.MaximizeBox = false;
             this.Name = "FrmEditarEjercicio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmEditarEjercicio";
             this.gpbEjercicio.ResumeLayout(false);
             this.gpbEjercicio.PerformLayout();

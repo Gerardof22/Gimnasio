@@ -150,7 +150,9 @@
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "FrmGestionClientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmGestionClientes";
             ((System.ComponentModel.ISupportInitialize)(this.gridClientes)).EndInit();
             this.ResumeLayout(false);

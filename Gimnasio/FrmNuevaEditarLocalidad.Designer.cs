@@ -80,7 +80,9 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtLocalidadNombre);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "FrmNuevaEditarLocalidad";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmNuevaEditarLocalidad";
             this.ResumeLayout(false);
             this.PerformLayout();

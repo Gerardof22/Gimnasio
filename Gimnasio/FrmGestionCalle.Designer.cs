@@ -129,7 +129,9 @@
             this.Controls.Add(this.gridCalle);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "FrmGestionCalle";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmGestionCalle";
             ((System.ComponentModel.ISupportInitialize)(this.gridCalle)).EndInit();
             this.ResumeLayout(false);

@@ -132,8 +132,10 @@
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "FrmNuevoEditarUsuario";
-            this.Text = "FrmNuevoUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Nuevo usuario";
             this.ResumeLayout(false);
             this.PerformLayout();
 

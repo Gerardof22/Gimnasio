@@ -99,7 +99,9 @@
             this.Controls.Add(this.txtRitmo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "FrmNuevoEditarCardio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmNuevoEditarCardio";
             this.ResumeLayout(false);
             this.PerformLayout();

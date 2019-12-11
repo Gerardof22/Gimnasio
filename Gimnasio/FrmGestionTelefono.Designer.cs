@@ -119,7 +119,9 @@
             this.Controls.Add(this.gridGestionTelefono);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.lblBuscar);
+            this.MaximizeBox = false;
             this.Name = "FrmGestionTelefono";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmGestionTelefono";
             ((System.ComponentModel.ISupportInitialize)(this.gridGestionTelefono)).EndInit();
             this.ResumeLayout(false);

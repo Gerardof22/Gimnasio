@@ -457,6 +457,7 @@
             this.Controls.Add(this.gpbDomicilio);
             this.Controls.Add(this.gpbContactos);
             this.Controls.Add(this.gpbDatosPersonales);
+            this.MaximizeBox = false;
             this.Name = "FrmNuevoEditarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmNuevoEditarCliente";

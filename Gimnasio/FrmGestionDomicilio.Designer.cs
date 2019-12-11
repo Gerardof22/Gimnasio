@@ -130,7 +130,9 @@
             this.Controls.Add(this.gridDomicilio);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "FrmGestionDomicilio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmGestionDomicilio";
             ((System.ComponentModel.ISupportInitialize)(this.gridDomicilio)).EndInit();
             this.ResumeLayout(false);

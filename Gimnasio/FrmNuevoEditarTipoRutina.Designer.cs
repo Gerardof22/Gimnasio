@@ -80,7 +80,8 @@
             this.Controls.Add(this.txtTipoRutina);
             this.Controls.Add(this.label1);
             this.Name = "FrmNuevoEditarTipoRutina";
-            this.Text = "FrmNuevoEditarTipoRutina";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Tipo de rutina";
             this.ResumeLayout(false);
             this.PerformLayout();
 

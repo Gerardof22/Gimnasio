@@ -70,7 +70,7 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // FrmTipoTelefono
+            // FrmNuevoEditarTipoTelefono
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -79,8 +79,10 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtTipoTelefono);
             this.Controls.Add(this.label1);
-            this.Name = "FrmTipoTelefono";
-            this.Text = "FrmTipoTelefono";
+            this.MaximizeBox = false;
+            this.Name = "FrmNuevoEditarTipoTelefono";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Tipo de Telefono";
             this.ResumeLayout(false);
             this.PerformLayout();
 

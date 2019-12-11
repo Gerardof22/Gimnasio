@@ -79,7 +79,9 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtNombreCalle);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "FrmNuevoEditarCalle";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCalle";
             this.ResumeLayout(false);
             this.PerformLayout();

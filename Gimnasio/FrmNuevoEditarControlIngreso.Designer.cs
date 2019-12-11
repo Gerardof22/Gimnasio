@@ -149,7 +149,9 @@
             this.Controls.Add(this.rbtnMañana);
             this.Controls.Add(this.dtpFechaIngreso);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "FrmNuevoEditarControlIngreso";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmIngresoDiarioClientes";
             this.ResumeLayout(false);
             this.PerformLayout();
