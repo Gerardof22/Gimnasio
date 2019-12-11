@@ -81,6 +81,7 @@
             // 
             // gridTipoUsuario
             // 
+            this.gridTipoUsuario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridTipoUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridTipoUsuario.Location = new System.Drawing.Point(12, 60);
             this.gridTipoUsuario.Name = "gridTipoUsuario";
