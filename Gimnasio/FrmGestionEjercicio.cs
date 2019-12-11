@@ -18,13 +18,6 @@ namespace Gimnasio
 
         
 
-        //Está propiedad se encarga de capturar el idcardio que es seleccionado en la grilla.
-        internal static int idejercicio { get; set; }
-
-        //Propiedades que se llenan con los datos de la fila seleccionada de la grilla.
-        internal static float ejercicio_nombre { get; set; }
-        internal static Image image { get; set; }
-
         public FrmGestionEjercicio()
         {
             InitializeComponent();
@@ -175,11 +168,6 @@ namespace Gimnasio
                     this.pxbImagen.Image = null;
                 }
             }
-        }
-
-        private void gridEjercicio_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)

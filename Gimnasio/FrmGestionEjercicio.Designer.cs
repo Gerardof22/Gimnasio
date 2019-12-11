@@ -162,7 +162,6 @@
             this.gridEjercicio.Size = new System.Drawing.Size(217, 317);
             this.gridEjercicio.TabIndex = 33;
             this.gridEjercicio.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridEjercicio_CellClick);
-            this.gridEjercicio.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridEjercicio_CellContentClick);
             this.gridEjercicio.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridEjercicio_RowEnter);
             this.gridEjercicio.SelectionChanged += new System.EventHandler(this.gridEjercicio_SelectionChanged);
             // 

@@ -135,133 +135,6 @@ namespace Gimnasio
             }
         }
 
-        private void btnAgregarTipoRutina_Click(object sender, EventArgs e)
-        {
-            FrmNuevoEditarTipoRutina frmNuevoEditarTipoRutina = new FrmNuevoEditarTipoRutina();
-            frmNuevoEditarTipoRutina.ShowDialog();
-            if (!string.IsNullOrEmpty(FrmNuevoEditarTipoRutina.tipo_rutina_nombre))
-            {
-                llenarGrillaTipoRutina();
-                cargarGrillaTipoRutina();
-            }
-        }
-
-        private void llenarGrillaTipoRutina()
-        {
-            tipo_Rutina = new Tipo_Rutina();
-            tipo_Rutina.nombre = FrmNuevoEditarTipoRutina.tipo_rutina_nombre;
-
-            if (rutina.Tipos_Rutinas == null)
-            {
-                rutina.Tipos_Rutinas = new ObservableCollection<Tipo_Rutina>();
-            }
-
-            rutina.Tipos_Rutinas.Add(tipo_Rutina);
-
-            FrmNuevoEditarTipoRutina.tipo_rutina_nombre = "";
-        }
-
-        private void cargarGrillaTipoRutina()
-        {
-            if (rutina.Tipos_Rutinas != null)
-            {
-                var listaTipoRutina = from tipo in rutina.Tipos_Rutinas
-                                      select new
-                                      {
-                                          idtiporutina = tipo.idtiporutina,
-                                          rutina = tipo.nombre,
-                                          isDelected = tipo.IsDelete
-                                      };
-
-                gridTipoRutina.DataSource = listaTipoRutina.Where(tr => tr.isDelected == false).ToList();
-            }
-
-            
-        }
-
-        private void btnQuitarTipoRutina_Click(object sender, EventArgs e)
-        {
-            if (gridTipoRutina.Rows.Count > 0 && gridTipoRutina.SelectedRows.Count > 0 && gridTipoRutina.CurrentRow != null)
-            {
-                int idSeleccionado = (int)Helper.CeldaFilaActual(gridTipoRutina, 0);
-
-                string mensaje = "¿Está seguro que desea quitar?";
-                string titulo = "Eliminación";
-                DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (respuesta == DialogResult.Yes)
-                {
-                    int idDetalleSeleccionado = gridTipoRutina.CurrentRow.Index;
-                    rutina.Tipos_Rutinas.RemoveAt(idDetalleSeleccionado);
-                    cargarGrillaTipoRutina();
-                }
-            }
-        }
-
-        private void btnAgregarEjercicio_Click(object sender, EventArgs e)
-        {
-            //FrmNuevoEditarEjercicio frmNuevoEditarEjercicio = new FrmNuevoEditarEjercicio();
-            //frmNuevoEditarEjercicio.ShowDialog();
-            //if (FrmNuevoEditarEjercicio.ejercicio_nombre != "" && FrmNuevoEditarEjercicio.image != null)
-            //{
-            //    llenarGrillaEjercicio();
-            //    cargarGrillaEjercicios();
-            //}
-        }
-
-        //private void llenarGrillaEjercicio()
-        //{
-        //    ejercicio = new Ejercicio();
-        //    ejercicio.ejercicio_nombre = FrmNuevoEditarEjercicio.ejercicio_nombre;
-        //    ejercicio.ejercicio_imagen = FrmNuevoEditarEjercicio.image;
-
-        //    if (rutina.Ejercicios == null)
-        //    {
-        //        rutina.Ejercicios = new ObservableCollection<Ejercicio>();
-        //    }
-
-        //    rutina.Ejercicios.Add(ejercicio);
-
-        //    FrmNuevoEditarEjercicio.ejercicio_nombre = "";
-        //    FrmNuevoEditarEjercicio.image = null;
-        //}
-
-        //private void cargarGrillaEjercicios()
-        //{
-        //    if (rutina.Ejercicios != null)
-        //    {
-        //        var listaEjercicios = from e in rutina.Ejercicios
-        //                              select new
-        //                              {
-        //                                  idejercicio = e.ejercicio_idejercicio,
-        //                                  nombre = e.ejercicio_nombre,
-        //                                  imagen = FrmNuevoEditarEjercicio.byteArrayToImage(e.ejercicio_imagen),
-        //                                  isDelected = e.ejercicio_delete
-        //                              };
-
-        //        gridEjercicio.DataSource = listaEjercicios.Where(e => e.isDelected == false).ToList();
-        //        ((DataGridViewImageColumn)gridEjercicio.Columns[2]).ImageLayout = DataGridViewImageCellLayout.Zoom;
-        //        ((DataGridViewImageColumn)gridEjercicio.Columns[2]).DefaultCellStyle.NullValue = null;
-        //    }
-        //}
-
-        //private void btnQuitarEjercicio_Click(object sender, EventArgs e)
-        //{
-        //    if (gridEjercicio.Rows.Count > 0 && gridEjercicio.SelectedRows.Count > 0)
-        //    {
-        //        int idSeleccionado = (int)celdaFilaActual(gridEjercicio, 0);
-
-        //        string mensaje = "¿Está seguro que desea quitar?";
-        //        string titulo = "Eliminación";
-        //        DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-        //        if (respuesta == DialogResult.Yes)
-        //        {
-        //            int idDetalleSeleccionado = gridEjercicio.CurrentRow.Index;
-        //            rutina.Ejercicios.RemoveAt(idDetalleSeleccionado);
-        //            cargarGrillaEjercicios();
-        //        }
-        //    }
-        //}
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -282,7 +155,7 @@ namespace Gimnasio
                 }
 
                 dbGimnasio.SaveChanges();
-                Close();
+                this.Close();
             }
             catch (DbEntityValidationException ex) //<-- Sí ocurre alguna excepción al guardar 
             {

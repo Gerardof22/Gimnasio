@@ -56,24 +56,9 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtDescripcionCalentamiento = new System.Windows.Forms.TextBox();
             this.txtDuracionCalentamiento = new System.Windows.Forms.TextBox();
-            this.gridTipoRutina = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnQuitarTipoRutina = new System.Windows.Forms.Button();
-            this.btnAgregarTipoRutina = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.pbxImagen = new System.Windows.Forms.PictureBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.btnQuitarEjercicio = new System.Windows.Forms.Button();
-            this.txtNombreEjercicio = new System.Windows.Forms.TextBox();
-            this.btnAgregarEjercicio = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridTipoRutina)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -211,7 +196,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(287, 478);
+            this.btnGuardar.Location = new System.Drawing.Point(343, 277);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 18;
@@ -221,7 +206,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(438, 478);
+            this.btnCancelar.Location = new System.Drawing.Point(494, 277);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 19;
@@ -327,122 +312,10 @@
             this.txtDuracionCalentamiento.Size = new System.Drawing.Size(227, 20);
             this.txtDuracionCalentamiento.TabIndex = 25;
             // 
-            // gridTipoRutina
-            // 
-            this.gridTipoRutina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridTipoRutina.Location = new System.Drawing.Point(9, 16);
-            this.gridTipoRutina.Name = "gridTipoRutina";
-            this.gridTipoRutina.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridTipoRutina.Size = new System.Drawing.Size(275, 162);
-            this.gridTipoRutina.TabIndex = 26;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btnQuitarTipoRutina);
-            this.groupBox3.Controls.Add(this.btnAgregarTipoRutina);
-            this.groupBox3.Controls.Add(this.gridTipoRutina);
-            this.groupBox3.Location = new System.Drawing.Point(10, 247);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(374, 184);
-            this.groupBox3.TabIndex = 27;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Tipo de rutinas";
-            // 
-            // btnQuitarTipoRutina
-            // 
-            this.btnQuitarTipoRutina.Location = new System.Drawing.Point(290, 104);
-            this.btnQuitarTipoRutina.Name = "btnQuitarTipoRutina";
-            this.btnQuitarTipoRutina.Size = new System.Drawing.Size(75, 23);
-            this.btnQuitarTipoRutina.TabIndex = 29;
-            this.btnQuitarTipoRutina.Text = "Quitar";
-            this.btnQuitarTipoRutina.UseVisualStyleBackColor = true;
-            this.btnQuitarTipoRutina.Click += new System.EventHandler(this.btnQuitarTipoRutina_Click);
-            // 
-            // btnAgregarTipoRutina
-            // 
-            this.btnAgregarTipoRutina.Location = new System.Drawing.Point(290, 65);
-            this.btnAgregarTipoRutina.Name = "btnAgregarTipoRutina";
-            this.btnAgregarTipoRutina.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregarTipoRutina.TabIndex = 28;
-            this.btnAgregarTipoRutina.Text = "Agregar";
-            this.btnAgregarTipoRutina.UseVisualStyleBackColor = true;
-            this.btnAgregarTipoRutina.Click += new System.EventHandler(this.btnAgregarTipoRutina_Click);
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.pbxImagen);
-            this.groupBox4.Controls.Add(this.label13);
-            this.groupBox4.Controls.Add(this.label12);
-            this.groupBox4.Controls.Add(this.btnQuitarEjercicio);
-            this.groupBox4.Controls.Add(this.txtNombreEjercicio);
-            this.groupBox4.Controls.Add(this.btnAgregarEjercicio);
-            this.groupBox4.Location = new System.Drawing.Point(533, 247);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(390, 184);
-            this.groupBox4.TabIndex = 30;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Ejercicios";
-            // 
-            // pbxImagen
-            // 
-            this.pbxImagen.Location = new System.Drawing.Point(62, 55);
-            this.pbxImagen.Name = "pbxImagen";
-            this.pbxImagen.Size = new System.Drawing.Size(226, 123);
-            this.pbxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbxImagen.TabIndex = 31;
-            this.pbxImagen.TabStop = false;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 104);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(42, 13);
-            this.label13.TabIndex = 30;
-            this.label13.Text = "Imagen";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 22);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(50, 13);
-            this.label12.TabIndex = 25;
-            this.label12.Text = "Duración";
-            // 
-            // btnQuitarEjercicio
-            // 
-            this.btnQuitarEjercicio.Location = new System.Drawing.Point(309, 55);
-            this.btnQuitarEjercicio.Name = "btnQuitarEjercicio";
-            this.btnQuitarEjercicio.Size = new System.Drawing.Size(75, 23);
-            this.btnQuitarEjercicio.TabIndex = 29;
-            this.btnQuitarEjercicio.Text = "Quitar";
-            this.btnQuitarEjercicio.UseVisualStyleBackColor = true;
-            // 
-            // txtNombreEjercicio
-            // 
-            this.txtNombreEjercicio.Enabled = false;
-            this.txtNombreEjercicio.Location = new System.Drawing.Point(62, 19);
-            this.txtNombreEjercicio.Name = "txtNombreEjercicio";
-            this.txtNombreEjercicio.Size = new System.Drawing.Size(226, 20);
-            this.txtNombreEjercicio.TabIndex = 25;
-            // 
-            // btnAgregarEjercicio
-            // 
-            this.btnAgregarEjercicio.Location = new System.Drawing.Point(309, 26);
-            this.btnAgregarEjercicio.Name = "btnAgregarEjercicio";
-            this.btnAgregarEjercicio.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregarEjercicio.TabIndex = 28;
-            this.btnAgregarEjercicio.Text = "Agregar";
-            this.btnAgregarEjercicio.UseVisualStyleBackColor = true;
-            this.btnAgregarEjercicio.Click += new System.EventHandler(this.btnAgregarEjercicio_Click);
-            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.txtKg);
-            this.groupBox5.Controls.Add(this.groupBox4);
             this.groupBox5.Controls.Add(this.txtTiempoDuracion);
-            this.groupBox5.Controls.Add(this.groupBox3);
             this.groupBox5.Controls.Add(this.label5);
             this.groupBox5.Controls.Add(this.groupBox2);
             this.groupBox5.Controls.Add(this.txtDescanso);
@@ -459,7 +332,7 @@
             this.groupBox5.Controls.Add(this.label2);
             this.groupBox5.Location = new System.Drawing.Point(12, 12);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(946, 449);
+            this.groupBox5.Size = new System.Drawing.Size(946, 246);
             this.groupBox5.TabIndex = 31;
             this.groupBox5.TabStop = false;
             // 
@@ -467,7 +340,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(981, 514);
+            this.ClientSize = new System.Drawing.Size(981, 319);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
@@ -477,11 +350,6 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridTipoRutina)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
@@ -518,17 +386,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtDescripcionCalentamiento;
         private System.Windows.Forms.TextBox txtDuracionCalentamiento;
-        private System.Windows.Forms.DataGridView gridTipoRutina;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btnQuitarTipoRutina;
-        private System.Windows.Forms.Button btnAgregarTipoRutina;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button btnQuitarEjercicio;
-        private System.Windows.Forms.Button btnAgregarEjercicio;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox txtNombreEjercicio;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.PictureBox pbxImagen;
     }
 }
