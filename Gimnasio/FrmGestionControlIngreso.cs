@@ -15,7 +15,9 @@ namespace Gimnasio
     {
         GimnasioContext dbGimnasio = new GimnasioContext();
         Control_Ingreso control_Ingreso;
-        
+
+        internal static bool botonGuardarPresionado = false;
+
 
         public FrmGestionControlIngreso()
         {
@@ -58,6 +60,12 @@ namespace Gimnasio
             FrmNuevoEditarControlIngreso frmNuevoEditarControlIngreso = new FrmNuevoEditarControlIngreso(dbGimnasio);
             frmNuevoEditarControlIngreso.ShowDialog();
             listarControlIngreso();
+
+            if (botonGuardarPresionado)
+            {
+                Helper.SeleccionarUltimaFila(gridControlIngreso);
+                botonGuardarPresionado = false;
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
