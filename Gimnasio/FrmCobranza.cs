@@ -52,7 +52,8 @@ namespace Gimnasio
             //recorremos el datatable y vamos llenando el autoCompletado
             foreach (Cliente cliente in dbGimnasio.Clientes)
             {
-                autoCompletadoCbo.Add(cliente.nombre);
+                string nom_apel = cliente.nombre + " " + cliente.apellido;
+                autoCompletadoCbo.Add(nom_apel);
             }
             //configuramos el combo para que utilice el autoCompletado
             cboClientes.AutoCompleteMode = AutoCompleteMode.SuggestAppend;

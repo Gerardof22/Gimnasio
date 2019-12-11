@@ -124,6 +124,19 @@ namespace Gimnasio
             //campo que es el valor real
             cboCalle.ValueMember = "idcalle";
             cboCalle.SelectedValue = id;
+
+            //***********PREPARAMOS EL AUTOCOMPLETADO DEL COMBO
+            AutoCompleteStringCollection autoCompletadoCbo = new AutoCompleteStringCollection();
+            //recorremos el datatable y vamos llenando el autoCompletado
+            foreach (Calle calle in dbGimnasio.Calles)
+            {
+                autoCompletadoCbo.Add(calle.nombre_calle);
+            }
+            //configuramos el combo para que utilice el autoCompletado
+            cboCalle.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cboCalle.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cboCalle.AutoCompleteCustomSource = autoCompletadoCbo;
+
         }
     }
 }

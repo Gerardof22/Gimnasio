@@ -65,6 +65,20 @@ namespace Gimnasio
             //campo que es el valor real
             cboTipoTelefono.ValueMember = "idtipotelefono";
             cboTipoTelefono.SelectedValue = idtipoTelefono;
+
+
+            //***********PREPARAMOS EL AUTOCOMPLETADO DEL COMBO
+            AutoCompleteStringCollection autoCompletadoCbo = new AutoCompleteStringCollection();
+            //recorremos el datatable y vamos llenando el autoCompletado
+            foreach (Tipo_Telefono tipo_Telefono in dbGimnasio.Tipos_Telefonos)
+            {
+                autoCompletadoCbo.Add(tipo_Telefono.tipo_telefono);
+            }
+            //configuramos el combo para que utilice el autoCompletado
+            cboTipoTelefono.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cboTipoTelefono.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cboTipoTelefono.AutoCompleteCustomSource = autoCompletadoCbo;
+
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

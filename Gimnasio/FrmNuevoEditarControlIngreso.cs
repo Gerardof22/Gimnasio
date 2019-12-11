@@ -72,6 +72,21 @@ namespace Gimnasio
             //campo que es el valor real
             cboCliente.ValueMember = "idcliente";
             cboCliente.SelectedValue = idcliente;
+
+
+            //***********PREPARAMOS EL AUTOCOMPLETADO DEL COMBO
+            AutoCompleteStringCollection autoCompletadoCbo = new AutoCompleteStringCollection();
+            //recorremos el datatable y vamos llenando el autoCompletado
+            foreach (Cliente cliente in dbGimnasio.Clientes)
+            {
+                string nom_apel = cliente.nombre + " " + cliente.apellido;
+                autoCompletadoCbo.Add(nom_apel);
+            }
+            //configuramos el combo para que utilice el autoCompletado
+            cboCliente.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cboCliente.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cboCliente.AutoCompleteCustomSource = autoCompletadoCbo;
+
         }
 
         private IList CargarClientes()

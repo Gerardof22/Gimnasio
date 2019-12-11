@@ -109,6 +109,19 @@ namespace Gimnasio
             //campo que es el valor real
             cboLocalidad.ValueMember = "idlocalidad";
             cboLocalidad.SelectedValue = idlocalidad;
+
+            //***********PREPARAMOS EL AUTOCOMPLETADO DEL COMBO
+            AutoCompleteStringCollection autoCompletadoCbo = new AutoCompleteStringCollection();
+            //recorremos el datatable y vamos llenando el autoCompletado
+            foreach (Localidad localidad in dbGimnasio.Localidads)
+            {
+                autoCompletadoCbo.Add(localidad.localidad);
+            }
+            //configuramos el combo para que utilice el autoCompletado
+            cboLocalidad.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cboLocalidad.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cboLocalidad.AutoCompleteCustomSource = autoCompletadoCbo;
+
         }
 
         private void validateGenero()

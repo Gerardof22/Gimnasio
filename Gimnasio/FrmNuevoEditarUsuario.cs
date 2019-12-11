@@ -58,6 +58,19 @@ namespace Gimnasio
             //campo que es el valor real
             cboTipoUsuario.ValueMember = "idtipousuario";
             cboTipoUsuario.SelectedValue = id;
+
+
+            //***********PREPARAMOS EL AUTOCOMPLETADO DEL COMBO
+            AutoCompleteStringCollection autoCompletadoCbo = new AutoCompleteStringCollection();
+            //recorremos el datatable y vamos llenando el autoCompletado
+            foreach (Tipo_Usuario tipo_Usuario in dbGimnasio.Tipos_Usuarios)
+            {
+                autoCompletadoCbo.Add(tipo_Usuario.tipo);
+            }
+            //configuramos el combo para que utilice el autoCompletado
+            cboTipoUsuario.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cboTipoUsuario.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cboTipoUsuario.AutoCompleteCustomSource = autoCompletadoCbo;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
