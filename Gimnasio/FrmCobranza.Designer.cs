@@ -297,7 +297,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmCobranza";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmCobranza";
+            this.Text = "Cobranzas";
             this.gpbCampos.ResumeLayout(false);
             this.gpbCampos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numTotal)).EndInit();

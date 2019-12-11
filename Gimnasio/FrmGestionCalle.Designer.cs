@@ -132,7 +132,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmGestionCalle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmGestionCalle";
+            this.Text = "Gestion Calle";
             ((System.ComponentModel.ISupportInitialize)(this.gridCalle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -141,7 +141,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmGestionCaletamiento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmGestionCaletamiento";
+            this.Text = "Gestion Caletamiento";
             ((System.ComponentModel.ISupportInitialize)(this.gridCalentamiento)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

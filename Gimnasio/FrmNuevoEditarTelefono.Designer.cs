@@ -115,7 +115,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmNuevoEditarTelefono";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NuevoEditarTelefono";
+            this.Text = "Telefono";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -129,7 +129,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmEditarEjercicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmEditarEjercicio";
+            this.Text = "Ejercicio";
             this.gpbEjercicio.ResumeLayout(false);
             this.gpbEjercicio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).EndInit();

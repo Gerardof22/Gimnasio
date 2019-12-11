@@ -139,7 +139,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmGestionControlIngreso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmGestionControlIngreso";
+            this.Text = "Gestion de Control de Ingresos";
             ((System.ComponentModel.ISupportInitialize)(this.gridControlIngreso)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

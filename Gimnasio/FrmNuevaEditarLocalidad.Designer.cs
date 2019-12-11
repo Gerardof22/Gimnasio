@@ -83,7 +83,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmNuevaEditarLocalidad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmNuevaEditarLocalidad";
+            this.Text = "Localidad";
             this.ResumeLayout(false);
             this.PerformLayout();
 

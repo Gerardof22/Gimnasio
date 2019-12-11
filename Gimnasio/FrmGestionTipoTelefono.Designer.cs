@@ -122,7 +122,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmGestionTipoTelefono";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmGestionTipoTelefono";
+            this.Text = "Gestion de Tipo Telefono";
             ((System.ComponentModel.ISupportInitialize)(this.gridTipoTelefono)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

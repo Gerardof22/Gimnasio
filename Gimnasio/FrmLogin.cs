@@ -21,18 +21,6 @@ namespace Gimnasio
         public FrmLogin()
         {
             InitializeComponent();
-            this.CargarComboTipoUser();
-        }
-
-        private void CargarComboTipoUser()
-        {
-            cboTipoUsuario.DataSource = dbGimnasio.Tipos_Usuarios.ToList();
-            //campo que vera el usuario
-            cboTipoUsuario.DisplayMember = "tipo_usuario";
-
-            //campo que es el valor real
-            cboTipoUsuario.ValueMember = "idtipousuario";
-            cboTipoUsuario.SelectedValue = 0;
         }
 
         private void btnAcceder_Click(object sender, EventArgs e)

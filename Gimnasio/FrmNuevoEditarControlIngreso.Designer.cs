@@ -152,7 +152,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmNuevoEditarControlIngreso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmIngresoDiarioClientes";
+            this.Text = "Ingreso diario de clientes";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -138,7 +138,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmGestionTipoCalentamiento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmGestionTipoCalentamiento";
+            this.Text = "Gestion de Tipo Calentamiento";
             ((System.ComponentModel.ISupportInitialize)(this.gridTipoCalentamiento)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

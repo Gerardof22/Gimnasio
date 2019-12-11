@@ -112,7 +112,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmGestionRutina";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmGestionRutina";
+            this.Text = "Gestion de Rutina";
             ((System.ComponentModel.ISupportInitialize)(this.gridRutina)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

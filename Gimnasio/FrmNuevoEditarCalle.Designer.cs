@@ -82,7 +82,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmNuevoEditarCalle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmCalle";
+            this.Text = "Calle";
             this.ResumeLayout(false);
             this.PerformLayout();
 

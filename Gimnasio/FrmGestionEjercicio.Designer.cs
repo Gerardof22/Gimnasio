@@ -185,7 +185,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmGestionEjercicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmGestionEjercicio";
+            this.Text = "Gestion de Ejercicios";
             ((System.ComponentModel.ISupportInitialize)(this.pxbImagen)).EndInit();
             this.gpbRutinas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridRutina)).EndInit();

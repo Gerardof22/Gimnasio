@@ -122,7 +122,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmGestionTelefono";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmGestionTelefono";
+            this.Text = "Gestion de Telefono";
             ((System.ComponentModel.ISupportInitialize)(this.gridGestionTelefono)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

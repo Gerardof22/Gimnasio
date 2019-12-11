@@ -102,7 +102,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmNuevoEditarCardio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmNuevoEditarCardio";
+            this.Text = "Cardio";
             this.ResumeLayout(false);
             this.PerformLayout();
 

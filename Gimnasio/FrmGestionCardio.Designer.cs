@@ -141,7 +141,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmGestionCardio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmGestionCardio";
+            this.Text = "Gestion Cardio";
             ((System.ComponentModel.ISupportInitialize)(this.gridCardio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

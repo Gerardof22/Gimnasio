@@ -115,7 +115,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmNuevoEditarDomicilio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmNuevoEditarDomicilio";
+            this.Text = "Domicilio";
             this.ResumeLayout(false);
             this.PerformLayout();
 

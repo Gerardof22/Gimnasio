@@ -149,7 +149,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmNuevoEditarCalentamiento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmNuevoEditarCalentamiento";
+            this.Text = "Calentamiento";
             ((System.ComponentModel.ISupportInitialize)(this.gridTipoCalentamiento)).EndInit();
             this.gpbTipoCalentamiento.ResumeLayout(false);
             this.ResumeLayout(false);

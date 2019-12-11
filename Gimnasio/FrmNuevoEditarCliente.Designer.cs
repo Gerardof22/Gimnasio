@@ -460,7 +460,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmNuevoEditarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmNuevoEditarCliente";
+            this.Text = "Cliente";
             this.Load += new System.EventHandler(this.FrmNuevoEditarCliente_Load);
             this.gpbDatosPersonales.ResumeLayout(false);
             this.gpbDatosPersonales.PerformLayout();

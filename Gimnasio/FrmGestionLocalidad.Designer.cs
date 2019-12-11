@@ -139,7 +139,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmGestionLocalidad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmGestionLocalidad";
+            this.Text = "Gestion de Localidad";
             ((System.ComponentModel.ISupportInitialize)(this.gridLocalidad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

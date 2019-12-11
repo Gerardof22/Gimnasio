@@ -119,7 +119,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmAdministradorTipoUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmAdministradorTipoUsuario";
+            this.Text = "Administrador de Tipo Usuario";
             ((System.ComponentModel.ISupportInitialize)(this.gridTipoUsuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

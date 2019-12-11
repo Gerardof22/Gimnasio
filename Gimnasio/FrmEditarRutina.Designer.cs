@@ -347,7 +347,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmEditarRutina";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmNuevoEditarRutina";
+            this.Text = "Rutina";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
