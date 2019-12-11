@@ -21,7 +21,7 @@ namespace Gimnasio
         {
             InitializeComponent();
             listarGrillaClientes();
-            Helper.OcultarColumnas(gridClientes, new int[] { 10 });
+            Helper.OcultarColumnas(gridClientes, new int[] { 9 });
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace Gimnasio
                                    direccion = domicilio.Calle.nombre_calle + " " + domicilio.numero,
                                    localidad = localidad.localidad,
                                    fechaIngreso = cliente.fechaIngreso,
-                                   genero = cliente.genero,
+                                   //genero = cliente.genero,
                                    edad = cliente.edad,
                                    peso = cliente.peso,
                                    objetivos = cliente.objetivos,
@@ -68,7 +68,7 @@ namespace Gimnasio
                                    direccion = domicilio.Calle.nombre_calle + " " + domicilio.numero,
                                    localidad = localidad.localidad,
                                    fechaIngreso = cliente.fechaIngreso,
-                                   genero = cliente.genero,
+                                   //genero = cliente.genero,
                                    edad = cliente.edad,
                                    peso = cliente.peso,
                                    objetivos = cliente.objetivos,

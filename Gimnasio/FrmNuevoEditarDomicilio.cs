@@ -23,6 +23,7 @@ namespace Gimnasio
             InitializeComponent();
             dbGimnasio = new GimnasioContext();
             domicilio = new Domicilio();
+            CargarComboCalle(0);
         }
 
         public FrmNuevoEditarDomicilio(GimnasioContext dbEnviado)

@@ -23,7 +23,7 @@ namespace Gimnasio
         {
             InitializeComponent();
             this.listarControlIngreso();
-            Helper.OcultarColumnas(gridControlIngreso, new int[] { 4 });
+            Helper.OcultarColumnas(gridControlIngreso, new int[] { 3 });
         }
 
         private void listarControlIngreso()
@@ -33,7 +33,7 @@ namespace Gimnasio
                                        {
                                            idcontrol = controlIngreso.idcontrolingreso,
                                            cliente = controlIngreso.Cliente.nombre + " " + controlIngreso.Cliente.apellido,
-                                           turno = controlIngreso.turno,
+                                           //turno = controlIngreso.turno,
                                            fecha = controlIngreso.fecha,
                                            isDelected = controlIngreso.IsDelete
                                        };
@@ -47,7 +47,7 @@ namespace Gimnasio
                                       {
                                           idcontrol = controlIngreso.idcontrolingreso,
                                           cliente = controlIngreso.Cliente.nombre + " " + controlIngreso.Cliente.apellido,
-                                          turno = controlIngreso.turno,
+                                          //turno = controlIngreso.turno,
                                           fecha = controlIngreso.fecha,
                                           isDelected = controlIngreso.IsDelete
                                       };
