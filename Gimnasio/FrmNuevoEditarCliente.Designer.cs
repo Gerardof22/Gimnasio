@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNuevoEditarCliente));
             this.gpbDatosPersonales = new System.Windows.Forms.GroupBox();
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
@@ -457,6 +458,7 @@
             this.Controls.Add(this.gpbDomicilio);
             this.Controls.Add(this.gpbContactos);
             this.Controls.Add(this.gpbDatosPersonales);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmNuevoEditarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

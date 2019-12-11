@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNuevoEditarCalle));
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombreCalle = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -79,6 +80,7 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtNombreCalle);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmNuevoEditarCalle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGestionDomicilio));
             this.label1 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.gridDomicilio = new System.Windows.Forms.DataGridView();
@@ -130,6 +131,7 @@
             this.Controls.Add(this.gridDomicilio);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmGestionDomicilio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

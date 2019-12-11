@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNuevoEditarControlIngreso));
             this.label1 = new System.Windows.Forms.Label();
             this.dtpFechaIngreso = new System.Windows.Forms.DateTimePicker();
             this.rbtnMañana = new System.Windows.Forms.RadioButton();
@@ -149,6 +150,7 @@
             this.Controls.Add(this.rbtnMañana);
             this.Controls.Add(this.dtpFechaIngreso);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmNuevoEditarControlIngreso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

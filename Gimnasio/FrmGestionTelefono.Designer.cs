@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGestionTelefono));
             this.lblBuscar = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.gridGestionTelefono = new System.Windows.Forms.DataGridView();
@@ -119,6 +120,7 @@
             this.Controls.Add(this.gridGestionTelefono);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.lblBuscar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmGestionTelefono";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

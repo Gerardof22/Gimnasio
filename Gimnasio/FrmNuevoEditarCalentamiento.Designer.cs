@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNuevoEditarCalentamiento));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDuracion = new System.Windows.Forms.TextBox();
@@ -146,6 +147,7 @@
             this.Controls.Add(this.txtDuracion);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmNuevoEditarCalentamiento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
