@@ -118,12 +118,14 @@ namespace Gimnasio
             cboClientes.ValueMember = "idcliente";
             cboClientes.SelectedValue = idSeleccionado;
 
+
             //***********PREPARAMOS EL AUTOCOMPLETADO DEL COMBO
             AutoCompleteStringCollection autoCompletadoCbo = new AutoCompleteStringCollection();
             //recorremos el datatable y vamos llenando el autoCompletado
             foreach (Cliente cliente in dbGimnasio.Clientes)
             {
-                autoCompletadoCbo.Add(cliente.nombre);
+                string nom_apel = cliente.nombre + " " + cliente.apellido;
+                autoCompletadoCbo.Add(nom_apel);
             }
             //configuramos el combo para que utilice el autoCompletado
             cboClientes.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -213,7 +215,7 @@ namespace Gimnasio
                 {
                     if (string.IsNullOrEmpty(txtNombreEjercicio.Text))
                     {
-                        MessageBox.Show("El campo 'Ejercicio' no puede estar vacio.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("El campo 'Ejercicio' no puede estar vacío.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         txtNombreEjercicio.Focus();
                     }
                     else
@@ -222,6 +224,8 @@ namespace Gimnasio
                         MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         dbGimnasio.SaveChanges();
                         this.Close();
+                        Reportes.ReporteEjercicio reporteEjercicio = new Reportes.ReporteEjercicio(ejercicio.idejercicio);
+                        reporteEjercicio.ShowDialog();
                     }
                 }
                 catch (DbEntityValidationException ex)
@@ -231,8 +235,6 @@ namespace Gimnasio
                 }
             }
 
-            Reportes.ReporteEjercicio reporteEjercicio = new Reportes.ReporteEjercicio(ejercicio.idejercicio);
-            reporteEjercicio.ShowDialog();
         }
 
         /// <summary>
@@ -283,7 +285,7 @@ namespace Gimnasio
             FrmGestionCardio frmGestionCardio = new FrmGestionCardio();
             frmGestionCardio.ShowDialog();
 
-            if (FrmGestionCardio.duracion != 0 && FrmGestionCardio.ritmo != "")
+            if (!string.IsNullOrEmpty(FrmGestionCardio.duracion) && !string.IsNullOrEmpty(FrmGestionCardio.ritmo))
             {
                 txtDuracionCardio.Text = FrmGestionCardio.duracion.ToString();
                 txtRitmoCardio.Text = FrmGestionCardio.ritmo;

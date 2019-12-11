@@ -46,6 +46,28 @@ namespace Gimnasio
             gridRutina.DataSource = listaRutinas.Where(r => r.IsDelected == false).ToList();
         }
 
+        private void BuscarRutina(string TextToSearch)
+        {
+            var listaRutinas = from r in dbGimnasio.Rutinas
+                               select new
+                               {
+                                   idrutina = r.idrutina,
+                                   ejercicio = r.Ejercicio.nombre,
+                                   fechaDesde = r.fechaDesde,
+                                   fechaHasta = r.fechaHasta,
+                                   serie = r.serie,
+                                   repeticion = r.repeticion,
+                                   tiempoDuracion = r.tiempoduracion,
+                                   descanso = r.descanso,
+                                   pesoKG = r.pesokg,
+                                   Cardio = r.Cardio.Duracion + " " + r.Cardio.ritmo,
+                                   Calentamiento = r.Calentamiento.duracion + " " + r.Calentamiento.descripcion,
+                                   IsDelected = r.IsDelete
+                               };
+
+            gridRutina.DataSource = listaRutinas.Where(r => r.ejercicio.Contains(TextToSearch)).Where(r => r.IsDelected == false).ToList();
+        }
+
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (gridRutina.Rows.Count > 0 && gridRutina.SelectedRows.Count > 0 && gridRutina.CurrentRow != null)
@@ -88,6 +110,11 @@ namespace Gimnasio
         private void gridRutina_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            this.BuscarRutina(txtBuscar.Text);
         }
     }
 }

@@ -116,9 +116,9 @@ namespace Gimnasio
             FrmGestionCardio frmGestionCardio = new FrmGestionCardio();
             frmGestionCardio.ShowDialog();
 
-            if (FrmGestionCardio.duracion != 0 && FrmGestionCardio.ritmo != "")
+            if (!string.IsNullOrEmpty(FrmGestionCardio.duracion) && !string.IsNullOrEmpty(FrmGestionCardio.ritmo))
             {
-                txtDuracionCardio.Text = FrmGestionCardio.duracion.ToString();
+                txtDuracionCardio.Text = FrmGestionCardio.duracion;
                 txtRitmoCardio.Text = FrmGestionCardio.ritmo;
             }
 

@@ -21,7 +21,7 @@ namespace Gimnasio
         internal static int idcardio { get; set; }
 
         //Propiedades que se llenan con los datos de la fila seleccionada de la grilla.
-        internal static float duracion { get; set; }
+        internal static string duracion { get; set; }
         internal static  string ritmo { get; set; }
 
 
@@ -117,7 +117,7 @@ namespace Gimnasio
                 if (e.KeyCode == Keys.Enter)
                 {
                     idcardio = (int)this.gridCardio.CurrentRow.Cells[0].Value;
-                    duracion = (float)this.gridCardio.CurrentRow.Cells[1].Value;
+                    duracion = this.gridCardio.CurrentRow.Cells[1].Value.ToString();
                     ritmo = this.gridCardio.CurrentRow.Cells[2].Value.ToString();
                     this.Close();
                 }
@@ -129,7 +129,7 @@ namespace Gimnasio
             if (gridCardio.RowCount > 0 && gridCardio.SelectedRows.Count > 0)
             {
                 idcardio = (int)this.gridCardio.CurrentRow.Cells[0].Value;
-                duracion = (float)this.gridCardio.CurrentRow.Cells[1].Value;
+                duracion = this.gridCardio.CurrentRow.Cells[1].Value.ToString();
                 ritmo = this.gridCardio.CurrentRow.Cells[2].Value.ToString();
                 this.Close();
             }
