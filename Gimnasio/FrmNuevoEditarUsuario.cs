@@ -76,39 +76,7 @@ namespace Gimnasio
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                usuario.Tipo_Usuario = (Tipo_Usuario)cboTipoUsuario.SelectedItem;
-                usuario.user = txtUser.Text;
-                usuario.password = obtenerSha512Hash(txtPassword.Text);
-
-                if (usuario.idusuario > 0)
-                {
-                    dbGimnasio.Entry(usuario).State = EntityState.Modified;
-                    dbGimnasio.SaveChanges();
-                    MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                else
-                {
-                    if (cboTipoUsuario.SelectedIndex != -1 && !string.IsNullOrEmpty(txtUser.Text))
-                    {
-                        dbGimnasio.Usuarios.Add(usuario);
-                        dbGimnasio.SaveChanges();
-                        MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Debe seleccionar un Tipo de Usuario y especificar un nombre de Usuario.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-            }
-            catch (DbEntityValidationException ex)
-            {
-                this.ValidateCatch(ex);
-                throw;
-            }
+            this.Guardar();
         }
 
         private void ValidateCatch(DbEntityValidationException ex)
@@ -154,6 +122,51 @@ namespace Gimnasio
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                this.Guardar();
+            }
+        }
+
+        private void Guardar()
+        {
+            try
+            {
+                usuario.Tipo_Usuario = (Tipo_Usuario)cboTipoUsuario.SelectedItem;
+                usuario.user = txtUser.Text;
+                usuario.password = obtenerSha512Hash(txtPassword.Text);
+
+                if (usuario.idusuario > 0)
+                {
+                    dbGimnasio.Entry(usuario).State = EntityState.Modified;
+                    dbGimnasio.SaveChanges();
+                    MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    if (cboTipoUsuario.SelectedIndex != -1 && !string.IsNullOrEmpty(txtUser.Text))
+                    {
+                        dbGimnasio.Usuarios.Add(usuario);
+                        dbGimnasio.SaveChanges();
+                        MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe seleccionar un Tipo de Usuario y especificar un nombre de Usuario.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch (DbEntityValidationException ex)
+            {
+                this.ValidateCatch(ex);
+                throw;
+            }
         }
     }
 }

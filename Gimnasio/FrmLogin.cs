@@ -15,7 +15,7 @@ namespace Gimnasio
     {
         GimnasioContext dbGimnasio = new GimnasioContext();
         public Usuario usuario;
-        internal static Tipo_Usuario tipo_Usuario;
+
         private int intentosFallidos = 0;
 
         public FrmLogin()
@@ -24,6 +24,11 @@ namespace Gimnasio
         }
 
         private void btnAcceder_Click(object sender, EventArgs e)
+        {
+            this.Acceder();
+        }
+
+        private void Acceder()
         {
             if (IsValidateAccess())
             {
@@ -104,6 +109,14 @@ namespace Gimnasio
         {
             FrmNuevoEditarUsuario frmNuevoEditarUsuario = new FrmNuevoEditarUsuario();
             frmNuevoEditarUsuario.ShowDialog();
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                this.Acceder();
+            }
         }
     }
 }
