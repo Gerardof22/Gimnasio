@@ -77,9 +77,9 @@ namespace Gimnasio
             {
                 rutina.Cardio = dbGimnasio.Cardios.Find(rutina.Cardio.idcardio);
             }
-            if (!string.IsNullOrEmpty(rutina.Cardio?.duracion.ToString()))
+            if (!string.IsNullOrEmpty(rutina.Cardio?.Duracion.ToString()))
             {
-                txtDuracionCardio.Text = rutina.Cardio.duracion.ToString();
+                txtDuracionCardio.Text = rutina.Cardio.Duracion.ToString();
             }
             if (!string.IsNullOrEmpty(rutina.Cardio?.ritmo))
             {

@@ -13,7 +13,8 @@ namespace Datos
         [Key]
         public int idcontrolingreso { get; set; }
         
-        public int idcliente { get; set; } // int? representa un tipo de valor que se puede asignar nulo.
+        [Required]
+        public int idcliente { get; set; }
         public virtual Cliente Cliente { get; set; }
         [Required]
         public bool turno { get; set; }

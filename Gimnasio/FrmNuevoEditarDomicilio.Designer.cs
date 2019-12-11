@@ -87,7 +87,7 @@
             this.btnAgregarCalle.Location = new System.Drawing.Point(252, 8);
             this.btnAgregarCalle.Name = "btnAgregarCalle";
             this.btnAgregarCalle.Size = new System.Drawing.Size(27, 23);
-            this.btnAgregarCalle.TabIndex = 6;
+            this.btnAgregarCalle.TabIndex = 2;
             this.btnAgregarCalle.Text = "...";
             this.btnAgregarCalle.UseVisualStyleBackColor = true;
             this.btnAgregarCalle.Click += new System.EventHandler(this.btnAgregarCalle_Click);
@@ -98,7 +98,7 @@
             this.cboCalle.Location = new System.Drawing.Point(60, 10);
             this.cboCalle.Name = "cboCalle";
             this.cboCalle.Size = new System.Drawing.Size(186, 21);
-            this.cboCalle.TabIndex = 7;
+            this.cboCalle.TabIndex = 1;
             // 
             // FrmNuevoEditarDomicilio
             // 

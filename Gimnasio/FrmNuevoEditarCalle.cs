@@ -55,16 +55,25 @@ namespace Gimnasio
                 if (calle.idcalle > 0)
                 {
                     dbGimnasio.Entry(calle).State = EntityState.Modified;
+                    dbGimnasio.SaveChanges();
                     MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
                 else
                 {
-                    dbGimnasio.Calles.Add(calle);
-                    MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (!string.IsNullOrEmpty(txtNombreCalle.Text))
+                    {
+                        dbGimnasio.Calles.Add(calle);
+                        dbGimnasio.SaveChanges();
+                        MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("La caja de texto no puede estar vacia.", "Advertendcia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtNombreCalle.Focus();
+                    }
                 }
-
-                dbGimnasio.SaveChanges();
-                this.Close();
             }
             catch (DbEntityValidationException ex)
             {

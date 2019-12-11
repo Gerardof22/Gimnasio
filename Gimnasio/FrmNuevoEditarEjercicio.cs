@@ -102,7 +102,7 @@ namespace Gimnasio
                                   tiempoDuracion = r.tiempoduracion,
                                   descanso = r.descanso,
                                   Kg = r.pesokg,
-                                  duracion_cardio = r.Cardio?.duracion,
+                                  duracion_cardio = r.Cardio?.Duracion,
                                   ritmo_cardio = r.Cardio?.ritmo,
                                   duracion_calentamiento = r.Calentamiento?.duracion,
                                   descripcion_calentamiento = r.Calentamiento?.descripcion
@@ -376,7 +376,7 @@ namespace Gimnasio
                                        tiempoDuracion = r.tiempoduracion,
                                        descanso = r.descanso,
                                        pesoKG = r.pesokg,
-                                       duracionCardio = r.Cardio?.duracion, // <-- la expreción r.Cardio? nos permite null
+                                       duracionCardio = r.Cardio?.Duracion, // <-- la expreción r.Cardio? nos permite null
                                        ritmoCardio = r.Cardio?.ritmo,
                                        duracionCalentamiento = r.Calentamiento?.duracion,
                                        descripcionCalentamiento = r.Calentamiento?.descripcion,
@@ -518,7 +518,7 @@ namespace Gimnasio
         {
             if (rutinaDetalle.Cardio != null)
             {
-                txtDuracionCardio.Text = rutinaDetalle.Cardio.duracion.ToString();
+                txtDuracionCardio.Text = rutinaDetalle.Cardio.Duracion.ToString();
                 txtRitmoCardio.Text = rutinaDetalle.Cardio.ritmo;
             }
 

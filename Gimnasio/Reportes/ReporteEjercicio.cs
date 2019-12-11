@@ -40,7 +40,7 @@ namespace Gimnasio.Reportes
                                       tiempoduracion = r.tiempoduracion,
                                       descanso = r.descanso,
                                       pesokg = r.pesokg,
-                                      Cardio  = r.Cardio.duracion + " " + r.Cardio.ritmo,
+                                      Cardio  = r.Cardio.Duracion + " " + r.Cardio.ritmo,
                                       Calentamiento = r.Calentamiento.duracion + " " + r.Calentamiento.descripcion
                                   };
             EjercicioBindingSource.DataSource = listaEjercicios.ToList();

@@ -60,16 +60,25 @@ namespace Gimnasio
                 if (calentamiento.idcalentamiento > 0)
                 {
                     dbGimnasio.Entry(calentamiento).State = EntityState.Modified;
+                    dbGimnasio.SaveChanges();
                     MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
                 else
                 {
-                    dbGimnasio.Calentamientos.Add(calentamiento);
-                    MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (!string.IsNullOrEmpty(txtDuracion.Text))
+                    {
+                        dbGimnasio.Calentamientos.Add(calentamiento);
+                        dbGimnasio.SaveChanges();
+                        MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("La caja de texto Duración no puede estar vacia.", "Afvertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtDuracion.Focus();
+                    }
                 }
-
-                dbGimnasio.SaveChanges();
-                this.Close();
             }
             catch (DbEntityValidationException ex) //<-- Sí ocurre alguna excepción al guardar 
             {

@@ -53,21 +53,34 @@ namespace Gimnasio
             try
             {
                 domicilio.Calle = (Calle)cboCalle.SelectedItem;
-                domicilio.numero = Convert.ToInt32(txtNumeroCalle.Text);
+                if (!string.IsNullOrEmpty(txtNumeroCalle.Text))
+                {
+                    domicilio.numero = Convert.ToInt32(txtNumeroCalle.Text);
+                }
+
 
                 if (domicilio.iddomicilio > 0)
                 {
                     dbGimnasio.Entry(domicilio).State = EntityState.Modified;
+                    dbGimnasio.SaveChanges();
                     MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
                 else
                 {
-                    dbGimnasio.Domicilios.Add(domicilio);
-                    MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (cboCalle.SelectedIndex != -1)
+                    {
+                        dbGimnasio.Domicilios.Add(domicilio);
+                        dbGimnasio.SaveChanges();
+                        MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe seleccionar una Calle.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        cboCalle.Focus();
+                    }
                 }
-
-                dbGimnasio.SaveChanges();
-                this.Close();
             }
             catch (DbEntityValidationException ex) //<-- Sí ocurre alguna excepción al guardar porque la consola debbug no muestra el error real.
             {

@@ -71,16 +71,24 @@ namespace Gimnasio
                 if (usuario.idusuario > 0)
                 {
                     dbGimnasio.Entry(usuario).State = EntityState.Modified;
+                    dbGimnasio.SaveChanges();
                     MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
                 else
                 {
-                    dbGimnasio.Usuarios.Add(usuario);
-                    MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (cboTipoUsuario.SelectedIndex != -1 && !string.IsNullOrEmpty(txtUser.Text))
+                    {
+                        dbGimnasio.Usuarios.Add(usuario);
+                        dbGimnasio.SaveChanges();
+                        MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe seleccionar un Tipo de Usuario y especificar un nombre de Usuario.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
-
-                dbGimnasio.SaveChanges();
-                this.Close();
             }
             catch (DbEntityValidationException ex)
             {

@@ -42,7 +42,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(388, 393);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 20;
+            this.btnEliminar.TabIndex = 5;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -52,7 +52,7 @@
             this.btnEditar.Location = new System.Drawing.Point(307, 393);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 19;
+            this.btnEditar.TabIndex = 4;
             this.btnEditar.Text = "&Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -62,7 +62,7 @@
             this.btnSalir.Location = new System.Drawing.Point(677, 9);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
-            this.btnSalir.TabIndex = 17;
+            this.btnSalir.TabIndex = 2;
             this.btnSalir.Text = "&Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -74,7 +74,7 @@
             this.gridRutina.Name = "gridRutina";
             this.gridRutina.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridRutina.Size = new System.Drawing.Size(741, 337);
-            this.gridRutina.TabIndex = 16;
+            this.gridRutina.TabIndex = 3;
             this.gridRutina.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridRutina_CellContentClick);
             // 
             // txtBuscar
@@ -82,7 +82,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(54, 9);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(276, 20);
-            this.txtBuscar.TabIndex = 15;
+            this.txtBuscar.TabIndex = 1;
             // 
             // label1
             // 

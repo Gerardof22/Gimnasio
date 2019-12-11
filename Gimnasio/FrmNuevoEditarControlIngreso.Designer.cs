@@ -54,7 +54,7 @@
             this.dtpFechaIngreso.Location = new System.Drawing.Point(53, 117);
             this.dtpFechaIngreso.Name = "dtpFechaIngreso";
             this.dtpFechaIngreso.Size = new System.Drawing.Size(200, 20);
-            this.dtpFechaIngreso.TabIndex = 3;
+            this.dtpFechaIngreso.TabIndex = 5;
             // 
             // rbtnMañana
             // 
@@ -63,7 +63,7 @@
             this.rbtnMañana.Location = new System.Drawing.Point(53, 75);
             this.rbtnMañana.Name = "rbtnMañana";
             this.rbtnMañana.Size = new System.Drawing.Size(64, 17);
-            this.rbtnMañana.TabIndex = 4;
+            this.rbtnMañana.TabIndex = 3;
             this.rbtnMañana.TabStop = true;
             this.rbtnMañana.Text = "Mañana";
             this.rbtnMañana.UseVisualStyleBackColor = true;
@@ -74,7 +74,7 @@
             this.rbtnTarde.Location = new System.Drawing.Point(189, 75);
             this.rbtnTarde.Name = "rbtnTarde";
             this.rbtnTarde.Size = new System.Drawing.Size(53, 17);
-            this.rbtnTarde.TabIndex = 5;
+            this.rbtnTarde.TabIndex = 4;
             this.rbtnTarde.Text = "Tarde";
             this.rbtnTarde.UseVisualStyleBackColor = true;
             // 
@@ -113,7 +113,7 @@
             this.cboCliente.Location = new System.Drawing.Point(53, 22);
             this.cboCliente.Name = "cboCliente";
             this.cboCliente.Size = new System.Drawing.Size(200, 21);
-            this.cboCliente.TabIndex = 9;
+            this.cboCliente.TabIndex = 1;
             // 
             // label3
             // 
@@ -129,7 +129,7 @@
             this.btnAgregarNuevoCliente.Location = new System.Drawing.Point(259, 22);
             this.btnAgregarNuevoCliente.Name = "btnAgregarNuevoCliente";
             this.btnAgregarNuevoCliente.Size = new System.Drawing.Size(26, 23);
-            this.btnAgregarNuevoCliente.TabIndex = 11;
+            this.btnAgregarNuevoCliente.TabIndex = 2;
             this.btnAgregarNuevoCliente.Text = "...";
             this.btnAgregarNuevoCliente.UseVisualStyleBackColor = true;
             this.btnAgregarNuevoCliente.Click += new System.EventHandler(this.btnAgregarNuevoCliente_Click);

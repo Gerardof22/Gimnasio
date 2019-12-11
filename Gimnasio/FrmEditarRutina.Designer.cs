@@ -85,14 +85,14 @@
             this.dtpFechaHasta.Location = new System.Drawing.Point(80, 72);
             this.dtpFechaHasta.Name = "dtpFechaHasta";
             this.dtpFechaHasta.Size = new System.Drawing.Size(100, 20);
-            this.dtpFechaHasta.TabIndex = 2;
+            this.dtpFechaHasta.TabIndex = 1;
             // 
             // txtSeries
             // 
             this.txtSeries.Location = new System.Drawing.Point(80, 131);
             this.txtSeries.Name = "txtSeries";
             this.txtSeries.Size = new System.Drawing.Size(100, 20);
-            this.txtSeries.TabIndex = 3;
+            this.txtSeries.TabIndex = 2;
             // 
             // label2
             // 
@@ -117,7 +117,7 @@
             this.txtRepeticiones.Location = new System.Drawing.Point(80, 193);
             this.txtRepeticiones.Name = "txtRepeticiones";
             this.txtRepeticiones.Size = new System.Drawing.Size(100, 20);
-            this.txtRepeticiones.TabIndex = 6;
+            this.txtRepeticiones.TabIndex = 3;
             // 
             // label4
             // 
@@ -142,7 +142,7 @@
             this.txtTiempoDuracion.Location = new System.Drawing.Point(374, 101);
             this.txtTiempoDuracion.Name = "txtTiempoDuracion";
             this.txtTiempoDuracion.Size = new System.Drawing.Size(100, 20);
-            this.txtTiempoDuracion.TabIndex = 8;
+            this.txtTiempoDuracion.TabIndex = 5;
             // 
             // label6
             // 
@@ -158,7 +158,7 @@
             this.txtDescanso.Location = new System.Drawing.Point(374, 160);
             this.txtDescanso.Name = "txtDescanso";
             this.txtDescanso.Size = new System.Drawing.Size(100, 20);
-            this.txtDescanso.TabIndex = 10;
+            this.txtDescanso.TabIndex = 6;
             // 
             // label7
             // 
@@ -174,7 +174,7 @@
             this.txtKg.Location = new System.Drawing.Point(374, 42);
             this.txtKg.Name = "txtKg";
             this.txtKg.Size = new System.Drawing.Size(100, 20);
-            this.txtKg.TabIndex = 12;
+            this.txtKg.TabIndex = 4;
             // 
             // label8
             // 
@@ -199,7 +199,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(343, 277);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 18;
+            this.btnGuardar.TabIndex = 9;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -209,7 +209,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(494, 277);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 19;
+            this.btnCancelar.TabIndex = 10;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -219,7 +219,7 @@
             this.btnAgregarCardio.Location = new System.Drawing.Point(337, 36);
             this.btnAgregarCardio.Name = "btnAgregarCardio";
             this.btnAgregarCardio.Size = new System.Drawing.Size(26, 23);
-            this.btnAgregarCardio.TabIndex = 20;
+            this.btnAgregarCardio.TabIndex = 7;
             this.btnAgregarCardio.Text = "...";
             this.btnAgregarCardio.UseVisualStyleBackColor = true;
             this.btnAgregarCardio.Click += new System.EventHandler(this.btnAgregarCardio_Click);
@@ -229,7 +229,7 @@
             this.btnAgregarCalentamiento.Location = new System.Drawing.Point(337, 40);
             this.btnAgregarCalentamiento.Name = "btnAgregarCalentamiento";
             this.btnAgregarCalentamiento.Size = new System.Drawing.Size(26, 23);
-            this.btnAgregarCalentamiento.TabIndex = 21;
+            this.btnAgregarCalentamiento.TabIndex = 8;
             this.btnAgregarCalentamiento.Text = "...";
             this.btnAgregarCalentamiento.UseVisualStyleBackColor = true;
             this.btnAgregarCalentamiento.Click += new System.EventHandler(this.btnAgregarCalentamiento_Click);

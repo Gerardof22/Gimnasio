@@ -80,8 +80,16 @@ namespace Gimnasio
             }
             else
             {
-                tipo_rutina_nombre = txtTipoRutina.Text;
-                this.Close();
+                if (!string.IsNullOrEmpty(txtTipoRutina.Text))
+                {
+                    tipo_rutina_nombre = txtTipoRutina.Text;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("El campo de texto no puede estar vacío.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtTipoRutina.Focus();
+                }
             }
             
             

@@ -59,18 +59,23 @@ namespace Gimnasio
                     tipo_Calentamiento.nombre = txtTipoCalentamiento.Text;
 
                     dbGimnasio.Entry(tipo_Calentamiento).State = EntityState.Modified;
+                    dbGimnasio.SaveChanges();
 
                     MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    dbGimnasio.SaveChanges();
                     this.Close();
                 }
                 else
                 {
-                    nombre_tipo_calentamiento = txtTipoCalentamiento.Text;
-
-                    dbGimnasio.Tipos_Calentamientos.Add(tipo_Calentamiento);
-                    this.Close();
+                    if (!string.IsNullOrEmpty(txtTipoCalentamiento.Text))
+                    {
+                        nombre_tipo_calentamiento = txtTipoCalentamiento.Text;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El campo de texto no puede estar vacío.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtTipoCalentamiento.Focus();
+                    }
                 }
 
                 

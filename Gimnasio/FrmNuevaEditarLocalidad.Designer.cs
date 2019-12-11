@@ -39,7 +39,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(147, 44);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(56, 23);
-            this.btnCancelar.TabIndex = 11;
+            this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -49,7 +49,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(71, 44);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(56, 23);
-            this.btnGuardar.TabIndex = 10;
+            this.btnGuardar.TabIndex = 2;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -59,7 +59,7 @@
             this.txtLocalidadNombre.Location = new System.Drawing.Point(71, 9);
             this.txtLocalidadNombre.Name = "txtLocalidadNombre";
             this.txtLocalidadNombre.Size = new System.Drawing.Size(132, 20);
-            this.txtLocalidadNombre.TabIndex = 8;
+            this.txtLocalidadNombre.TabIndex = 1;
             this.txtLocalidadNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLocalidadNombre_KeyPress);
             // 
             // label1

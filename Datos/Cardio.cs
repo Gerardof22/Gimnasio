@@ -14,7 +14,8 @@ namespace Datos
         [Key]
         public int idcardio { get; set; }
         [Required]
-        public float duracion { get; set; }
+        [StringLength(12)]
+        public string Duracion { get; set; }
         [Required]
         [StringLength (50)]
         public string ritmo { get; set; }

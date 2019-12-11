@@ -87,7 +87,7 @@
             this.btnSalir.Location = new System.Drawing.Point(1169, 13);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
-            this.btnSalir.TabIndex = 4;
+            this.btnSalir.TabIndex = 8;
             this.btnSalir.Text = "&Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -131,7 +131,7 @@
             this.btnConsultar.Location = new System.Drawing.Point(387, 433);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(75, 23);
-            this.btnConsultar.TabIndex = 9;
+            this.btnConsultar.TabIndex = 4;
             this.btnConsultar.Text = "&Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);

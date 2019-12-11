@@ -65,21 +65,21 @@
             this.txtDuracion.Location = new System.Drawing.Point(81, 10);
             this.txtDuracion.Name = "txtDuracion";
             this.txtDuracion.Size = new System.Drawing.Size(222, 20);
-            this.txtDuracion.TabIndex = 2;
+            this.txtDuracion.TabIndex = 1;
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(81, 43);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(222, 20);
-            this.txtDescripcion.TabIndex = 3;
+            this.txtDescripcion.TabIndex = 2;
             // 
             // btnGuardar
             // 
             this.btnGuardar.Location = new System.Drawing.Point(81, 226);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(56, 23);
-            this.btnGuardar.TabIndex = 4;
+            this.btnGuardar.TabIndex = 6;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -89,7 +89,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(143, 226);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(59, 23);
-            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -100,14 +100,14 @@
             this.gridTipoCalentamiento.Location = new System.Drawing.Point(6, 19);
             this.gridTipoCalentamiento.Name = "gridTipoCalentamiento";
             this.gridTipoCalentamiento.Size = new System.Drawing.Size(281, 106);
-            this.gridTipoCalentamiento.TabIndex = 6;
+            this.gridTipoCalentamiento.TabIndex = 5;
             // 
             // btnQuitar
             // 
             this.btnQuitar.Location = new System.Drawing.Point(293, 77);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(59, 23);
-            this.btnQuitar.TabIndex = 9;
+            this.btnQuitar.TabIndex = 4;
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = true;
             this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
@@ -117,7 +117,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(293, 48);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(59, 23);
-            this.btnAgregar.TabIndex = 8;
+            this.btnAgregar.TabIndex = 3;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);

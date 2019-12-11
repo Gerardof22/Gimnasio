@@ -56,7 +56,7 @@ namespace Gimnasio
                                   tiempoDuracion = r.tiempoduracion,
                                   descanso = r.descanso,
                                   pesoKG = r.pesokg,
-                                  Cardio = r.Cardio.duracion + " " + r.Cardio.duracion,
+                                  Cardio = r.Cardio.Duracion + " " + r.Cardio.Duracion,
                                   Calentamiento = r.Calentamiento.duracion + " " + r.Calentamiento.descripcion,
                                   IsDelected = r.IsDelete
                               };

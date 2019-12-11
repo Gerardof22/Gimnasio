@@ -59,7 +59,7 @@
             this.txtNumeroTelefono.Location = new System.Drawing.Point(96, 45);
             this.txtNumeroTelefono.Name = "txtNumeroTelefono";
             this.txtNumeroTelefono.Size = new System.Drawing.Size(132, 20);
-            this.txtNumeroTelefono.TabIndex = 2;
+            this.txtNumeroTelefono.TabIndex = 3;
             // 
             // label2
             // 
@@ -76,7 +76,7 @@
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(56, 23);
             this.btnGuardar.TabIndex = 4;
-            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -95,7 +95,7 @@
             this.btnNuevoTipo.Location = new System.Drawing.Point(234, 13);
             this.btnNuevoTipo.Name = "btnNuevoTipo";
             this.btnNuevoTipo.Size = new System.Drawing.Size(25, 23);
-            this.btnNuevoTipo.TabIndex = 6;
+            this.btnNuevoTipo.TabIndex = 2;
             this.btnNuevoTipo.Text = "...";
             this.btnNuevoTipo.UseVisualStyleBackColor = true;
             this.btnNuevoTipo.Click += new System.EventHandler(this.btnNuevoTipo_Click);

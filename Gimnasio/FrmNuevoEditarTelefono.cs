@@ -76,10 +76,9 @@ namespace Gimnasio
                     telefono.numero = txtNumeroTelefono.Text;
 
                     dbGimnasio.Entry(telefono).State = EntityState.Modified;
+                    dbGimnasio.SaveChanges();
 
                     MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    dbGimnasio.SaveChanges();
                     this.Close();
                 }
                 catch (DbEntityValidationException ex) //<-- Sí ocurre alguna excepción al guardar 
@@ -90,9 +89,16 @@ namespace Gimnasio
             }
             else
             {
-                idtipotelefono = (int)cboTipoTelefono.SelectedValue;
-                numero = txtNumeroTelefono.Text;
-                this.Close();
+                if (cboTipoTelefono.SelectedIndex != -1 && !string.IsNullOrEmpty(txtNumeroTelefono.Text))
+                {
+                    idtipotelefono = (int)cboTipoTelefono.SelectedValue;
+                    numero = txtNumeroTelefono.Text;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Ambos campos son requeridos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
 
             

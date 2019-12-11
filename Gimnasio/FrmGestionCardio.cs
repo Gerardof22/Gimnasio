@@ -38,7 +38,7 @@ namespace Gimnasio
                               select new
                               {
                                   idcardio = cardio.idcardio,
-                                  duracion = cardio.duracion,
+                                  duracion = cardio.Duracion,
                                   ritmo = cardio.ritmo,
                                   isDelected = cardio.IsDelete
                               };
@@ -52,7 +52,7 @@ namespace Gimnasio
                               select new
                               {
                                   idcardio = cardio.idcardio,
-                                  duracion = cardio.duracion,
+                                  duracion = cardio.Duracion,
                                   ritmo = cardio.ritmo,
                                   isDelected = cardio.IsDelete
                               };

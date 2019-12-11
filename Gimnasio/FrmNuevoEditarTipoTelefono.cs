@@ -55,16 +55,25 @@ namespace Gimnasio
                 if (tipo_Telefono.idtipotelefono > 0)
                 {
                     dbGimnasio.Entry(tipo_Telefono).State = EntityState.Modified;
+                    dbGimnasio.SaveChanges();
                     MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
                 else
                 {
-                    dbGimnasio.Tipos_Telefonos.Add(tipo_Telefono);
-                    MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (!string.IsNullOrEmpty(txtTipoTelefono.Text))
+                    {
+                        dbGimnasio.Tipos_Telefonos.Add(tipo_Telefono);
+                        dbGimnasio.SaveChanges();
+                        MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("La caja de texto no puede estar vacía.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtTipoTelefono.Focus();
+                    }
                 }
-
-                dbGimnasio.SaveChanges();
-                this.Close();
             }
             catch (DbEntityValidationException ex) //<-- Sí ocurre alguna excepción al guardar 
             {

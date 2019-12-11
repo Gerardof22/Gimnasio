@@ -88,6 +88,7 @@ namespace Gimnasio
             FrmNuevoEditarCliente frmNuevoEditarCliente = new FrmNuevoEditarCliente(dbGimnasio);
             frmNuevoEditarCliente.ShowDialog();
             listarGrillaClientes();
+            //Validar primero si los campos obligatorios fueron llenados, sino que no seleccione la ultima fila.
             this.SeleccionarUltimaFila();
         }
 

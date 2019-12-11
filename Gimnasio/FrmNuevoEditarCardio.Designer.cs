@@ -33,8 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.numDuracion = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.numDuracion)).BeginInit();
+            this.txtDuración = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -51,7 +50,7 @@
             this.txtRitmo.Location = new System.Drawing.Point(68, 56);
             this.txtRitmo.Name = "txtRitmo";
             this.txtRitmo.Size = new System.Drawing.Size(136, 20);
-            this.txtRitmo.TabIndex = 3;
+            this.txtRitmo.TabIndex = 2;
             // 
             // label2
             // 
@@ -67,7 +66,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(68, 101);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(55, 23);
-            this.btnGuardar.TabIndex = 4;
+            this.btnGuardar.TabIndex = 3;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -77,25 +76,24 @@
             this.btnCancelar.Location = new System.Drawing.Point(147, 101);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(57, 23);
-            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // numDuracion
+            // txtDuración
             // 
-            this.numDuracion.DecimalPlaces = 1;
-            this.numDuracion.Location = new System.Drawing.Point(68, 14);
-            this.numDuracion.Name = "numDuracion";
-            this.numDuracion.Size = new System.Drawing.Size(88, 20);
-            this.numDuracion.TabIndex = 6;
+            this.txtDuración.Location = new System.Drawing.Point(68, 9);
+            this.txtDuración.Name = "txtDuración";
+            this.txtDuración.Size = new System.Drawing.Size(136, 20);
+            this.txtDuración.TabIndex = 1;
             // 
             // FrmNuevoEditarCardio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(225, 142);
-            this.Controls.Add(this.numDuracion);
+            this.Controls.Add(this.txtDuración);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtRitmo);
@@ -103,7 +101,6 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmNuevoEditarCardio";
             this.Text = "FrmNuevoEditarCardio";
-            ((System.ComponentModel.ISupportInitialize)(this.numDuracion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,6 +113,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.NumericUpDown numDuracion;
+        private System.Windows.Forms.TextBox txtDuración;
     }
 }

@@ -39,7 +39,7 @@
             this.txtTipoCalentamiento.Location = new System.Drawing.Point(44, 12);
             this.txtTipoCalentamiento.Name = "txtTipoCalentamiento";
             this.txtTipoCalentamiento.Size = new System.Drawing.Size(170, 20);
-            this.txtTipoCalentamiento.TabIndex = 2;
+            this.txtTipoCalentamiento.TabIndex = 1;
             // 
             // label2
             // 
@@ -55,7 +55,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(44, 53);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 4;
+            this.btnGuardar.TabIndex = 2;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -65,7 +65,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(139, 53);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);

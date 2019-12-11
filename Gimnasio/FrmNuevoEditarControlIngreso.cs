@@ -112,16 +112,25 @@ namespace Gimnasio
                 if (control_Ingreso.idcontrolingreso > 0)
                 {
                     dbGimnasio.Entry(control_Ingreso).State = EntityState.Modified;
+                    dbGimnasio.SaveChanges();
                     MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
                 else
                 {
-                    dbGimnasio.Control_Ingresos.Add(control_Ingreso);
-                    MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (cboCliente.SelectedIndex != -1)
+                    {
+                        dbGimnasio.Control_Ingresos.Add(control_Ingreso);
+                        dbGimnasio.SaveChanges();
+                        MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se debe seleccionar un Cliente", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        cboCliente.Focus();
+                    }
                 }
-
-                dbGimnasio.SaveChanges();
-                Close();
             }
             catch (DbEntityValidationException ex) //<-- Sí ocurre alguna excepción al guardar 
             {

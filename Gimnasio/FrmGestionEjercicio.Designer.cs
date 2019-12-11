@@ -52,7 +52,7 @@
             this.btnSalir.Location = new System.Drawing.Point(668, 403);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
-            this.btnSalir.TabIndex = 31;
+            this.btnSalir.TabIndex = 7;
             this.btnSalir.Text = "&Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -63,7 +63,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(587, 403);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 30;
+            this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Text = "&Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -74,7 +74,7 @@
             this.btnEditar.Location = new System.Drawing.Point(505, 403);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 29;
+            this.btnEditar.TabIndex = 5;
             this.btnEditar.Text = "&Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -84,7 +84,7 @@
             this.btnLimpiar.Location = new System.Drawing.Point(278, 12);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 26;
+            this.btnLimpiar.TabIndex = 2;
             this.btnLimpiar.Text = "&Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
@@ -94,7 +94,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(66, 12);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(206, 20);
-            this.txtBuscar.TabIndex = 25;
+            this.txtBuscar.TabIndex = 1;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // label1
@@ -108,7 +108,9 @@
             // 
             // pxbImagen
             // 
-            this.pxbImagen.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pxbImagen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pxbImagen.Location = new System.Drawing.Point(1002, 44);
             this.pxbImagen.Name = "pxbImagen";
             this.pxbImagen.Size = new System.Drawing.Size(312, 342);
@@ -118,6 +120,8 @@
             // 
             // gpbRutinas
             // 
+            this.gpbRutinas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gpbRutinas.Controls.Add(this.gridRutina);
             this.gpbRutinas.Location = new System.Drawing.Point(249, 44);
             this.gpbRutinas.Name = "gpbRutinas";
@@ -128,8 +132,7 @@
             // 
             // gridRutina
             // 
-            this.gridRutina.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.gridRutina.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridRutina.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridRutina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -137,10 +140,12 @@
             this.gridRutina.Name = "gridRutina";
             this.gridRutina.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridRutina.Size = new System.Drawing.Size(735, 317);
-            this.gridRutina.TabIndex = 35;
+            this.gridRutina.TabIndex = 4;
             // 
             // gpbEjercicio
             // 
+            this.gpbEjercicio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.gpbEjercicio.Controls.Add(this.gridEjercicio);
             this.gpbEjercicio.Location = new System.Drawing.Point(14, 44);
             this.gpbEjercicio.Name = "gpbEjercicio";
@@ -151,16 +156,15 @@
             // 
             // gridEjercicio
             // 
-            this.gridEjercicio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridEjercicio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.gridEjercicio.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridEjercicio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridEjercicio.Location = new System.Drawing.Point(6, 19);
             this.gridEjercicio.Name = "gridEjercicio";
             this.gridEjercicio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridEjercicio.Size = new System.Drawing.Size(217, 317);
-            this.gridEjercicio.TabIndex = 33;
+            this.gridEjercicio.TabIndex = 3;
             this.gridEjercicio.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridEjercicio_CellClick);
             this.gridEjercicio.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridEjercicio_RowEnter);
             this.gridEjercicio.SelectionChanged += new System.EventHandler(this.gridEjercicio_SelectionChanged);

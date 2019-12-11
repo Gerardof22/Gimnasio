@@ -43,7 +43,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(339, 141);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 20;
+            this.btnEliminar.TabIndex = 5;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -53,7 +53,7 @@
             this.btnEditar.Location = new System.Drawing.Point(339, 112);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 19;
+            this.btnEditar.TabIndex = 4;
             this.btnEditar.Text = "&Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -63,7 +63,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(339, 83);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 18;
+            this.btnAgregar.TabIndex = 3;
             this.btnAgregar.Text = "&Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -73,7 +73,7 @@
             this.btnSalir.Location = new System.Drawing.Point(339, 170);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
-            this.btnSalir.TabIndex = 17;
+            this.btnSalir.TabIndex = 6;
             this.btnSalir.Text = "&Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -85,14 +85,14 @@
             this.gridTipoUsuario.Name = "gridTipoUsuario";
             this.gridTipoUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridTipoUsuario.Size = new System.Drawing.Size(321, 150);
-            this.gridTipoUsuario.TabIndex = 16;
+            this.gridTipoUsuario.TabIndex = 2;
             // 
             // txtBuscar
             // 
             this.txtBuscar.Location = new System.Drawing.Point(55, 12);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(169, 20);
-            this.txtBuscar.TabIndex = 15;
+            this.txtBuscar.TabIndex = 1;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // label1

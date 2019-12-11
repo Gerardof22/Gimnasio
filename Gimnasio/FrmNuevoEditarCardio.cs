@@ -42,7 +42,7 @@ namespace Gimnasio
         private void cargarCardio(int idSeleccionado)
         {
             cardio = dbGimnasio.Cardios.Find(idSeleccionado);
-            numDuracion.Value = (decimal)cardio.duracion;
+            txtDuración.Text = cardio.Duracion;
             txtRitmo.Text = cardio.ritmo;
         }
 
@@ -50,22 +50,30 @@ namespace Gimnasio
         {
             try
             {
-                cardio.duracion = (float)numDuracion.Value;
+                cardio.Duracion = txtDuración.Text;
                 cardio.ritmo = txtRitmo.Text;
 
                 if (cardio.idcardio > 0)
                 {
                     dbGimnasio.Entry(cardio).State = EntityState.Modified;
+                    dbGimnasio.SaveChanges();
                     MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
                 else
                 {
-                    dbGimnasio.Cardios.Add(cardio);
-                    MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (!string.IsNullOrEmpty(txtDuración.Text) && !string.IsNullOrEmpty(txtRitmo.Text))
+                    {
+                        dbGimnasio.Cardios.Add(cardio);
+                        dbGimnasio.SaveChanges();
+                        MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ambos campos son requeridos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
-
-                dbGimnasio.SaveChanges();
-                this.Close();
             }
             catch (DbEntityValidationException ex) //<-- Sí ocurre alguna excepción al guardar 
             {

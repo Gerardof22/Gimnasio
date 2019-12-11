@@ -44,7 +44,7 @@
             this.btnSalir.Location = new System.Drawing.Point(713, 12);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
-            this.btnSalir.TabIndex = 23;
+            this.btnSalir.TabIndex = 3;
             this.btnSalir.Text = "&Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -55,7 +55,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(482, 418);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 22;
+            this.btnEliminar.TabIndex = 7;
             this.btnEliminar.Text = "&Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -66,7 +66,7 @@
             this.btnEditar.Location = new System.Drawing.Point(352, 418);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 21;
+            this.btnEditar.TabIndex = 6;
             this.btnEditar.Text = "&Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -77,7 +77,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(227, 418);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 20;
+            this.btnAgregar.TabIndex = 5;
             this.btnAgregar.Text = "&Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -93,14 +93,14 @@
             this.gridLocalidad.Name = "gridLocalidad";
             this.gridLocalidad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridLocalidad.Size = new System.Drawing.Size(776, 336);
-            this.gridLocalidad.TabIndex = 19;
+            this.gridLocalidad.TabIndex = 4;
             // 
             // btnLimpiar
             // 
             this.btnLimpiar.Location = new System.Drawing.Point(408, 9);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 18;
+            this.btnLimpiar.TabIndex = 2;
             this.btnLimpiar.Text = "&Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
@@ -110,7 +110,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(68, 9);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(334, 20);
-            this.txtBuscar.TabIndex = 17;
+            this.txtBuscar.TabIndex = 1;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // label1

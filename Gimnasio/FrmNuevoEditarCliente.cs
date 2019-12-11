@@ -57,7 +57,14 @@ namespace Gimnasio
             cargarGrillaTelefono(idSeleccionado);
             txtObjetivos.Text       = cliente.objetivos;
             txtLecturaCorporal.Text = cliente.lecturaCorporal;
-            txtPeso.Text            = cliente.peso.ToString();
+            if (cliente.peso == 0)
+            {
+                txtPeso.Text = "";
+            }
+            else
+            {
+                txtPeso.Text = cliente.peso.ToString();
+            }
         }
 
         private void cargarGrillaTelefono()
@@ -133,22 +140,32 @@ namespace Gimnasio
                 }
                 cliente.objetivos = txtObjetivos.Text;
                 cliente.lecturaCorporal = txtLecturaCorporal.Text;
-                cliente.peso = float.Parse(txtPeso.Text);
-
+                if (!string.IsNullOrEmpty(txtPeso.Text))
+                {
+                    cliente.peso = float.Parse(txtPeso.Text);
+                }
 
                 if (cliente.idcliente > 0)
                 {
                     dbGimnasio.Entry(cliente).State = EntityState.Modified;
+                    dbGimnasio.SaveChanges();
                     MessageBox.Show("Se ha modificado correctamente.", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
                 else
                 {
-                    dbGimnasio.Clientes.Add(cliente);
-                    MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (this.IsValidate())
+                    {
+                        dbGimnasio.Clientes.Add(cliente);
+                        dbGimnasio.SaveChanges();
+                        MessageBox.Show("Se ha guardado correctamente.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Los campos de Nombre, Apellido, Localidad, Domicilio y Peso son requeridos, por favor complete todos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
-
-                dbGimnasio.SaveChanges();
-                Close();
             }
             catch (DbEntityValidationException ex) //<-- Sí ocurre alguna excepción al guardar 
             {
@@ -163,6 +180,19 @@ namespace Gimnasio
                     }
                 }
                 throw;
+            }
+        }
+
+        private bool IsValidate()
+        {
+            if (dbGimnasio.Domicilios.Find(FrmGestionDomicilio.iddomicilio) != null && cboLocalidad.SelectedIndex != -1 &&
+                !string.IsNullOrEmpty(txtNombre.Text) && !string.IsNullOrEmpty(txtApellido.Text) && !string.IsNullOrEmpty(txtPeso.Text))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 

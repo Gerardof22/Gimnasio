@@ -115,7 +115,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(681, 35);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 3;
+            this.btnAgregar.TabIndex = 4;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -171,7 +171,7 @@
             0});
             this.numImporte.Name = "numImporte";
             this.numImporte.Size = new System.Drawing.Size(92, 20);
-            this.numImporte.TabIndex = 2;
+            this.numImporte.TabIndex = 3;
             this.numImporte.ValueChanged += new System.EventHandler(this.numImporte_ValueChanged);
             this.numImporte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numImporte_KeyPress);
             // 
@@ -218,7 +218,7 @@
             this.btnFinalizar.Location = new System.Drawing.Point(681, 125);
             this.btnFinalizar.Name = "btnFinalizar";
             this.btnFinalizar.Size = new System.Drawing.Size(75, 23);
-            this.btnFinalizar.TabIndex = 3;
+            this.btnFinalizar.TabIndex = 8;
             this.btnFinalizar.Text = "Finalizar";
             this.btnFinalizar.UseVisualStyleBackColor = true;
             this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
@@ -228,7 +228,7 @@
             this.btnEditar.Location = new System.Drawing.Point(681, 86);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 2;
+            this.btnEditar.TabIndex = 7;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -238,7 +238,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(681, 46);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 1;
+            this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -251,14 +251,14 @@
             this.gridDetalleCobranza.Name = "gridDetalleCobranza";
             this.gridDetalleCobranza.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDetalleCobranza.Size = new System.Drawing.Size(657, 150);
-            this.gridDetalleCobranza.TabIndex = 0;
+            this.gridDetalleCobranza.TabIndex = 5;
             // 
             // btnAgregarCliente
             // 
             this.btnAgregarCliente.Location = new System.Drawing.Point(242, 10);
             this.btnAgregarCliente.Name = "btnAgregarCliente";
             this.btnAgregarCliente.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregarCliente.TabIndex = 11;
+            this.btnAgregarCliente.TabIndex = 2;
             this.btnAgregarCliente.Text = "Agregar";
             this.btnAgregarCliente.UseVisualStyleBackColor = true;
             this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
