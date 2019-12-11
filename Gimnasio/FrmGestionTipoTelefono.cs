@@ -59,7 +59,7 @@ namespace Gimnasio
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (gridTipoTelefono.Rows.Count > 0 && gridTipoTelefono.SelectedRows.Count > 0)
+            if (gridTipoTelefono.Rows.Count > 0 && gridTipoTelefono.SelectedRows.Count > 0 && gridTipoTelefono.CurrentRow != null)
             {
                 int idSeleccionado = (int)Helper.CeldaFilaActual(gridTipoTelefono, 0);
 
@@ -72,7 +72,7 @@ namespace Gimnasio
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (gridTipoTelefono.Rows.Count > 0 && gridTipoTelefono.SelectedRows.Count > 0)
+            if (gridTipoTelefono.Rows.Count > 0 && gridTipoTelefono.SelectedRows.Count > 0 && gridTipoTelefono.CurrentRow != null)
             {
                 int idSeleccionado = (int)Helper.CeldaFilaActual(gridTipoTelefono, 0);
                 string TipoTelefonoSeleccionado = (string)Helper.CeldaFilaActual(gridTipoTelefono, 1);

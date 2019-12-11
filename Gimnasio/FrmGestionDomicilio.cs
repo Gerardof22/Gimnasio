@@ -63,7 +63,7 @@ namespace Gimnasio
 
         private void btnEditar_Click(object sender, System.EventArgs e)
         {
-            if (gridDomicilio.Rows.Count > 0 && gridDomicilio.SelectedRows.Count > 0)
+            if (gridDomicilio.Rows.Count > 0 && gridDomicilio.SelectedRows.Count > 0 && gridDomicilio.CurrentRow != null)
             {
                 int idSeleccionado = (int)Helper.CeldaFilaActual(gridDomicilio, 0);
 
@@ -76,7 +76,7 @@ namespace Gimnasio
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (gridDomicilio.Rows.Count > 0 && gridDomicilio.SelectedRows.Count > 0)
+            if (gridDomicilio.Rows.Count > 0 && gridDomicilio.SelectedRows.Count > 0 && gridDomicilio.CurrentRow != null)
             {
                 int idSeleccionado = (int)Helper.CeldaFilaActual(gridDomicilio, 0);
                 string dimicilioSeleccionado = (string)Helper.CeldaFilaActual(gridDomicilio, 1);

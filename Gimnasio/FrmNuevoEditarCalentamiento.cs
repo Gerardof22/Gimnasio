@@ -128,10 +128,10 @@ namespace Gimnasio
 
         private void btnQuitar_Click(object sender, EventArgs e)
         {
-            if (gridTipoCalentamiento.Rows.Count > 0)
+            if (gridTipoCalentamiento.Rows.Count > 0 && gridTipoCalentamiento.SelectedRows.Count > 0 && gridTipoCalentamiento.CurrentRow != null)
             {
 
-                int idSeleccionado = (int)celdaFilaActual(gridTipoCalentamiento, 0);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridTipoCalentamiento, 0);
 
                 string mensaje = "¿Está seguro que desea quitar?";
                 string titulo = "Eliminación";

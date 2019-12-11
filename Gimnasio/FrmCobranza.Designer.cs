@@ -245,9 +245,11 @@
             // 
             // gridDetalleCobranza
             // 
+            this.gridDetalleCobranza.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridDetalleCobranza.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridDetalleCobranza.Location = new System.Drawing.Point(6, 19);
             this.gridDetalleCobranza.Name = "gridDetalleCobranza";
+            this.gridDetalleCobranza.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDetalleCobranza.Size = new System.Drawing.Size(657, 150);
             this.gridDetalleCobranza.TabIndex = 0;
             // 
@@ -263,6 +265,7 @@
             // 
             // txtTotalCobranza
             // 
+            this.txtTotalCobranza.Enabled = false;
             this.txtTotalCobranza.Location = new System.Drawing.Point(579, 364);
             this.txtTotalCobranza.Name = "txtTotalCobranza";
             this.txtTotalCobranza.Size = new System.Drawing.Size(100, 20);
@@ -291,7 +294,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cboClientes);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "FrmCobranza";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCobranza";
             this.gpbCampos.ResumeLayout(false);
             this.gpbCampos.PerformLayout();

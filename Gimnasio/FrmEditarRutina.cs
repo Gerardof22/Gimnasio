@@ -181,9 +181,9 @@ namespace Gimnasio
 
         private void btnQuitarTipoRutina_Click(object sender, EventArgs e)
         {
-            if (gridTipoRutina.Rows.Count > 0 && gridTipoRutina.SelectedRows.Count > 0)
+            if (gridTipoRutina.Rows.Count > 0 && gridTipoRutina.SelectedRows.Count > 0 && gridTipoRutina.CurrentRow != null)
             {
-                int idSeleccionado = (int)celdaFilaActual(gridTipoRutina, 0);
+                int idSeleccionado = (int)Helper.CeldaFilaActual(gridTipoRutina, 0);
 
                 string mensaje = "¿Está seguro que desea quitar?";
                 string titulo = "Eliminación";
@@ -195,19 +195,6 @@ namespace Gimnasio
                     cargarGrillaTipoRutina();
                 }
             }
-        }
-
-        /// <summary>
-        /// Obtiene la celda y la fila actual seleccionada.
-        /// </summary>
-        /// <param name="dataGridView"> Nombre del DataGridView.</param>
-        /// <param name="column">Índice de columna del DataGridView.</param>
-        /// <returns>Retorna un object.</returns>
-        private object celdaFilaActual(DataGridView dataGridView, int column)
-        {
-            DataGridViewCellCollection celdasFilaActual = dataGridView.CurrentRow.Cells;
-
-            return celdasFilaActual[column].Value;
         }
 
         private void btnAgregarEjercicio_Click(object sender, EventArgs e)

@@ -158,12 +158,12 @@ namespace Gimnasio
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (gridDetalleCobranza.Rows.Count > 0)
+            if (gridDetalleCobranza.Rows.Count > 0 && gridDetalleCobranza.SelectedRows.Count > 0 && gridDetalleCobranza.CurrentRow != null)
             {
                 int idSeleccionado = (int)gridDetalleCobranza.CurrentRow.Cells[0].Value;
-                string mensaje = "¿Está seguro que desea eliminar: " + idSeleccionado + "?";
+                string mensaje = "¿Está seguro que desea eliminar";
                 string titulo = "Eliminación";
-                DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult respuesta = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (respuesta == DialogResult.Yes)
                 {
                     int detalleSeleccionado = gridDetalleCobranza.CurrentRow.Index;
@@ -176,7 +176,7 @@ namespace Gimnasio
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (gridDetalleCobranza.Rows.Count > 0)
+            if (gridDetalleCobranza.Rows.Count > 0 && gridDetalleCobranza.SelectedRows.Count > 0 && gridDetalleCobranza.CurrentRow != null)
             {
                 int detalleSeleccionado = gridDetalleCobranza.CurrentRow.Index;
                 Detalle_Cobranza detalle_Cobranza = cobranza.DetalleCobranzas[detalleSeleccionado];
